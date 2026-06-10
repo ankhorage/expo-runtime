@@ -1,7 +1,7 @@
 {
   "name": "@ankhorage/expo-runtime",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Declarative runtime integration for Expo apps: maps app capabilities to permissions, packages, config plugins, providers, and adapters",
   "homepage": "https://github.com/ankhorage/expo-runtime#readme",
   "bugs": {
@@ -41,6 +41,13 @@
       "types": "./src/index.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./planning": {
+      "react-native": "./src/planning.ts",
+      "browser": "./src/planning.ts",
+      "types": "./src/planning.ts",
+      "import": "./dist/planning.js",
+      "default": "./dist/planning.js"
     }
   },
   "publishConfig": {
