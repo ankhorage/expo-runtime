@@ -1,0 +1,9 @@
+# @ankhorage/expo-runtime
+
+## 0.0.1
+
+### Patch Changes
+
+- 1f9a5dc: Add the Expo runtime plan resolver, provider wrapper, scanner adapter, and
+  component registry factory so generated apps and Studio preview can share the
+  same Expo runtime implementation path.
