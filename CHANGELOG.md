@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 0.0.3
+
+### Patch Changes
+
+- 1919ae8: Add a public planning entrypoint for Expo runtime resolution.
+
 ## 0.0.2
 
 ### Patch Changes
