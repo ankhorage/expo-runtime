@@ -252,7 +252,7 @@
             <div class="summary">
               <div><strong>17</strong><span class="muted">public exports</span></div>
               <div><strong>2</strong><span class="muted">components</span></div>
-              <div><strong>8</strong><span class="muted">modules</span></div>
+              <div><strong>9</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -356,6 +356,19 @@
               <p>
                 <strong>Exports:</strong> <code>createPermissionClient</code>,
                 <code>PermissionsProvider</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/planning.ts ExpoRuntimeAdapterId ExpoRuntimePlan ExpoRuntimeProviderId resolveExpoRuntimePlan"
+            >
+              <h3>src/planning.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>ExpoRuntimeAdapterId</code>,
+                <code>ExpoRuntimePlan</code>, <code>ExpoRuntimeProviderId</code>,
+                <code>resolveExpoRuntimePlan</code>
               </p>
             </article>
             <article
@@ -1208,6 +1221,8 @@
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_permissionRuntime_ts
+                module_src_planning_ts[&quot;src/planning.ts&quot;] package__ankhorage_expo_runtime
+                -.-&gt; module_src_planning_ts
                 module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_resolveExpoRuntimePlan_ts
               </div>
@@ -1236,6 +1251,8 @@ graph TD
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_permissionRuntime_ts
+  module_src_planning_ts[&quot;src/planning.ts&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_planning_ts
   module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_resolveExpoRuntimePlan_ts
 </pre
@@ -1256,6 +1273,7 @@ graph TD
                 module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
+                module_src_planning_ts[&quot;src/planning.ts&quot;]
                 module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
                 module_src_createExpoRuntimeRegistry_tsx --&gt; module_src_componentRegistry_ts
                 module_src_createExpoRuntimeRegistry_tsx --&gt;
@@ -1275,6 +1293,7 @@ graph LR
   module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
+  module_src_planning_ts[&quot;src/planning.ts&quot;]
   module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
   module_src_createExpoRuntimeRegistry_tsx --&gt; module_src_componentRegistry_ts
   module_src_createExpoRuntimeRegistry_tsx --&gt; module_src_ExpoBarcodeScannerAdapter_tsx
@@ -1296,6 +1315,7 @@ graph LR
                 module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
+                module_src_planning_ts[&quot;src/planning.ts&quot;]
                 module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
                 export_BARCODE_SCAN_DEDUPE_WINDOW_MS[&quot;BARCODE_SCAN_DEDUPE_WINDOW_MS&quot;]
                 module_src_barcodeScanRuntime_ts --&gt; export_BARCODE_SCAN_DEDUPE_WINDOW_MS
@@ -1351,6 +1371,7 @@ graph LR
   module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
+  module_src_planning_ts[&quot;src/planning.ts&quot;]
   module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
   export_BARCODE_SCAN_DEDUPE_WINDOW_MS[&quot;BARCODE_SCAN_DEDUPE_WINDOW_MS&quot;]
   module_src_barcodeScanRuntime_ts --&gt; export_BARCODE_SCAN_DEDUPE_WINDOW_MS

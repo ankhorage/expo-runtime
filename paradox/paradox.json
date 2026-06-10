@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.0.0",
+      "value": "v0.0.3",
       "color": "cb3837"
     },
     {
@@ -130,6 +130,17 @@
       "isEntrypoint": false,
       "dependencies": [],
       "exports": ["createPermissionClient", "PermissionsProvider"]
+    },
+    {
+      "path": "src/planning.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ExpoRuntimeAdapterId",
+        "ExpoRuntimePlan",
+        "ExpoRuntimeProviderId",
+        "resolveExpoRuntimePlan"
+      ]
     },
     {
       "path": "src/resolveExpoRuntimePlan.ts",
@@ -1106,6 +1117,11 @@
         "fromPath": "src/index.ts",
         "toPath": "src/resolveExpoRuntimePlan.ts",
         "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/planning.ts",
+        "toPath": "src/resolveExpoRuntimePlan.ts",
+        "sourcePath": "src/planning.ts"
       }
     ],
     "calls": [
