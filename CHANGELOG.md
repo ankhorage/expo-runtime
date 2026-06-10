@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 0.0.2
+
+### Patch Changes
+
+- ba20014: Release trigger
+
 ## 0.0.1
 
 ### Patch Changes
