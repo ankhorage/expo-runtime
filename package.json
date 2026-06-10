@@ -10,7 +10,7 @@
   "license": "MIT",
   "main": "./dist/index.js",
   "sideEffects": false,
-  "types": "./dist/index.d.ts",
+  "types": "./src/index.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ankhorage/expo-runtime.git"
@@ -21,7 +21,11 @@
     "expo",
     "runtime"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@ankhorage/contracts": "^1.18.0",
+    "@ankhorage/permissions": "^0.2.0",
+    "@ankhorage/zora": "^2.8.0"
+  },
   "files": [
     "dist",
     "src",
@@ -34,7 +38,7 @@
     ".": {
       "react-native": "./src/index.ts",
       "browser": "./src/index.ts",
-      "types": "./dist/index.d.ts",
+      "types": "./src/index.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     }
@@ -57,12 +61,23 @@
     "typecheck": "bun x tsc --noEmit -p tsconfig.json",
     "version-packages": "changeset version"
   },
+  "peerDependencies": {
+    "expo": "~54.0.34",
+    "expo-camera": "~17.0.10",
+    "react": "19.1.0",
+    "react-native": "0.81.5"
+  },
   "devDependencies": {
     "@ankhorage/devtools": "^1.0.6",
     "@ankhorage/paradox": "^0.1.10",
     "@changesets/cli": "^2.31.0",
     "@types/bun": "^1.3.13",
     "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "expo": "~54.0.34",
+    "expo-camera": "~17.0.10",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
     "typescript": "^5.9.3"
   },
   "packageManager": "bun@1.3.13"
