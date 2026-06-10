@@ -15,3 +15,6 @@ Declarative runtime integration for Expo apps: maps app capabilities to permissi
 - [Architecture overview](././paradox/diagrams/architecture-overview.mmd)
 - [Module relationships](././paradox/diagrams/module-relationships.mmd)
 - [Export graph](././paradox/diagrams/export-graph.mmd)
+- [createExpoRuntimeRegistry sequence](././paradox/diagrams/sequences/create-expo-runtime-registry.mmd)
+- [ExpoBarcodeScannerAdapter sequence](././paradox/diagrams/sequences/expo-barcode-scanner-adapter.mmd)
+- [resolveExpoRuntimePlan sequence](././paradox/diagrams/sequences/resolve-expo-runtime-plan.mmd)

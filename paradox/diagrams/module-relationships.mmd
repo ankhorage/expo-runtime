@@ -1,2 +1,14 @@
 graph LR
+  module_src_barcodeScanRuntime_ts["src/barcodeScanRuntime.ts"]
+  module_src_componentRegistry_ts["src/componentRegistry.ts"]
+  module_src_createExpoRuntimeRegistry_tsx["src/createExpoRuntimeRegistry.tsx"]
+  module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
+  module_src_ExpoRuntimeProviders_tsx["src/ExpoRuntimeProviders.tsx"]
   module_src_index_ts["src/index.ts"]
+  module_src_permissionRuntime_ts["src/permissionRuntime.ts"]
+  module_src_resolveExpoRuntimePlan_ts["src/resolveExpoRuntimePlan.ts"]
+  module_src_createExpoRuntimeRegistry_tsx --> module_src_componentRegistry_ts
+  module_src_createExpoRuntimeRegistry_tsx --> module_src_ExpoBarcodeScannerAdapter_tsx
+  module_src_ExpoBarcodeScannerAdapter_tsx --> module_src_barcodeScanRuntime_ts
+  module_src_ExpoRuntimeProviders_tsx --> module_src_permissionRuntime_ts
+  module_src_ExpoRuntimeProviders_tsx --> module_src_resolveExpoRuntimePlan_ts

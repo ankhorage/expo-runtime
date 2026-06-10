@@ -1,0 +1,13 @@
+sequenceDiagram
+  participant participant_addDependency as addDependency
+  participant participant_addProvider as addProvider
+  participant participant_isPermission as isPermission
+  participant participant_resolveExpoRuntimePlan as resolveExpoRuntimePlan
+  participant_resolveExpoRuntimePlan->>participant_isPermission: isPermission()
+  participant_isPermission-->>participant_resolveExpoRuntimePlan: return
+  participant_resolveExpoRuntimePlan->>participant_addProvider: addProvider()
+  participant_addProvider->>participant_addDependency: addDependency()
+  participant_addDependency-->>participant_addProvider: return
+  participant_addProvider-->>participant_resolveExpoRuntimePlan: return
+  participant_resolveExpoRuntimePlan->>participant_addDependency: addDependency()
+  participant_addDependency-->>participant_resolveExpoRuntimePlan: return

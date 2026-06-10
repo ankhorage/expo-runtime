@@ -1,0 +1,5 @@
+sequenceDiagram
+  participant participant_createComponentRegistry as createComponentRegistry
+  participant participant_createExpoRuntimeRegistry as createExpoRuntimeRegistry
+  participant_createExpoRuntimeRegistry->>participant_createComponentRegistry: createComponentRegistry()
+  participant_createComponentRegistry-->>participant_createExpoRuntimeRegistry: return

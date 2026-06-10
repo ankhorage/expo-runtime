@@ -1,2 +1,50 @@
 graph LR
+  module_src_barcodeScanRuntime_ts["src/barcodeScanRuntime.ts"]
+  module_src_componentRegistry_ts["src/componentRegistry.ts"]
+  module_src_createExpoRuntimeRegistry_tsx["src/createExpoRuntimeRegistry.tsx"]
+  module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
+  module_src_ExpoRuntimeProviders_tsx["src/ExpoRuntimeProviders.tsx"]
   module_src_index_ts["src/index.ts"]
+  module_src_permissionRuntime_ts["src/permissionRuntime.ts"]
+  module_src_resolveExpoRuntimePlan_ts["src/resolveExpoRuntimePlan.ts"]
+  export_BARCODE_SCAN_DEDUPE_WINDOW_MS["BARCODE_SCAN_DEDUPE_WINDOW_MS"]
+  module_src_barcodeScanRuntime_ts --> export_BARCODE_SCAN_DEDUPE_WINDOW_MS
+  export_BARCODE_SCANNER_TYPES["BARCODE_SCANNER_TYPES"]
+  module_src_barcodeScanRuntime_ts --> export_BARCODE_SCANNER_TYPES
+  export_BarcodeScanRecord["BarcodeScanRecord"]
+  module_src_barcodeScanRuntime_ts --> export_BarcodeScanRecord
+  export_ComponentRegistry["ComponentRegistry"]
+  module_src_componentRegistry_ts --> export_ComponentRegistry
+  export_createComponentRegistry["createComponentRegistry"]
+  module_src_componentRegistry_ts --> export_createComponentRegistry
+  export_createComponentRegistry -.-> export_ComponentRegistry
+  export_createExpoRuntimeRegistry["createExpoRuntimeRegistry"]
+  module_src_createExpoRuntimeRegistry_tsx --> export_createExpoRuntimeRegistry
+  export_createExpoRuntimeRegistry -.-> export_ComponentRegistry
+  export_ExpoBarcodeScannerAdapter["ExpoBarcodeScannerAdapter"]
+  module_src_ExpoBarcodeScannerAdapter_tsx --> export_ExpoBarcodeScannerAdapter
+  export_ExpoBarcodeScanResultLike["ExpoBarcodeScanResultLike"]
+  module_src_barcodeScanRuntime_ts --> export_ExpoBarcodeScanResultLike
+  export_ExpoRuntimeAdapterId["ExpoRuntimeAdapterId"]
+  module_src_resolveExpoRuntimePlan_ts --> export_ExpoRuntimeAdapterId
+  export_ExpoRuntimePlan["ExpoRuntimePlan"]
+  module_src_resolveExpoRuntimePlan_ts --> export_ExpoRuntimePlan
+  export_ExpoRuntimePlan -.-> export_ExpoBarcodeScannerAdapter
+  export_ExpoRuntimeProviderId["ExpoRuntimeProviderId"]
+  module_src_resolveExpoRuntimePlan_ts --> export_ExpoRuntimeProviderId
+  export_ExpoRuntimeProviders["ExpoRuntimeProviders"]
+  module_src_ExpoRuntimeProviders_tsx --> export_ExpoRuntimeProviders
+  export_ExpoRuntimeProviders -.-> export_ExpoRuntimeProvidersProps
+  export_ExpoRuntimeProvidersProps["ExpoRuntimeProvidersProps"]
+  module_src_ExpoRuntimeProviders_tsx --> export_ExpoRuntimeProvidersProps
+  export_mapPermissionStatusToCameraPermissionStatus["mapPermissionStatusToCameraPermissionStatus"]
+  module_src_barcodeScanRuntime_ts --> export_mapPermissionStatusToCameraPermissionStatus
+  export_normalizeExpoBarcodeScanResult["normalizeExpoBarcodeScanResult"]
+  module_src_barcodeScanRuntime_ts --> export_normalizeExpoBarcodeScanResult
+  export_normalizeExpoBarcodeScanResult -.-> export_ExpoBarcodeScanResultLike
+  export_resolveExpoRuntimePlan["resolveExpoRuntimePlan"]
+  module_src_resolveExpoRuntimePlan_ts --> export_resolveExpoRuntimePlan
+  export_resolveExpoRuntimePlan -.-> export_ExpoRuntimePlan
+  export_shouldIgnoreBarcodeScan["shouldIgnoreBarcodeScan"]
+  module_src_barcodeScanRuntime_ts --> export_shouldIgnoreBarcodeScan
+  export_shouldIgnoreBarcodeScan -.-> export_BarcodeScanRecord
