@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 0.0.4
+
+### Patch Changes
+
+- 264d7da: Update CONTRACTS
+
 ## 0.0.3
 
 ### Patch Changes
