@@ -22,7 +22,7 @@
     "runtime"
   ],
   "dependencies": {
-    "@ankhorage/contracts": "^1.18.2",
+    "@ankhorage/contracts": "^1.18.3",
     "@ankhorage/permissions": "^0.2.0",
     "@ankhorage/zora": "^2.8.0"
   },
