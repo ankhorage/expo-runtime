@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 0.0.5
+
+### Patch Changes
+
+- 0573919: Add a generated barcode scanner adapter source helper for standalone Expo app generation.
+
 ## 0.0.4
 
 ### Patch Changes

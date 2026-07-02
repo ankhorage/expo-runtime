@@ -1,7 +1,7 @@
 {
   "name": "@ankhorage/expo-runtime",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Declarative runtime integration for Expo apps: maps app capabilities to permissions, packages, config plugins, providers, and adapters",
   "homepage": "https://github.com/ankhorage/expo-runtime#readme",
   "bugs": {
