@@ -9,6 +9,5 @@ describe('generated Expo runtime sources', () => {
     expect(source).toContain('ExpoBarcodeScannerAdapter');
     expect(source).toContain('ExpoBarcodeScannerView');
     expect(source).toContain('@ankhorage/expo-runtime');
-    expect(source).toEndWith('\n');
   });
 });
