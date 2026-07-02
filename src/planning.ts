@@ -1,3 +1,4 @@
+export { getExpoBarcodeScannerViewSource } from './generatedSources';
 export type {
   ExpoRuntimeAdapterId,
   ExpoRuntimePlan,

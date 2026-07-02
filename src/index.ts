@@ -12,6 +12,7 @@ export { createComponentRegistry } from './componentRegistry';
 export { createExpoRuntimeRegistry } from './createExpoRuntimeRegistry';
 export { ExpoBarcodeScannerAdapter } from './ExpoBarcodeScannerAdapter';
 export { ExpoRuntimeProviders, type ExpoRuntimeProvidersProps } from './ExpoRuntimeProviders';
+export { getExpoBarcodeScannerViewSource } from './generatedSources';
 export type {
   ExpoRuntimeAdapterId,
   ExpoRuntimePlan,
