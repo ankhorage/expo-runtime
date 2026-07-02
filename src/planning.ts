@@ -4,3 +4,4 @@ export type {
   ExpoRuntimeProviderId,
 } from './resolveExpoRuntimePlan';
 export { resolveExpoRuntimePlan } from './resolveExpoRuntimePlan';
+export { getExpoBarcodeScannerViewSource } from './generatedSources';
