@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 0.0.8
+
+### Patch Changes
+
+- 681f7e1: Add app output model helpers for dependency maps, native plugin output, Android permissions, and combined Expo plan output.
+
 ## 0.0.7
 
 ### Patch Changes
