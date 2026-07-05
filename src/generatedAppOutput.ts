@@ -1,6 +1,6 @@
 import {
-  resolveExpoRuntimeLayoutIntegration,
   type ExpoRuntimeLayoutIntegrationPlan,
+  resolveExpoRuntimeLayoutIntegration,
 } from './layoutIntegrationPlanning';
 import type { ExpoRuntimePlan } from './resolveExpoRuntimePlan';
 
