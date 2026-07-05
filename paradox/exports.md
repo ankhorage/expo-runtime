@@ -56,6 +56,37 @@ Source: `src/createExpoRuntimeRegistry.tsx:11:1`
   - baseRegistry: `ComponentRegistry`
   - returns: `ComponentRegistry`
 
+## executeExpoRuntimeAction
+
+Kind: `function`
+Module: `src/expoActionBridge.ts`
+Source: `src/expoActionBridge.ts:66:1`
+
+### Signatures
+
+- `(args: ExecuteExpoRuntimeActionArgs) => Promise<void>`
+  - args: `ExecuteExpoRuntimeActionArgs`
+  - returns: `Promise<void>`
+
+## ExecuteExpoRuntimeActionArgs
+
+Kind: `type`
+Module: `src/expoActionBridge.ts`
+Source: `src/expoActionBridge.ts:18:1`
+
+### Members
+
+| Name                      | Kind     | Type                                                      | Required | Description |
+| ------------------------- | -------- | --------------------------------------------------------- | -------- | ----------- |
+| action                    | property | `unknown`                                                 | yes      |             |
+| actionHandlers            | property | `ExpoRuntimeActionHandlers \| undefined`                  | no       |             |
+| alertImpl                 | property | `((message: string) => void) \| undefined`                | no       |             |
+| consoleImpl               | property | `Pick<Console, "log"> \| undefined`                       | no       |             |
+| mode                      | property | `ExpoRuntimeThemeMode`                                    | yes      |             |
+| requestAnimationFrameImpl | property | `((callback: () => void) => number \| void) \| undefined` | no       |             |
+| router                    | property | `ExpoRuntimeRouterLike`                                   | yes      |             |
+| setMode                   | property | `(mode: ExpoRuntimeThemeMode) => void`                    | yes      |             |
+
 ## ExpoBarcodeScannerAdapter
 
 Kind: `function`
@@ -80,6 +111,24 @@ Source: `src/barcodeScanRuntime.ts:25:1`
 | ---- | -------- | --------------------- | -------- | ----------- |
 | data | property | `string`              | yes      |             |
 | type | property | `string \| undefined` | no       |             |
+
+## ExpoRuntimeActionHandlerArgs
+
+Kind: `type`
+Module: `src/expoActionBridge.ts`
+Source: `src/expoActionBridge.ts:9:1`
+
+### Members
+
+| Name   | Kind     | Type     | Required | Description |
+| ------ | -------- | -------- | -------- | ----------- |
+| action | property | `Action` | yes      |             |
+
+## ExpoRuntimeActionHandlers
+
+Kind: `unknown`
+Module: `src/expoActionBridge.ts`
+Source: `src/expoActionBridge.ts:13:1`
 
 ## ExpoRuntimeAdapterId
 
@@ -139,6 +188,48 @@ Source: `src/ExpoRuntimeProviders.tsx:8:1`
 | children  | property | `React.ReactNode`                       | yes      |             |
 | providers | property | `readonly "permissions"[] \| undefined` | no       |             |
 
+## ExpoRuntimeRouteResolution
+
+Kind: `type`
+Module: `src/expoActionBridge.ts`
+Source: `src/expoActionBridge.ts:29:1`
+
+### Members
+
+| Name         | Kind     | Type                               | Required | Description |
+| ------------ | -------- | ---------------------------------- | -------- | ----------- |
+| resolvedPath | property | `string`                           | yes      |             |
+| unusedParams | property | `Record<string, string \| number>` | yes      |             |
+
+## ExpoRuntimeRouterLike
+
+Kind: `type`
+Module: `src/expoActionBridge.ts`
+Source: `src/expoActionBridge.ts:5:1`
+
+### Members
+
+| Name | Kind     | Type                                                                              | Required | Description |
+| ---- | -------- | --------------------------------------------------------------------------------- | -------- | ----------- |
+| push | property | `(args: { pathname: string; params: Record<string, number \| string>; }) => void` | yes      |             |
+
+## ExpoRuntimeThemeMode
+
+Kind: `unknown`
+Module: `src/expoActionBridge.ts`
+Source: `src/expoActionBridge.ts:3:1`
+
+## getExpoBarcodeScannerViewSource
+
+Kind: `function`
+Module: `src/generatedSources.ts`
+Source: `src/generatedSources.ts:7:1`
+
+### Signatures
+
+- `() => string`
+  - returns: `string`
+
 ## mapPermissionStatusToCameraPermissionStatus
 
 Kind: `function`
@@ -176,6 +267,19 @@ Source: `src/resolveExpoRuntimePlan.ts:121:1`
   - manifest: `AppManifest`
   - options: `ResolveExpoRuntimePlanOptions` (optional)
   - returns: `ExpoRuntimePlan`
+
+## resolveExpoRuntimeRoutePath
+
+Kind: `function`
+Module: `src/expoActionBridge.ts`
+Source: `src/expoActionBridge.ts:34:1`
+
+### Signatures
+
+- `(pathname: string, params?: Record<string, string | number> | undefined) => ExpoRuntimeRouteResolution`
+  - params: `Record<string, string | number> | undefined` (optional)
+  - pathname: `string`
+  - returns: `ExpoRuntimeRouteResolution`
 
 ## shouldIgnoreBarcodeScan
 
