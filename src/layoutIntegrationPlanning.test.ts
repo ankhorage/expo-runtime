@@ -20,6 +20,8 @@ const EMPTY_PLAN: ExpoRuntimePlan = {
   diagnostics: [],
 };
 
+const PERMISSIONS_PROVIDER_START = "<ExpoRuntimeProviders providers={['permissions']}>";
+
 describe('layoutIntegrationPlanning', () => {
   test('returns an empty integration plan when no providers are required', () => {
     expect(resolveExpoRuntimeLayoutIntegration(undefined)).toEqual({
@@ -46,7 +48,7 @@ describe('layoutIntegrationPlanning', () => {
     ).toEqual({
       imports: ["import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';"],
       moduleDeclarations: [],
-      providerStart: ["<ExpoRuntimeProviders providers={['permissions']}>"] ,
+      providerStart: [PERMISSIONS_PROVIDER_START],
       providerEnd: ['</ExpoRuntimeProviders>'],
     });
   });
