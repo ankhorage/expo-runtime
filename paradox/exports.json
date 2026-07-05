@@ -396,6 +396,162 @@
     "structuredRows": []
   },
   {
+    "name": "ExpoRuntimeConfigPluginOutput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/generatedAppOutput.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppOutput.ts",
+      "line": 9,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeDependencyMap",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/generatedAppOutput.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppOutput.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeGeneratedAppOutputPlan",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppOutput.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppOutput.ts",
+      "line": 18,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoRuntimeLayoutIntegrationPlan", "ExpoRuntimeNativeOutputPlan"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "dependencies",
+        "kind": "property",
+        "type": "Readonly<Record<string, string>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "layoutIntegration",
+        "kind": "property",
+        "type": "ExpoRuntimeLayoutIntegrationPlan",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "native",
+        "kind": "property",
+        "type": "ExpoRuntimeNativeOutputPlan",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeLayoutIntegrationPlan",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/layoutIntegrationPlanning.ts",
+    "sourceLocation": {
+      "filePath": "src/layoutIntegrationPlanning.ts",
+      "line": 3,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "imports",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "moduleDeclarations",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "providerEnd",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "providerStart",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeNativeOutputPlan",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppOutput.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppOutput.ts",
+      "line": 13,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoRuntimeConfigPluginOutput"],
+    "signatures": [],
+    "members": [
+      {
+        "name": "androidPermissions",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "configPlugins",
+        "kind": "property",
+        "type": "readonly ExpoRuntimeConfigPluginOutput[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ExpoRuntimePlan",
     "description": null,
     "isReadme": false,
@@ -733,6 +889,166 @@
           }
         ],
         "returnType": "BarcodeScanResult | null",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveExpoRuntimeConfigPluginOutput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/generatedAppOutput.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppOutput.ts",
+      "line": 32,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoRuntimeConfigPluginOutput", "ExpoRuntimePlan"],
+    "signatures": [
+      {
+        "label": "(runtimePlan: ExpoRuntimePlan | undefined) => readonly ExpoRuntimeConfigPluginOutput[]",
+        "parameters": [
+          {
+            "name": "runtimePlan",
+            "type": "ExpoRuntimePlan | undefined",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "readonly ExpoRuntimeConfigPluginOutput[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveExpoRuntimeDependencyMap",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/generatedAppOutput.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppOutput.ts",
+      "line": 24,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoRuntimePlan"],
+    "signatures": [
+      {
+        "label": "(runtimePlan: ExpoRuntimePlan | undefined) => Readonly<Record<string, string>>",
+        "parameters": [
+          {
+            "name": "runtimePlan",
+            "type": "ExpoRuntimePlan | undefined",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "Readonly<Record<string, string>>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveExpoRuntimeGeneratedAppOutput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/generatedAppOutput.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppOutput.ts",
+      "line": 49,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoRuntimeGeneratedAppOutputPlan", "ExpoRuntimePlan"],
+    "signatures": [
+      {
+        "label": "(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppOutputPlan",
+        "parameters": [
+          {
+            "name": "runtimePlan",
+            "type": "ExpoRuntimePlan | undefined",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ExpoRuntimeGeneratedAppOutputPlan",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveExpoRuntimeLayoutIntegration",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/layoutIntegrationPlanning.ts",
+    "sourceLocation": {
+      "filePath": "src/layoutIntegrationPlanning.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoRuntimeLayoutIntegrationPlan", "ExpoRuntimePlan"],
+    "signatures": [
+      {
+        "label": "(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeLayoutIntegrationPlan",
+        "parameters": [
+          {
+            "name": "runtimePlan",
+            "type": "ExpoRuntimePlan | undefined",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ExpoRuntimeLayoutIntegrationPlan",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveExpoRuntimeNativeOutput",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/generatedAppOutput.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppOutput.ts",
+      "line": 40,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoRuntimeNativeOutputPlan", "ExpoRuntimePlan"],
+    "signatures": [
+      {
+        "label": "(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeNativeOutputPlan",
+        "parameters": [
+          {
+            "name": "runtimePlan",
+            "type": "ExpoRuntimePlan | undefined",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ExpoRuntimeNativeOutputPlan",
         "returnDescription": null
       }
     ],

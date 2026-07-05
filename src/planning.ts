@@ -1,3 +1,13 @@
+export {
+  type ExpoRuntimeConfigPluginOutput,
+  type ExpoRuntimeDependencyMap,
+  type ExpoRuntimeGeneratedAppOutputPlan,
+  type ExpoRuntimeNativeOutputPlan,
+  resolveExpoRuntimeConfigPluginOutput,
+  resolveExpoRuntimeDependencyMap,
+  resolveExpoRuntimeGeneratedAppOutput,
+  resolveExpoRuntimeNativeOutput,
+} from './generatedAppOutput';
 export { getExpoBarcodeScannerViewSource } from './generatedSources';
 export {
   type ExpoRuntimeLayoutIntegrationPlan,
