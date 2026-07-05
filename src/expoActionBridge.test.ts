@@ -11,7 +11,7 @@ describe('expoActionBridge', () => {
   });
 
   test('executes navigation actions', async () => {
-    const pushes: Array<{ pathname: string; params: Record<string, number | string> }> = [];
+    const pushes: { pathname: string; params: Record<string, number | string> }[] = [];
 
     await executeExpoRuntimeAction({
       action: { type: 'navigate', payload: { route: 'users/[id]', params: { id: 42 } } },
