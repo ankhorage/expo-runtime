@@ -25,6 +25,8 @@ const EMPTY_PLAN: ExpoRuntimePlan = {
   diagnostics: [],
 };
 
+const PROVIDER_START = "<ExpoRuntimeProviders providers={['permissions']}>";
+
 const CAMERA_PLAN: ExpoRuntimePlan = {
   ...EMPTY_PLAN,
   dependencies: [
@@ -98,7 +100,7 @@ describe('generatedAppOutput', () => {
       layoutIntegration: {
         imports: ["import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';"],
         moduleDeclarations: [],
-        providerStart: ["<ExpoRuntimeProviders providers={['permissions']}>"] ,
+        providerStart: [PROVIDER_START],
         providerEnd: ['</ExpoRuntimeProviders>'],
       },
       native: {
