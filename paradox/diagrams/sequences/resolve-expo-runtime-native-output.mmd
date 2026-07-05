@@ -1,0 +1,5 @@
+sequenceDiagram
+  participant participant_resolveExpoRuntimeConfigPluginOutput as resolveExpoRuntimeConfigPluginOutput
+  participant participant_resolveExpoRuntimeNativeOutput as resolveExpoRuntimeNativeOutput
+  participant_resolveExpoRuntimeNativeOutput->>participant_resolveExpoRuntimeConfigPluginOutput: resolveExpoRuntimeConfigPluginOutput()
+  participant_resolveExpoRuntimeConfigPluginOutput-->>participant_resolveExpoRuntimeNativeOutput: return

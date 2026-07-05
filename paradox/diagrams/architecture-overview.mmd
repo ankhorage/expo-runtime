@@ -19,9 +19,16 @@ graph TD
   package__ankhorage_expo_runtime -.-> module_src_ExpoRuntimeProviders_tsx
   module_src_ExpoRuntimeProviders_tsx --> module_src_permissionRuntime_ts
   module_src_ExpoRuntimeProviders_tsx --> module_src_resolveExpoRuntimePlan_ts
+  module_src_generatedAppOutput_ts["src/generatedAppOutput.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_generatedAppOutput_ts
+  module_src_generatedAppOutput_ts --> module_src_layoutIntegrationPlanning_ts
+  module_src_generatedAppOutput_ts --> module_src_resolveExpoRuntimePlan_ts
   module_src_generatedSources_ts["src/generatedSources.ts"]
   package__ankhorage_expo_runtime -.-> module_src_generatedSources_ts
   module_src_index_ts["src/index.ts"]
+  module_src_layoutIntegrationPlanning_ts["src/layoutIntegrationPlanning.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_layoutIntegrationPlanning_ts
+  module_src_layoutIntegrationPlanning_ts --> module_src_resolveExpoRuntimePlan_ts
   module_src_permissionRuntime_ts["src/permissionRuntime.ts"]
   package__ankhorage_expo_runtime -.-> module_src_permissionRuntime_ts
   module_src_planning_ts["src/planning.ts"]

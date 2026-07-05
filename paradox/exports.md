@@ -136,6 +136,60 @@ Kind: `unknown`
 Module: `src/resolveExpoRuntimePlan.ts`
 Source: `src/resolveExpoRuntimePlan.ts:27:1`
 
+## ExpoRuntimeConfigPluginOutput
+
+Kind: `unknown`
+Module: `src/generatedAppOutput.ts`
+Source: `src/generatedAppOutput.ts:9:1`
+
+## ExpoRuntimeDependencyMap
+
+Kind: `unknown`
+Module: `src/generatedAppOutput.ts`
+Source: `src/generatedAppOutput.ts:7:1`
+
+## ExpoRuntimeGeneratedAppOutputPlan
+
+Kind: `type`
+Module: `src/generatedAppOutput.ts`
+Source: `src/generatedAppOutput.ts:18:1`
+
+### Members
+
+| Name              | Kind     | Type                               | Required | Description |
+| ----------------- | -------- | ---------------------------------- | -------- | ----------- |
+| dependencies      | property | `Readonly<Record<string, string>>` | yes      |             |
+| layoutIntegration | property | `ExpoRuntimeLayoutIntegrationPlan` | yes      |             |
+| native            | property | `ExpoRuntimeNativeOutputPlan`      | yes      |             |
+
+## ExpoRuntimeLayoutIntegrationPlan
+
+Kind: `type`
+Module: `src/layoutIntegrationPlanning.ts`
+Source: `src/layoutIntegrationPlanning.ts:3:1`
+
+### Members
+
+| Name               | Kind     | Type                | Required | Description |
+| ------------------ | -------- | ------------------- | -------- | ----------- |
+| imports            | property | `readonly string[]` | yes      |             |
+| moduleDeclarations | property | `readonly string[]` | yes      |             |
+| providerEnd        | property | `readonly string[]` | yes      |             |
+| providerStart      | property | `readonly string[]` | yes      |             |
+
+## ExpoRuntimeNativeOutputPlan
+
+Kind: `type`
+Module: `src/generatedAppOutput.ts`
+Source: `src/generatedAppOutput.ts:13:1`
+
+### Members
+
+| Name               | Kind     | Type                                       | Required | Description |
+| ------------------ | -------- | ------------------------------------------ | -------- | ----------- |
+| androidPermissions | property | `readonly string[]`                        | yes      |             |
+| configPlugins      | property | `readonly ExpoRuntimeConfigPluginOutput[]` | yes      |             |
+
 ## ExpoRuntimePlan
 
 Kind: `type`
@@ -254,6 +308,66 @@ Source: `src/barcodeScanRuntime.ts:48:1`
 - `(result: ExpoBarcodeScanResultLike) => BarcodeScanResult | null`
   - result: `ExpoBarcodeScanResultLike`
   - returns: `BarcodeScanResult | null`
+
+## resolveExpoRuntimeConfigPluginOutput
+
+Kind: `function`
+Module: `src/generatedAppOutput.ts`
+Source: `src/generatedAppOutput.ts:32:1`
+
+### Signatures
+
+- `(runtimePlan: ExpoRuntimePlan | undefined) => readonly ExpoRuntimeConfigPluginOutput[]`
+  - runtimePlan: `ExpoRuntimePlan | undefined`
+  - returns: `readonly ExpoRuntimeConfigPluginOutput[]`
+
+## resolveExpoRuntimeDependencyMap
+
+Kind: `function`
+Module: `src/generatedAppOutput.ts`
+Source: `src/generatedAppOutput.ts:24:1`
+
+### Signatures
+
+- `(runtimePlan: ExpoRuntimePlan | undefined) => Readonly<Record<string, string>>`
+  - runtimePlan: `ExpoRuntimePlan | undefined`
+  - returns: `Readonly<Record<string, string>>`
+
+## resolveExpoRuntimeGeneratedAppOutput
+
+Kind: `function`
+Module: `src/generatedAppOutput.ts`
+Source: `src/generatedAppOutput.ts:49:1`
+
+### Signatures
+
+- `(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppOutputPlan`
+  - runtimePlan: `ExpoRuntimePlan | undefined`
+  - returns: `ExpoRuntimeGeneratedAppOutputPlan`
+
+## resolveExpoRuntimeLayoutIntegration
+
+Kind: `function`
+Module: `src/layoutIntegrationPlanning.ts`
+Source: `src/layoutIntegrationPlanning.ts:10:1`
+
+### Signatures
+
+- `(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeLayoutIntegrationPlan`
+  - runtimePlan: `ExpoRuntimePlan | undefined`
+  - returns: `ExpoRuntimeLayoutIntegrationPlan`
+
+## resolveExpoRuntimeNativeOutput
+
+Kind: `function`
+Module: `src/generatedAppOutput.ts`
+Source: `src/generatedAppOutput.ts:40:1`
+
+### Signatures
+
+- `(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeNativeOutputPlan`
+  - runtimePlan: `ExpoRuntimePlan | undefined`
+  - returns: `ExpoRuntimeNativeOutputPlan`
 
 ## resolveExpoRuntimePlan
 

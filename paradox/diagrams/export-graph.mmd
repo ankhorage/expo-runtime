@@ -5,8 +5,10 @@ graph LR
   module_src_expoActionBridge_ts["src/expoActionBridge.ts"]
   module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
   module_src_ExpoRuntimeProviders_tsx["src/ExpoRuntimeProviders.tsx"]
+  module_src_generatedAppOutput_ts["src/generatedAppOutput.ts"]
   module_src_generatedSources_ts["src/generatedSources.ts"]
   module_src_index_ts["src/index.ts"]
+  module_src_layoutIntegrationPlanning_ts["src/layoutIntegrationPlanning.ts"]
   module_src_permissionRuntime_ts["src/permissionRuntime.ts"]
   module_src_planning_ts["src/planning.ts"]
   module_src_resolveExpoRuntimePlan_ts["src/resolveExpoRuntimePlan.ts"]
@@ -42,6 +44,19 @@ graph LR
   module_src_expoActionBridge_ts --> export_ExpoRuntimeActionHandlers
   export_ExpoRuntimeAdapterId["ExpoRuntimeAdapterId"]
   module_src_resolveExpoRuntimePlan_ts --> export_ExpoRuntimeAdapterId
+  export_ExpoRuntimeConfigPluginOutput["ExpoRuntimeConfigPluginOutput"]
+  module_src_generatedAppOutput_ts --> export_ExpoRuntimeConfigPluginOutput
+  export_ExpoRuntimeDependencyMap["ExpoRuntimeDependencyMap"]
+  module_src_generatedAppOutput_ts --> export_ExpoRuntimeDependencyMap
+  export_ExpoRuntimeGeneratedAppOutputPlan["ExpoRuntimeGeneratedAppOutputPlan"]
+  module_src_generatedAppOutput_ts --> export_ExpoRuntimeGeneratedAppOutputPlan
+  export_ExpoRuntimeGeneratedAppOutputPlan -.-> export_ExpoRuntimeLayoutIntegrationPlan
+  export_ExpoRuntimeGeneratedAppOutputPlan -.-> export_ExpoRuntimeNativeOutputPlan
+  export_ExpoRuntimeLayoutIntegrationPlan["ExpoRuntimeLayoutIntegrationPlan"]
+  module_src_layoutIntegrationPlanning_ts --> export_ExpoRuntimeLayoutIntegrationPlan
+  export_ExpoRuntimeNativeOutputPlan["ExpoRuntimeNativeOutputPlan"]
+  module_src_generatedAppOutput_ts --> export_ExpoRuntimeNativeOutputPlan
+  export_ExpoRuntimeNativeOutputPlan -.-> export_ExpoRuntimeConfigPluginOutput
   export_ExpoRuntimePlan["ExpoRuntimePlan"]
   module_src_resolveExpoRuntimePlan_ts --> export_ExpoRuntimePlan
   export_ExpoRuntimePlan -.-> export_ExpoBarcodeScannerAdapter
@@ -65,6 +80,25 @@ graph LR
   export_normalizeExpoBarcodeScanResult["normalizeExpoBarcodeScanResult"]
   module_src_barcodeScanRuntime_ts --> export_normalizeExpoBarcodeScanResult
   export_normalizeExpoBarcodeScanResult -.-> export_ExpoBarcodeScanResultLike
+  export_resolveExpoRuntimeConfigPluginOutput["resolveExpoRuntimeConfigPluginOutput"]
+  module_src_generatedAppOutput_ts --> export_resolveExpoRuntimeConfigPluginOutput
+  export_resolveExpoRuntimeConfigPluginOutput -.-> export_ExpoRuntimeConfigPluginOutput
+  export_resolveExpoRuntimeConfigPluginOutput -.-> export_ExpoRuntimePlan
+  export_resolveExpoRuntimeDependencyMap["resolveExpoRuntimeDependencyMap"]
+  module_src_generatedAppOutput_ts --> export_resolveExpoRuntimeDependencyMap
+  export_resolveExpoRuntimeDependencyMap -.-> export_ExpoRuntimePlan
+  export_resolveExpoRuntimeGeneratedAppOutput["resolveExpoRuntimeGeneratedAppOutput"]
+  module_src_generatedAppOutput_ts --> export_resolveExpoRuntimeGeneratedAppOutput
+  export_resolveExpoRuntimeGeneratedAppOutput -.-> export_ExpoRuntimeGeneratedAppOutputPlan
+  export_resolveExpoRuntimeGeneratedAppOutput -.-> export_ExpoRuntimePlan
+  export_resolveExpoRuntimeLayoutIntegration["resolveExpoRuntimeLayoutIntegration"]
+  module_src_layoutIntegrationPlanning_ts --> export_resolveExpoRuntimeLayoutIntegration
+  export_resolveExpoRuntimeLayoutIntegration -.-> export_ExpoRuntimeLayoutIntegrationPlan
+  export_resolveExpoRuntimeLayoutIntegration -.-> export_ExpoRuntimePlan
+  export_resolveExpoRuntimeNativeOutput["resolveExpoRuntimeNativeOutput"]
+  module_src_generatedAppOutput_ts --> export_resolveExpoRuntimeNativeOutput
+  export_resolveExpoRuntimeNativeOutput -.-> export_ExpoRuntimeNativeOutputPlan
+  export_resolveExpoRuntimeNativeOutput -.-> export_ExpoRuntimePlan
   export_resolveExpoRuntimePlan["resolveExpoRuntimePlan"]
   module_src_resolveExpoRuntimePlan_ts --> export_resolveExpoRuntimePlan
   export_resolveExpoRuntimePlan -.-> export_ExpoRuntimePlan
