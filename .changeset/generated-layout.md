@@ -1,5 +1,5 @@
 ---
-"@ankhorage/expo-runtime": patch
+'@ankhorage/expo-runtime': patch
 ---
 
 Add generated layout helper output for Expo provider imports.
