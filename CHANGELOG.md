@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 0.0.9
+
+### Patch Changes
+
+- ca0824d: Consume the permissions provider metadata release from `@ankhorage/permissions`.
+
 ## 0.0.8
 
 ### Patch Changes
