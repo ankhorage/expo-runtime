@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 0.0.6
+
+### Patch Changes
+
+- 5f947ed: Add Expo-aware runtime action bridge helpers for navigation, theme toggling, logging, alerts, and delegated action handlers.
+
 ## 0.0.5
 
 ### Patch Changes
