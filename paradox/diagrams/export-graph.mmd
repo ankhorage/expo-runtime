@@ -2,8 +2,10 @@ graph LR
   module_src_barcodeScanRuntime_ts["src/barcodeScanRuntime.ts"]
   module_src_componentRegistry_ts["src/componentRegistry.ts"]
   module_src_createExpoRuntimeRegistry_tsx["src/createExpoRuntimeRegistry.tsx"]
+  module_src_expoActionBridge_ts["src/expoActionBridge.ts"]
   module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
   module_src_ExpoRuntimeProviders_tsx["src/ExpoRuntimeProviders.tsx"]
+  module_src_generatedSources_ts["src/generatedSources.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_permissionRuntime_ts["src/permissionRuntime.ts"]
   module_src_planning_ts["src/planning.ts"]
@@ -22,10 +24,22 @@ graph LR
   export_createExpoRuntimeRegistry["createExpoRuntimeRegistry"]
   module_src_createExpoRuntimeRegistry_tsx --> export_createExpoRuntimeRegistry
   export_createExpoRuntimeRegistry -.-> export_ComponentRegistry
+  export_executeExpoRuntimeAction["executeExpoRuntimeAction"]
+  module_src_expoActionBridge_ts --> export_executeExpoRuntimeAction
+  export_executeExpoRuntimeAction -.-> export_ExecuteExpoRuntimeActionArgs
+  export_ExecuteExpoRuntimeActionArgs["ExecuteExpoRuntimeActionArgs"]
+  module_src_expoActionBridge_ts --> export_ExecuteExpoRuntimeActionArgs
+  export_ExecuteExpoRuntimeActionArgs -.-> export_ExpoRuntimeActionHandlers
+  export_ExecuteExpoRuntimeActionArgs -.-> export_ExpoRuntimeRouterLike
+  export_ExecuteExpoRuntimeActionArgs -.-> export_ExpoRuntimeThemeMode
   export_ExpoBarcodeScannerAdapter["ExpoBarcodeScannerAdapter"]
   module_src_ExpoBarcodeScannerAdapter_tsx --> export_ExpoBarcodeScannerAdapter
   export_ExpoBarcodeScanResultLike["ExpoBarcodeScanResultLike"]
   module_src_barcodeScanRuntime_ts --> export_ExpoBarcodeScanResultLike
+  export_ExpoRuntimeActionHandlerArgs["ExpoRuntimeActionHandlerArgs"]
+  module_src_expoActionBridge_ts --> export_ExpoRuntimeActionHandlerArgs
+  export_ExpoRuntimeActionHandlers["ExpoRuntimeActionHandlers"]
+  module_src_expoActionBridge_ts --> export_ExpoRuntimeActionHandlers
   export_ExpoRuntimeAdapterId["ExpoRuntimeAdapterId"]
   module_src_resolveExpoRuntimePlan_ts --> export_ExpoRuntimeAdapterId
   export_ExpoRuntimePlan["ExpoRuntimePlan"]
@@ -38,6 +52,14 @@ graph LR
   export_ExpoRuntimeProviders -.-> export_ExpoRuntimeProvidersProps
   export_ExpoRuntimeProvidersProps["ExpoRuntimeProvidersProps"]
   module_src_ExpoRuntimeProviders_tsx --> export_ExpoRuntimeProvidersProps
+  export_ExpoRuntimeRouteResolution["ExpoRuntimeRouteResolution"]
+  module_src_expoActionBridge_ts --> export_ExpoRuntimeRouteResolution
+  export_ExpoRuntimeRouterLike["ExpoRuntimeRouterLike"]
+  module_src_expoActionBridge_ts --> export_ExpoRuntimeRouterLike
+  export_ExpoRuntimeThemeMode["ExpoRuntimeThemeMode"]
+  module_src_expoActionBridge_ts --> export_ExpoRuntimeThemeMode
+  export_getExpoBarcodeScannerViewSource["getExpoBarcodeScannerViewSource"]
+  module_src_generatedSources_ts --> export_getExpoBarcodeScannerViewSource
   export_mapPermissionStatusToCameraPermissionStatus["mapPermissionStatusToCameraPermissionStatus"]
   module_src_barcodeScanRuntime_ts --> export_mapPermissionStatusToCameraPermissionStatus
   export_normalizeExpoBarcodeScanResult["normalizeExpoBarcodeScanResult"]
@@ -46,6 +68,9 @@ graph LR
   export_resolveExpoRuntimePlan["resolveExpoRuntimePlan"]
   module_src_resolveExpoRuntimePlan_ts --> export_resolveExpoRuntimePlan
   export_resolveExpoRuntimePlan -.-> export_ExpoRuntimePlan
+  export_resolveExpoRuntimeRoutePath["resolveExpoRuntimeRoutePath"]
+  module_src_expoActionBridge_ts --> export_resolveExpoRuntimeRoutePath
+  export_resolveExpoRuntimeRoutePath -.-> export_ExpoRuntimeRouteResolution
   export_shouldIgnoreBarcodeScan["shouldIgnoreBarcodeScan"]
   module_src_barcodeScanRuntime_ts --> export_shouldIgnoreBarcodeScan
   export_shouldIgnoreBarcodeScan -.-> export_BarcodeScanRecord

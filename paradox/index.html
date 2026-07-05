@@ -221,6 +221,12 @@
               </button>
             </li>
             <li>
+              <button class="nav-button" type="button" data-target="src/expoActionBridge.ts">
+                src/expoActionBridge.ts
+                <small>4 functions</small>
+              </button>
+            </li>
+            <li>
               <button
                 class="nav-button"
                 type="button"
@@ -233,6 +239,12 @@
             <li>
               <button class="nav-button" type="button" data-target="src/ExpoRuntimeProviders.tsx">
                 src/ExpoRuntimeProviders.tsx
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/generatedSources.ts">
+                src/generatedSources.ts
                 <small>1 function</small>
               </button>
             </li>
@@ -250,9 +262,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>17</strong><span class="muted">public exports</span></div>
+              <div><strong>26</strong><span class="muted">public exports</span></div>
               <div><strong>2</strong><span class="muted">components</span></div>
-              <div><strong>9</strong><span class="muted">modules</span></div>
+              <div><strong>11</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -304,6 +316,21 @@
             </article>
             <article
               class="item"
+              data-search="src/expoActionBridge.ts executeExpoRuntimeAction ExecuteExpoRuntimeActionArgs ExpoRuntimeActionHandlerArgs ExpoRuntimeActionHandlers ExpoRuntimeRouteResolution ExpoRuntimeRouterLike ExpoRuntimeThemeMode resolveExpoRuntimeRoutePath"
+            >
+              <h3>src/expoActionBridge.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>executeExpoRuntimeAction</code>,
+                <code>ExecuteExpoRuntimeActionArgs</code>,
+                <code>ExpoRuntimeActionHandlerArgs</code>, <code>ExpoRuntimeActionHandlers</code>,
+                <code>ExpoRuntimeRouteResolution</code>, <code>ExpoRuntimeRouterLike</code>,
+                <code>ExpoRuntimeThemeMode</code>, <code>resolveExpoRuntimeRoutePath</code>
+              </p>
+            </article>
+            <article
+              class="item"
               data-search="src/ExpoBarcodeScannerAdapter.tsx src/barcodeScanRuntime.ts ExpoBarcodeScannerAdapter"
             >
               <h3>src/ExpoBarcodeScannerAdapter.tsx</h3>
@@ -328,7 +355,16 @@
             </article>
             <article
               class="item"
-              data-search="src/index.ts BARCODE_SCAN_DEDUPE_WINDOW_MS BARCODE_SCANNER_TYPES BarcodeScanRecord ComponentRegistry createComponentRegistry createExpoRuntimeRegistry ExpoBarcodeScannerAdapter ExpoBarcodeScanResultLike ExpoRuntimeAdapterId ExpoRuntimePlan ExpoRuntimeProviderId ExpoRuntimeProviders ExpoRuntimeProvidersProps mapPermissionStatusToCameraPermissionStatus normalizeExpoBarcodeScanResult resolveExpoRuntimePlan shouldIgnoreBarcodeScan"
+              data-search="src/generatedSources.ts getExpoBarcodeScannerViewSource"
+            >
+              <h3>src/generatedSources.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p><strong>Exports:</strong> <code>getExpoBarcodeScannerViewSource</code></p>
+            </article>
+            <article
+              class="item"
+              data-search="src/index.ts BARCODE_SCAN_DEDUPE_WINDOW_MS BARCODE_SCANNER_TYPES BarcodeScanRecord ComponentRegistry createComponentRegistry createExpoRuntimeRegistry executeExpoRuntimeAction ExecuteExpoRuntimeActionArgs ExpoBarcodeScannerAdapter ExpoBarcodeScanResultLike ExpoRuntimeActionHandlerArgs ExpoRuntimeActionHandlers ExpoRuntimeAdapterId ExpoRuntimePlan ExpoRuntimeProviderId ExpoRuntimeProviders ExpoRuntimeProvidersProps ExpoRuntimeRouteResolution ExpoRuntimeRouterLike ExpoRuntimeThemeMode getExpoBarcodeScannerViewSource mapPermissionStatusToCameraPermissionStatus normalizeExpoBarcodeScanResult resolveExpoRuntimePlan resolveExpoRuntimeRoutePath shouldIgnoreBarcodeScan"
             >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
@@ -337,13 +373,17 @@
                 <strong>Exports:</strong> <code>BARCODE_SCAN_DEDUPE_WINDOW_MS</code>,
                 <code>BARCODE_SCANNER_TYPES</code>, <code>BarcodeScanRecord</code>,
                 <code>ComponentRegistry</code>, <code>createComponentRegistry</code>,
-                <code>createExpoRuntimeRegistry</code>, <code>ExpoBarcodeScannerAdapter</code>,
-                <code>ExpoBarcodeScanResultLike</code>, <code>ExpoRuntimeAdapterId</code>,
+                <code>createExpoRuntimeRegistry</code>, <code>executeExpoRuntimeAction</code>,
+                <code>ExecuteExpoRuntimeActionArgs</code>, <code>ExpoBarcodeScannerAdapter</code>,
+                <code>ExpoBarcodeScanResultLike</code>, <code>ExpoRuntimeActionHandlerArgs</code>,
+                <code>ExpoRuntimeActionHandlers</code>, <code>ExpoRuntimeAdapterId</code>,
                 <code>ExpoRuntimePlan</code>, <code>ExpoRuntimeProviderId</code>,
                 <code>ExpoRuntimeProviders</code>, <code>ExpoRuntimeProvidersProps</code>,
+                <code>ExpoRuntimeRouteResolution</code>, <code>ExpoRuntimeRouterLike</code>,
+                <code>ExpoRuntimeThemeMode</code>, <code>getExpoBarcodeScannerViewSource</code>,
                 <code>mapPermissionStatusToCameraPermissionStatus</code>,
                 <code>normalizeExpoBarcodeScanResult</code>, <code>resolveExpoRuntimePlan</code>,
-                <code>shouldIgnoreBarcodeScan</code>
+                <code>resolveExpoRuntimeRoutePath</code>, <code>shouldIgnoreBarcodeScan</code>
               </p>
             </article>
             <article
@@ -360,7 +400,7 @@
             </article>
             <article
               class="item"
-              data-search="src/planning.ts ExpoRuntimeAdapterId ExpoRuntimePlan ExpoRuntimeProviderId resolveExpoRuntimePlan"
+              data-search="src/planning.ts ExpoRuntimeAdapterId ExpoRuntimePlan ExpoRuntimeProviderId getExpoBarcodeScannerViewSource resolveExpoRuntimePlan"
             >
               <h3>src/planning.ts</h3>
               <p class="muted">Referenced module</p>
@@ -368,7 +408,7 @@
               <p>
                 <strong>Exports:</strong> <code>ExpoRuntimeAdapterId</code>,
                 <code>ExpoRuntimePlan</code>, <code>ExpoRuntimeProviderId</code>,
-                <code>resolveExpoRuntimePlan</code>
+                <code>getExpoBarcodeScannerViewSource</code>, <code>resolveExpoRuntimePlan</code>
               </p>
             </article>
             <article
@@ -728,6 +768,315 @@
               </article>
             </section>
             <section>
+              <h3>src/expoActionBridge.ts</h3>
+              <article
+                class="item"
+                id="symbol-executeexporuntimeaction"
+                data-search="executeExpoRuntimeAction function src/expoActionBridge.ts  ExecuteExpoRuntimeActionArgs (args: ExecuteExpoRuntimeActionArgs) =&gt; Promise&lt;void&gt;"
+              >
+                <h4>executeExpoRuntimeAction</h4>
+                <p class="muted">function • <code>src/expoActionBridge.ts:66:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ExecuteExpoRuntimeActionArgs</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(args: ExecuteExpoRuntimeActionArgs) =&gt; Promise&lt;void&gt;</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>args</code></td>
+                        <td><code>ExecuteExpoRuntimeActionArgs</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>Promise&lt;void&gt;</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-executeexporuntimeactionargs"
+                data-search="ExecuteExpoRuntimeActionArgs type src/expoActionBridge.ts  ExpoRuntimeActionHandlers ExpoRuntimeRouterLike ExpoRuntimeThemeMode"
+              >
+                <h4>ExecuteExpoRuntimeActionArgs</h4>
+                <p class="muted">type • <code>src/expoActionBridge.ts:18:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ExpoRuntimeActionHandlers</li>
+                    <li class="chip">ExpoRuntimeRouterLike</li>
+                    <li class="chip">ExpoRuntimeThemeMode</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>action</code></td>
+                      <td>property</td>
+                      <td><code>unknown</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>actionHandlers</code></td>
+                      <td>property</td>
+                      <td><code>ExpoRuntimeActionHandlers | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>alertImpl</code></td>
+                      <td>property</td>
+                      <td><code>((message: string) =&gt; void) | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>consoleImpl</code></td>
+                      <td>property</td>
+                      <td><code>Pick&lt;Console, &quot;log&quot;&gt; | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>mode</code></td>
+                      <td>property</td>
+                      <td><code>ExpoRuntimeThemeMode</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>requestAnimationFrameImpl</code></td>
+                      <td>property</td>
+                      <td>
+                        <code>((callback: () =&gt; void) =&gt; number | void) | undefined</code>
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>router</code></td>
+                      <td>property</td>
+                      <td><code>ExpoRuntimeRouterLike</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>setMode</code></td>
+                      <td>property</td>
+                      <td><code>(mode: ExpoRuntimeThemeMode) =&gt; void</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-exporuntimeactionhandlerargs"
+                data-search="ExpoRuntimeActionHandlerArgs type src/expoActionBridge.ts "
+              >
+                <h4>ExpoRuntimeActionHandlerArgs</h4>
+                <p class="muted">type • <code>src/expoActionBridge.ts:9:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>action</code></td>
+                      <td>property</td>
+                      <td><code>Action</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-exporuntimeactionhandlers"
+                data-search="ExpoRuntimeActionHandlers unknown src/expoActionBridge.ts "
+              >
+                <h4>ExpoRuntimeActionHandlers</h4>
+                <p class="muted">unknown • <code>src/expoActionBridge.ts:13:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-exporuntimerouteresolution"
+                data-search="ExpoRuntimeRouteResolution type src/expoActionBridge.ts "
+              >
+                <h4>ExpoRuntimeRouteResolution</h4>
+                <p class="muted">type • <code>src/expoActionBridge.ts:29:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>resolvedPath</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>unusedParams</code></td>
+                      <td>property</td>
+                      <td><code>Record&lt;string, string | number&gt;</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-exporuntimerouterlike"
+                data-search="ExpoRuntimeRouterLike type src/expoActionBridge.ts "
+              >
+                <h4>ExpoRuntimeRouterLike</h4>
+                <p class="muted">type • <code>src/expoActionBridge.ts:5:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>push</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >(args: { pathname: string; params: Record&lt;string, number | string&gt;;
+                          }) =&gt; void</code
+                        >
+                      </td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-exporuntimethememode"
+                data-search="ExpoRuntimeThemeMode unknown src/expoActionBridge.ts "
+              >
+                <h4>ExpoRuntimeThemeMode</h4>
+                <p class="muted">unknown • <code>src/expoActionBridge.ts:3:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-resolveexporuntimeroutepath"
+                data-search="resolveExpoRuntimeRoutePath function src/expoActionBridge.ts  ExpoRuntimeRouteResolution (pathname: string, params?: Record&lt;string, string | number&gt; | undefined) =&gt; ExpoRuntimeRouteResolution"
+              >
+                <h4>resolveExpoRuntimeRoutePath</h4>
+                <p class="muted">function • <code>src/expoActionBridge.ts:34:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ExpoRuntimeRouteResolution</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(pathname: string, params?: Record&lt;string, string | number&gt; | undefined) =&gt; ExpoRuntimeRouteResolution</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>params</code></td>
+                        <td><code>Record&lt;string, string | number&gt; | undefined</code></td>
+                        <td>no</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>pathname</code></td>
+                        <td><code>string</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>ExpoRuntimeRouteResolution</code></p>
+                </div>
+              </article>
+            </section>
+            <section>
               <h3>src/ExpoBarcodeScannerAdapter.tsx</h3>
               <article
                 class="item"
@@ -843,6 +1192,26 @@
                     </tr>
                   </tbody>
                 </table>
+              </article>
+            </section>
+            <section>
+              <h3>src/generatedSources.ts</h3>
+              <article
+                class="item"
+                id="symbol-getexpobarcodescannerviewsource"
+                data-search="getExpoBarcodeScannerViewSource function src/generatedSources.ts  () =&gt; string"
+              >
+                <h4>getExpoBarcodeScannerViewSource</h4>
+                <p class="muted">function • <code>src/generatedSources.ts:7:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>() =&gt; string</pre>
+
+                  <p><strong>Returns:</strong> <code>string</code></p>
+                </div>
               </article>
             </section>
             <section>
@@ -1211,6 +1580,8 @@
                 module_src_createExpoRuntimeRegistry_tsx --&gt; module_src_componentRegistry_ts
                 module_src_createExpoRuntimeRegistry_tsx --&gt;
                 module_src_ExpoBarcodeScannerAdapter_tsx
+                module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_expoActionBridge_ts
                 module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_ExpoBarcodeScannerAdapter_tsx
                 module_src_ExpoBarcodeScannerAdapter_tsx --&gt; module_src_barcodeScanRuntime_ts
@@ -1218,6 +1589,8 @@
                 package__ankhorage_expo_runtime -.-&gt; module_src_ExpoRuntimeProviders_tsx
                 module_src_ExpoRuntimeProviders_tsx --&gt; module_src_permissionRuntime_ts
                 module_src_ExpoRuntimeProviders_tsx --&gt; module_src_resolveExpoRuntimePlan_ts
+                module_src_generatedSources_ts[&quot;src/generatedSources.ts&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_generatedSources_ts
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_permissionRuntime_ts
@@ -1241,6 +1614,8 @@ graph TD
   package__ankhorage_expo_runtime -.-&gt; module_src_createExpoRuntimeRegistry_tsx
   module_src_createExpoRuntimeRegistry_tsx --&gt; module_src_componentRegistry_ts
   module_src_createExpoRuntimeRegistry_tsx --&gt; module_src_ExpoBarcodeScannerAdapter_tsx
+  module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_expoActionBridge_ts
   module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_ExpoBarcodeScannerAdapter_tsx
   module_src_ExpoBarcodeScannerAdapter_tsx --&gt; module_src_barcodeScanRuntime_ts
@@ -1248,6 +1623,8 @@ graph TD
   package__ankhorage_expo_runtime -.-&gt; module_src_ExpoRuntimeProviders_tsx
   module_src_ExpoRuntimeProviders_tsx --&gt; module_src_permissionRuntime_ts
   module_src_ExpoRuntimeProviders_tsx --&gt; module_src_resolveExpoRuntimePlan_ts
+  module_src_generatedSources_ts[&quot;src/generatedSources.ts&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_generatedSources_ts
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_permissionRuntime_ts
@@ -1269,8 +1646,10 @@ graph TD
                 graph LR module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
                 module_src_componentRegistry_ts[&quot;src/componentRegistry.ts&quot;]
                 module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
+                module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
                 module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
                 module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
+                module_src_generatedSources_ts[&quot;src/generatedSources.ts&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
                 module_src_planning_ts[&quot;src/planning.ts&quot;]
@@ -1289,8 +1668,10 @@ graph LR
   module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
   module_src_componentRegistry_ts[&quot;src/componentRegistry.ts&quot;]
   module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
+  module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
   module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
   module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
+  module_src_generatedSources_ts[&quot;src/generatedSources.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
   module_src_planning_ts[&quot;src/planning.ts&quot;]
@@ -1311,8 +1692,10 @@ graph LR
                 graph LR module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
                 module_src_componentRegistry_ts[&quot;src/componentRegistry.ts&quot;]
                 module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
+                module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
                 module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
                 module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
+                module_src_generatedSources_ts[&quot;src/generatedSources.ts&quot;]
                 module_src_index_ts[&quot;src/index.ts&quot;]
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
                 module_src_planning_ts[&quot;src/planning.ts&quot;]
@@ -1331,10 +1714,22 @@ graph LR
                 export_createExpoRuntimeRegistry[&quot;createExpoRuntimeRegistry&quot;]
                 module_src_createExpoRuntimeRegistry_tsx --&gt; export_createExpoRuntimeRegistry
                 export_createExpoRuntimeRegistry -.-&gt; export_ComponentRegistry
+                export_executeExpoRuntimeAction[&quot;executeExpoRuntimeAction&quot;]
+                module_src_expoActionBridge_ts --&gt; export_executeExpoRuntimeAction
+                export_executeExpoRuntimeAction -.-&gt; export_ExecuteExpoRuntimeActionArgs
+                export_ExecuteExpoRuntimeActionArgs[&quot;ExecuteExpoRuntimeActionArgs&quot;]
+                module_src_expoActionBridge_ts --&gt; export_ExecuteExpoRuntimeActionArgs
+                export_ExecuteExpoRuntimeActionArgs -.-&gt; export_ExpoRuntimeActionHandlers
+                export_ExecuteExpoRuntimeActionArgs -.-&gt; export_ExpoRuntimeRouterLike
+                export_ExecuteExpoRuntimeActionArgs -.-&gt; export_ExpoRuntimeThemeMode
                 export_ExpoBarcodeScannerAdapter[&quot;ExpoBarcodeScannerAdapter&quot;]
                 module_src_ExpoBarcodeScannerAdapter_tsx --&gt; export_ExpoBarcodeScannerAdapter
                 export_ExpoBarcodeScanResultLike[&quot;ExpoBarcodeScanResultLike&quot;]
                 module_src_barcodeScanRuntime_ts --&gt; export_ExpoBarcodeScanResultLike
+                export_ExpoRuntimeActionHandlerArgs[&quot;ExpoRuntimeActionHandlerArgs&quot;]
+                module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeActionHandlerArgs
+                export_ExpoRuntimeActionHandlers[&quot;ExpoRuntimeActionHandlers&quot;]
+                module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeActionHandlers
                 export_ExpoRuntimeAdapterId[&quot;ExpoRuntimeAdapterId&quot;]
                 module_src_resolveExpoRuntimePlan_ts --&gt; export_ExpoRuntimeAdapterId
                 export_ExpoRuntimePlan[&quot;ExpoRuntimePlan&quot;]
@@ -1347,6 +1742,14 @@ graph LR
                 export_ExpoRuntimeProviders -.-&gt; export_ExpoRuntimeProvidersProps
                 export_ExpoRuntimeProvidersProps[&quot;ExpoRuntimeProvidersProps&quot;]
                 module_src_ExpoRuntimeProviders_tsx --&gt; export_ExpoRuntimeProvidersProps
+                export_ExpoRuntimeRouteResolution[&quot;ExpoRuntimeRouteResolution&quot;]
+                module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeRouteResolution
+                export_ExpoRuntimeRouterLike[&quot;ExpoRuntimeRouterLike&quot;]
+                module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeRouterLike
+                export_ExpoRuntimeThemeMode[&quot;ExpoRuntimeThemeMode&quot;]
+                module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeThemeMode
+                export_getExpoBarcodeScannerViewSource[&quot;getExpoBarcodeScannerViewSource&quot;]
+                module_src_generatedSources_ts --&gt; export_getExpoBarcodeScannerViewSource
                 export_mapPermissionStatusToCameraPermissionStatus[&quot;mapPermissionStatusToCameraPermissionStatus&quot;]
                 module_src_barcodeScanRuntime_ts --&gt;
                 export_mapPermissionStatusToCameraPermissionStatus
@@ -1356,6 +1759,9 @@ graph LR
                 export_resolveExpoRuntimePlan[&quot;resolveExpoRuntimePlan&quot;]
                 module_src_resolveExpoRuntimePlan_ts --&gt; export_resolveExpoRuntimePlan
                 export_resolveExpoRuntimePlan -.-&gt; export_ExpoRuntimePlan
+                export_resolveExpoRuntimeRoutePath[&quot;resolveExpoRuntimeRoutePath&quot;]
+                module_src_expoActionBridge_ts --&gt; export_resolveExpoRuntimeRoutePath
+                export_resolveExpoRuntimeRoutePath -.-&gt; export_ExpoRuntimeRouteResolution
                 export_shouldIgnoreBarcodeScan[&quot;shouldIgnoreBarcodeScan&quot;]
                 module_src_barcodeScanRuntime_ts --&gt; export_shouldIgnoreBarcodeScan
                 export_shouldIgnoreBarcodeScan -.-&gt; export_BarcodeScanRecord
@@ -1367,8 +1773,10 @@ graph LR
   module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
   module_src_componentRegistry_ts[&quot;src/componentRegistry.ts&quot;]
   module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
+  module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
   module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
   module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
+  module_src_generatedSources_ts[&quot;src/generatedSources.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
   module_src_planning_ts[&quot;src/planning.ts&quot;]
@@ -1387,10 +1795,22 @@ graph LR
   export_createExpoRuntimeRegistry[&quot;createExpoRuntimeRegistry&quot;]
   module_src_createExpoRuntimeRegistry_tsx --&gt; export_createExpoRuntimeRegistry
   export_createExpoRuntimeRegistry -.-&gt; export_ComponentRegistry
+  export_executeExpoRuntimeAction[&quot;executeExpoRuntimeAction&quot;]
+  module_src_expoActionBridge_ts --&gt; export_executeExpoRuntimeAction
+  export_executeExpoRuntimeAction -.-&gt; export_ExecuteExpoRuntimeActionArgs
+  export_ExecuteExpoRuntimeActionArgs[&quot;ExecuteExpoRuntimeActionArgs&quot;]
+  module_src_expoActionBridge_ts --&gt; export_ExecuteExpoRuntimeActionArgs
+  export_ExecuteExpoRuntimeActionArgs -.-&gt; export_ExpoRuntimeActionHandlers
+  export_ExecuteExpoRuntimeActionArgs -.-&gt; export_ExpoRuntimeRouterLike
+  export_ExecuteExpoRuntimeActionArgs -.-&gt; export_ExpoRuntimeThemeMode
   export_ExpoBarcodeScannerAdapter[&quot;ExpoBarcodeScannerAdapter&quot;]
   module_src_ExpoBarcodeScannerAdapter_tsx --&gt; export_ExpoBarcodeScannerAdapter
   export_ExpoBarcodeScanResultLike[&quot;ExpoBarcodeScanResultLike&quot;]
   module_src_barcodeScanRuntime_ts --&gt; export_ExpoBarcodeScanResultLike
+  export_ExpoRuntimeActionHandlerArgs[&quot;ExpoRuntimeActionHandlerArgs&quot;]
+  module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeActionHandlerArgs
+  export_ExpoRuntimeActionHandlers[&quot;ExpoRuntimeActionHandlers&quot;]
+  module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeActionHandlers
   export_ExpoRuntimeAdapterId[&quot;ExpoRuntimeAdapterId&quot;]
   module_src_resolveExpoRuntimePlan_ts --&gt; export_ExpoRuntimeAdapterId
   export_ExpoRuntimePlan[&quot;ExpoRuntimePlan&quot;]
@@ -1403,6 +1823,14 @@ graph LR
   export_ExpoRuntimeProviders -.-&gt; export_ExpoRuntimeProvidersProps
   export_ExpoRuntimeProvidersProps[&quot;ExpoRuntimeProvidersProps&quot;]
   module_src_ExpoRuntimeProviders_tsx --&gt; export_ExpoRuntimeProvidersProps
+  export_ExpoRuntimeRouteResolution[&quot;ExpoRuntimeRouteResolution&quot;]
+  module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeRouteResolution
+  export_ExpoRuntimeRouterLike[&quot;ExpoRuntimeRouterLike&quot;]
+  module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeRouterLike
+  export_ExpoRuntimeThemeMode[&quot;ExpoRuntimeThemeMode&quot;]
+  module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeThemeMode
+  export_getExpoBarcodeScannerViewSource[&quot;getExpoBarcodeScannerViewSource&quot;]
+  module_src_generatedSources_ts --&gt; export_getExpoBarcodeScannerViewSource
   export_mapPermissionStatusToCameraPermissionStatus[&quot;mapPermissionStatusToCameraPermissionStatus&quot;]
   module_src_barcodeScanRuntime_ts --&gt; export_mapPermissionStatusToCameraPermissionStatus
   export_normalizeExpoBarcodeScanResult[&quot;normalizeExpoBarcodeScanResult&quot;]
@@ -1411,6 +1839,9 @@ graph LR
   export_resolveExpoRuntimePlan[&quot;resolveExpoRuntimePlan&quot;]
   module_src_resolveExpoRuntimePlan_ts --&gt; export_resolveExpoRuntimePlan
   export_resolveExpoRuntimePlan -.-&gt; export_ExpoRuntimePlan
+  export_resolveExpoRuntimeRoutePath[&quot;resolveExpoRuntimeRoutePath&quot;]
+  module_src_expoActionBridge_ts --&gt; export_resolveExpoRuntimeRoutePath
+  export_resolveExpoRuntimeRoutePath -.-&gt; export_ExpoRuntimeRouteResolution
   export_shouldIgnoreBarcodeScan[&quot;shouldIgnoreBarcodeScan&quot;]
   module_src_barcodeScanRuntime_ts --&gt; export_shouldIgnoreBarcodeScan
   export_shouldIgnoreBarcodeScan -.-&gt; export_BarcodeScanRecord
@@ -1441,6 +1872,68 @@ sequenceDiagram
   participant participant_createExpoRuntimeRegistry as createExpoRuntimeRegistry
   participant_createExpoRuntimeRegistry-&gt;&gt;participant_createComponentRegistry: createComponentRegistry()
   participant_createComponentRegistry--&gt;&gt;participant_createExpoRuntimeRegistry: return
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
+              data-search="executeExpoRuntimeAction sequence diagrams/sequences/execute-expo-runtime-action.mmd"
+            >
+              <h3>executeExpoRuntimeAction sequence</h3>
+              <p class="muted"><code>diagrams/sequences/execute-expo-runtime-action.mmd</code></p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_action as action participant
+                participant_alertImpl as alertImpl participant participant_configuredHandler as
+                configuredHandler participant participant_executeExpoRuntimeAction as
+                executeExpoRuntimeAction participant participant_isAction as isAction participant
+                participant_isActionCallback as isActionCallback participant
+                participant_requestAnimationFrameImpl as requestAnimationFrameImpl participant
+                participant_setMode as setMode
+                participant_executeExpoRuntimeAction-&gt;&gt;participant_isActionCallback:
+                isActionCallback()
+                participant_isActionCallback--&gt;&gt;participant_executeExpoRuntimeAction: return
+                participant_executeExpoRuntimeAction-&gt;&gt;participant_action: action()
+                participant_action--&gt;&gt;participant_executeExpoRuntimeAction: return
+                participant_executeExpoRuntimeAction-&gt;&gt;participant_isAction: isAction()
+                participant_isAction--&gt;&gt;participant_executeExpoRuntimeAction: return
+                participant_executeExpoRuntimeAction-&gt;&gt;participant_requestAnimationFrameImpl:
+                requestAnimationFrameImpl()
+                participant_requestAnimationFrameImpl--&gt;&gt;participant_executeExpoRuntimeAction:
+                return participant_executeExpoRuntimeAction-&gt;&gt;participant_setMode: setMode()
+                participant_setMode--&gt;&gt;participant_executeExpoRuntimeAction: return
+                participant_executeExpoRuntimeAction-&gt;&gt;participant_alertImpl: alertImpl()
+                participant_alertImpl--&gt;&gt;participant_executeExpoRuntimeAction: return
+                participant_executeExpoRuntimeAction-&gt;&gt;participant_configuredHandler:
+                configuredHandler()
+                participant_configuredHandler--&gt;&gt;participant_executeExpoRuntimeAction: return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_action as action
+  participant participant_alertImpl as alertImpl
+  participant participant_configuredHandler as configuredHandler
+  participant participant_executeExpoRuntimeAction as executeExpoRuntimeAction
+  participant participant_isAction as isAction
+  participant participant_isActionCallback as isActionCallback
+  participant participant_requestAnimationFrameImpl as requestAnimationFrameImpl
+  participant participant_setMode as setMode
+  participant_executeExpoRuntimeAction-&gt;&gt;participant_isActionCallback: isActionCallback()
+  participant_isActionCallback--&gt;&gt;participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction-&gt;&gt;participant_action: action()
+  participant_action--&gt;&gt;participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction-&gt;&gt;participant_isAction: isAction()
+  participant_isAction--&gt;&gt;participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction-&gt;&gt;participant_requestAnimationFrameImpl: requestAnimationFrameImpl()
+  participant_requestAnimationFrameImpl--&gt;&gt;participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction-&gt;&gt;participant_setMode: setMode()
+  participant_setMode--&gt;&gt;participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction-&gt;&gt;participant_alertImpl: alertImpl()
+  participant_alertImpl--&gt;&gt;participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction-&gt;&gt;participant_configuredHandler: configuredHandler()
+  participant_configuredHandler--&gt;&gt;participant_executeExpoRuntimeAction: return
 </pre
                 >
               </details>
@@ -1596,6 +2089,39 @@ sequenceDiagram
           </section>
         </section>
         <section
+          id="view-src-expoactionbridge-ts"
+          class="view"
+          data-view="src/expoActionBridge.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/expoActionBridge.ts</h2>
+            <article
+              class="item"
+              data-search="resolveExpoRuntimeRoutePath src/expoActionBridge.ts "
+            >
+              <h3>resolveExpoRuntimeRoutePath</h3>
+              <p class="muted"><code>src/expoActionBridge.ts:34:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isAction src/expoActionBridge.ts ">
+              <h3>isAction</h3>
+              <p class="muted"><code>src/expoActionBridge.ts:58:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isActionCallback src/expoActionBridge.ts ">
+              <h3>isActionCallback</h3>
+              <p class="muted"><code>src/expoActionBridge.ts:62:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="executeExpoRuntimeAction src/expoActionBridge.ts ">
+              <h3>executeExpoRuntimeAction</h3>
+              <p class="muted"><code>src/expoActionBridge.ts:66:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
           id="view-src-expobarcodescanneradapter-tsx"
           class="view"
           data-view="src/ExpoBarcodeScannerAdapter.tsx"
@@ -1624,6 +2150,24 @@ sequenceDiagram
             <article class="item" data-search="ExpoRuntimeProviders src/ExpoRuntimeProviders.tsx ">
               <h3>ExpoRuntimeProviders</h3>
               <p class="muted"><code>src/ExpoRuntimeProviders.tsx:13:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-generatedsources-ts"
+          class="view"
+          data-view="src/generatedSources.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/generatedSources.ts</h2>
+            <article
+              class="item"
+              data-search="getExpoBarcodeScannerViewSource src/generatedSources.ts "
+            >
+              <h3>getExpoBarcodeScannerViewSource</h3>
+              <p class="muted"><code>src/generatedSources.ts:7:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>

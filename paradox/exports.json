@@ -158,6 +158,117 @@
     "structuredRows": []
   },
   {
+    "name": "executeExpoRuntimeAction",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/expoActionBridge.ts",
+    "sourceLocation": {
+      "filePath": "src/expoActionBridge.ts",
+      "line": 66,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExecuteExpoRuntimeActionArgs"],
+    "signatures": [
+      {
+        "label": "(args: ExecuteExpoRuntimeActionArgs) => Promise<void>",
+        "parameters": [
+          {
+            "name": "args",
+            "type": "ExecuteExpoRuntimeActionArgs",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "Promise<void>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExecuteExpoRuntimeActionArgs",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/expoActionBridge.ts",
+    "sourceLocation": {
+      "filePath": "src/expoActionBridge.ts",
+      "line": 18,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [
+      "ExpoRuntimeActionHandlers",
+      "ExpoRuntimeRouterLike",
+      "ExpoRuntimeThemeMode"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "action",
+        "kind": "property",
+        "type": "unknown",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "actionHandlers",
+        "kind": "property",
+        "type": "ExpoRuntimeActionHandlers | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "alertImpl",
+        "kind": "property",
+        "type": "((message: string) => void) | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "consoleImpl",
+        "kind": "property",
+        "type": "Pick<Console, \"log\"> | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "mode",
+        "kind": "property",
+        "type": "ExpoRuntimeThemeMode",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "requestAnimationFrameImpl",
+        "kind": "property",
+        "type": "((callback: () => void) => number | void) | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "router",
+        "kind": "property",
+        "type": "ExpoRuntimeRouterLike",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "setMode",
+        "kind": "property",
+        "type": "(mode: ExpoRuntimeThemeMode) => void",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ExpoBarcodeScannerAdapter",
     "description": null,
     "isReadme": false,
@@ -220,6 +331,50 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeActionHandlerArgs",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/expoActionBridge.ts",
+    "sourceLocation": {
+      "filePath": "src/expoActionBridge.ts",
+      "line": 9,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "action",
+        "kind": "property",
+        "type": "Action",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeActionHandlers",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/expoActionBridge.ts",
+    "sourceLocation": {
+      "filePath": "src/expoActionBridge.ts",
+      "line": 13,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -413,6 +568,108 @@
     "structuredRows": []
   },
   {
+    "name": "ExpoRuntimeRouteResolution",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/expoActionBridge.ts",
+    "sourceLocation": {
+      "filePath": "src/expoActionBridge.ts",
+      "line": 29,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "resolvedPath",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "unusedParams",
+        "kind": "property",
+        "type": "Record<string, string | number>",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeRouterLike",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/expoActionBridge.ts",
+    "sourceLocation": {
+      "filePath": "src/expoActionBridge.ts",
+      "line": 5,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "push",
+        "kind": "property",
+        "type": "(args: { pathname: string; params: Record<string, number | string>; }) => void",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeThemeMode",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/expoActionBridge.ts",
+    "sourceLocation": {
+      "filePath": "src/expoActionBridge.ts",
+      "line": 3,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "getExpoBarcodeScannerViewSource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/generatedSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedSources.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "() => string",
+        "parameters": [],
+        "returnType": "string",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "mapPermissionStatusToCameraPermissionStatus",
     "description": null,
     "isReadme": false,
@@ -514,6 +771,44 @@
           }
         ],
         "returnType": "ExpoRuntimePlan",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveExpoRuntimeRoutePath",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/expoActionBridge.ts",
+    "sourceLocation": {
+      "filePath": "src/expoActionBridge.ts",
+      "line": 34,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoRuntimeRouteResolution"],
+    "signatures": [
+      {
+        "label": "(pathname: string, params?: Record<string, string | number> | undefined) => ExpoRuntimeRouteResolution",
+        "parameters": [
+          {
+            "name": "params",
+            "type": "Record<string, string | number> | undefined",
+            "required": false,
+            "description": null
+          },
+          {
+            "name": "pathname",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ExpoRuntimeRouteResolution",
         "returnDescription": null
       }
     ],

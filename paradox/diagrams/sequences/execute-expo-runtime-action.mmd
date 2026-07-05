@@ -1,0 +1,23 @@
+sequenceDiagram
+  participant participant_action as action
+  participant participant_alertImpl as alertImpl
+  participant participant_configuredHandler as configuredHandler
+  participant participant_executeExpoRuntimeAction as executeExpoRuntimeAction
+  participant participant_isAction as isAction
+  participant participant_isActionCallback as isActionCallback
+  participant participant_requestAnimationFrameImpl as requestAnimationFrameImpl
+  participant participant_setMode as setMode
+  participant_executeExpoRuntimeAction->>participant_isActionCallback: isActionCallback()
+  participant_isActionCallback-->>participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction->>participant_action: action()
+  participant_action-->>participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction->>participant_isAction: isAction()
+  participant_isAction-->>participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction->>participant_requestAnimationFrameImpl: requestAnimationFrameImpl()
+  participant_requestAnimationFrameImpl-->>participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction->>participant_setMode: setMode()
+  participant_setMode-->>participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction->>participant_alertImpl: alertImpl()
+  participant_alertImpl-->>participant_executeExpoRuntimeAction: return
+  participant_executeExpoRuntimeAction->>participant_configuredHandler: configuredHandler()
+  participant_configuredHandler-->>participant_executeExpoRuntimeAction: return
