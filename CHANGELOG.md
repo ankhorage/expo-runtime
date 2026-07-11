@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 0.0.10
+
+### Patch Changes
+
+- a5e7279: Publish Expo Runtime with `@ankhorage/contracts` 2.0.0 so downstream consumers resolve a single compatible manifest contract.
+
 ## 0.0.9
 
 ### Patch Changes
