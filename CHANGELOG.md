@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 0.0.11
+
+### Patch Changes
+
+- 0afa890: Update ZORA
+
 ## 0.0.10
 
 ### Patch Changes
