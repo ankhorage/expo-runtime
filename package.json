@@ -24,7 +24,7 @@
   "dependencies": {
     "@ankhorage/contracts": "^2.1.0",
     "@ankhorage/permissions": "^0.2.1",
-    "@ankhorage/zora": "^2.8.0"
+    "@ankhorage/zora": "^2.8.7"
   },
   "files": [
     "dist",
