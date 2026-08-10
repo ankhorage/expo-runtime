@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 1.0.0
+
+### Major Changes
+
+- a7d0270: Consume the canonical Contracts 4 app-manifest boundary for Expo runtime planning.
+
 ## 0.0.11
 
 ### Patch Changes
