@@ -22,7 +22,7 @@
     "runtime"
   ],
   "dependencies": {
-    "@ankhorage/contracts": "^2.1.0",
+    "@ankhorage/contracts": "^4.0.2",
     "@ankhorage/permissions": "^0.2.1"
   },
   "files": [
