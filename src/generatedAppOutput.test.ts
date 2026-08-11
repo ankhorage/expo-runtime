@@ -63,6 +63,13 @@ const CAMERA_PLAN: ExpoRuntimePlan = {
 };
 
 describe('generatedAppOutput', () => {
+  test('keeps Expo config plugins as a distinct external ecosystem concept', () => {
+    expect(resolveExpoRuntimeConfigPluginOutput(CAMERA_PLAN)).toEqual([
+      ['expo-camera', { cameraPermission: 'Allow camera access to scan barcodes.' }],
+      'expo-something',
+    ]);
+  });
+
   test('returns empty output for missing or empty plans', () => {
     expect(resolveExpoRuntimeDependencyMap(undefined)).toEqual({});
     expect(resolveExpoRuntimeConfigPluginOutput(undefined)).toEqual([]);
