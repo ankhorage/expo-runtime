@@ -195,7 +195,7 @@ const BASE_MANIFEST = {
   activeThemeId: 'default',
   activeThemeMode: 'light',
   infra: {
-    plugins: [],
+    modules: [],
   },
   settings: {
     localization: {
