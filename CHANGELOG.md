@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 2.0.0
+
+### Major Changes
+
+- 3ef194b: Align public manifest planning APIs with Contracts 6 and its canonical Ankhorage module fields. Expo config `plugins` remain unchanged as a separate Expo ecosystem concept.
+
 ## 1.0.0
 
 ### Major Changes
