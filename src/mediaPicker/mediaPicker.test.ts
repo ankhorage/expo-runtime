@@ -9,7 +9,7 @@ import {
 import { readSelectedMediaBytes } from './readSelectedBytes';
 
 const BYTES = new Uint8Array([1, 2, 3]);
-const readBytes = async () => BYTES;
+const readBytes = () => Promise.resolve(BYTES);
 
 describe('Expo media picker boundary', () => {
   test('maps document MIME types and font extensions to canonical media kinds', () => {
@@ -106,7 +106,7 @@ describe('Expo media picker boundary', () => {
     const buffer = new Uint8Array([4, 5, 6]).buffer;
     const bytes = await readSelectedMediaBytes({
       uri: 'blob:https://studio.local/transient',
-      file: { arrayBuffer: async () => buffer },
+      file: { arrayBuffer: () => Promise.resolve(buffer) },
     });
 
     expect(bytes).toEqual(new Uint8Array([4, 5, 6]));
