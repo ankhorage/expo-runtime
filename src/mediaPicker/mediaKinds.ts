@@ -37,7 +37,9 @@ export function isRequestedMediaKind(
 
 export function resolveDocumentPickerMimeTypes(
   mediaKinds?: readonly MediaAssetKind[],
-): string | readonly string[] {
+): string | string[] {
   if (!mediaKinds?.length || mediaKinds.includes('file')) return '*/*';
-  return Array.from(new Set(mediaKinds.flatMap((kind) => DOCUMENT_MIME_TYPES[kind] ?? [])));
+  return Array.from(
+    new Set(mediaKinds.flatMap((kind) => (kind === 'file' ? [] : DOCUMENT_MIME_TYPES[kind]))),
+  );
 }
