@@ -5,7 +5,7 @@
     "": {
       "name": "@ankhorage/expo-runtime",
       "dependencies": {
-        "@ankhorage/contracts": "^6.0.0",
+        "@ankhorage/contracts": "^7.6.0",
         "@ankhorage/permissions": "^0.2.1",
       },
       "devDependencies": {
@@ -18,6 +18,9 @@
         "@types/react": "^19.2.14",
         "expo": "~54.0.34",
         "expo-camera": "~17.0.10",
+        "expo-document-picker": "~14.0.8",
+        "expo-file-system": "~19.0.23",
+        "expo-image-picker": "~17.0.11",
         "react": "19.1.0",
         "react-native": "0.81.5",
         "typescript": "^5.9.3",
@@ -26,9 +29,17 @@
         "@ankhorage/zora": "^2.8.7",
         "expo": "~54.0.34",
         "expo-camera": "~17.0.10",
+        "expo-document-picker": "~14.0.8",
+        "expo-file-system": "~19.0.23",
+        "expo-image-picker": "~17.0.11",
         "react": "19.1.0",
         "react-native": "0.81.5",
       },
+      "optionalPeers": [
+        "expo-document-picker",
+        "expo-file-system",
+        "expo-image-picker",
+      ],
     },
   },
   "packages": {
@@ -36,7 +47,7 @@
 
     "@ankhorage/color-theory": ["@ankhorage/color-theory@0.0.7", "", { "dependencies": { "culori": "^4.0.2" } }, "sha512-fcdJZMmhfbvc9Yhz5vjTolmWYAaCsUaUOq4/P6YDZLHhXer8Mv8y0LaOhWgaXcwq48nrxILGUMOxOl48tRhTmA=="],
 
-    "@ankhorage/contracts": ["@ankhorage/contracts@6.0.0", "", { "dependencies": { "@ankhorage/color-theory": "^0.0.8" } }, "sha512-u6q9HRTMT3fnDEAwj8bMJ4sH6lXh1m90G7q3tZpIuc6NtysV52Z+6fduqYdu83eMHgbYwBXjUHNFY8ZCA9QCNA=="],
+    "@ankhorage/contracts": ["@ankhorage/contracts@7.6.0", "", { "dependencies": { "@ankhorage/color-theory": "^0.0.8" } }, "sha512-lWwru2FQc/gmCNssZ4em4SV1tCbVUK6gKOKj2Poh2C5uHeViwMbg/8qDVYVrRoIFjp78lubR6xo2MlFqVml5FQ=="],
 
     "@ankhorage/devtools": ["@ankhorage/devtools@1.0.6", "", { "dependencies": { "@eslint/js": "^10.0.1", "eslint": "^10.2.0", "eslint-config-prettier": "^10.1.8", "eslint-plugin-import": "^2.32.0", "eslint-plugin-prettier": "^5.5.5", "eslint-plugin-simple-import-sort": "^12.1.1", "eslint-plugin-unused-imports": "^4.4.1", "knip": "^6.12.2", "prettier": "^3.8.1", "typescript-eslint": "^8.24.0" }, "bin": { "ankhorage-eslint": "dist/eslint-cli.js", "ankhorage-knip": "dist/knip-cli.js", "ankhorage-prettier": "dist/prettier-cli.js" } }, "sha512-QXvpJ3uvr3xcl/smjv0yMimtGRCt/dPs0lVdHYMAXg06u1HsZmoKhRyxdFX8OXcCv9RnfPNheUkjAbOrs0eeaQ=="],
 
@@ -862,9 +873,15 @@
 
     "expo-constants": ["expo-constants@18.0.13", "", { "dependencies": { "@expo/config": "~12.0.13", "@expo/env": "~2.0.8" }, "peerDependencies": { "expo": "*", "react-native": "*" } }, "sha512-FnZn12E1dRYKDHlAdIyNFhBurKTS3F9CrfrBDJI5m3D7U17KBHMQ6JEfYlSj7LG7t+Ulr+IKaj58L1k5gBwTcQ=="],
 
+    "expo-document-picker": ["expo-document-picker@14.0.8", "", { "peerDependencies": { "expo": "*" } }, "sha512-3tyQKpPqWWFlI8p9RiMX1+T1Zge5mEKeBuXWp1h8PEItFMUDSiOJbQ112sfdC6Hxt8wSxreV9bCRl/NgBdt+fA=="],
+
     "expo-file-system": ["expo-file-system@19.0.23", "", { "peerDependencies": { "expo": "*", "react-native": "*" } }, "sha512-MeGkid9OeNILfT/qonaXHp4f2c15xaB28U/bcN7pqZej0Kx0+6+V7e9ZIXpPHm07zVatxA+QkMTPQEGfmvVOxA=="],
 
     "expo-font": ["expo-font@14.0.12", "", { "dependencies": { "fontfaceobserver": "^2.1.0" }, "peerDependencies": { "expo": "*", "react": "*", "react-native": "*" } }, "sha512-QQzunE2Mxk45AsCWm3tK7OpVljbtVnKD58q4/qliev+cbye1IOduUnRIdD+P7DyButw17G9MTX795kgaQiz5hQ=="],
+
+    "expo-image-loader": ["expo-image-loader@6.0.0", "", { "peerDependencies": { "expo": "*" } }, "sha512-nKs/xnOGw6ACb4g26xceBD57FKLFkSwEUTDXEDF3Gtcu3MqF3ZIYd3YM+sSb1/z9AKV1dYT7rMSGVNgsveXLIQ=="],
+
+    "expo-image-picker": ["expo-image-picker@17.0.11", "", { "dependencies": { "expo-image-loader": "~6.0.0" }, "peerDependencies": { "expo": "*" } }, "sha512-/apkoyukDvsCHHb9fzP+F34A1uQqSzUtYH/2P/xJACNEwq+mwEXjXvVU8bzlJq6ih0Qo1+tpVivIa7B9kYSwOQ=="],
 
     "expo-keep-awake": ["expo-keep-awake@15.0.8", "", { "peerDependencies": { "expo": "*", "react": "*" } }, "sha512-YK9M1VrnoH1vLJiQzChZgzDvVimVoriibiDIFLbQMpjYBnvyfUeHJcin/Gx1a+XgupNXy92EQJLgI/9ZuXajYQ=="],
 
