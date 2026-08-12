@@ -17,7 +17,7 @@ interface PhotoLibraryAssetLike extends SelectedMediaByteSource {
   readonly width: number;
   readonly height: number;
   readonly duration?: number | null;
-  readonly type?: 'image' | 'video' | 'livePhoto' | 'pairedVideo';
+  readonly type?: 'image' | 'video' | 'livePhoto' | 'pairedVideo' | null;
   readonly file?: ArrayBufferReadable;
 }
 
