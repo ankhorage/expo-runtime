@@ -54,7 +54,7 @@ export async function normalizePhotoLibraryResult(
     ok: true,
     selection: {
       kind,
-      name: asset.fileName?.trim() || `selected-${kind}`,
+      name: asset.fileName?.trim() ?? `selected-${kind}`,
       body,
       contentType: asset.mimeType ?? undefined,
       sizeBytes: asset.fileSize ?? body.byteLength,
