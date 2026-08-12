@@ -2,10 +2,7 @@ import { describe, expect, test } from 'bun:test';
 
 import { normalizeDocumentPickerResult } from './documentPicker';
 import { inferMediaAssetKind, resolveDocumentPickerMimeTypes } from './mediaKinds';
-import {
-  normalizePhotoLibraryResult,
-  resolvePhotoLibraryMediaTypes,
-} from './photoLibraryPicker';
+import { normalizePhotoLibraryResult, resolvePhotoLibraryMediaTypes } from './photoLibraryPicker';
 import { readSelectedMediaBytes } from './readSelectedBytes';
 
 const BYTES = new Uint8Array([1, 2, 3]);
@@ -103,7 +100,7 @@ describe('Expo media picker boundary', () => {
   });
 
   test('reads web picker files without persisting their blob URI', async () => {
-    const buffer = new Uint8Array([4, 5, 6]).buffer;
+    const { buffer } = new Uint8Array([4, 5, 6]);
     const bytes = await readSelectedMediaBytes({
       uri: 'blob:https://studio.local/transient',
       file: { arrayBuffer: () => Promise.resolve(buffer) },
@@ -113,7 +110,9 @@ describe('Expo media picker boundary', () => {
   });
 
   test('normalizes cancellation', async () => {
-    expect(await normalizeDocumentPickerResult({ canceled: true, assets: null }, undefined)).toEqual({
+    expect(
+      await normalizeDocumentPickerResult({ canceled: true, assets: null }, undefined),
+    ).toEqual({
       ok: false,
       reason: 'cancelled',
     });

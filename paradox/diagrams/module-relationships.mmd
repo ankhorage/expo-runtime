@@ -9,6 +9,13 @@ graph LR
   module_src_generatedSources_ts["src/generatedSources.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_layoutIntegrationPlanning_ts["src/layoutIntegrationPlanning.ts"]
+  module_src_mediaPicker_createExpoMediaPickerAdapter_ts["src/mediaPicker/createExpoMediaPickerAdapter.ts"]
+  module_src_mediaPicker_documentPicker_ts["src/mediaPicker/documentPicker.ts"]
+  module_src_mediaPicker_index_ts["src/mediaPicker/index.ts"]
+  module_src_mediaPicker_mediaKinds_ts["src/mediaPicker/mediaKinds.ts"]
+  module_src_mediaPicker_photoLibraryPicker_ts["src/mediaPicker/photoLibraryPicker.ts"]
+  module_src_mediaPicker_readSelectedBytes_ts["src/mediaPicker/readSelectedBytes.ts"]
+  module_src_mediaPicker_types_ts["src/mediaPicker/types.ts"]
   module_src_permissionRuntime_ts["src/permissionRuntime.ts"]
   module_src_planning_ts["src/planning.ts"]
   module_src_resolveExpoRuntimePlan_ts["src/resolveExpoRuntimePlan.ts"]
@@ -20,3 +27,12 @@ graph LR
   module_src_generatedAppOutput_ts --> module_src_layoutIntegrationPlanning_ts
   module_src_generatedAppOutput_ts --> module_src_resolveExpoRuntimePlan_ts
   module_src_layoutIntegrationPlanning_ts --> module_src_resolveExpoRuntimePlan_ts
+  module_src_mediaPicker_createExpoMediaPickerAdapter_ts --> module_src_mediaPicker_documentPicker_ts
+  module_src_mediaPicker_createExpoMediaPickerAdapter_ts --> module_src_mediaPicker_photoLibraryPicker_ts
+  module_src_mediaPicker_createExpoMediaPickerAdapter_ts --> module_src_mediaPicker_types_ts
+  module_src_mediaPicker_documentPicker_ts --> module_src_mediaPicker_mediaKinds_ts
+  module_src_mediaPicker_documentPicker_ts --> module_src_mediaPicker_readSelectedBytes_ts
+  module_src_mediaPicker_documentPicker_ts --> module_src_mediaPicker_types_ts
+  module_src_mediaPicker_photoLibraryPicker_ts --> module_src_mediaPicker_mediaKinds_ts
+  module_src_mediaPicker_photoLibraryPicker_ts --> module_src_mediaPicker_readSelectedBytes_ts
+  module_src_mediaPicker_photoLibraryPicker_ts --> module_src_mediaPicker_types_ts

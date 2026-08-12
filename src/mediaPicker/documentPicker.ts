@@ -1,9 +1,13 @@
 import type { MediaAssetKind } from '@ankhorage/contracts';
 
-import { inferMediaAssetKind, isRequestedMediaKind, resolveDocumentPickerMimeTypes } from './mediaKinds';
 import {
-  readSelectedMediaBytes,
+  inferMediaAssetKind,
+  isRequestedMediaKind,
+  resolveDocumentPickerMimeTypes,
+} from './mediaKinds';
+import {
   type ArrayBufferReadable,
+  readSelectedMediaBytes,
   type SelectedMediaByteSource,
 } from './readSelectedBytes';
 import type { ExpoMediaPickerInput, ExpoMediaPickerResult } from './types';
@@ -46,7 +50,9 @@ export async function normalizeDocumentPickerResult(
   };
 }
 
-export async function pickDocumentMedia(input: ExpoMediaPickerInput): Promise<ExpoMediaPickerResult> {
+export async function pickDocumentMedia(
+  input: ExpoMediaPickerInput,
+): Promise<ExpoMediaPickerResult> {
   try {
     const DocumentPicker = await import('expo-document-picker');
     const result = await DocumentPicker.getDocumentAsync({

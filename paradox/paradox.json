@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.0.0",
+      "value": "v2.0.0",
       "color": "cb3837"
     },
     {
@@ -185,6 +185,82 @@
       "isEntrypoint": false,
       "dependencies": ["src/resolveExpoRuntimePlan.ts"],
       "exports": ["ExpoRuntimeLayoutIntegrationPlan", "resolveExpoRuntimeLayoutIntegration"]
+    },
+    {
+      "path": "src/mediaPicker/createExpoMediaPickerAdapter.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/mediaPicker/documentPicker.ts",
+        "src/mediaPicker/photoLibraryPicker.ts",
+        "src/mediaPicker/types.ts"
+      ],
+      "exports": ["createExpoMediaPickerAdapter"]
+    },
+    {
+      "path": "src/mediaPicker/documentPicker.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/mediaPicker/mediaKinds.ts",
+        "src/mediaPicker/readSelectedBytes.ts",
+        "src/mediaPicker/types.ts"
+      ],
+      "exports": ["normalizeDocumentPickerResult", "pickDocumentMedia"]
+    },
+    {
+      "path": "src/mediaPicker/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "createExpoMediaPickerAdapter",
+        "EXPO_MEDIA_PICKER_SOURCES",
+        "ExpoMediaPickerAdapter",
+        "ExpoMediaPickerFailureReason",
+        "ExpoMediaPickerInput",
+        "ExpoMediaPickerResult",
+        "ExpoMediaPickerSelection",
+        "ExpoMediaPickerSource"
+      ]
+    },
+    {
+      "path": "src/mediaPicker/mediaKinds.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["inferMediaAssetKind", "isRequestedMediaKind", "resolveDocumentPickerMimeTypes"]
+    },
+    {
+      "path": "src/mediaPicker/photoLibraryPicker.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/mediaPicker/mediaKinds.ts",
+        "src/mediaPicker/readSelectedBytes.ts",
+        "src/mediaPicker/types.ts"
+      ],
+      "exports": [
+        "ExpoPhotoLibraryMediaType",
+        "normalizePhotoLibraryResult",
+        "pickPhotoLibraryMedia",
+        "resolvePhotoLibraryMediaTypes"
+      ]
+    },
+    {
+      "path": "src/mediaPicker/readSelectedBytes.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["ArrayBufferReadable", "readSelectedMediaBytes", "SelectedMediaByteSource"]
+    },
+    {
+      "path": "src/mediaPicker/types.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "EXPO_MEDIA_PICKER_SOURCES",
+        "ExpoMediaPickerAdapter",
+        "ExpoMediaPickerFailureReason",
+        "ExpoMediaPickerInput",
+        "ExpoMediaPickerResult",
+        "ExpoMediaPickerSelection",
+        "ExpoMediaPickerSource"
+      ]
     },
     {
       "path": "src/permissionRuntime.ts",
@@ -1714,6 +1790,105 @@
       }
     },
     {
+      "name": "createExpoMediaPickerAdapter",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/createExpoMediaPickerAdapter.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeDocumentPickerResult",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/documentPicker.ts",
+        "line": 29,
+        "column": 1
+      }
+    },
+    {
+      "name": "pickDocumentMedia",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/documentPicker.ts",
+        "line": 53,
+        "column": 1
+      }
+    },
+    {
+      "name": "inferMediaAssetKind",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/mediaKinds.ts",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRequestedMediaKind",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/mediaKinds.ts",
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolveDocumentPickerMimeTypes",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/mediaKinds.ts",
+        "line": 38,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolvePhotoLibraryMediaTypes",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/photoLibraryPicker.ts",
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizePhotoLibraryResult",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/photoLibraryPicker.ts",
+        "line": 41,
+        "column": 1
+      }
+    },
+    {
+      "name": "pickPhotoLibraryMedia",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/photoLibraryPicker.ts",
+        "line": 68,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolvePhotoLibraryAssetKind",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/photoLibraryPicker.ts",
+        "line": 89,
+        "column": 1
+      }
+    },
+    {
+      "name": "readSelectedMediaBytes",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/readSelectedBytes.ts",
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
       "name": "resolveExpoRuntimePlan",
       "description": null,
       "sourceLocation": {
@@ -2009,6 +2184,61 @@
         "fromPath": "src/planning.ts",
         "toPath": "src/resolveExpoRuntimePlan.ts",
         "sourcePath": "src/planning.ts"
+      },
+      {
+        "fromPath": "src/mediaPicker/createExpoMediaPickerAdapter.ts",
+        "toPath": "src/mediaPicker/documentPicker.ts",
+        "sourcePath": "src/mediaPicker/createExpoMediaPickerAdapter.ts"
+      },
+      {
+        "fromPath": "src/mediaPicker/createExpoMediaPickerAdapter.ts",
+        "toPath": "src/mediaPicker/photoLibraryPicker.ts",
+        "sourcePath": "src/mediaPicker/createExpoMediaPickerAdapter.ts"
+      },
+      {
+        "fromPath": "src/mediaPicker/createExpoMediaPickerAdapter.ts",
+        "toPath": "src/mediaPicker/types.ts",
+        "sourcePath": "src/mediaPicker/createExpoMediaPickerAdapter.ts"
+      },
+      {
+        "fromPath": "src/mediaPicker/documentPicker.ts",
+        "toPath": "src/mediaPicker/mediaKinds.ts",
+        "sourcePath": "src/mediaPicker/documentPicker.ts"
+      },
+      {
+        "fromPath": "src/mediaPicker/documentPicker.ts",
+        "toPath": "src/mediaPicker/readSelectedBytes.ts",
+        "sourcePath": "src/mediaPicker/documentPicker.ts"
+      },
+      {
+        "fromPath": "src/mediaPicker/documentPicker.ts",
+        "toPath": "src/mediaPicker/types.ts",
+        "sourcePath": "src/mediaPicker/documentPicker.ts"
+      },
+      {
+        "fromPath": "src/mediaPicker/index.ts",
+        "toPath": "src/mediaPicker/createExpoMediaPickerAdapter.ts",
+        "sourcePath": "src/mediaPicker/index.ts"
+      },
+      {
+        "fromPath": "src/mediaPicker/index.ts",
+        "toPath": "src/mediaPicker/types.ts",
+        "sourcePath": "src/mediaPicker/index.ts"
+      },
+      {
+        "fromPath": "src/mediaPicker/photoLibraryPicker.ts",
+        "toPath": "src/mediaPicker/mediaKinds.ts",
+        "sourcePath": "src/mediaPicker/photoLibraryPicker.ts"
+      },
+      {
+        "fromPath": "src/mediaPicker/photoLibraryPicker.ts",
+        "toPath": "src/mediaPicker/readSelectedBytes.ts",
+        "sourcePath": "src/mediaPicker/photoLibraryPicker.ts"
+      },
+      {
+        "fromPath": "src/mediaPicker/photoLibraryPicker.ts",
+        "toPath": "src/mediaPicker/types.ts",
+        "sourcePath": "src/mediaPicker/photoLibraryPicker.ts"
       }
     ],
     "calls": [
@@ -2197,6 +2427,84 @@
         "toSymbol": "addDependency",
         "callExpression": "addDependency",
         "sourcePath": "src/resolveExpoRuntimePlan.ts"
+      },
+      {
+        "fromSymbol": "pick",
+        "toSymbol": "pickPhotoLibraryMedia",
+        "callExpression": "pickPhotoLibraryMedia",
+        "sourcePath": "src/mediaPicker/createExpoMediaPickerAdapter.ts"
+      },
+      {
+        "fromSymbol": "pick",
+        "toSymbol": "pickDocumentMedia",
+        "callExpression": "pickDocumentMedia",
+        "sourcePath": "src/mediaPicker/createExpoMediaPickerAdapter.ts"
+      },
+      {
+        "fromSymbol": "normalizeDocumentPickerResult",
+        "toSymbol": "inferMediaAssetKind",
+        "callExpression": "inferMediaAssetKind",
+        "sourcePath": "src/mediaPicker/documentPicker.ts"
+      },
+      {
+        "fromSymbol": "normalizeDocumentPickerResult",
+        "toSymbol": "isRequestedMediaKind",
+        "callExpression": "isRequestedMediaKind",
+        "sourcePath": "src/mediaPicker/documentPicker.ts"
+      },
+      {
+        "fromSymbol": "normalizeDocumentPickerResult",
+        "toSymbol": "readBytes",
+        "callExpression": "readBytes",
+        "sourcePath": "src/mediaPicker/documentPicker.ts"
+      },
+      {
+        "fromSymbol": "pickDocumentMedia",
+        "toSymbol": "resolveDocumentPickerMimeTypes",
+        "callExpression": "resolveDocumentPickerMimeTypes",
+        "sourcePath": "src/mediaPicker/documentPicker.ts"
+      },
+      {
+        "fromSymbol": "pickDocumentMedia",
+        "toSymbol": "normalizeDocumentPickerResult",
+        "callExpression": "normalizeDocumentPickerResult",
+        "sourcePath": "src/mediaPicker/documentPicker.ts"
+      },
+      {
+        "fromSymbol": "normalizePhotoLibraryResult",
+        "toSymbol": "resolvePhotoLibraryAssetKind",
+        "callExpression": "resolvePhotoLibraryAssetKind",
+        "sourcePath": "src/mediaPicker/photoLibraryPicker.ts"
+      },
+      {
+        "fromSymbol": "normalizePhotoLibraryResult",
+        "toSymbol": "isRequestedMediaKind",
+        "callExpression": "isRequestedMediaKind",
+        "sourcePath": "src/mediaPicker/photoLibraryPicker.ts"
+      },
+      {
+        "fromSymbol": "normalizePhotoLibraryResult",
+        "toSymbol": "readBytes",
+        "callExpression": "readBytes",
+        "sourcePath": "src/mediaPicker/photoLibraryPicker.ts"
+      },
+      {
+        "fromSymbol": "pickPhotoLibraryMedia",
+        "toSymbol": "resolvePhotoLibraryMediaTypes",
+        "callExpression": "resolvePhotoLibraryMediaTypes",
+        "sourcePath": "src/mediaPicker/photoLibraryPicker.ts"
+      },
+      {
+        "fromSymbol": "pickPhotoLibraryMedia",
+        "toSymbol": "normalizePhotoLibraryResult",
+        "callExpression": "normalizePhotoLibraryResult",
+        "sourcePath": "src/mediaPicker/photoLibraryPicker.ts"
+      },
+      {
+        "fromSymbol": "readSelectedMediaBytes",
+        "toSymbol": "arrayBuffer",
+        "callExpression": "source.file.arrayBuffer",
+        "sourcePath": "src/mediaPicker/readSelectedBytes.ts"
       }
     ],
     "typeReferences": [

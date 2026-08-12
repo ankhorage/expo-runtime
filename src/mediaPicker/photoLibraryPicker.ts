@@ -2,8 +2,8 @@ import type { MediaAssetKind } from '@ankhorage/contracts';
 
 import { isRequestedMediaKind } from './mediaKinds';
 import {
-  readSelectedMediaBytes,
   type ArrayBufferReadable,
+  readSelectedMediaBytes,
   type SelectedMediaByteSource,
 } from './readSelectedBytes';
 import type { ExpoMediaPickerInput, ExpoMediaPickerResult } from './types';
