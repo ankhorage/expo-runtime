@@ -22,7 +22,7 @@
     "runtime"
   ],
   "dependencies": {
-    "@ankhorage/contracts": "^6.0.0",
+    "@ankhorage/contracts": "^7.6.0",
     "@ankhorage/permissions": "^0.2.1"
   },
   "files": [
@@ -47,6 +47,13 @@
       "types": "./src/planning.ts",
       "import": "./dist/planning.js",
       "default": "./dist/planning.js"
+    },
+    "./media-picker": {
+      "react-native": "./src/mediaPicker/index.ts",
+      "browser": "./src/mediaPicker/index.ts",
+      "types": "./src/mediaPicker/index.ts",
+      "import": "./dist/mediaPicker/index.js",
+      "default": "./dist/mediaPicker/index.js"
     }
   },
   "publishConfig": {
@@ -71,8 +78,22 @@
     "@ankhorage/zora": "^2.8.7",
     "expo": "~54.0.34",
     "expo-camera": "~17.0.10",
+    "expo-document-picker": "~14.0.8",
+    "expo-file-system": "~19.0.23",
+    "expo-image-picker": "~17.0.11",
     "react": "19.1.0",
     "react-native": "0.81.5"
+  },
+  "peerDependenciesMeta": {
+    "expo-document-picker": {
+      "optional": true
+    },
+    "expo-file-system": {
+      "optional": true
+    },
+    "expo-image-picker": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@ankhorage/devtools": "^1.0.6",
@@ -84,6 +105,9 @@
     "@types/react": "^19.2.14",
     "expo": "~54.0.34",
     "expo-camera": "~17.0.10",
+    "expo-document-picker": "~14.0.8",
+    "expo-file-system": "~19.0.23",
+    "expo-image-picker": "~17.0.11",
     "react": "19.1.0",
     "react-native": "0.81.5",
     "typescript": "^5.9.3"
