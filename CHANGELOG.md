@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 2.2.1
+
+### Patch Changes
+
+- f9a8210: Expose bundled media resolution and registry generation through a lightweight bundled-media subpath.
+
 ## 2.2.0
 
 ### Minor Changes
