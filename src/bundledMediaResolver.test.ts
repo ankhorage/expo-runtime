@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 import type { MediaAsset } from '@ankhorage/contracts';
 
-import { createExpoBundledMediaResolver, resolveExpoBundledMediaAsset } from './index';
+import { createExpoBundledMediaResolver, resolveExpoBundledMediaAsset } from './bundledMediaResolver';
 
 const bundledAsset: MediaAsset = {
   id: 'hero',
