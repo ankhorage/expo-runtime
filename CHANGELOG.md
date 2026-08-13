@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 2.2.0
+
+### Minor Changes
+
+- 3ac63a6: Add Expo/Metro bundled media resolution and static registry source generation for canonical app-relative media paths.
+
 ## 2.1.0
 
 ### Minor Changes
