@@ -1,0 +1,5 @@
+sequenceDiagram
+  participant participant_getExpoBundledMediaRegistrySource as getExpoBundledMediaRegistrySource
+  participant participant_normalizeEntries as normalizeEntries
+  participant_getExpoBundledMediaRegistrySource->>participant_normalizeEntries: normalizeEntries()
+  participant_normalizeEntries-->>participant_getExpoBundledMediaRegistrySource: return

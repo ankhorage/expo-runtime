@@ -44,6 +44,18 @@ Source: `src/componentRegistry.ts:5:1`
   - registries: `readonly ComponentRegistry[]` (optional)
   - returns: `ComponentRegistry`
 
+## createExpoBundledMediaResolver
+
+Kind: `function`
+Module: `src/bundledMediaResolver.ts`
+Source: `src/bundledMediaResolver.ts:15:1`
+
+### Signatures
+
+- `(registry: Readonly<Record<string, ExpoBundledMediaValue>>) => ExpoBundledMediaResolver`
+  - registry: `Readonly<Record<string, ExpoBundledMediaValue>>`
+  - returns: `ExpoBundledMediaResolver`
+
 ## createExpoRuntimeRegistry
 
 Kind: `function`
@@ -111,6 +123,49 @@ Source: `src/barcodeScanRuntime.ts:25:1`
 | ---- | -------- | --------------------- | -------- | ----------- |
 | data | property | `string`              | yes      |             |
 | type | property | `string \| undefined` | no       |             |
+
+## ExpoBundledMediaRegistry
+
+Kind: `unknown`
+Module: `src/bundledMediaResolver.ts`
+Source: `src/bundledMediaResolver.ts:5:1`
+
+## ExpoBundledMediaRegistrySourceEntry
+
+Kind: `type`
+Module: `src/bundledMediaRegistrySource.ts`
+Source: `src/bundledMediaRegistrySource.ts:1:1`
+
+### Members
+
+| Name        | Kind     | Type     | Required | Description |
+| ----------- | -------- | -------- | -------- | ----------- |
+| path        | property | `string` | yes      |             |
+| requirePath | property | `string` | yes      |             |
+
+## ExpoBundledMediaResolver
+
+Kind: `unknown`
+Module: `src/bundledMediaResolver.ts`
+Source: `src/bundledMediaResolver.ts:11:1`
+
+## ExpoBundledMediaResolverArgs
+
+Kind: `type`
+Module: `src/bundledMediaResolver.ts`
+Source: `src/bundledMediaResolver.ts:7:1`
+
+### Members
+
+| Name  | Kind     | Type         | Required | Description |
+| ----- | -------- | ------------ | -------- | ----------- |
+| asset | property | `MediaAsset` | yes      |             |
+
+## ExpoBundledMediaValue
+
+Kind: `unknown`
+Module: `src/bundledMediaResolver.ts`
+Source: `src/bundledMediaResolver.ts:3:1`
 
 ## ExpoRuntimeActionHandlerArgs
 
@@ -284,6 +339,18 @@ Source: `src/generatedSources.ts:7:1`
 - `() => string`
   - returns: `string`
 
+## getExpoBundledMediaRegistrySource
+
+Kind: `function`
+Module: `src/bundledMediaRegistrySource.ts`
+Source: `src/bundledMediaRegistrySource.ts:6:1`
+
+### Signatures
+
+- `(entries: readonly ExpoBundledMediaRegistrySourceEntry[]) => string`
+  - entries: `readonly ExpoBundledMediaRegistrySourceEntry[]`
+  - returns: `string`
+
 ## mapPermissionStatusToCameraPermissionStatus
 
 Kind: `function`
@@ -308,6 +375,19 @@ Source: `src/barcodeScanRuntime.ts:48:1`
 - `(result: ExpoBarcodeScanResultLike) => BarcodeScanResult | null`
   - result: `ExpoBarcodeScanResultLike`
   - returns: `BarcodeScanResult | null`
+
+## resolveExpoBundledMediaAsset
+
+Kind: `function`
+Module: `src/bundledMediaResolver.ts`
+Source: `src/bundledMediaResolver.ts:21:1`
+
+### Signatures
+
+- `(registry: Readonly<Record<string, ExpoBundledMediaValue>>, asset: MediaAsset) => ExpoBundledMediaValue | null`
+  - asset: `MediaAsset`
+  - registry: `Readonly<Record<string, ExpoBundledMediaValue>>`
+  - returns: `ExpoBundledMediaValue | null`
 
 ## resolveExpoRuntimeConfigPluginOutput
 

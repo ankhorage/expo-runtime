@@ -1,5 +1,7 @@
 graph LR
   module_src_barcodeScanRuntime_ts["src/barcodeScanRuntime.ts"]
+  module_src_bundledMediaRegistrySource_ts["src/bundledMediaRegistrySource.ts"]
+  module_src_bundledMediaResolver_ts["src/bundledMediaResolver.ts"]
   module_src_componentRegistry_ts["src/componentRegistry.ts"]
   module_src_createExpoRuntimeRegistry_tsx["src/createExpoRuntimeRegistry.tsx"]
   module_src_expoActionBridge_ts["src/expoActionBridge.ts"]
@@ -30,6 +32,10 @@ graph LR
   export_createComponentRegistry["createComponentRegistry"]
   module_src_componentRegistry_ts --> export_createComponentRegistry
   export_createComponentRegistry -.-> export_ComponentRegistry
+  export_createExpoBundledMediaResolver["createExpoBundledMediaResolver"]
+  module_src_bundledMediaResolver_ts --> export_createExpoBundledMediaResolver
+  export_createExpoBundledMediaResolver -.-> export_ExpoBundledMediaResolver
+  export_createExpoBundledMediaResolver -.-> export_ExpoBundledMediaValue
   export_createExpoRuntimeRegistry["createExpoRuntimeRegistry"]
   module_src_createExpoRuntimeRegistry_tsx --> export_createExpoRuntimeRegistry
   export_createExpoRuntimeRegistry -.-> export_ComponentRegistry
@@ -45,6 +51,16 @@ graph LR
   module_src_ExpoBarcodeScannerAdapter_tsx --> export_ExpoBarcodeScannerAdapter
   export_ExpoBarcodeScanResultLike["ExpoBarcodeScanResultLike"]
   module_src_barcodeScanRuntime_ts --> export_ExpoBarcodeScanResultLike
+  export_ExpoBundledMediaRegistry["ExpoBundledMediaRegistry"]
+  module_src_bundledMediaResolver_ts --> export_ExpoBundledMediaRegistry
+  export_ExpoBundledMediaRegistrySourceEntry["ExpoBundledMediaRegistrySourceEntry"]
+  module_src_bundledMediaRegistrySource_ts --> export_ExpoBundledMediaRegistrySourceEntry
+  export_ExpoBundledMediaResolver["ExpoBundledMediaResolver"]
+  module_src_bundledMediaResolver_ts --> export_ExpoBundledMediaResolver
+  export_ExpoBundledMediaResolverArgs["ExpoBundledMediaResolverArgs"]
+  module_src_bundledMediaResolver_ts --> export_ExpoBundledMediaResolverArgs
+  export_ExpoBundledMediaValue["ExpoBundledMediaValue"]
+  module_src_bundledMediaResolver_ts --> export_ExpoBundledMediaValue
   export_ExpoRuntimeActionHandlerArgs["ExpoRuntimeActionHandlerArgs"]
   module_src_expoActionBridge_ts --> export_ExpoRuntimeActionHandlerArgs
   export_ExpoRuntimeActionHandlers["ExpoRuntimeActionHandlers"]
@@ -82,11 +98,17 @@ graph LR
   module_src_expoActionBridge_ts --> export_ExpoRuntimeThemeMode
   export_getExpoBarcodeScannerViewSource["getExpoBarcodeScannerViewSource"]
   module_src_generatedSources_ts --> export_getExpoBarcodeScannerViewSource
+  export_getExpoBundledMediaRegistrySource["getExpoBundledMediaRegistrySource"]
+  module_src_bundledMediaRegistrySource_ts --> export_getExpoBundledMediaRegistrySource
+  export_getExpoBundledMediaRegistrySource -.-> export_ExpoBundledMediaRegistrySourceEntry
   export_mapPermissionStatusToCameraPermissionStatus["mapPermissionStatusToCameraPermissionStatus"]
   module_src_barcodeScanRuntime_ts --> export_mapPermissionStatusToCameraPermissionStatus
   export_normalizeExpoBarcodeScanResult["normalizeExpoBarcodeScanResult"]
   module_src_barcodeScanRuntime_ts --> export_normalizeExpoBarcodeScanResult
   export_normalizeExpoBarcodeScanResult -.-> export_ExpoBarcodeScanResultLike
+  export_resolveExpoBundledMediaAsset["resolveExpoBundledMediaAsset"]
+  module_src_bundledMediaResolver_ts --> export_resolveExpoBundledMediaAsset
+  export_resolveExpoBundledMediaAsset -.-> export_ExpoBundledMediaValue
   export_resolveExpoRuntimeConfigPluginOutput["resolveExpoRuntimeConfigPluginOutput"]
   module_src_generatedAppOutput_ts --> export_resolveExpoRuntimeConfigPluginOutput
   export_resolveExpoRuntimeConfigPluginOutput -.-> export_ExpoRuntimeConfigPluginOutput

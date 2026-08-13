@@ -205,6 +205,22 @@
               </button>
             </li>
             <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/bundledMediaRegistrySource.ts"
+              >
+                src/bundledMediaRegistrySource.ts
+                <small>2 functions</small>
+              </button>
+            </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/bundledMediaResolver.ts">
+                src/bundledMediaResolver.ts
+                <small>2 functions</small>
+              </button>
+            </li>
+            <li>
               <button class="nav-button" type="button" data-target="src/componentRegistry.ts">
                 src/componentRegistry.ts
                 <small>1 function</small>
@@ -324,9 +340,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>36</strong><span class="muted">public exports</span></div>
+              <div><strong>44</strong><span class="muted">public exports</span></div>
               <div><strong>2</strong><span class="muted">components</span></div>
-              <div><strong>20</strong><span class="muted">modules</span></div>
+              <div><strong>22</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -350,6 +366,32 @@
                 <code>ExpoBarcodeScanResultLike</code>,
                 <code>mapPermissionStatusToCameraPermissionStatus</code>,
                 <code>normalizeExpoBarcodeScanResult</code>, <code>shouldIgnoreBarcodeScan</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/bundledMediaRegistrySource.ts ExpoBundledMediaRegistrySourceEntry getExpoBundledMediaRegistrySource"
+            >
+              <h3>src/bundledMediaRegistrySource.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>ExpoBundledMediaRegistrySourceEntry</code>,
+                <code>getExpoBundledMediaRegistrySource</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/bundledMediaResolver.ts createExpoBundledMediaResolver ExpoBundledMediaRegistry ExpoBundledMediaResolver ExpoBundledMediaResolverArgs ExpoBundledMediaValue resolveExpoBundledMediaAsset"
+            >
+              <h3>src/bundledMediaResolver.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>createExpoBundledMediaResolver</code>,
+                <code>ExpoBundledMediaRegistry</code>, <code>ExpoBundledMediaResolver</code>,
+                <code>ExpoBundledMediaResolverArgs</code>, <code>ExpoBundledMediaValue</code>,
+                <code>resolveExpoBundledMediaAsset</code>
               </p>
             </article>
             <article
@@ -447,7 +489,7 @@
             </article>
             <article
               class="item"
-              data-search="src/index.ts BARCODE_SCAN_DEDUPE_WINDOW_MS BARCODE_SCANNER_TYPES BarcodeScanRecord ComponentRegistry createComponentRegistry createExpoRuntimeRegistry executeExpoRuntimeAction ExecuteExpoRuntimeActionArgs ExpoBarcodeScannerAdapter ExpoBarcodeScanResultLike ExpoRuntimeActionHandlerArgs ExpoRuntimeActionHandlers ExpoRuntimeAdapterId ExpoRuntimeConfigPluginOutput ExpoRuntimeDependencyMap ExpoRuntimeGeneratedAppOutputPlan ExpoRuntimeLayoutIntegrationPlan ExpoRuntimeNativeOutputPlan ExpoRuntimePlan ExpoRuntimeProviderId ExpoRuntimeProviders ExpoRuntimeProvidersProps ExpoRuntimeRouteResolution ExpoRuntimeRouterLike ExpoRuntimeThemeMode getExpoBarcodeScannerViewSource mapPermissionStatusToCameraPermissionStatus normalizeExpoBarcodeScanResult resolveExpoRuntimeConfigPluginOutput resolveExpoRuntimeDependencyMap resolveExpoRuntimeGeneratedAppOutput resolveExpoRuntimeLayoutIntegration resolveExpoRuntimeNativeOutput resolveExpoRuntimePlan resolveExpoRuntimeRoutePath shouldIgnoreBarcodeScan"
+              data-search="src/index.ts BARCODE_SCAN_DEDUPE_WINDOW_MS BARCODE_SCANNER_TYPES BarcodeScanRecord ComponentRegistry createComponentRegistry createExpoBundledMediaResolver createExpoRuntimeRegistry executeExpoRuntimeAction ExecuteExpoRuntimeActionArgs ExpoBarcodeScannerAdapter ExpoBarcodeScanResultLike ExpoBundledMediaRegistry ExpoBundledMediaRegistrySourceEntry ExpoBundledMediaResolver ExpoBundledMediaResolverArgs ExpoBundledMediaValue ExpoRuntimeActionHandlerArgs ExpoRuntimeActionHandlers ExpoRuntimeAdapterId ExpoRuntimeConfigPluginOutput ExpoRuntimeDependencyMap ExpoRuntimeGeneratedAppOutputPlan ExpoRuntimeLayoutIntegrationPlan ExpoRuntimeNativeOutputPlan ExpoRuntimePlan ExpoRuntimeProviderId ExpoRuntimeProviders ExpoRuntimeProvidersProps ExpoRuntimeRouteResolution ExpoRuntimeRouterLike ExpoRuntimeThemeMode getExpoBarcodeScannerViewSource getExpoBundledMediaRegistrySource mapPermissionStatusToCameraPermissionStatus normalizeExpoBarcodeScanResult resolveExpoBundledMediaAsset resolveExpoRuntimeConfigPluginOutput resolveExpoRuntimeDependencyMap resolveExpoRuntimeGeneratedAppOutput resolveExpoRuntimeLayoutIntegration resolveExpoRuntimeNativeOutput resolveExpoRuntimePlan resolveExpoRuntimeRoutePath shouldIgnoreBarcodeScan"
             >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
@@ -456,9 +498,13 @@
                 <strong>Exports:</strong> <code>BARCODE_SCAN_DEDUPE_WINDOW_MS</code>,
                 <code>BARCODE_SCANNER_TYPES</code>, <code>BarcodeScanRecord</code>,
                 <code>ComponentRegistry</code>, <code>createComponentRegistry</code>,
-                <code>createExpoRuntimeRegistry</code>, <code>executeExpoRuntimeAction</code>,
-                <code>ExecuteExpoRuntimeActionArgs</code>, <code>ExpoBarcodeScannerAdapter</code>,
-                <code>ExpoBarcodeScanResultLike</code>, <code>ExpoRuntimeActionHandlerArgs</code>,
+                <code>createExpoBundledMediaResolver</code>, <code>createExpoRuntimeRegistry</code>,
+                <code>executeExpoRuntimeAction</code>, <code>ExecuteExpoRuntimeActionArgs</code>,
+                <code>ExpoBarcodeScannerAdapter</code>, <code>ExpoBarcodeScanResultLike</code>,
+                <code>ExpoBundledMediaRegistry</code>,
+                <code>ExpoBundledMediaRegistrySourceEntry</code>,
+                <code>ExpoBundledMediaResolver</code>, <code>ExpoBundledMediaResolverArgs</code>,
+                <code>ExpoBundledMediaValue</code>, <code>ExpoRuntimeActionHandlerArgs</code>,
                 <code>ExpoRuntimeActionHandlers</code>, <code>ExpoRuntimeAdapterId</code>,
                 <code>ExpoRuntimeConfigPluginOutput</code>, <code>ExpoRuntimeDependencyMap</code>,
                 <code>ExpoRuntimeGeneratedAppOutputPlan</code>,
@@ -468,8 +514,10 @@
                 <code>ExpoRuntimeProvidersProps</code>, <code>ExpoRuntimeRouteResolution</code>,
                 <code>ExpoRuntimeRouterLike</code>, <code>ExpoRuntimeThemeMode</code>,
                 <code>getExpoBarcodeScannerViewSource</code>,
+                <code>getExpoBundledMediaRegistrySource</code>,
                 <code>mapPermissionStatusToCameraPermissionStatus</code>,
                 <code>normalizeExpoBarcodeScanResult</code>,
+                <code>resolveExpoBundledMediaAsset</code>,
                 <code>resolveExpoRuntimeConfigPluginOutput</code>,
                 <code>resolveExpoRuntimeDependencyMap</code>,
                 <code>resolveExpoRuntimeGeneratedAppOutput</code>,
@@ -880,6 +928,248 @@
                     </tbody>
                   </table>
                   <p><strong>Returns:</strong> <code>boolean</code></p>
+                </div>
+              </article>
+            </section>
+            <section>
+              <h3>src/bundledMediaRegistrySource.ts</h3>
+              <article
+                class="item"
+                id="symbol-expobundledmediaregistrysourceentry"
+                data-search="ExpoBundledMediaRegistrySourceEntry type src/bundledMediaRegistrySource.ts "
+              >
+                <h4>ExpoBundledMediaRegistrySourceEntry</h4>
+                <p class="muted">type • <code>src/bundledMediaRegistrySource.ts:1:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>path</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>requirePath</code></td>
+                      <td>property</td>
+                      <td><code>string</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-getexpobundledmediaregistrysource"
+                data-search="getExpoBundledMediaRegistrySource function src/bundledMediaRegistrySource.ts  ExpoBundledMediaRegistrySourceEntry (entries: readonly ExpoBundledMediaRegistrySourceEntry[]) =&gt; string"
+              >
+                <h4>getExpoBundledMediaRegistrySource</h4>
+                <p class="muted">function • <code>src/bundledMediaRegistrySource.ts:6:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ExpoBundledMediaRegistrySourceEntry</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>(entries: readonly ExpoBundledMediaRegistrySourceEntry[]) =&gt; string</pre>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>entries</code></td>
+                        <td><code>readonly ExpoBundledMediaRegistrySourceEntry[]</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>string</code></p>
+                </div>
+              </article>
+            </section>
+            <section>
+              <h3>src/bundledMediaResolver.ts</h3>
+              <article
+                class="item"
+                id="symbol-createexpobundledmediaresolver"
+                data-search="createExpoBundledMediaResolver function src/bundledMediaResolver.ts  ExpoBundledMediaResolver ExpoBundledMediaValue (registry: Readonly&lt;Record&lt;string, ExpoBundledMediaValue&gt;&gt;) =&gt; ExpoBundledMediaResolver"
+              >
+                <h4>createExpoBundledMediaResolver</h4>
+                <p class="muted">function • <code>src/bundledMediaResolver.ts:15:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ExpoBundledMediaResolver</li>
+                    <li class="chip">ExpoBundledMediaValue</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(registry: Readonly&lt;Record&lt;string, ExpoBundledMediaValue&gt;&gt;) =&gt; ExpoBundledMediaResolver</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>registry</code></td>
+                        <td>
+                          <code>Readonly&lt;Record&lt;string, ExpoBundledMediaValue&gt;&gt;</code>
+                        </td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>ExpoBundledMediaResolver</code></p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-expobundledmediaregistry"
+                data-search="ExpoBundledMediaRegistry unknown src/bundledMediaResolver.ts "
+              >
+                <h4>ExpoBundledMediaRegistry</h4>
+                <p class="muted">unknown • <code>src/bundledMediaResolver.ts:5:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-expobundledmediaresolver"
+                data-search="ExpoBundledMediaResolver unknown src/bundledMediaResolver.ts "
+              >
+                <h4>ExpoBundledMediaResolver</h4>
+                <p class="muted">unknown • <code>src/bundledMediaResolver.ts:11:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-expobundledmediaresolverargs"
+                data-search="ExpoBundledMediaResolverArgs type src/bundledMediaResolver.ts "
+              >
+                <h4>ExpoBundledMediaResolverArgs</h4>
+                <p class="muted">type • <code>src/bundledMediaResolver.ts:7:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>asset</code></td>
+                      <td>property</td>
+                      <td><code>MediaAsset</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-expobundledmediavalue"
+                data-search="ExpoBundledMediaValue unknown src/bundledMediaResolver.ts "
+              >
+                <h4>ExpoBundledMediaValue</h4>
+                <p class="muted">unknown • <code>src/bundledMediaResolver.ts:3:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+              </article>
+              <article
+                class="item"
+                id="symbol-resolveexpobundledmediaasset"
+                data-search="resolveExpoBundledMediaAsset function src/bundledMediaResolver.ts  ExpoBundledMediaValue (registry: Readonly&lt;Record&lt;string, ExpoBundledMediaValue&gt;&gt;, asset: MediaAsset) =&gt; ExpoBundledMediaValue | null"
+              >
+                <h4>resolveExpoBundledMediaAsset</h4>
+                <p class="muted">function • <code>src/bundledMediaResolver.ts:21:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ExpoBundledMediaValue</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+(registry: Readonly&lt;Record&lt;string, ExpoBundledMediaValue&gt;&gt;, asset: MediaAsset) =&gt; ExpoBundledMediaValue | null</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>asset</code></td>
+                        <td><code>MediaAsset</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><code>registry</code></td>
+                        <td>
+                          <code>Readonly&lt;Record&lt;string, ExpoBundledMediaValue&gt;&gt;</code>
+                        </td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>Returns:</strong> <code>ExpoBundledMediaValue | null</code></p>
                 </div>
               </article>
             </section>
@@ -2175,6 +2465,10 @@
                 --&gt; entrypoint_src_index_ts
                 module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_barcodeScanRuntime_ts
+                module_src_bundledMediaRegistrySource_ts[&quot;src/bundledMediaRegistrySource.ts&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_bundledMediaRegistrySource_ts
+                module_src_bundledMediaResolver_ts[&quot;src/bundledMediaResolver.ts&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_bundledMediaResolver_ts
                 module_src_componentRegistry_ts[&quot;src/componentRegistry.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_componentRegistry_ts
                 module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
@@ -2246,6 +2540,10 @@ graph TD
   package__ankhorage_expo_runtime --&gt; entrypoint_src_index_ts
   module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_barcodeScanRuntime_ts
+  module_src_bundledMediaRegistrySource_ts[&quot;src/bundledMediaRegistrySource.ts&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_bundledMediaRegistrySource_ts
+  module_src_bundledMediaResolver_ts[&quot;src/bundledMediaResolver.ts&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_bundledMediaResolver_ts
   module_src_componentRegistry_ts[&quot;src/componentRegistry.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_componentRegistry_ts
   module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
@@ -2312,6 +2610,8 @@ graph TD
               <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
               <div class="mermaid">
                 graph LR module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
+                module_src_bundledMediaRegistrySource_ts[&quot;src/bundledMediaRegistrySource.ts&quot;]
+                module_src_bundledMediaResolver_ts[&quot;src/bundledMediaResolver.ts&quot;]
                 module_src_componentRegistry_ts[&quot;src/componentRegistry.ts&quot;]
                 module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
                 module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
@@ -2359,6 +2659,8 @@ graph TD
                 <pre>
 graph LR
   module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
+  module_src_bundledMediaRegistrySource_ts[&quot;src/bundledMediaRegistrySource.ts&quot;]
+  module_src_bundledMediaResolver_ts[&quot;src/bundledMediaResolver.ts&quot;]
   module_src_componentRegistry_ts[&quot;src/componentRegistry.ts&quot;]
   module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
   module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
@@ -2404,6 +2706,8 @@ graph LR
               <p class="muted"><code>diagrams/export-graph.mmd</code></p>
               <div class="mermaid">
                 graph LR module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
+                module_src_bundledMediaRegistrySource_ts[&quot;src/bundledMediaRegistrySource.ts&quot;]
+                module_src_bundledMediaResolver_ts[&quot;src/bundledMediaResolver.ts&quot;]
                 module_src_componentRegistry_ts[&quot;src/componentRegistry.ts&quot;]
                 module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
                 module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
@@ -2434,6 +2738,10 @@ graph LR
                 export_createComponentRegistry[&quot;createComponentRegistry&quot;]
                 module_src_componentRegistry_ts --&gt; export_createComponentRegistry
                 export_createComponentRegistry -.-&gt; export_ComponentRegistry
+                export_createExpoBundledMediaResolver[&quot;createExpoBundledMediaResolver&quot;]
+                module_src_bundledMediaResolver_ts --&gt; export_createExpoBundledMediaResolver
+                export_createExpoBundledMediaResolver -.-&gt; export_ExpoBundledMediaResolver
+                export_createExpoBundledMediaResolver -.-&gt; export_ExpoBundledMediaValue
                 export_createExpoRuntimeRegistry[&quot;createExpoRuntimeRegistry&quot;]
                 module_src_createExpoRuntimeRegistry_tsx --&gt; export_createExpoRuntimeRegistry
                 export_createExpoRuntimeRegistry -.-&gt; export_ComponentRegistry
@@ -2449,6 +2757,17 @@ graph LR
                 module_src_ExpoBarcodeScannerAdapter_tsx --&gt; export_ExpoBarcodeScannerAdapter
                 export_ExpoBarcodeScanResultLike[&quot;ExpoBarcodeScanResultLike&quot;]
                 module_src_barcodeScanRuntime_ts --&gt; export_ExpoBarcodeScanResultLike
+                export_ExpoBundledMediaRegistry[&quot;ExpoBundledMediaRegistry&quot;]
+                module_src_bundledMediaResolver_ts --&gt; export_ExpoBundledMediaRegistry
+                export_ExpoBundledMediaRegistrySourceEntry[&quot;ExpoBundledMediaRegistrySourceEntry&quot;]
+                module_src_bundledMediaRegistrySource_ts --&gt;
+                export_ExpoBundledMediaRegistrySourceEntry
+                export_ExpoBundledMediaResolver[&quot;ExpoBundledMediaResolver&quot;]
+                module_src_bundledMediaResolver_ts --&gt; export_ExpoBundledMediaResolver
+                export_ExpoBundledMediaResolverArgs[&quot;ExpoBundledMediaResolverArgs&quot;]
+                module_src_bundledMediaResolver_ts --&gt; export_ExpoBundledMediaResolverArgs
+                export_ExpoBundledMediaValue[&quot;ExpoBundledMediaValue&quot;]
+                module_src_bundledMediaResolver_ts --&gt; export_ExpoBundledMediaValue
                 export_ExpoRuntimeActionHandlerArgs[&quot;ExpoRuntimeActionHandlerArgs&quot;]
                 module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeActionHandlerArgs
                 export_ExpoRuntimeActionHandlers[&quot;ExpoRuntimeActionHandlers&quot;]
@@ -2488,12 +2807,19 @@ graph LR
                 module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeThemeMode
                 export_getExpoBarcodeScannerViewSource[&quot;getExpoBarcodeScannerViewSource&quot;]
                 module_src_generatedSources_ts --&gt; export_getExpoBarcodeScannerViewSource
+                export_getExpoBundledMediaRegistrySource[&quot;getExpoBundledMediaRegistrySource&quot;]
+                module_src_bundledMediaRegistrySource_ts --&gt;
+                export_getExpoBundledMediaRegistrySource export_getExpoBundledMediaRegistrySource
+                -.-&gt; export_ExpoBundledMediaRegistrySourceEntry
                 export_mapPermissionStatusToCameraPermissionStatus[&quot;mapPermissionStatusToCameraPermissionStatus&quot;]
                 module_src_barcodeScanRuntime_ts --&gt;
                 export_mapPermissionStatusToCameraPermissionStatus
                 export_normalizeExpoBarcodeScanResult[&quot;normalizeExpoBarcodeScanResult&quot;]
                 module_src_barcodeScanRuntime_ts --&gt; export_normalizeExpoBarcodeScanResult
                 export_normalizeExpoBarcodeScanResult -.-&gt; export_ExpoBarcodeScanResultLike
+                export_resolveExpoBundledMediaAsset[&quot;resolveExpoBundledMediaAsset&quot;]
+                module_src_bundledMediaResolver_ts --&gt; export_resolveExpoBundledMediaAsset
+                export_resolveExpoBundledMediaAsset -.-&gt; export_ExpoBundledMediaValue
                 export_resolveExpoRuntimeConfigPluginOutput[&quot;resolveExpoRuntimeConfigPluginOutput&quot;]
                 module_src_generatedAppOutput_ts --&gt; export_resolveExpoRuntimeConfigPluginOutput
                 export_resolveExpoRuntimeConfigPluginOutput -.-&gt;
@@ -2532,6 +2858,8 @@ graph LR
                 <pre>
 graph LR
   module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
+  module_src_bundledMediaRegistrySource_ts[&quot;src/bundledMediaRegistrySource.ts&quot;]
+  module_src_bundledMediaResolver_ts[&quot;src/bundledMediaResolver.ts&quot;]
   module_src_componentRegistry_ts[&quot;src/componentRegistry.ts&quot;]
   module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
   module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
@@ -2562,6 +2890,10 @@ graph LR
   export_createComponentRegistry[&quot;createComponentRegistry&quot;]
   module_src_componentRegistry_ts --&gt; export_createComponentRegistry
   export_createComponentRegistry -.-&gt; export_ComponentRegistry
+  export_createExpoBundledMediaResolver[&quot;createExpoBundledMediaResolver&quot;]
+  module_src_bundledMediaResolver_ts --&gt; export_createExpoBundledMediaResolver
+  export_createExpoBundledMediaResolver -.-&gt; export_ExpoBundledMediaResolver
+  export_createExpoBundledMediaResolver -.-&gt; export_ExpoBundledMediaValue
   export_createExpoRuntimeRegistry[&quot;createExpoRuntimeRegistry&quot;]
   module_src_createExpoRuntimeRegistry_tsx --&gt; export_createExpoRuntimeRegistry
   export_createExpoRuntimeRegistry -.-&gt; export_ComponentRegistry
@@ -2577,6 +2909,16 @@ graph LR
   module_src_ExpoBarcodeScannerAdapter_tsx --&gt; export_ExpoBarcodeScannerAdapter
   export_ExpoBarcodeScanResultLike[&quot;ExpoBarcodeScanResultLike&quot;]
   module_src_barcodeScanRuntime_ts --&gt; export_ExpoBarcodeScanResultLike
+  export_ExpoBundledMediaRegistry[&quot;ExpoBundledMediaRegistry&quot;]
+  module_src_bundledMediaResolver_ts --&gt; export_ExpoBundledMediaRegistry
+  export_ExpoBundledMediaRegistrySourceEntry[&quot;ExpoBundledMediaRegistrySourceEntry&quot;]
+  module_src_bundledMediaRegistrySource_ts --&gt; export_ExpoBundledMediaRegistrySourceEntry
+  export_ExpoBundledMediaResolver[&quot;ExpoBundledMediaResolver&quot;]
+  module_src_bundledMediaResolver_ts --&gt; export_ExpoBundledMediaResolver
+  export_ExpoBundledMediaResolverArgs[&quot;ExpoBundledMediaResolverArgs&quot;]
+  module_src_bundledMediaResolver_ts --&gt; export_ExpoBundledMediaResolverArgs
+  export_ExpoBundledMediaValue[&quot;ExpoBundledMediaValue&quot;]
+  module_src_bundledMediaResolver_ts --&gt; export_ExpoBundledMediaValue
   export_ExpoRuntimeActionHandlerArgs[&quot;ExpoRuntimeActionHandlerArgs&quot;]
   module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeActionHandlerArgs
   export_ExpoRuntimeActionHandlers[&quot;ExpoRuntimeActionHandlers&quot;]
@@ -2614,11 +2956,17 @@ graph LR
   module_src_expoActionBridge_ts --&gt; export_ExpoRuntimeThemeMode
   export_getExpoBarcodeScannerViewSource[&quot;getExpoBarcodeScannerViewSource&quot;]
   module_src_generatedSources_ts --&gt; export_getExpoBarcodeScannerViewSource
+  export_getExpoBundledMediaRegistrySource[&quot;getExpoBundledMediaRegistrySource&quot;]
+  module_src_bundledMediaRegistrySource_ts --&gt; export_getExpoBundledMediaRegistrySource
+  export_getExpoBundledMediaRegistrySource -.-&gt; export_ExpoBundledMediaRegistrySourceEntry
   export_mapPermissionStatusToCameraPermissionStatus[&quot;mapPermissionStatusToCameraPermissionStatus&quot;]
   module_src_barcodeScanRuntime_ts --&gt; export_mapPermissionStatusToCameraPermissionStatus
   export_normalizeExpoBarcodeScanResult[&quot;normalizeExpoBarcodeScanResult&quot;]
   module_src_barcodeScanRuntime_ts --&gt; export_normalizeExpoBarcodeScanResult
   export_normalizeExpoBarcodeScanResult -.-&gt; export_ExpoBarcodeScanResultLike
+  export_resolveExpoBundledMediaAsset[&quot;resolveExpoBundledMediaAsset&quot;]
+  module_src_bundledMediaResolver_ts --&gt; export_resolveExpoBundledMediaAsset
+  export_resolveExpoBundledMediaAsset -.-&gt; export_ExpoBundledMediaValue
   export_resolveExpoRuntimeConfigPluginOutput[&quot;resolveExpoRuntimeConfigPluginOutput&quot;]
   module_src_generatedAppOutput_ts --&gt; export_resolveExpoRuntimeConfigPluginOutput
   export_resolveExpoRuntimeConfigPluginOutput -.-&gt; export_ExpoRuntimeConfigPluginOutput
@@ -2777,6 +3125,35 @@ sequenceDiagram
             </article>
             <article
               class="item"
+              data-search="getExpoBundledMediaRegistrySource sequence diagrams/sequences/get-expo-bundled-media-registry-source.mmd"
+            >
+              <h3>getExpoBundledMediaRegistrySource sequence</h3>
+              <p class="muted">
+                <code>diagrams/sequences/get-expo-bundled-media-registry-source.mmd</code>
+              </p>
+              <div class="mermaid">
+                sequenceDiagram participant participant_getExpoBundledMediaRegistrySource as
+                getExpoBundledMediaRegistrySource participant participant_normalizeEntries as
+                normalizeEntries
+                participant_getExpoBundledMediaRegistrySource-&gt;&gt;participant_normalizeEntries:
+                normalizeEntries()
+                participant_normalizeEntries--&gt;&gt;participant_getExpoBundledMediaRegistrySource:
+                return
+              </div>
+              <details>
+                <summary>View Mermaid source</summary>
+                <pre>
+sequenceDiagram
+  participant participant_getExpoBundledMediaRegistrySource as getExpoBundledMediaRegistrySource
+  participant participant_normalizeEntries as normalizeEntries
+  participant_getExpoBundledMediaRegistrySource-&gt;&gt;participant_normalizeEntries: normalizeEntries()
+  participant_normalizeEntries--&gt;&gt;participant_getExpoBundledMediaRegistrySource: return
+</pre
+                >
+              </details>
+            </article>
+            <article
+              class="item"
               data-search="resolveExpoRuntimeGeneratedAppOutput sequence diagrams/sequences/resolve-expo-runtime-generated-app-output.mmd"
             >
               <h3>resolveExpoRuntimeGeneratedAppOutput sequence</h3>
@@ -2929,6 +3306,55 @@ sequenceDiagram
             <article class="item" data-search="shouldIgnoreBarcodeScan src/barcodeScanRuntime.ts ">
               <h3>shouldIgnoreBarcodeScan</h3>
               <p class="muted"><code>src/barcodeScanRuntime.ts:64:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-bundledmediaregistrysource-ts"
+          class="view"
+          data-view="src/bundledMediaRegistrySource.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/bundledMediaRegistrySource.ts</h2>
+            <article
+              class="item"
+              data-search="getExpoBundledMediaRegistrySource src/bundledMediaRegistrySource.ts "
+            >
+              <h3>getExpoBundledMediaRegistrySource</h3>
+              <p class="muted"><code>src/bundledMediaRegistrySource.ts:6:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="normalizeEntries src/bundledMediaRegistrySource.ts ">
+              <h3>normalizeEntries</h3>
+              <p class="muted"><code>src/bundledMediaRegistrySource.ts:25:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-bundledmediaresolver-ts"
+          class="view"
+          data-view="src/bundledMediaResolver.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/bundledMediaResolver.ts</h2>
+            <article
+              class="item"
+              data-search="createExpoBundledMediaResolver src/bundledMediaResolver.ts "
+            >
+              <h3>createExpoBundledMediaResolver</h3>
+              <p class="muted"><code>src/bundledMediaResolver.ts:15:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="resolveExpoBundledMediaAsset src/bundledMediaResolver.ts "
+            >
+              <h3>resolveExpoBundledMediaAsset</h3>
+              <p class="muted"><code>src/bundledMediaResolver.ts:21:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
