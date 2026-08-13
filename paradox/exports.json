@@ -126,6 +126,38 @@
     "structuredRows": []
   },
   {
+    "name": "createExpoBundledMediaResolver",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/bundledMediaResolver.ts",
+    "sourceLocation": {
+      "filePath": "src/bundledMediaResolver.ts",
+      "line": 15,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoBundledMediaResolver", "ExpoBundledMediaValue"],
+    "signatures": [
+      {
+        "label": "(registry: Readonly<Record<string, ExpoBundledMediaValue>>) => ExpoBundledMediaResolver",
+        "parameters": [
+          {
+            "name": "registry",
+            "type": "Readonly<Record<string, ExpoBundledMediaValue>>",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ExpoBundledMediaResolver",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "createExpoRuntimeRegistry",
     "description": null,
     "isReadme": false,
@@ -331,6 +363,119 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoBundledMediaRegistry",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/bundledMediaResolver.ts",
+    "sourceLocation": {
+      "filePath": "src/bundledMediaResolver.ts",
+      "line": 5,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoBundledMediaRegistrySourceEntry",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/bundledMediaRegistrySource.ts",
+    "sourceLocation": {
+      "filePath": "src/bundledMediaRegistrySource.ts",
+      "line": 1,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "path",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "requirePath",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoBundledMediaResolver",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/bundledMediaResolver.ts",
+    "sourceLocation": {
+      "filePath": "src/bundledMediaResolver.ts",
+      "line": 11,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoBundledMediaResolverArgs",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/bundledMediaResolver.ts",
+    "sourceLocation": {
+      "filePath": "src/bundledMediaResolver.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "asset",
+        "kind": "property",
+        "type": "MediaAsset",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoBundledMediaValue",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "unknown",
+    "modulePath": "src/bundledMediaResolver.ts",
+    "sourceLocation": {
+      "filePath": "src/bundledMediaResolver.ts",
+      "line": 3,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -826,6 +971,38 @@
     "structuredRows": []
   },
   {
+    "name": "getExpoBundledMediaRegistrySource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/bundledMediaRegistrySource.ts",
+    "sourceLocation": {
+      "filePath": "src/bundledMediaRegistrySource.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoBundledMediaRegistrySourceEntry"],
+    "signatures": [
+      {
+        "label": "(entries: readonly ExpoBundledMediaRegistrySourceEntry[]) => string",
+        "parameters": [
+          {
+            "name": "entries",
+            "type": "readonly ExpoBundledMediaRegistrySourceEntry[]",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "string",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "mapPermissionStatusToCameraPermissionStatus",
     "description": null,
     "isReadme": false,
@@ -889,6 +1066,44 @@
           }
         ],
         "returnType": "BarcodeScanResult | null",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveExpoBundledMediaAsset",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/bundledMediaResolver.ts",
+    "sourceLocation": {
+      "filePath": "src/bundledMediaResolver.ts",
+      "line": 21,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoBundledMediaValue"],
+    "signatures": [
+      {
+        "label": "(registry: Readonly<Record<string, ExpoBundledMediaValue>>, asset: MediaAsset) => ExpoBundledMediaValue | null",
+        "parameters": [
+          {
+            "name": "asset",
+            "type": "MediaAsset",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "registry",
+            "type": "Readonly<Record<string, ExpoBundledMediaValue>>",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ExpoBundledMediaValue | null",
         "returnDescription": null
       }
     ],

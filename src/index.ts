@@ -7,6 +7,18 @@ export {
   normalizeExpoBarcodeScanResult,
   shouldIgnoreBarcodeScan,
 } from './barcodeScanRuntime';
+export {
+  type ExpoBundledMediaRegistrySourceEntry,
+  getExpoBundledMediaRegistrySource,
+} from './bundledMediaRegistrySource';
+export {
+  createExpoBundledMediaResolver,
+  type ExpoBundledMediaRegistry,
+  type ExpoBundledMediaResolver,
+  type ExpoBundledMediaResolverArgs,
+  type ExpoBundledMediaValue,
+  resolveExpoBundledMediaAsset,
+} from './bundledMediaResolver';
 export type { ComponentRegistry } from './componentRegistry';
 export { createComponentRegistry } from './componentRegistry';
 export { createExpoRuntimeRegistry } from './createExpoRuntimeRegistry';
