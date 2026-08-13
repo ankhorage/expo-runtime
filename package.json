@@ -54,6 +54,13 @@
       "types": "./src/mediaPicker/index.ts",
       "import": "./dist/mediaPicker/index.js",
       "default": "./dist/mediaPicker/index.js"
+    },
+    "./bundled-media": {
+      "react-native": "./src/bundledMedia/index.ts",
+      "browser": "./src/bundledMedia/index.ts",
+      "types": "./src/bundledMedia/index.ts",
+      "import": "./dist/bundledMedia/index.js",
+      "default": "./dist/bundledMedia/index.js"
     }
   },
   "publishConfig": {

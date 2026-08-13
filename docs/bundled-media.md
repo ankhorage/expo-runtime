@@ -2,12 +2,12 @@
 
 Expo Runtime owns the Expo/Metro-specific resolution boundary for canonical bundled media.
 
-A manifest keeps only the app-relative canonical source, for example:
+A manifest keeps only the app-relative canonical source, for example `{ kind: 'bundled', path: 'assets/authoring/hero/hero.png' }`.
 
-`{ kind: 'bundled', path: 'assets/authoring/hero/hero.png' }`
+Consumers that only need bundled media should import `@ankhorage/expo-runtime/bundled-media`. This lightweight subpath exports the resolver, registry types and static registry source generator without loading the root Expo runtime/provider barrel. Node-based generators such as the Studio trusted host can therefore generate Metro asset registries without pulling React Native UI peers into their process.
 
-Metro cannot resolve an arbitrary runtime string with a dynamic `require()`. Generated Expo app code therefore creates a static `ExpoBundledMediaRegistry` whose values come from literal `require('../../assets/...')` expressions. `getExpoBundledMediaRegistrySource()` renders that static module from explicit canonical-path/require-path entries.
+Metro cannot resolve an arbitrary runtime string with a dynamic `require()`. Generated Expo app code therefore creates a static `ExpoBundledMediaRegistry` whose values come from literal `require('../../assets/...')` expressions. `getExpoBundledMediaRegistrySource()` renders that static module and its generated type import also targets the lightweight bundled-media subpath.
 
-`createExpoBundledMediaResolver()` consumes the generated registry and resolves only `bundled` media. Unknown paths and non-bundled sources return `null`, allowing callers to compose this Expo-specific resolver with provider-backed media resolution at the host/runtime boundary.
+`createExpoBundledMediaResolver()` resolves only bundled media. Unknown paths and non-bundled sources return `null`, allowing composition with provider-backed media resolution.
 
-The registry contains runtime asset values only. Temporary picker URIs, filesystem locations outside the generated app, provider credentials, and signed storage URLs are not canonical bundled media identity and must never be serialized into the manifest.
+Temporary picker URIs, host filesystem paths, provider credentials and signed storage URLs are never canonical bundled media identity.

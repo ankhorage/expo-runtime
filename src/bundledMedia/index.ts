@@ -1,4 +1,8 @@
 export {
+  type ExpoBundledMediaRegistrySourceEntry,
+  getExpoBundledMediaRegistrySource,
+} from '../bundledMediaRegistrySource';
+export {
   createExpoBundledMediaResolver,
   type ExpoBundledMediaRegistry,
   type ExpoBundledMediaResolver,
@@ -6,7 +10,3 @@ export {
   type ExpoBundledMediaValue,
   resolveExpoBundledMediaAsset,
 } from '../bundledMediaResolver';
-export {
-  type ExpoBundledMediaRegistrySourceEntry,
-  getExpoBundledMediaRegistrySource,
-} from '../bundledMediaRegistrySource';

@@ -1,10 +1,7 @@
-import { describe, expect, test } from 'bun:test';
 import type { MediaAsset } from '@ankhorage/contracts';
+import { describe, expect, test } from 'bun:test';
 
-import {
-  createExpoBundledMediaResolver,
-  getExpoBundledMediaRegistrySource,
-} from './index';
+import { createExpoBundledMediaResolver, getExpoBundledMediaRegistrySource } from './index';
 
 describe('bundled media subpath surface', () => {
   test('exposes bundled resolution without the root runtime barrel', () => {
