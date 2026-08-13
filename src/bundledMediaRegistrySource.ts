@@ -11,7 +11,7 @@ export function getExpoBundledMediaRegistrySource(
     (entry) => `  ${JSON.stringify(entry.path)}: require(${JSON.stringify(entry.requirePath)}),`,
   );
   return [
-    "import type { ExpoBundledMediaRegistry } from '@ankhorage/expo-runtime';",
+    "import type { ExpoBundledMediaRegistry } from '@ankhorage/expo-runtime/bundled-media';",
     '',
     'declare const require: (path: string) => ExpoBundledMediaRegistry[string];',
     '',
