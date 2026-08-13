@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.1.0",
+      "value": "v2.2.0",
       "color": "cb3837"
     },
     {
@@ -75,6 +75,21 @@
         "mapPermissionStatusToCameraPermissionStatus",
         "normalizeExpoBarcodeScanResult",
         "shouldIgnoreBarcodeScan"
+      ]
+    },
+    {
+      "path": "src/bundledMedia/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "createExpoBundledMediaResolver",
+        "ExpoBundledMediaRegistry",
+        "ExpoBundledMediaRegistrySourceEntry",
+        "ExpoBundledMediaResolver",
+        "ExpoBundledMediaResolverArgs",
+        "ExpoBundledMediaValue",
+        "getExpoBundledMediaRegistrySource",
+        "resolveExpoBundledMediaAsset"
       ]
     },
     {
@@ -2496,6 +2511,16 @@
         "fromPath": "src/planning.ts",
         "toPath": "src/resolveExpoRuntimePlan.ts",
         "sourcePath": "src/planning.ts"
+      },
+      {
+        "fromPath": "src/bundledMedia/index.ts",
+        "toPath": "src/bundledMediaRegistrySource.ts",
+        "sourcePath": "src/bundledMedia/index.ts"
+      },
+      {
+        "fromPath": "src/bundledMedia/index.ts",
+        "toPath": "src/bundledMediaResolver.ts",
+        "sourcePath": "src/bundledMedia/index.ts"
       },
       {
         "fromPath": "src/mediaPicker/createExpoMediaPickerAdapter.ts",
