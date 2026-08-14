@@ -6,10 +6,16 @@ export type ExpoOAuthBrowserRuntimeReadiness =
       readonly message: string;
     };
 
-export function resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig(
-  expoGoConfig: unknown,
+export interface ExpoOAuthBrowserRuntimeEnvironment {
+  readonly appOwnership: unknown;
+  readonly executionEnvironment: unknown;
+  readonly expoGoConfig: unknown;
+}
+
+export function resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment(
+  environment: ExpoOAuthBrowserRuntimeEnvironment,
 ): ExpoOAuthBrowserRuntimeReadiness {
-  if (expoGoConfig === null) {
+  if (environment.appOwnership !== 'expo') {
     return { status: 'ready' };
   }
 
