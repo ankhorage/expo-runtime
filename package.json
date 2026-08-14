@@ -55,6 +55,13 @@
       "import": "./dist/oauthBrowserTransport.js",
       "default": "./dist/oauthBrowserTransport.js"
     },
+    "./oauth-browser-runtime": {
+      "react-native": "./src/oauthBrowserRuntime.ts",
+      "browser": "./src/oauthBrowserRuntime.ts",
+      "types": "./src/oauthBrowserRuntime.ts",
+      "import": "./dist/oauthBrowserRuntime.js",
+      "default": "./dist/oauthBrowserRuntime.js"
+    },
     "./media-picker": {
       "react-native": "./src/mediaPicker/index.ts",
       "browser": "./src/mediaPicker/index.ts",
@@ -92,6 +99,7 @@
     "@ankhorage/zora": "^2.8.7",
     "expo": "~54.0.34",
     "expo-camera": "~17.0.10",
+    "expo-constants": "~18.0.13",
     "expo-document-picker": "~14.0.8",
     "expo-file-system": "~19.0.23",
     "expo-image-picker": "~17.0.11",
@@ -99,6 +107,9 @@
     "react-native": "0.81.5"
   },
   "peerDependenciesMeta": {
+    "expo-constants": {
+      "optional": true
+    },
     "expo-document-picker": {
       "optional": true
     },
@@ -119,6 +130,7 @@
     "@types/react": "^19.2.14",
     "expo": "~54.0.34",
     "expo-camera": "~17.0.10",
+    "expo-constants": "~18.0.13",
     "expo-document-picker": "~14.0.8",
     "expo-file-system": "~19.0.23",
     "expo-image-picker": "~17.0.11",

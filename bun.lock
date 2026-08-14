@@ -18,6 +18,7 @@
         "@types/react": "^19.2.14",
         "expo": "~54.0.34",
         "expo-camera": "~17.0.10",
+        "expo-constants": "^18.0.13",
         "expo-document-picker": "~14.0.8",
         "expo-file-system": "~19.0.23",
         "expo-image-picker": "~17.0.11",
@@ -29,6 +30,7 @@
         "@ankhorage/zora": "^2.8.7",
         "expo": "~54.0.34",
         "expo-camera": "~17.0.10",
+        "expo-constants": "~18.0.13",
         "expo-document-picker": "~14.0.8",
         "expo-file-system": "~19.0.23",
         "expo-image-picker": "~17.0.11",
@@ -36,6 +38,7 @@
         "react-native": "0.81.5",
       },
       "optionalPeers": [
+        "expo-constants",
         "expo-document-picker",
         "expo-file-system",
         "expo-image-picker",

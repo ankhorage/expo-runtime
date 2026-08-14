@@ -333,6 +333,24 @@
               </button>
             </li>
             <li>
+              <button class="nav-button" type="button" data-target="src/oauthBrowserRuntime.ts">
+                src/oauthBrowserRuntime.ts
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/oauthBrowserRuntimeCore.ts">
+                src/oauthBrowserRuntimeCore.ts
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
+              <button class="nav-button" type="button" data-target="src/oauthBrowserTransport.ts">
+                src/oauthBrowserTransport.ts
+                <small>4 functions</small>
+              </button>
+            </li>
+            <li>
               <button class="nav-button" type="button" data-target="src/resolveExpoRuntimePlan.ts">
                 src/resolveExpoRuntimePlan.ts
                 <small>6 functions</small>
@@ -348,7 +366,7 @@
             <div class="summary">
               <div><strong>44</strong><span class="muted">public exports</span></div>
               <div><strong>2</strong><span class="muted">components</span></div>
-              <div><strong>24</strong><span class="muted">modules</span></div>
+              <div><strong>27</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -670,6 +688,42 @@
                 <strong>Exports:</strong> <code>ExpoRuntimeNativePlatform</code>,
                 <code>ExpoRuntimeNativeSchemeMap</code>,
                 <code>resolveExpoRuntimeNativeSchemeMap</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/oauthBrowserRuntime.ts src/oauthBrowserRuntimeCore.ts ExpoOAuthBrowserRuntimeReadiness resolveExpoOAuthBrowserRuntimeReadiness"
+            >
+              <h3>src/oauthBrowserRuntime.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <code>src/oauthBrowserRuntimeCore.ts</code></p>
+              <p>
+                <strong>Exports:</strong> <code>ExpoOAuthBrowserRuntimeReadiness</code>,
+                <code>resolveExpoOAuthBrowserRuntimeReadiness</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/oauthBrowserRuntimeCore.ts ExpoOAuthBrowserRuntimeReadiness resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig"
+            >
+              <h3>src/oauthBrowserRuntimeCore.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>ExpoOAuthBrowserRuntimeReadiness</code>,
+                <code>resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/oauthBrowserTransport.ts resolveExpoOAuthBrowserException resolveExpoOAuthBrowserResult"
+            >
+              <h3>src/oauthBrowserTransport.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>resolveExpoOAuthBrowserException</code>,
+                <code>resolveExpoOAuthBrowserResult</code>
               </p>
             </article>
             <article
@@ -2565,6 +2619,13 @@
                 package__ankhorage_expo_runtime -.-&gt; module_src_mediaPicker_types_ts
                 module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_nativeLinkingPlanning_ts
+                module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_oauthBrowserRuntime_ts
+                module_src_oauthBrowserRuntime_ts --&gt; module_src_oauthBrowserRuntimeCore_ts
+                module_src_oauthBrowserRuntimeCore_ts[&quot;src/oauthBrowserRuntimeCore.ts&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_oauthBrowserRuntimeCore_ts
+                module_src_oauthBrowserTransport_ts[&quot;src/oauthBrowserTransport.ts&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_oauthBrowserTransport_ts
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_permissionRuntime_ts
                 module_src_planning_ts[&quot;src/planning.ts&quot;] package__ankhorage_expo_runtime
@@ -2637,6 +2698,13 @@ graph TD
   package__ankhorage_expo_runtime -.-&gt; module_src_mediaPicker_types_ts
   module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_nativeLinkingPlanning_ts
+  module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_oauthBrowserRuntime_ts
+  module_src_oauthBrowserRuntime_ts --&gt; module_src_oauthBrowserRuntimeCore_ts
+  module_src_oauthBrowserRuntimeCore_ts[&quot;src/oauthBrowserRuntimeCore.ts&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_oauthBrowserRuntimeCore_ts
+  module_src_oauthBrowserTransport_ts[&quot;src/oauthBrowserTransport.ts&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_oauthBrowserTransport_ts
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_permissionRuntime_ts
   module_src_planning_ts[&quot;src/planning.ts&quot;]
@@ -2675,6 +2743,9 @@ graph TD
                 module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
                 module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
                 module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
+                module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
+                module_src_oauthBrowserRuntimeCore_ts[&quot;src/oauthBrowserRuntimeCore.ts&quot;]
+                module_src_oauthBrowserTransport_ts[&quot;src/oauthBrowserTransport.ts&quot;]
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
                 module_src_planning_ts[&quot;src/planning.ts&quot;]
                 module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
@@ -2700,6 +2771,7 @@ graph TD
                 module_src_mediaPicker_photoLibraryPicker_ts --&gt;
                 module_src_mediaPicker_readSelectedBytes_ts
                 module_src_mediaPicker_photoLibraryPicker_ts --&gt; module_src_mediaPicker_types_ts
+                module_src_oauthBrowserRuntime_ts --&gt; module_src_oauthBrowserRuntimeCore_ts
               </div>
               <details>
                 <summary>View Mermaid source</summary>
@@ -2726,6 +2798,9 @@ graph LR
   module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
   module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
   module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
+  module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
+  module_src_oauthBrowserRuntimeCore_ts[&quot;src/oauthBrowserRuntimeCore.ts&quot;]
+  module_src_oauthBrowserTransport_ts[&quot;src/oauthBrowserTransport.ts&quot;]
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
   module_src_planning_ts[&quot;src/planning.ts&quot;]
   module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
@@ -2746,6 +2821,7 @@ graph LR
   module_src_mediaPicker_photoLibraryPicker_ts --&gt; module_src_mediaPicker_mediaKinds_ts
   module_src_mediaPicker_photoLibraryPicker_ts --&gt; module_src_mediaPicker_readSelectedBytes_ts
   module_src_mediaPicker_photoLibraryPicker_ts --&gt; module_src_mediaPicker_types_ts
+  module_src_oauthBrowserRuntime_ts --&gt; module_src_oauthBrowserRuntimeCore_ts
 </pre
                 >
               </details>
@@ -2775,6 +2851,9 @@ graph LR
                 module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
                 module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
                 module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
+                module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
+                module_src_oauthBrowserRuntimeCore_ts[&quot;src/oauthBrowserRuntimeCore.ts&quot;]
+                module_src_oauthBrowserTransport_ts[&quot;src/oauthBrowserTransport.ts&quot;]
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
                 module_src_planning_ts[&quot;src/planning.ts&quot;]
                 module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
@@ -2929,6 +3008,9 @@ graph LR
   module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
   module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
   module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
+  module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
+  module_src_oauthBrowserRuntimeCore_ts[&quot;src/oauthBrowserRuntimeCore.ts&quot;]
+  module_src_oauthBrowserTransport_ts[&quot;src/oauthBrowserTransport.ts&quot;]
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
   module_src_planning_ts[&quot;src/planning.ts&quot;]
   module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
@@ -3743,6 +3825,78 @@ sequenceDiagram
             >
               <h3>resolveExpoRuntimeNativeSchemeMap</h3>
               <p class="muted"><code>src/nativeLinkingPlanning.ts:9:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-oauthbrowserruntime-ts"
+          class="view"
+          data-view="src/oauthBrowserRuntime.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/oauthBrowserRuntime.ts</h2>
+            <article
+              class="item"
+              data-search="resolveExpoOAuthBrowserRuntimeReadiness src/oauthBrowserRuntime.ts "
+            >
+              <h3>resolveExpoOAuthBrowserRuntimeReadiness</h3>
+              <p class="muted"><code>src/oauthBrowserRuntime.ts:10:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-oauthbrowserruntimecore-ts"
+          class="view"
+          data-view="src/oauthBrowserRuntimeCore.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/oauthBrowserRuntimeCore.ts</h2>
+            <article
+              class="item"
+              data-search="resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig src/oauthBrowserRuntimeCore.ts "
+            >
+              <h3>resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig</h3>
+              <p class="muted"><code>src/oauthBrowserRuntimeCore.ts:9:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-oauthbrowsertransport-ts"
+          class="view"
+          data-view="src/oauthBrowserTransport.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/oauthBrowserTransport.ts</h2>
+            <article
+              class="item"
+              data-search="resolveExpoOAuthBrowserResult src/oauthBrowserTransport.ts "
+            >
+              <h3>resolveExpoOAuthBrowserResult</h3>
+              <p class="muted"><code>src/oauthBrowserTransport.ts:3:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="resolveExpoOAuthBrowserException src/oauthBrowserTransport.ts "
+            >
+              <h3>resolveExpoOAuthBrowserException</h3>
+              <p class="muted"><code>src/oauthBrowserTransport.ts:23:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="transportFailed src/oauthBrowserTransport.ts ">
+              <h3>transportFailed</h3>
+              <p class="muted"><code>src/oauthBrowserTransport.ts:33:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="isRecord src/oauthBrowserTransport.ts ">
+              <h3>isRecord</h3>
+              <p class="muted"><code>src/oauthBrowserTransport.ts:40:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
