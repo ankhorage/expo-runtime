@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 2.4.0
+
+### Minor Changes
+
+- b2e39b8: Classify Expo authentication browser results into neutral OAuth transport responses.
+
 ## 2.3.0
 
 ### Minor Changes
