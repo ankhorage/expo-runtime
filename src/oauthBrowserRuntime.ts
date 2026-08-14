@@ -1,24 +1,12 @@
 import Constants from 'expo-constants';
 
-export type ExpoOAuthBrowserRuntimeReadiness =
-  | { readonly status: 'ready' }
-  | {
-      readonly status: 'unsupported';
-      readonly reason: 'expo-go';
-      readonly message: string;
-    };
+import {
+  type ExpoOAuthBrowserRuntimeReadiness,
+  resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig,
+} from './oauthBrowserRuntimeCore';
 
-export function resolveExpoOAuthBrowserRuntimeReadiness(
-  expoGoConfig: unknown = Constants.expoGoConfig,
-): ExpoOAuthBrowserRuntimeReadiness {
-  if (expoGoConfig === null) {
-    return { status: 'ready' };
-  }
+export type { ExpoOAuthBrowserRuntimeReadiness } from './oauthBrowserRuntimeCore';
 
-  return {
-    status: 'unsupported',
-    reason: 'expo-go',
-    message:
-      'Brokered OAuth requires a development or standalone build with the configured app scheme; Expo Go cannot provide a stable OAuth callback scheme.',
-  };
+export function resolveExpoOAuthBrowserRuntimeReadiness(): ExpoOAuthBrowserRuntimeReadiness {
+  return resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig(Constants.expoGoConfig);
 }
