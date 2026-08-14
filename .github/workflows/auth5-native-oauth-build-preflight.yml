@@ -1,0 +1,54 @@
+name: Auth5 native OAuth build preflight
+
+on:
+  push:
+    branches:
+      - agent/auth5-native-oauth-build-preflight
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/auth5-native-oauth-build-preflight
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.3.13'
+
+      - name: Resolve focused dependency update
+        run: |
+          bun update expo-constants --lockfile-only
+          bun install --frozen-lockfile
+
+      - name: Validate owner slice
+        run: |
+          bun run format
+          bun run docs
+          bun run format
+          bun run build
+          bun run lint
+          bun run format:check
+          bun run knip
+          bun run test
+          bun run typecheck
+          bun run changeset:status
+          git diff --check
+
+      - name: Commit validated owner slice
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/auth5-native-oauth-build-preflight.yml
+          git add bun.lock package.json src .changeset paradox README.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'Finalize native OAuth build preflight'
+            git push origin HEAD:agent/auth5-native-oauth-build-preflight
+          fi
