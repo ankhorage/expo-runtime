@@ -9,7 +9,7 @@ export type ExpoOAuthBrowserRuntimeReadiness =
     };
 
 export function resolveExpoOAuthBrowserRuntimeReadiness(
-  expoGoConfig: unknown | null = Constants.expoGoConfig,
+  expoGoConfig: unknown = Constants.expoGoConfig,
 ): ExpoOAuthBrowserRuntimeReadiness {
   if (expoGoConfig === null) {
     return { status: 'ready' };
