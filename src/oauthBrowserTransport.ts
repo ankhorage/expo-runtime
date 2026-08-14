@@ -1,9 +1,8 @@
 import type { AuthOAuthAuthorizationResponse } from '@ankhorage/contracts/auth';
 
-export function resolveExpoOAuthBrowserResult(
-  result: unknown,
-): AuthOAuthAuthorizationResponse {
-  if (!isRecord(result)) return transportFailed('The Expo authentication browser returned no result.');
+export function resolveExpoOAuthBrowserResult(result: unknown): AuthOAuthAuthorizationResponse {
+  if (!isRecord(result))
+    return transportFailed('The Expo authentication browser returned no result.');
 
   const type = Reflect.get(result, 'type');
   if (type === 'success') {
