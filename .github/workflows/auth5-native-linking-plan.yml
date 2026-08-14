@@ -40,6 +40,7 @@ jobs:
           bun run test
           bun run typecheck
           bun run docs
+          bun run format
           bun run format:check
           bun run changeset:status
 
