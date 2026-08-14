@@ -48,6 +48,13 @@
       "import": "./dist/planning.js",
       "default": "./dist/planning.js"
     },
+    "./oauth-browser": {
+      "react-native": "./src/oauthBrowserTransport.ts",
+      "browser": "./src/oauthBrowserTransport.ts",
+      "types": "./src/oauthBrowserTransport.ts",
+      "import": "./dist/oauthBrowserTransport.js",
+      "default": "./dist/oauthBrowserTransport.js"
+    },
     "./media-picker": {
       "react-native": "./src/mediaPicker/index.ts",
       "browser": "./src/mediaPicker/index.ts",
