@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.2.1",
+      "value": "v2.4.0",
       "color": "cb3837"
     },
     {
@@ -313,6 +313,27 @@
         "ExpoRuntimeNativeSchemeMap",
         "resolveExpoRuntimeNativeSchemeMap"
       ]
+    },
+    {
+      "path": "src/oauthBrowserRuntime.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/oauthBrowserRuntimeCore.ts"],
+      "exports": ["ExpoOAuthBrowserRuntimeReadiness", "resolveExpoOAuthBrowserRuntimeReadiness"]
+    },
+    {
+      "path": "src/oauthBrowserRuntimeCore.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ExpoOAuthBrowserRuntimeReadiness",
+        "resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig"
+      ]
+    },
+    {
+      "path": "src/oauthBrowserTransport.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["resolveExpoOAuthBrowserException", "resolveExpoOAuthBrowserResult"]
     },
     {
       "path": "src/permissionRuntime.ts",
@@ -2204,6 +2225,60 @@
       }
     },
     {
+      "name": "resolveExpoOAuthBrowserRuntimeReadiness",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/oauthBrowserRuntime.ts",
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/oauthBrowserRuntimeCore.ts",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolveExpoOAuthBrowserResult",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/oauthBrowserTransport.ts",
+        "line": 3,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolveExpoOAuthBrowserException",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/oauthBrowserTransport.ts",
+        "line": 23,
+        "column": 1
+      }
+    },
+    {
+      "name": "transportFailed",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/oauthBrowserTransport.ts",
+        "line": 33,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRecord",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/oauthBrowserTransport.ts",
+        "line": 40,
+        "column": 1
+      }
+    },
+    {
       "name": "resolveExpoRuntimePlan",
       "description": null,
       "sourceLocation": {
@@ -2515,6 +2590,11 @@
         "sourcePath": "src/layoutIntegrationPlanning.ts"
       },
       {
+        "fromPath": "src/oauthBrowserRuntime.ts",
+        "toPath": "src/oauthBrowserRuntimeCore.ts",
+        "sourcePath": "src/oauthBrowserRuntime.ts"
+      },
+      {
         "fromPath": "src/planning.ts",
         "toPath": "src/generatedAppOutput.ts",
         "sourcePath": "src/planning.ts"
@@ -2761,6 +2841,24 @@
         "toSymbol": "resolveExpoRuntimeNativeOutput",
         "callExpression": "resolveExpoRuntimeNativeOutput",
         "sourcePath": "src/generatedAppOutput.ts"
+      },
+      {
+        "fromSymbol": "resolveExpoOAuthBrowserRuntimeReadiness",
+        "toSymbol": "resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig",
+        "callExpression": "resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig",
+        "sourcePath": "src/oauthBrowserRuntime.ts"
+      },
+      {
+        "fromSymbol": "resolveExpoOAuthBrowserResult",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/oauthBrowserTransport.ts"
+      },
+      {
+        "fromSymbol": "resolveExpoOAuthBrowserResult",
+        "toSymbol": "transportFailed",
+        "callExpression": "transportFailed",
+        "sourcePath": "src/oauthBrowserTransport.ts"
       },
       {
         "fromSymbol": "addProvider",
