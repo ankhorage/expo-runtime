@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 2.3.0
+
+### Minor Changes
+
+- de6bd74: Add canonical native scheme planning for enabled Expo application targets.
+
 ## 2.2.1
 
 ### Patch Changes
