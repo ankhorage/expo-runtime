@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 2.5.1
+
+### Patch Changes
+
+- f616cdf: Fix brokered OAuth host detection so custom native, development-client, and standalone builds are not misclassified as Expo Go.
+
 ## 2.5.0
 
 ### Minor Changes
