@@ -1,6 +1,5 @@
-import { describe, expect, test } from 'bun:test';
-
 import type { AppDeployTargets } from '@ankhorage/contracts/deploy';
+import { describe, expect, test } from 'bun:test';
 
 import { resolveExpoRuntimeNativeSchemeMap } from './nativeLinkingPlanning';
 

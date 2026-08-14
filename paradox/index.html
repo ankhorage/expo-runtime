@@ -327,6 +327,12 @@
               </button>
             </li>
             <li>
+              <button class="nav-button" type="button" data-target="src/nativeLinkingPlanning.ts">
+                src/nativeLinkingPlanning.ts
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
               <button class="nav-button" type="button" data-target="src/resolveExpoRuntimePlan.ts">
                 src/resolveExpoRuntimePlan.ts
                 <small>6 functions</small>
@@ -342,7 +348,7 @@
             <div class="summary">
               <div><strong>44</strong><span class="muted">public exports</span></div>
               <div><strong>2</strong><span class="muted">components</span></div>
-              <div><strong>23</strong><span class="muted">modules</span></div>
+              <div><strong>24</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -655,6 +661,19 @@
             </article>
             <article
               class="item"
+              data-search="src/nativeLinkingPlanning.ts ExpoRuntimeNativePlatform ExpoRuntimeNativeSchemeMap resolveExpoRuntimeNativeSchemeMap"
+            >
+              <h3>src/nativeLinkingPlanning.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>ExpoRuntimeNativePlatform</code>,
+                <code>ExpoRuntimeNativeSchemeMap</code>,
+                <code>resolveExpoRuntimeNativeSchemeMap</code>
+              </p>
+            </article>
+            <article
+              class="item"
               data-search="src/permissionRuntime.ts createPermissionClient PermissionsProvider"
             >
               <h3>src/permissionRuntime.ts</h3>
@@ -667,7 +686,7 @@
             </article>
             <article
               class="item"
-              data-search="src/planning.ts ExpoRuntimeAdapterId ExpoRuntimeConfigPluginOutput ExpoRuntimeDependencyMap ExpoRuntimeGeneratedAppOutputPlan ExpoRuntimeLayoutIntegrationPlan ExpoRuntimeNativeOutputPlan ExpoRuntimePlan ExpoRuntimeProviderId getExpoBarcodeScannerViewSource resolveExpoRuntimeConfigPluginOutput resolveExpoRuntimeDependencyMap resolveExpoRuntimeGeneratedAppOutput resolveExpoRuntimeLayoutIntegration resolveExpoRuntimeNativeOutput resolveExpoRuntimePlan"
+              data-search="src/planning.ts ExpoRuntimeAdapterId ExpoRuntimeConfigPluginOutput ExpoRuntimeDependencyMap ExpoRuntimeGeneratedAppOutputPlan ExpoRuntimeLayoutIntegrationPlan ExpoRuntimeNativeOutputPlan ExpoRuntimeNativePlatform ExpoRuntimeNativeSchemeMap ExpoRuntimePlan ExpoRuntimeProviderId getExpoBarcodeScannerViewSource resolveExpoRuntimeConfigPluginOutput resolveExpoRuntimeDependencyMap resolveExpoRuntimeGeneratedAppOutput resolveExpoRuntimeLayoutIntegration resolveExpoRuntimeNativeOutput resolveExpoRuntimeNativeSchemeMap resolveExpoRuntimePlan"
             >
               <h3>src/planning.ts</h3>
               <p class="muted">Referenced module</p>
@@ -677,13 +696,15 @@
                 <code>ExpoRuntimeConfigPluginOutput</code>, <code>ExpoRuntimeDependencyMap</code>,
                 <code>ExpoRuntimeGeneratedAppOutputPlan</code>,
                 <code>ExpoRuntimeLayoutIntegrationPlan</code>,
-                <code>ExpoRuntimeNativeOutputPlan</code>, <code>ExpoRuntimePlan</code>,
+                <code>ExpoRuntimeNativeOutputPlan</code>, <code>ExpoRuntimeNativePlatform</code>,
+                <code>ExpoRuntimeNativeSchemeMap</code>, <code>ExpoRuntimePlan</code>,
                 <code>ExpoRuntimeProviderId</code>, <code>getExpoBarcodeScannerViewSource</code>,
                 <code>resolveExpoRuntimeConfigPluginOutput</code>,
                 <code>resolveExpoRuntimeDependencyMap</code>,
                 <code>resolveExpoRuntimeGeneratedAppOutput</code>,
                 <code>resolveExpoRuntimeLayoutIntegration</code>,
-                <code>resolveExpoRuntimeNativeOutput</code>, <code>resolveExpoRuntimePlan</code>
+                <code>resolveExpoRuntimeNativeOutput</code>,
+                <code>resolveExpoRuntimeNativeSchemeMap</code>, <code>resolveExpoRuntimePlan</code>
               </p>
             </article>
             <article
@@ -2542,6 +2563,8 @@
                 package__ankhorage_expo_runtime -.-&gt; module_src_mediaPicker_readSelectedBytes_ts
                 module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_mediaPicker_types_ts
+                module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_nativeLinkingPlanning_ts
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_permissionRuntime_ts
                 module_src_planning_ts[&quot;src/planning.ts&quot;] package__ankhorage_expo_runtime
@@ -2612,6 +2635,8 @@ graph TD
   package__ankhorage_expo_runtime -.-&gt; module_src_mediaPicker_readSelectedBytes_ts
   module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_mediaPicker_types_ts
+  module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_nativeLinkingPlanning_ts
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_permissionRuntime_ts
   module_src_planning_ts[&quot;src/planning.ts&quot;]
@@ -2649,6 +2674,7 @@ graph TD
                 module_src_mediaPicker_photoLibraryPicker_ts[&quot;src/mediaPicker/photoLibraryPicker.ts&quot;]
                 module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
                 module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
+                module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
                 module_src_planning_ts[&quot;src/planning.ts&quot;]
                 module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
@@ -2699,6 +2725,7 @@ graph LR
   module_src_mediaPicker_photoLibraryPicker_ts[&quot;src/mediaPicker/photoLibraryPicker.ts&quot;]
   module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
   module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
+  module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
   module_src_planning_ts[&quot;src/planning.ts&quot;]
   module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
@@ -2747,6 +2774,7 @@ graph LR
                 module_src_mediaPicker_photoLibraryPicker_ts[&quot;src/mediaPicker/photoLibraryPicker.ts&quot;]
                 module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
                 module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
+                module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
                 module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
                 module_src_planning_ts[&quot;src/planning.ts&quot;]
                 module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
@@ -2900,6 +2928,7 @@ graph LR
   module_src_mediaPicker_photoLibraryPicker_ts[&quot;src/mediaPicker/photoLibraryPicker.ts&quot;]
   module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
   module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
+  module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
   module_src_permissionRuntime_ts[&quot;src/permissionRuntime.ts&quot;]
   module_src_planning_ts[&quot;src/planning.ts&quot;]
   module_src_resolveExpoRuntimePlan_ts[&quot;src/resolveExpoRuntimePlan.ts&quot;]
@@ -3696,6 +3725,24 @@ sequenceDiagram
             >
               <h3>readSelectedMediaBytes</h3>
               <p class="muted"><code>src/mediaPicker/readSelectedBytes.ts:10:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-nativelinkingplanning-ts"
+          class="view"
+          data-view="src/nativeLinkingPlanning.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/nativeLinkingPlanning.ts</h2>
+            <article
+              class="item"
+              data-search="resolveExpoRuntimeNativeSchemeMap src/nativeLinkingPlanning.ts "
+            >
+              <h3>resolveExpoRuntimeNativeSchemeMap</h3>
+              <p class="muted"><code>src/nativeLinkingPlanning.ts:9:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>

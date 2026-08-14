@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.2.0",
+      "value": "v2.2.1",
       "color": "cb3837"
     },
     {
@@ -305,6 +305,16 @@
       ]
     },
     {
+      "path": "src/nativeLinkingPlanning.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ExpoRuntimeNativePlatform",
+        "ExpoRuntimeNativeSchemeMap",
+        "resolveExpoRuntimeNativeSchemeMap"
+      ]
+    },
+    {
       "path": "src/permissionRuntime.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -321,6 +331,8 @@
         "ExpoRuntimeGeneratedAppOutputPlan",
         "ExpoRuntimeLayoutIntegrationPlan",
         "ExpoRuntimeNativeOutputPlan",
+        "ExpoRuntimeNativePlatform",
+        "ExpoRuntimeNativeSchemeMap",
         "ExpoRuntimePlan",
         "ExpoRuntimeProviderId",
         "getExpoBarcodeScannerViewSource",
@@ -329,6 +341,7 @@
         "resolveExpoRuntimeGeneratedAppOutput",
         "resolveExpoRuntimeLayoutIntegration",
         "resolveExpoRuntimeNativeOutput",
+        "resolveExpoRuntimeNativeSchemeMap",
         "resolveExpoRuntimePlan"
       ]
     },
@@ -2182,6 +2195,15 @@
       }
     },
     {
+      "name": "resolveExpoRuntimeNativeSchemeMap",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/nativeLinkingPlanning.ts",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
       "name": "resolveExpoRuntimePlan",
       "description": null,
       "sourceLocation": {
@@ -2505,6 +2527,11 @@
       {
         "fromPath": "src/planning.ts",
         "toPath": "src/layoutIntegrationPlanning.ts",
+        "sourcePath": "src/planning.ts"
+      },
+      {
+        "fromPath": "src/planning.ts",
+        "toPath": "src/nativeLinkingPlanning.ts",
         "sourcePath": "src/planning.ts"
       },
       {
