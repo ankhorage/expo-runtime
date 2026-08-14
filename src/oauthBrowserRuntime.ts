@@ -2,11 +2,15 @@ import Constants from 'expo-constants';
 
 import {
   type ExpoOAuthBrowserRuntimeReadiness,
-  resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig,
+  resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment,
 } from './oauthBrowserRuntimeCore';
 
 export type { ExpoOAuthBrowserRuntimeReadiness } from './oauthBrowserRuntimeCore';
 
 export function resolveExpoOAuthBrowserRuntimeReadiness(): ExpoOAuthBrowserRuntimeReadiness {
-  return resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig(Constants.expoGoConfig);
+  return resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment({
+    appOwnership: Constants.appOwnership,
+    executionEnvironment: Constants.executionEnvironment,
+    expoGoConfig: Constants.expoGoConfig,
+  });
 }
