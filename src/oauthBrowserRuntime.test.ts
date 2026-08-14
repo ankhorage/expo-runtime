@@ -1,14 +1,18 @@
 import { describe, expect, test } from 'bun:test';
 
-import { resolveExpoOAuthBrowserRuntimeReadiness } from './oauthBrowserRuntime';
+import { resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig } from './oauthBrowserRuntimeCore';
 
 describe('Expo OAuth browser runtime readiness', () => {
   test('allows a custom native application build', () => {
-    expect(resolveExpoOAuthBrowserRuntimeReadiness(null)).toEqual({ status: 'ready' });
+    expect(resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig(null)).toEqual({
+      status: 'ready',
+    });
   });
 
   test('rejects Expo Go with an actionable development-build requirement', () => {
-    expect(resolveExpoOAuthBrowserRuntimeReadiness({ debuggerHost: '127.0.0.1:8081' })).toEqual({
+    expect(
+      resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig({ debuggerHost: '127.0.0.1:8081' }),
+    ).toEqual({
       status: 'unsupported',
       reason: 'expo-go',
       message:
@@ -17,7 +21,9 @@ describe('Expo OAuth browser runtime readiness', () => {
   });
 
   test('does not serialize Expo Go configuration into readiness output', () => {
-    const readiness = resolveExpoOAuthBrowserRuntimeReadiness({ secretLikeValue: 'do-not-echo' });
+    const readiness = resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig({
+      secretLikeValue: 'do-not-echo',
+    });
 
     expect(JSON.stringify(readiness)).not.toContain('do-not-echo');
   });
