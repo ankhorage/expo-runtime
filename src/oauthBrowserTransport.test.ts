@@ -23,15 +23,18 @@ describe('Expo OAuth browser transport', () => {
     });
   });
 
-  test.each(['locked', 'opened'])('maps %s to a transport failure instead of cancellation', (type) => {
-    expect(resolveExpoOAuthBrowserResult({ type })).toEqual({
-      type: 'error',
-      error: {
-        code: 'transport_failed',
-        message: 'The Expo authentication browser did not complete the OAuth redirect.',
-      },
-    });
-  });
+  test.each(['locked', 'opened'])(
+    'maps %s to a transport failure instead of cancellation',
+    (type) => {
+      expect(resolveExpoOAuthBrowserResult({ type })).toEqual({
+        type: 'error',
+        error: {
+          code: 'transport_failed',
+          message: 'The Expo authentication browser did not complete the OAuth redirect.',
+        },
+      });
+    },
+  );
 
   test('rejects malformed success and unknown results as transport failures', () => {
     expect(resolveExpoOAuthBrowserResult({ type: 'success' })).toMatchObject({
