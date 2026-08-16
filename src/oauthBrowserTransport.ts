@@ -1,6 +1,13 @@
 import type { AuthOAuthAuthorizationResponse } from '@ankhorage/contracts/auth';
 
-export function resolveExpoOAuthBrowserResult(result: unknown): AuthOAuthAuthorizationResponse {
+export type ExpoOAuthBrowserTransportResult =
+  | AuthOAuthAuthorizationResponse
+  | { type: 'indeterminate'; reason: 'android_dismiss' };
+
+export function resolveExpoOAuthBrowserResult(
+  result: unknown,
+  platform: string,
+): ExpoOAuthBrowserTransportResult {
   if (!isRecord(result))
     return transportFailed('The Expo authentication browser returned no result.');
 
@@ -15,7 +22,9 @@ export function resolveExpoOAuthBrowserResult(result: unknown): AuthOAuthAuthori
     return { type: 'cancelled', reason: 'user_cancelled' };
   }
   if (type === 'dismiss') {
-    return { type: 'cancelled', reason: 'browser_dismissed' };
+    return platform === 'android'
+      ? { type: 'indeterminate', reason: 'android_dismiss' }
+      : { type: 'cancelled', reason: 'browser_dismissed' };
   }
   return transportFailed('The Expo authentication browser did not complete the OAuth redirect.');
 }
