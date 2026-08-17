@@ -2,10 +2,7 @@ import { Permission } from '@ankhorage/permissions';
 import { EXPO_PERMISSION_SUPPORT } from '@ankhorage/permissions/expo/manifest';
 import { describe, expect, test } from 'bun:test';
 
-import {
-  type ExpoRuntimePlanningManifest,
-  resolveExpoRuntimePlan,
-} from './resolveExpoRuntimePlan';
+import { type ExpoRuntimePlanningManifest, resolveExpoRuntimePlan } from './resolveExpoRuntimePlan';
 
 describe('resolveExpoRuntimePlan', () => {
   test('accepts a minimal screens-only planning manifest', () => {
