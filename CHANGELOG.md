@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 2.6.0
+
+### Minor Changes
+
+- 55615bc: Narrow Expo runtime planning to the screen capability and permission requirements it actually consumes, so unrelated manifest contract changes do not couple into Expo planning.
+
 ## 2.5.1
 
 ### Patch Changes
