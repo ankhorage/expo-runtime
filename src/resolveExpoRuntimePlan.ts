@@ -1,6 +1,5 @@
 import type {
   AnkhorageCapabilityName,
-  AppManifest,
   ScreenCapabilityRequirement,
   ScreenPermissionRequirement,
 } from '@ankhorage/contracts';
@@ -11,6 +10,17 @@ import {
   type ExpoPermissionMetadata,
   type PermissionSupport,
 } from '@ankhorage/permissions/expo/manifest';
+
+export interface ExpoRuntimePlanningScreen {
+  readonly requires?: {
+    readonly capabilities?: readonly ScreenCapabilityRequirement[];
+    readonly permissions?: readonly ScreenPermissionRequirement[];
+  };
+}
+
+export interface ExpoRuntimePlanningManifest {
+  readonly screens: Readonly<Record<string, ExpoRuntimePlanningScreen>>;
+}
 
 interface ExpoRuntimeDependency {
   readonly name: string;
@@ -119,7 +129,7 @@ const EXPO_CAPABILITY_RUNTIME_REGISTRY = {
 >;
 
 export function resolveExpoRuntimePlan(
-  manifest: AppManifest,
+  manifest: ExpoRuntimePlanningManifest,
   options: ResolveExpoRuntimePlanOptions = {},
 ): ExpoRuntimePlan {
   const permissionsByName = new Map<string, ScreenPermissionRequirement>();
@@ -294,9 +304,9 @@ export function resolveExpoRuntimePlan(
   }
 
   const plugins = Array.from(pluginOptions.entries())
-    .map(([name, options]) => ({
+    .map(([name, pluginOptions]) => ({
       name,
-      options: Object.keys(options).length > 0 ? options : undefined,
+      options: Object.keys(pluginOptions).length > 0 ? pluginOptions : undefined,
     }))
     .sort((left, right) => left.name.localeCompare(right.name));
 
