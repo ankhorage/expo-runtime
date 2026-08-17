@@ -21,6 +21,8 @@ export {
 export type {
   ExpoRuntimeAdapterId,
   ExpoRuntimePlan,
+  ExpoRuntimePlanningManifest,
+  ExpoRuntimePlanningScreen,
   ExpoRuntimeProviderId,
 } from './resolveExpoRuntimePlan';
 export { resolveExpoRuntimePlan } from './resolveExpoRuntimePlan';

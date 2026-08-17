@@ -1,16 +1,25 @@
-import type { AppManifest } from '@ankhorage/contracts';
 import { Permission } from '@ankhorage/permissions';
 import { EXPO_PERMISSION_SUPPORT } from '@ankhorage/permissions/expo/manifest';
 import { describe, expect, test } from 'bun:test';
 
-import { resolveExpoRuntimePlan } from './resolveExpoRuntimePlan';
+import { type ExpoRuntimePlanningManifest, resolveExpoRuntimePlan } from './resolveExpoRuntimePlan';
 
 describe('resolveExpoRuntimePlan', () => {
+  test('accepts a minimal screens-only planning manifest', () => {
+    const manifest: ExpoRuntimePlanningManifest = {
+      screens: {
+        home: {
+          requires: { permissions: [{ permission: 'camera' }] },
+        },
+      },
+    };
+
+    expect(resolveExpoRuntimePlan(manifest).permissions).toEqual([{ permission: 'camera' }]);
+  });
+
   test('resolves camera permission through Expo permission metadata', () => {
     const plan = resolveExpoRuntimePlan(
-      withFirstScreenRequirements({
-        permissions: [{ permission: 'camera' }],
-      }),
+      withFirstScreenRequirements({ permissions: [{ permission: 'camera' }] }),
     );
 
     expect(plan.dependencies.map((dependency) => dependency.name)).toEqual([
@@ -25,18 +34,14 @@ describe('resolveExpoRuntimePlan', () => {
     expect(plan.nativeConfig.plugins).toEqual([
       {
         name: 'expo-camera',
-        options: {
-          cameraPermission: 'Allow camera access.',
-        },
+        options: { cameraPermission: 'Allow camera access.' },
       },
     ]);
   });
 
   test('resolves barcodeScanner capability with implied camera permission and adapter wiring', () => {
     const plan = resolveExpoRuntimePlan(
-      withFirstScreenRequirements({
-        capabilities: [{ capability: 'barcodeScanner' }],
-      }),
+      withFirstScreenRequirements({ capabilities: [{ capability: 'barcodeScanner' }] }),
     );
 
     expect(plan.impliedPermissions).toEqual([{ permission: 'camera' }]);
@@ -50,9 +55,7 @@ describe('resolveExpoRuntimePlan', () => {
     expect(plan.nativeConfig.plugins).toEqual([
       {
         name: 'expo-camera',
-        options: {
-          cameraPermission: 'Allow camera access to scan barcodes.',
-        },
+        options: { cameraPermission: 'Allow camera access to scan barcodes.' },
       },
     ]);
   });
@@ -76,9 +79,7 @@ describe('resolveExpoRuntimePlan', () => {
 
   test('surfaces unsupported permission support explicitly', () => {
     const plan = resolveExpoRuntimePlan(
-      withFirstScreenRequirements({
-        permissions: [{ permission: 'camera' }],
-      }),
+      withFirstScreenRequirements({ permissions: [{ permission: 'camera' }] }),
       {
         permissionSupport: {
           ...EXPO_PERMISSION_SUPPORT,
@@ -103,9 +104,7 @@ describe('resolveExpoRuntimePlan', () => {
 
   test('does not add runtime packages or providers for clipboard permissions', () => {
     const plan = resolveExpoRuntimePlan(
-      withFirstScreenRequirements({
-        permissions: [{ permission: 'clipboard' }],
-      }),
+      withFirstScreenRequirements({ permissions: [{ permission: 'clipboard' }] }),
     );
 
     expect(plan.dependencies).toEqual([]);
@@ -114,99 +113,29 @@ describe('resolveExpoRuntimePlan', () => {
   });
 });
 
-function withAllScreenRequirements(requirements: TestScreenRequirements): AppManifest {
-  return {
-    ...BASE_MANIFEST,
-    screens: {
-      home: {
-        ...BASE_MANIFEST.screens.home,
-        requires: requirements,
-      },
-      settings: {
-        ...BASE_MANIFEST.screens.settings,
-        requires: requirements,
-      },
-    },
-  };
-}
-
-function withFirstScreenRequirements(requirements: TestScreenRequirements): AppManifest {
-  return {
-    ...BASE_MANIFEST,
-    screens: {
-      ...BASE_MANIFEST.screens,
-      home: {
-        ...BASE_MANIFEST.screens.home,
-        requires: requirements,
-      },
-    },
-  };
-}
-
 interface TestScreenRequirements {
   readonly capabilities?: readonly [{ readonly capability: 'barcodeScanner' }];
   readonly permissions?: readonly [{ readonly permission: 'camera' | 'clipboard' }];
 }
 
-const BASE_MANIFEST = {
-  metadata: {
-    name: 'Test App',
-    slug: 'test-app',
-    version: '1.0.0',
-    themeId: 'default',
-    created: '2026-06-10T00:00:00.000Z',
-    updated: '2026-06-10T00:00:00.000Z',
-  },
-  navigator: {
-    type: 'stack',
-    routes: [
-      { name: 'index', screenId: 'home' },
-      { name: 'settings', screenId: 'settings' },
-    ],
-  },
-  screens: {
-    home: {
-      id: 'home',
-      name: 'Home',
-      title: 'Home',
-      root: { id: 'home-root', type: 'Screen' },
+function withFirstScreenRequirements(
+  requirements: TestScreenRequirements,
+): ExpoRuntimePlanningManifest {
+  return {
+    screens: {
+      home: { requires: requirements },
+      settings: {},
     },
-    settings: {
-      id: 'settings',
-      name: 'Settings',
-      title: 'Settings',
-      root: { id: 'settings-root', type: 'Screen' },
+  };
+}
+
+function withAllScreenRequirements(
+  requirements: TestScreenRequirements,
+): ExpoRuntimePlanningManifest {
+  return {
+    screens: {
+      home: { requires: requirements },
+      settings: { requires: requirements },
     },
-  },
-  themes: [
-    {
-      id: 'default',
-      name: 'Default',
-      light: {
-        primaryColor: '#0f172a',
-        harmony: 'analogous',
-      },
-      dark: {
-        primaryColor: '#0f172a',
-        harmony: 'analogous',
-      },
-    },
-  ],
-  activeThemeId: 'default',
-  activeThemeMode: 'light',
-  infra: {
-    modules: [],
-  },
-  settings: {
-    localization: {
-      defaultLocale: 'en',
-      locales: ['en'],
-    },
-    authFlow: {
-      signInRoute: '',
-      signUpRoute: '/sign-up',
-      signOutRoute: '/sign-out',
-      postSignInRoute: '/',
-    },
-  },
-} satisfies AppManifest;
+  };
+}
