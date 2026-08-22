@@ -7,9 +7,8 @@ import { StyleSheet } from 'react-native';
 import {
   BARCODE_SCANNER_TYPES,
   type BarcodeScanRecord,
+  dispatchExpoBarcodeScan,
   mapPermissionStatusToCameraPermissionStatus,
-  normalizeExpoBarcodeScanResult,
-  shouldIgnoreBarcodeScan,
 } from './barcodeScanRuntime';
 
 const CAMERA_BARCODE_TYPES: BarcodeType[] = [...BARCODE_SCANNER_TYPES];
@@ -37,23 +36,15 @@ export function ExpoBarcodeScannerAdapter(props: BarcodeScannerViewProps) {
 
   const handleBarcodeScanned = React.useCallback(
     (result: BarcodeScanningResult) => {
-      void (async () => {
-        const normalizedResult = normalizeExpoBarcodeScanResult(result);
-        if (normalizedResult === null) {
-          return;
-        }
-
-        const now = Date.now();
-        if (shouldIgnoreBarcodeScan(lastScanRef.current, normalizedResult, now)) {
-          return;
-        }
-
-        lastScanRef.current = {
-          ...normalizedResult,
-          timestamp: now,
-        };
-        await onBarcodeScanned?.(normalizedResult);
-      })();
+      void dispatchExpoBarcodeScan(
+        result,
+        lastScanRef.current,
+        Date.now(),
+        onBarcodeScanned,
+        (record) => {
+          lastScanRef.current = record;
+        },
+      );
     },
     [onBarcodeScanned],
   );

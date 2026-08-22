@@ -1,11 +1,7 @@
 import type { MediaAssetKind } from '@ankhorage/contracts';
 
 import { isRequestedMediaKind } from './mediaKinds';
-import {
-  type ArrayBufferReadable,
-  readSelectedMediaBytes,
-  type SelectedMediaByteSource,
-} from './readSelectedBytes';
+import { readSelectedMediaBytes, type SelectedMediaByteSource } from './readSelectedBytes';
 import type { ExpoMediaPickerInput, ExpoMediaPickerResult } from './types';
 
 export type ExpoPhotoLibraryMediaType = 'images' | 'videos';
@@ -18,7 +14,6 @@ interface PhotoLibraryAssetLike extends SelectedMediaByteSource {
   readonly height: number;
   readonly duration?: number | null;
   readonly type?: 'image' | 'video' | 'livePhoto' | 'pairedVideo' | null;
-  readonly file?: ArrayBufferReadable;
 }
 
 interface PhotoLibraryResultLike {

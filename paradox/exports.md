@@ -4,19 +4,19 @@
 
 Kind: `value`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:4:14`
+Source: `src/barcodeScanRuntime.ts:5:14`
 
 ## BARCODE_SCANNER_TYPES
 
 Kind: `value`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:6:14`
+Source: `src/barcodeScanRuntime.ts:7:14`
 
 ## BarcodeScanRecord
 
 Kind: `type`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:21:1`
+Source: `src/barcodeScanRuntime.ts:23:1`
 
 ### Members
 
@@ -99,11 +99,17 @@ Source: `src/expoActionBridge.ts:18:1`
 | router                    | property | `ExpoRuntimeRouterLike`                                   | yes      |             |
 | setMode                   | property | `(mode: ExpoRuntimeThemeMode) => void`                    | yes      |             |
 
+## EXPO_PLATFORM
+
+Kind: `value`
+Module: `src/platform.ts`
+Source: `src/platform.ts:17:14`
+
 ## ExpoBarcodeScannerAdapter
 
 Kind: `function`
 Module: `src/ExpoBarcodeScannerAdapter.tsx`
-Source: `src/ExpoBarcodeScannerAdapter.tsx:17:1`
+Source: `src/ExpoBarcodeScannerAdapter.tsx:16:1`
 
 ### Signatures
 
@@ -115,7 +121,7 @@ Source: `src/ExpoBarcodeScannerAdapter.tsx:17:1`
 
 Kind: `type`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:25:1`
+Source: `src/barcodeScanRuntime.ts:27:1`
 
 ### Members
 
@@ -167,6 +173,25 @@ Kind: `unknown`
 Module: `src/bundledMediaResolver.ts`
 Source: `src/bundledMediaResolver.ts:3:1`
 
+## ExpoPlatform
+
+Kind: `unknown`
+Module: `src/platform.ts`
+Source: `src/platform.ts:88:1`
+
+## ExpoPlatformPackage
+
+Kind: `type`
+Module: `src/platform.ts`
+Source: `src/platform.ts:1:1`
+
+### Members
+
+| Name    | Kind     | Type     | Required | Description |
+| ------- | -------- | -------- | -------- | ----------- |
+| name    | property | `string` | yes      |             |
+| version | property | `string` | yes      |             |
+
 ## ExpoRuntimeActionHandlerArgs
 
 Kind: `type`
@@ -188,8 +213,8 @@ Source: `src/expoActionBridge.ts:13:1`
 ## ExpoRuntimeAdapterId
 
 Kind: `unknown`
-Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:27:1`
+Module: `src/expoRuntimePlanningMetadata.ts`
+Source: `src/expoRuntimePlanningMetadata.ts:16:1`
 
 ## ExpoRuntimeConfigPluginOutput
 
@@ -249,7 +274,7 @@ Source: `src/generatedAppOutput.ts:13:1`
 
 Kind: `type`
 Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:37:1`
+Source: `src/resolveExpoRuntimePlan.ts:49:1`
 
 ### Members
 
@@ -269,8 +294,8 @@ Source: `src/resolveExpoRuntimePlan.ts:37:1`
 ## ExpoRuntimeProviderId
 
 Kind: `unknown`
-Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:26:1`
+Module: `src/expoRuntimePlanningMetadata.ts`
+Source: `src/expoRuntimePlanningMetadata.ts:15:1`
 
 ## ExpoRuntimeProviders
 
@@ -355,7 +380,7 @@ Source: `src/bundledMediaRegistrySource.ts:6:1`
 
 Kind: `function`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:30:1`
+Source: `src/barcodeScanRuntime.ts:34:1`
 
 ### Signatures
 
@@ -368,7 +393,7 @@ Source: `src/barcodeScanRuntime.ts:30:1`
 
 Kind: `function`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:48:1`
+Source: `src/barcodeScanRuntime.ts:52:1`
 
 ### Signatures
 
@@ -453,12 +478,12 @@ Source: `src/generatedAppOutput.ts:40:1`
 
 Kind: `function`
 Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:121:1`
+Source: `src/resolveExpoRuntimePlan.ts:98:1`
 
 ### Signatures
 
-- `(manifest: AppManifest, options?: ResolveExpoRuntimePlanOptions) => ExpoRuntimePlan`
-  - manifest: `AppManifest`
+- `(manifest: ExpoRuntimePlanningManifest, options?: ResolveExpoRuntimePlanOptions) => ExpoRuntimePlan`
+  - manifest: `ExpoRuntimePlanningManifest`
   - options: `ResolveExpoRuntimePlanOptions` (optional)
   - returns: `ExpoRuntimePlan`
 
@@ -479,7 +504,7 @@ Source: `src/expoActionBridge.ts:34:1`
 
 Kind: `function`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:64:1`
+Source: `src/barcodeScanRuntime.ts:68:1`
 
 ### Signatures
 

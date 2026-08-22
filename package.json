@@ -8,6 +8,9 @@
     "url": "https://github.com/ankhorage/expo-runtime/issues"
   },
   "license": "MIT",
+  "engines": {
+    "node": "24.x"
+  },
   "main": "./dist/index.js",
   "sideEffects": false,
   "types": "./src/index.ts",
@@ -22,8 +25,8 @@
     "runtime"
   ],
   "dependencies": {
-    "@ankhorage/contracts": "^7.8.0",
-    "@ankhorage/permissions": "^0.2.1"
+    "@ankhorage/contracts": "^8.0.0",
+    "@ankhorage/permissions": "^0.2.2"
   },
   "files": [
     "dist",
@@ -47,6 +50,13 @@
       "types": "./src/planning.ts",
       "import": "./dist/planning.js",
       "default": "./dist/planning.js"
+    },
+    "./platform": {
+      "react-native": "./src/platform.ts",
+      "browser": "./src/platform.ts",
+      "types": "./src/platform.ts",
+      "import": "./dist/platform.js",
+      "default": "./dist/platform.js"
     },
     "./oauth-browser": {
       "react-native": "./src/oauthBrowserTransport.ts",
@@ -92,19 +102,21 @@
     "format:check": "ankhorage-prettier --check .",
     "prepack": "bun run build",
     "test": "bun test src",
-    "typecheck": "bun x tsc --noEmit -p tsconfig.json",
+    "typecheck": "bun x tsc --noEmit -p tsconfig.json && bun x tsc --noEmit -p tsconfig.scripts.json",
+    "validate:expo-platform": "bun scripts/validateExpoPlatform.ts",
+    "validate:web-barcode": "bun scripts/webBarcodeAcceptance.ts",
     "version-packages": "changeset version"
   },
   "peerDependencies": {
-    "@ankhorage/zora": "^2.8.7",
-    "expo": "~54.0.34",
-    "expo-camera": "~17.0.10",
-    "expo-constants": "~18.0.13",
-    "expo-document-picker": "~14.0.8",
-    "expo-file-system": "~19.0.23",
-    "expo-image-picker": "~17.0.11",
-    "react": "19.1.0",
-    "react-native": "0.81.5"
+    "@ankhorage/zora": "^2.13.2",
+    "expo": "~57.0.15",
+    "expo-camera": "~57.0.4",
+    "expo-constants": "~57.0.13",
+    "expo-document-picker": "~57.0.1",
+    "expo-file-system": "~57.0.5",
+    "expo-image-picker": "~57.0.12",
+    "react": "19.2.3",
+    "react-native": "0.86.2"
   },
   "peerDependenciesMeta": {
     "expo-constants": {
@@ -121,22 +133,26 @@
     }
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^1.0.6",
-    "@ankhorage/paradox": "^0.1.10",
-    "@ankhorage/zora": "^2.8.7",
+    "@ankhorage/devtools": "^1.6.0",
+    "@ankhorage/paradox": "^0.1.21",
+    "@ankhorage/zora": "^2.13.2",
     "@changesets/cli": "^2.31.0",
-    "@types/bun": "^1.3.13",
-    "@types/node": "^25.6.0",
-    "@types/react": "^19.2.14",
-    "expo": "~54.0.34",
-    "expo-camera": "~17.0.10",
-    "expo-constants": "~18.0.13",
-    "expo-document-picker": "~14.0.8",
-    "expo-file-system": "~19.0.23",
-    "expo-image-picker": "~17.0.11",
-    "react": "19.1.0",
-    "react-native": "0.81.5",
-    "typescript": "^5.9.3"
+    "@types/bun": "^1.3.14",
+    "@types/node": "^24.13.3",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^19.2.18",
+    "bwip-js": "^4.11.4",
+    "expo": "~57.0.15",
+    "expo-camera": "~57.0.4",
+    "expo-constants": "~57.0.13",
+    "expo-document-picker": "~57.0.1",
+    "expo-file-system": "~57.0.5",
+    "expo-image-picker": "~57.0.12",
+    "react": "19.2.3",
+    "react-native": "0.86.2",
+    "playwright-core": "^1.62.1",
+    "pngjs": "^7.0.0",
+    "typescript": "~6.0.3"
   },
-  "packageManager": "bun@1.3.13"
+  "packageManager": "bun@1.3.14"
 }

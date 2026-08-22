@@ -3,7 +3,7 @@ import { describe, expect, test } from 'bun:test';
 import { resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment } from './oauthBrowserRuntimeCore';
 
 describe('Expo OAuth browser runtime readiness', () => {
-  test('allows an SDK 54 custom native build with an embedded Expo config', () => {
+  test('allows a custom native build with an embedded Expo config', () => {
     expect(
       resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment({
         appOwnership: null,

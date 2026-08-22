@@ -1,13 +1,15 @@
 import type { PermissionStatus } from '@ankhorage/permissions';
 import type { BarcodeScanResult, CameraPermissionStatus } from '@ankhorage/zora';
+import type { BarcodeType } from 'expo-camera';
 
 export const BARCODE_SCAN_DEDUPE_WINDOW_MS = 1500;
 
 export const BARCODE_SCANNER_TYPES = [
   'aztec',
-  'code128',
+  'codabar',
   'code39',
   'code93',
+  'code128',
   'datamatrix',
   'ean13',
   'ean8',
@@ -16,7 +18,7 @@ export const BARCODE_SCANNER_TYPES = [
   'qr',
   'upc_a',
   'upc_e',
-] as const;
+] as const satisfies readonly BarcodeType[];
 
 export interface BarcodeScanRecord extends BarcodeScanResult {
   readonly timestamp: number;
@@ -26,6 +28,8 @@ export interface ExpoBarcodeScanResultLike {
   readonly data: string;
   readonly type?: string;
 }
+
+type ExpoBarcodeScanCallback = (result: BarcodeScanResult) => Promise<void> | void;
 
 export function mapPermissionStatusToCameraPermissionStatus(
   status: PermissionStatus,
@@ -75,4 +79,25 @@ export function shouldIgnoreBarcodeScan(
     previous.type === next.type &&
     now - previous.timestamp < BARCODE_SCAN_DEDUPE_WINDOW_MS
   );
+}
+
+export async function dispatchExpoBarcodeScan(
+  result: ExpoBarcodeScanResultLike,
+  previous: BarcodeScanRecord | null,
+  now: number,
+  onBarcodeScanned: ExpoBarcodeScanCallback | undefined,
+  onAccepted: (record: BarcodeScanRecord) => void,
+): Promise<boolean> {
+  const normalizedResult = normalizeExpoBarcodeScanResult(result);
+  if (normalizedResult === null || shouldIgnoreBarcodeScan(previous, normalizedResult, now)) {
+    return false;
+  }
+
+  const record = {
+    ...normalizedResult,
+    timestamp: now,
+  };
+  onAccepted(record);
+  await onBarcodeScanned?.(normalizedResult);
+  return true;
 }

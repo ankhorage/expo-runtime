@@ -5,18 +5,13 @@ import {
   isRequestedMediaKind,
   resolveDocumentPickerMimeTypes,
 } from './mediaKinds';
-import {
-  type ArrayBufferReadable,
-  readSelectedMediaBytes,
-  type SelectedMediaByteSource,
-} from './readSelectedBytes';
+import { readSelectedMediaBytes, type SelectedMediaByteSource } from './readSelectedBytes';
 import type { ExpoMediaPickerInput, ExpoMediaPickerResult } from './types';
 
 interface DocumentPickerAssetLike extends SelectedMediaByteSource {
   readonly name: string;
   readonly mimeType?: string;
   readonly size?: number;
-  readonly file?: ArrayBufferReadable;
 }
 
 interface DocumentPickerResultLike {
