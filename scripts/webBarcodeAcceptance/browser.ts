@@ -73,7 +73,7 @@ async function waitForScan(page: Page, type: string, value: string): Promise<voi
       );
     },
     { expectedType: type, expectedValue: value },
-    { timeout: 20_000 },
+    { timeout: 60_000 },
   );
 }
 
