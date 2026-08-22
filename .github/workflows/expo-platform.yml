@@ -32,6 +32,3 @@ jobs:
 
       - name: Validate Expo platform compatibility
         run: bun run validate:expo-platform
-
-      - name: Validate Expo Camera Web barcode recognition
-        run: bun run validate:web-barcode

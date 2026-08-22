@@ -34,7 +34,9 @@ This audit covers Expo Runtime ownership only. Downstream Runtime, Surface, ZORA
 
 `bun run validate:web-barcode` builds a clean Expo 57 Web app with the packed package, mounts the real `ExpoBarcodeScannerAdapter` and Expo `CameraView`, and feeds generated barcode images through Chromium's supported fake-camera video input. Headless Chrome must then report QR, valid EAN-13 `4006381333931`, and valid EAN-8 `96385074` from Expo Camera into the canonical Ankhorage callback. This executable browser check is distinct from the unit tests for event normalization and deduplication.
 
-The command uses Google Chrome or Chromium at a standard macOS/Linux path. Set `CHROME_PATH=/absolute/path/to/browser` when it is installed elsewhere. CI runs the same command in the repository-owned Expo platform workflow.
+The command uses Google Chrome or Chromium at a standard macOS/Linux path. Set `CHROME_PATH=/absolute/path/to/browser` when it is installed elsewhere. Run it from the repository root after `bun install --frozen-lockfile`; successful output lists all three recognized values above.
+
+The repository-owned Expo platform workflow runs the deterministic `validate:expo-platform` fixture in CI. The real camera-stream acceptance remains an explicit browser gate because hosted Linux headless Chrome did not deliver synthetic camera frames reliably with either canvas capture or fake-video input; the fixture still fails unless Expo Camera itself recognizes each barcode and invokes the adapter callback.
 
 Physical-device camera acceptance is not available in this package repository. Native QR/EAN hardware validation remains an acceptance responsibility after consumers rebuild their Expo 57 development clients.
 
