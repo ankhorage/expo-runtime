@@ -5,16 +5,17 @@ export interface BarcodeAcceptanceScenario {
   readonly value: string;
 }
 
+export interface BarcodeAcceptanceImage {
+  readonly data: Uint8Array;
+  readonly height: number;
+  readonly width: number;
+}
+
 interface CanonicalBarcodeResult {
   readonly type?: string;
   readonly value: string;
 }
 
-interface SyntheticCameraControl {
-  readonly showBarcode: (url: string) => Promise<void>;
-}
-
 export interface BarcodeAcceptanceWindow extends Window {
-  __ankhorageCameraFixture: SyntheticCameraControl;
   __ankhorageScans: CanonicalBarcodeResult[];
 }

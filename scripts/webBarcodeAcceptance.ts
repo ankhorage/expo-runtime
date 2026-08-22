@@ -18,7 +18,7 @@ try {
     throw new Error(`Expected one packed runtime archive, received ${packedFiles.length}.`);
   }
   const runtimePackagePath = join(fixtureRoot, packedFiles[0]);
-  await createWebBarcodeFixture(fixtureRoot, repositoryRoot, runtimePackagePath);
+  const videoPath = await createWebBarcodeFixture(fixtureRoot, repositoryRoot, runtimePackagePath);
   await runCommand('bun', ['install'], fixtureRoot);
   await runCommand(
     join(fixtureRoot, 'node_modules/.bin/expo'),
@@ -27,7 +27,7 @@ try {
   );
   const server = startStaticServer(join(fixtureRoot, 'dist'));
   try {
-    await runBrowserAcceptance(server.url.origin);
+    await runBrowserAcceptance(server.url.origin, videoPath);
   } finally {
     await server.stop(true);
   }

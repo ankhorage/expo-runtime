@@ -2,9 +2,11 @@ import { mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import bwipjs from 'bwip-js/node';
+import { PNG } from 'pngjs';
 
 import { EXPO_PLATFORM } from '../../src/platform';
-import type { BarcodeAcceptanceScenario } from './types';
+import type { BarcodeAcceptanceImage, BarcodeAcceptanceScenario } from './types';
+import { writeBarcodeVideo } from './video';
 
 export const BARCODE_ACCEPTANCE_SCENARIOS = [
   {
@@ -31,14 +33,19 @@ export async function createWebBarcodeFixture(
   fixtureRoot: string,
   repositoryRoot: string,
   runtimePackagePath: string,
-): Promise<void> {
+): Promise<string> {
   await mkdir(join(fixtureRoot, 'public', 'barcodes'), { recursive: true });
   await Promise.all([
     writeManifest(fixtureRoot, repositoryRoot, runtimePackagePath),
     writeAppConfig(fixtureRoot),
     writeAppSource(fixtureRoot),
-    ...BARCODE_ACCEPTANCE_SCENARIOS.map((scenario) => writeBarcode(fixtureRoot, scenario)),
   ]);
+  const images = await Promise.all(
+    BARCODE_ACCEPTANCE_SCENARIOS.map((scenario) => writeBarcode(fixtureRoot, scenario)),
+  );
+  const videoPath = join(fixtureRoot, 'barcode-camera.y4m');
+  await writeBarcodeVideo(videoPath, images);
+  return videoPath;
 }
 
 async function writeManifest(
@@ -127,8 +134,8 @@ async function writeAppSource(fixtureRoot: string): Promise<void> {
 async function writeBarcode(
   fixtureRoot: string,
   scenario: BarcodeAcceptanceScenario,
-): Promise<void> {
-  const image = await bwipjs.toBuffer({
+): Promise<BarcodeAcceptanceImage> {
+  const encoded = await bwipjs.toBuffer({
     bcid: scenario.generator,
     text: scenario.value,
     scale: scenario.type === 'qr' ? 10 : 6,
@@ -137,7 +144,9 @@ async function writeBarcode(
     padding: 24,
     backgroundcolor: 'FFFFFF',
   });
-  await Bun.write(join(fixtureRoot, 'public', 'barcodes', scenario.asset), image);
+  await Bun.write(join(fixtureRoot, 'public', 'barcodes', scenario.asset), encoded);
+  const image = PNG.sync.read(encoded);
+  return { data: image.data, height: image.height, width: image.width };
 }
 
 async function writeJson(path: string, value: unknown): Promise<void> {

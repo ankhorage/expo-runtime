@@ -12,13 +12,21 @@ const CHROME_PATHS = [
   '/usr/bin/chromium',
 ] as const;
 
-export async function runBrowserAcceptance(origin: string): Promise<void> {
+export async function runBrowserAcceptance(origin: string, videoPath: string): Promise<void> {
   const executablePath = await findChromeExecutable();
-  const browser = await chromium.launch({ executablePath, headless: true });
+  const browser = await chromium.launch({
+    executablePath,
+    headless: true,
+    args: [
+      '--use-fake-device-for-media-stream',
+      '--use-fake-ui-for-media-stream',
+      `--use-file-for-fake-video-capture=${videoPath}`,
+    ],
+  });
   try {
     const page = await browser.newPage();
     page.on('pageerror', (error) => console.error(`[browser:error] ${error.message}`));
-    await page.addInitScript(installSyntheticCamera);
+    await page.addInitScript(disableNativeBarcodeDetector);
     await page.goto(origin, { waitUntil: 'networkidle' });
     const permissionButton = page.getByRole('button');
     try {
@@ -30,7 +38,6 @@ export async function runBrowserAcceptance(origin: string): Promise<void> {
     await page.waitForFunction(() => document.querySelector('video')?.readyState === 4);
 
     for (const scenario of BARCODE_ACCEPTANCE_SCENARIOS) {
-      await showBarcode(page, origin, scenario.asset);
       await waitForScan(page, scenario.type, scenario.value);
       console.log(`Recognized ${scenario.type}: ${scenario.value}`);
     }
@@ -54,16 +61,6 @@ async function findChromeExecutable(): Promise<string> {
   throw new Error('Google Chrome or Chromium is required; set CHROME_PATH to its executable.');
 }
 
-async function showBarcode(page: Page, origin: string, asset: string): Promise<void> {
-  await page.evaluate(
-    async ({ barcodeUrl }) => {
-      const fixtureWindow = window as unknown as BarcodeAcceptanceWindow;
-      await fixtureWindow.__ankhorageCameraFixture.showBarcode(barcodeUrl);
-    },
-    { barcodeUrl: `${origin}/barcodes/${asset}` },
-  );
-}
-
 async function waitForScan(page: Page, type: string, value: string): Promise<void> {
   await page.waitForFunction(
     ({ expectedType, expectedValue }) => {
@@ -77,44 +74,6 @@ async function waitForScan(page: Page, type: string, value: string): Promise<voi
   );
 }
 
-function installSyntheticCamera(): void {
-  const canvas = document.createElement('canvas');
-  canvas.width = 1280;
-  canvas.height = 720;
-  const context = canvas.getContext('2d');
-  if (context === null) {
-    throw new Error('Canvas 2D is required for the synthetic camera fixture.');
-  }
-  context.fillStyle = '#ffffff';
-  context.fillRect(0, 0, canvas.width, canvas.height);
-  const stream = canvas.captureStream(10);
-  const mediaDevices = {
-    enumerateDevices: () =>
-      Promise.resolve([
-        { deviceId: 'fixture', groupId: 'fixture', kind: 'videoinput', label: 'back' },
-      ]),
-    getUserMedia: () => Promise.resolve(stream),
-  };
-  Object.defineProperty(navigator, 'mediaDevices', { configurable: true, value: mediaDevices });
+function disableNativeBarcodeDetector(): void {
   Object.defineProperty(globalThis, 'BarcodeDetector', { configurable: true, value: undefined });
-  (window as unknown as BarcodeAcceptanceWindow).__ankhorageCameraFixture = {
-    async showBarcode(url) {
-      const image = new Image();
-      image.src = url;
-      await image.decode();
-      context.fillStyle = '#ffffff';
-      context.fillRect(0, 0, canvas.width, canvas.height);
-      const scale = Math.min(1100 / image.width, 620 / image.height);
-      const width = image.width * scale;
-      const height = image.height * scale;
-      context.drawImage(
-        image,
-        (canvas.width - width) / 2,
-        (canvas.height - height) / 2,
-        width,
-        height,
-      );
-      await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
-    },
-  };
 }
