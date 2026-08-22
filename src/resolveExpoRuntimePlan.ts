@@ -11,6 +11,8 @@ import {
   type PermissionSupport,
 } from '@ankhorage/permissions/expo/manifest';
 
+import { EXPO_PLATFORM, type ExpoPlatformPackage } from './platform';
+
 export interface ExpoRuntimePlanningScreen {
   readonly requires?: {
     readonly capabilities?: readonly ScreenCapabilityRequirement[];
@@ -83,14 +85,24 @@ interface ResolveExpoRuntimePlanOptions {
   readonly permissionSupport?: Readonly<Record<Permission, ExpoPermissionMetadata>>;
 }
 
-const CAMERA_ANDROID_PERMISSION = 'android.permission.CAMERA';
 const EXPO_RUNTIME_PACKAGE_NAME = '@ankhorage/expo-runtime';
 
-const GENERATED_EXPO_DEPENDENCY_VERSIONS = {
+const GENERATED_ANKHORAGE_DEPENDENCY_VERSIONS = {
   '@ankhorage/permissions': '^0.2.0',
   '@ankhorage/expo-runtime': 'latest',
-  'expo-camera': '~17.0.10',
 } as const satisfies Record<string, string>;
+
+const GENERATED_EXPO_DEPENDENCY_VERSIONS = Object.fromEntries(
+  Object.values(EXPO_PLATFORM.packages).map((dependency: ExpoPlatformPackage) => [
+    dependency.name,
+    dependency.version,
+  ]),
+) as Readonly<Record<string, string>>;
+
+const GENERATED_RUNTIME_DEPENDENCY_VERSIONS = {
+  ...GENERATED_ANKHORAGE_DEPENDENCY_VERSIONS,
+  ...GENERATED_EXPO_DEPENDENCY_VERSIONS,
+} as const satisfies Readonly<Record<string, string>>;
 
 const EXPO_RUNTIME_PROVIDER_PACKAGES = {
   permissions: '@ankhorage/permissions',
@@ -98,12 +110,62 @@ const EXPO_RUNTIME_PROVIDER_PACKAGES = {
 
 const EXPO_RUNTIME_CONFIG_HINTS = {
   cameraPermission: {
-    androidPermissions: [CAMERA_ANDROID_PERMISSION],
     plugin: {
-      name: 'expo-camera',
+      name: EXPO_PLATFORM.packages.camera.name,
       options: {
         cameraPermission: 'Allow camera access.',
+        microphonePermission: false,
+        recordAudioAndroid: false,
       },
+    },
+  },
+  microphonePermission: {
+    plugin: {
+      name: EXPO_PLATFORM.packages.audio.name,
+      options: {
+        microphonePermission: 'Allow microphone access.',
+      },
+    },
+  },
+  recordAudioAndroid: {
+    plugin: {
+      name: EXPO_PLATFORM.packages.audio.name,
+      options: {
+        recordAudioAndroid: true,
+      },
+    },
+  },
+  mediaLibraryPermission: {
+    plugin: {
+      name: EXPO_PLATFORM.packages.mediaLibrary.name,
+      options: {
+        photosPermission: 'Allow photo library access.',
+        savePhotosPermission: 'Allow saving to the photo library.',
+      },
+    },
+  },
+  locationWhenInUsePermission: {
+    plugin: {
+      name: EXPO_PLATFORM.packages.location.name,
+      options: {
+        locationWhenInUsePermission: 'Allow location access while using the app.',
+      },
+    },
+  },
+  locationAlwaysAndWhenInUsePermission: {
+    plugin: {
+      name: EXPO_PLATFORM.packages.location.name,
+      options: {
+        locationAlwaysAndWhenInUsePermission: 'Allow location access.',
+        isAndroidBackgroundLocationEnabled: true,
+        isAndroidForegroundServiceEnabled: true,
+        isIosBackgroundLocationEnabled: true,
+      },
+    },
+  },
+  notificationsPermission: {
+    plugin: {
+      name: EXPO_PLATFORM.packages.notifications.name,
     },
   },
 } as const satisfies Readonly<Record<string, ExpoRuntimeHintMetadata>>;
@@ -111,15 +173,17 @@ const EXPO_RUNTIME_CONFIG_HINTS = {
 const EXPO_CAPABILITY_RUNTIME_REGISTRY = {
   barcodeScanner: {
     impliedPermissions: [{ permission: 'camera' }],
-    requiredPackages: ['expo-camera'],
+    requiredPackages: [EXPO_PLATFORM.packages.camera.name],
     providers: ['permissions'],
     runtimeAdapters: ['ExpoBarcodeScannerAdapter'],
-    androidPermissions: [CAMERA_ANDROID_PERMISSION],
     plugins: [
       {
-        name: 'expo-camera',
+        name: EXPO_PLATFORM.packages.camera.name,
         options: {
           cameraPermission: 'Allow camera access to scan barcodes.',
+          barcodeScannerEnabled: true,
+          microphonePermission: false,
+          recordAudioAndroid: false,
         },
       },
     ],
@@ -168,7 +232,7 @@ export function resolveExpoRuntimePlan(
   const providers = new Set<ExpoRuntimeProviderId>();
   const runtimeAdapters = new Set<ExpoRuntimeAdapterId>();
   const dependencyVersions: Readonly<Record<string, string>> =
-    options.dependencyVersions ?? GENERATED_EXPO_DEPENDENCY_VERSIONS;
+    options.dependencyVersions ?? GENERATED_RUNTIME_DEPENDENCY_VERSIONS;
   const permissionSupport = options.permissionSupport ?? EXPO_PERMISSION_SUPPORT;
   const configHintRegistry: Readonly<Record<string, ExpoRuntimeHintMetadata>> =
     EXPO_RUNTIME_CONFIG_HINTS;

@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.4.0",
+      "value": "v2.6.0",
       "color": "cb3837"
     },
     {
@@ -61,7 +61,7 @@
   "usage": null,
   "readmeUsage": [],
   "config": null,
-  "entrypoints": ["src/index.ts"],
+  "entrypoints": ["src/index.ts", "src/platform.ts"],
   "modules": [
     {
       "path": "src/barcodeScanRuntime.ts",
@@ -71,6 +71,8 @@
         "BARCODE_SCAN_DEDUPE_WINDOW_MS",
         "BARCODE_SCANNER_TYPES",
         "BarcodeScanRecord",
+        "dispatchExpoBarcodeScan",
+        "ExpoBarcodeScanCallback",
         "ExpoBarcodeScanResultLike",
         "mapPermissionStatusToCameraPermissionStatus",
         "normalizeExpoBarcodeScanResult",
@@ -183,8 +185,11 @@
         "createComponentRegistry",
         "createExpoBundledMediaResolver",
         "createExpoRuntimeRegistry",
+        "dispatchExpoBarcodeScan",
         "executeExpoRuntimeAction",
         "ExecuteExpoRuntimeActionArgs",
+        "EXPO_PLATFORM",
+        "ExpoBarcodeScanCallback",
         "ExpoBarcodeScannerAdapter",
         "ExpoBarcodeScanResultLike",
         "ExpoBundledMediaRegistry",
@@ -192,6 +197,8 @@
         "ExpoBundledMediaResolver",
         "ExpoBundledMediaResolverArgs",
         "ExpoBundledMediaValue",
+        "ExpoPlatform",
+        "ExpoPlatformPackage",
         "ExpoRuntimeActionHandlerArgs",
         "ExpoRuntimeActionHandlers",
         "ExpoRuntimeAdapterId",
@@ -288,7 +295,7 @@
       "path": "src/mediaPicker/readSelectedBytes.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": ["ArrayBufferReadable", "readSelectedMediaBytes", "SelectedMediaByteSource"]
+      "exports": ["readSelectedMediaBytes", "SelectedMediaByteSource"]
     },
     {
       "path": "src/mediaPicker/types.ts",
@@ -325,8 +332,9 @@
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
+        "ExpoOAuthBrowserRuntimeEnvironment",
         "ExpoOAuthBrowserRuntimeReadiness",
-        "resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig"
+        "resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment"
       ]
     },
     {
@@ -355,6 +363,8 @@
         "ExpoRuntimeNativePlatform",
         "ExpoRuntimeNativeSchemeMap",
         "ExpoRuntimePlan",
+        "ExpoRuntimePlanningManifest",
+        "ExpoRuntimePlanningScreen",
         "ExpoRuntimeProviderId",
         "getExpoBarcodeScannerViewSource",
         "resolveExpoRuntimeConfigPluginOutput",
@@ -367,12 +377,20 @@
       ]
     },
     {
+      "path": "src/platform.ts",
+      "isEntrypoint": true,
+      "dependencies": [],
+      "exports": ["EXPO_PLATFORM", "ExpoPlatform", "ExpoPlatformPackage"]
+    },
+    {
       "path": "src/resolveExpoRuntimePlan.ts",
       "isEntrypoint": false,
-      "dependencies": [],
+      "dependencies": ["src/platform.ts"],
       "exports": [
         "ExpoRuntimeAdapterId",
         "ExpoRuntimePlan",
+        "ExpoRuntimePlanningManifest",
+        "ExpoRuntimePlanningScreen",
         "ExpoRuntimeProviderId",
         "resolveExpoRuntimePlan"
       ]
@@ -424,7 +442,7 @@
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
-        "line": 21,
+        "line": 8,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -570,6 +588,66 @@
       "structuredRows": []
     },
     {
+      "name": "dispatchExpoBarcodeScan",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/barcodeScanRuntime.ts",
+      "sourceLocation": {
+        "filePath": "src/barcodeScanRuntime.ts",
+        "line": 69,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "BarcodeScanRecord",
+        "ExpoBarcodeScanCallback",
+        "ExpoBarcodeScanResultLike"
+      ],
+      "signatures": [
+        {
+          "label": "(result: ExpoBarcodeScanResultLike, previous: BarcodeScanRecord | null, now: number, onBarcodeScanned: ExpoBarcodeScanCallback | undefined, onAccepted: (record: BarcodeScanRecord) => void) => Promise<boolean>",
+          "parameters": [
+            {
+              "name": "now",
+              "type": "number",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "onAccepted",
+              "type": "(record: BarcodeScanRecord) => void",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "onBarcodeScanned",
+              "type": "ExpoBarcodeScanCallback | undefined",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "previous",
+              "type": "BarcodeScanRecord | null",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "result",
+              "type": "ExpoBarcodeScanResultLike",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "Promise<boolean>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "executeExpoRuntimeAction",
       "description": null,
       "isReadme": false,
@@ -681,6 +759,42 @@
       "structuredRows": []
     },
     {
+      "name": "EXPO_PLATFORM",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/platform.ts",
+      "sourceLocation": {
+        "filePath": "src/platform.ts",
+        "line": 17,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts", "src/platform.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoBarcodeScanCallback",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/barcodeScanRuntime.ts",
+      "sourceLocation": {
+        "filePath": "src/barcodeScanRuntime.ts",
+        "line": 17,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "ExpoBarcodeScannerAdapter",
       "description": null,
       "isReadme": false,
@@ -689,7 +803,7 @@
       "modulePath": "src/ExpoBarcodeScannerAdapter.tsx",
       "sourceLocation": {
         "filePath": "src/ExpoBarcodeScannerAdapter.tsx",
-        "line": 17,
+        "line": 16,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -721,7 +835,7 @@
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
-        "line": 25,
+        "line": 12,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -859,6 +973,57 @@
       "structuredRows": []
     },
     {
+      "name": "ExpoPlatform",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/platform.ts",
+      "sourceLocation": {
+        "filePath": "src/platform.ts",
+        "line": 87,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts", "src/platform.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoPlatformPackage",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/platform.ts",
+      "sourceLocation": {
+        "filePath": "src/platform.ts",
+        "line": 1,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts", "src/platform.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "version",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "ExpoRuntimeActionHandlerArgs",
       "description": null,
       "isReadme": false,
@@ -911,7 +1076,7 @@
       "modulePath": "src/resolveExpoRuntimePlan.ts",
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 27,
+        "line": 39,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1085,7 +1250,7 @@
       "modulePath": "src/resolveExpoRuntimePlan.ts",
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 37,
+        "line": 49,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1174,7 +1339,7 @@
       "modulePath": "src/resolveExpoRuntimePlan.ts",
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 26,
+        "line": 38,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1391,7 +1556,7 @@
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
-        "line": 30,
+        "line": 19,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1429,7 +1594,7 @@
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
-        "line": 48,
+        "line": 37,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1659,18 +1824,18 @@
       "modulePath": "src/resolveExpoRuntimePlan.ts",
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 121,
+        "line": 195,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
       "relatedSymbols": ["ExpoRuntimePlan"],
       "signatures": [
         {
-          "label": "(manifest: AppManifest, options?: ResolveExpoRuntimePlanOptions) => ExpoRuntimePlan",
+          "label": "(manifest: ExpoRuntimePlanningManifest, options?: ResolveExpoRuntimePlanOptions) => ExpoRuntimePlan",
           "parameters": [
             {
               "name": "manifest",
-              "type": "AppManifest",
+              "type": "ExpoRuntimePlanningManifest",
               "required": true,
               "description": null
             },
@@ -1735,7 +1900,7 @@
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
-        "line": 64,
+        "line": 53,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1780,7 +1945,7 @@
       "modulePath": "src/ExpoBarcodeScannerAdapter.tsx",
       "sourceLocation": {
         "filePath": "src/ExpoBarcodeScannerAdapter.tsx",
-        "line": 17,
+        "line": 16,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1923,7 +2088,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
-        "line": 30,
+        "line": 19,
         "column": 1
       }
     },
@@ -1932,7 +2097,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
-        "line": 48,
+        "line": 37,
         "column": 1
       }
     },
@@ -1941,7 +2106,16 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
-        "line": 64,
+        "line": 53,
+        "column": 1
+      }
+    },
+    {
+      "name": "dispatchExpoBarcodeScan",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/barcodeScanRuntime.ts",
+        "line": 69,
         "column": 1
       }
     },
@@ -2049,7 +2223,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/ExpoBarcodeScannerAdapter.tsx",
-        "line": 17,
+        "line": 16,
         "column": 1
       }
     },
@@ -2130,7 +2304,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/mediaPicker/documentPicker.ts",
-        "line": 29,
+        "line": 24,
         "column": 1
       }
     },
@@ -2139,7 +2313,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/mediaPicker/documentPicker.ts",
-        "line": 53,
+        "line": 48,
         "column": 1
       }
     },
@@ -2175,7 +2349,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/mediaPicker/photoLibraryPicker.ts",
-        "line": 31,
+        "line": 26,
         "column": 1
       }
     },
@@ -2184,7 +2358,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/mediaPicker/photoLibraryPicker.ts",
-        "line": 41,
+        "line": 36,
         "column": 1
       }
     },
@@ -2193,7 +2367,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/mediaPicker/photoLibraryPicker.ts",
-        "line": 68,
+        "line": 63,
         "column": 1
       }
     },
@@ -2202,7 +2376,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/mediaPicker/photoLibraryPicker.ts",
-        "line": 89,
+        "line": 84,
         "column": 1
       }
     },
@@ -2212,6 +2386,15 @@
       "sourceLocation": {
         "filePath": "src/mediaPicker/readSelectedBytes.ts",
         "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "name": "isArrayBufferReadable",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/mediaPicker/readSelectedBytes.ts",
+        "line": 24,
         "column": 1
       }
     },
@@ -2234,11 +2417,11 @@
       }
     },
     {
-      "name": "resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig",
+      "name": "resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment",
       "description": null,
       "sourceLocation": {
         "filePath": "src/oauthBrowserRuntimeCore.ts",
-        "line": 9,
+        "line": 15,
         "column": 1
       }
     },
@@ -2279,11 +2462,20 @@
       }
     },
     {
+      "name": "definePackage",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/platform.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
       "name": "resolveExpoRuntimePlan",
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 121,
+        "line": 195,
         "column": 1
       }
     },
@@ -2292,7 +2484,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 166,
+        "line": 240,
         "column": 9
       }
     },
@@ -2301,7 +2493,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 194,
+        "line": 268,
         "column": 9
       }
     },
@@ -2310,7 +2502,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 199,
+        "line": 273,
         "column": 9
       }
     },
@@ -2319,7 +2511,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 325,
+        "line": 399,
         "column": 1
       }
     },
@@ -2328,7 +2520,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 332,
+        "line": 406,
         "column": 1
       }
     }
@@ -2355,6 +2547,14 @@
       "name": "createExpoRuntimeRegistry",
       "sourcePath": "src/createExpoRuntimeRegistry.tsx",
       "symbolName": "createExpoRuntimeRegistry",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "dispatchExpoBarcodeScan",
+      "sourcePath": "src/barcodeScanRuntime.ts",
+      "symbolName": "dispatchExpoBarcodeScan",
       "description": null,
       "isReadme": false
     },
@@ -2581,6 +2781,11 @@
       },
       {
         "fromPath": "src/index.ts",
+        "toPath": "src/platform.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
         "toPath": "src/resolveExpoRuntimePlan.ts",
         "sourcePath": "src/index.ts"
       },
@@ -2618,6 +2823,11 @@
         "fromPath": "src/planning.ts",
         "toPath": "src/resolveExpoRuntimePlan.ts",
         "sourcePath": "src/planning.ts"
+      },
+      {
+        "fromPath": "src/resolveExpoRuntimePlan.ts",
+        "toPath": "src/platform.ts",
+        "sourcePath": "src/resolveExpoRuntimePlan.ts"
       },
       {
         "fromPath": "src/bundledMedia/index.ts",
@@ -2686,6 +2896,30 @@
       }
     ],
     "calls": [
+      {
+        "fromSymbol": "dispatchExpoBarcodeScan",
+        "toSymbol": "normalizeExpoBarcodeScanResult",
+        "callExpression": "normalizeExpoBarcodeScanResult",
+        "sourcePath": "src/barcodeScanRuntime.ts"
+      },
+      {
+        "fromSymbol": "dispatchExpoBarcodeScan",
+        "toSymbol": "shouldIgnoreBarcodeScan",
+        "callExpression": "shouldIgnoreBarcodeScan",
+        "sourcePath": "src/barcodeScanRuntime.ts"
+      },
+      {
+        "fromSymbol": "dispatchExpoBarcodeScan",
+        "toSymbol": "onAccepted",
+        "callExpression": "onAccepted",
+        "sourcePath": "src/barcodeScanRuntime.ts"
+      },
+      {
+        "fromSymbol": "dispatchExpoBarcodeScan",
+        "toSymbol": "onBarcodeScanned",
+        "callExpression": "onBarcodeScanned",
+        "sourcePath": "src/barcodeScanRuntime.ts"
+      },
       {
         "fromSymbol": "getExpoBundledMediaRegistrySource",
         "toSymbol": "normalizeEntries",
@@ -2790,26 +3024,8 @@
       },
       {
         "fromSymbol": "src/ExpoBarcodeScannerAdapter.tsx",
-        "toSymbol": "__function",
-        "callExpression": "(async () => {\n        const normalizedResult = normalizeExpoBarcodeScanResult(result);\n        if (normalizedResult === null) {\n          return;\n        }\n\n        const now = Date.now();\n        if (shouldIgnoreBarcodeScan(lastScanRef.current, normalizedResult, now)) {\n          return;\n        }\n\n        lastScanRef.current = {\n          ...normalizedResult,\n          timestamp: now,\n        };\n        await onBarcodeScanned?.(normalizedResult);\n      })",
-        "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
-      },
-      {
-        "fromSymbol": "src/ExpoBarcodeScannerAdapter.tsx",
-        "toSymbol": "normalizeExpoBarcodeScanResult",
-        "callExpression": "normalizeExpoBarcodeScanResult",
-        "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
-      },
-      {
-        "fromSymbol": "src/ExpoBarcodeScannerAdapter.tsx",
-        "toSymbol": "shouldIgnoreBarcodeScan",
-        "callExpression": "shouldIgnoreBarcodeScan",
-        "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
-      },
-      {
-        "fromSymbol": "src/ExpoBarcodeScannerAdapter.tsx",
-        "toSymbol": "onBarcodeScanned",
-        "callExpression": "onBarcodeScanned",
+        "toSymbol": "dispatchExpoBarcodeScan",
+        "callExpression": "dispatchExpoBarcodeScan",
         "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
       },
       {
@@ -2844,8 +3060,8 @@
       },
       {
         "fromSymbol": "resolveExpoOAuthBrowserRuntimeReadiness",
-        "toSymbol": "resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig",
-        "callExpression": "resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig",
+        "toSymbol": "resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment",
+        "callExpression": "resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment",
         "sourcePath": "src/oauthBrowserRuntime.ts"
       },
       {
@@ -2859,6 +3075,12 @@
         "toSymbol": "transportFailed",
         "callExpression": "transportFailed",
         "sourcePath": "src/oauthBrowserTransport.ts"
+      },
+      {
+        "fromSymbol": "src/platform.ts",
+        "toSymbol": "definePackage",
+        "callExpression": "definePackage",
+        "sourcePath": "src/platform.ts"
       },
       {
         "fromSymbol": "addProvider",
@@ -2976,12 +3198,33 @@
       },
       {
         "fromSymbol": "readSelectedMediaBytes",
+        "toSymbol": "isArrayBufferReadable",
+        "callExpression": "isArrayBufferReadable",
+        "sourcePath": "src/mediaPicker/readSelectedBytes.ts"
+      },
+      {
+        "fromSymbol": "readSelectedMediaBytes",
         "toSymbol": "arrayBuffer",
         "callExpression": "source.file.arrayBuffer",
         "sourcePath": "src/mediaPicker/readSelectedBytes.ts"
       }
     ],
     "typeReferences": [
+      {
+        "fromSymbol": "dispatchExpoBarcodeScan",
+        "toType": "BarcodeScanRecord",
+        "sourcePath": "src/barcodeScanRuntime.ts"
+      },
+      {
+        "fromSymbol": "dispatchExpoBarcodeScan",
+        "toType": "ExpoBarcodeScanCallback",
+        "sourcePath": "src/barcodeScanRuntime.ts"
+      },
+      {
+        "fromSymbol": "dispatchExpoBarcodeScan",
+        "toType": "ExpoBarcodeScanResultLike",
+        "sourcePath": "src/barcodeScanRuntime.ts"
+      },
       {
         "fromSymbol": "mapPermissionStatusToCameraPermissionStatus",
         "toType": "CameraPermissionStatus",
@@ -3234,12 +3477,12 @@
       },
       {
         "fromSymbol": "resolveExpoRuntimePlan",
-        "toType": "AppManifest",
+        "toType": "ExpoRuntimePlan",
         "sourcePath": "src/resolveExpoRuntimePlan.ts"
       },
       {
         "fromSymbol": "resolveExpoRuntimePlan",
-        "toType": "ExpoRuntimePlan",
+        "toType": "ExpoRuntimePlanningManifest",
         "sourcePath": "src/resolveExpoRuntimePlan.ts"
       },
       {

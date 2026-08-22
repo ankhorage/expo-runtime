@@ -2,6 +2,8 @@ export {
   BARCODE_SCAN_DEDUPE_WINDOW_MS,
   BARCODE_SCANNER_TYPES,
   type BarcodeScanRecord,
+  dispatchExpoBarcodeScan,
+  type ExpoBarcodeScanCallback,
   type ExpoBarcodeScanResultLike,
   mapPermissionStatusToCameraPermissionStatus,
   normalizeExpoBarcodeScanResult,
@@ -49,6 +51,7 @@ export {
   type ExpoRuntimeLayoutIntegrationPlan,
   resolveExpoRuntimeLayoutIntegration,
 } from './layoutIntegrationPlanning';
+export { EXPO_PLATFORM, type ExpoPlatform, type ExpoPlatformPackage } from './platform';
 export type {
   ExpoRuntimeAdapterId,
   ExpoRuntimePlan,

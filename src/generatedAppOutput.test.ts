@@ -6,6 +6,7 @@ import {
   resolveExpoRuntimeGeneratedAppOutput,
   resolveExpoRuntimeNativeOutput,
 } from './generatedAppOutput';
+import { EXPO_PLATFORM } from './platform';
 import type { ExpoRuntimePlan } from './resolveExpoRuntimePlan';
 
 const EMPTY_PLAN: ExpoRuntimePlan = {
@@ -32,7 +33,7 @@ const CAMERA_PLAN: ExpoRuntimePlan = {
   dependencies: [
     {
       name: 'expo-camera',
-      version: '~17.0.10',
+      version: EXPO_PLATFORM.packages.camera.version,
       reasons: ['capability:barcodeScanner'],
     },
     {
@@ -42,13 +43,16 @@ const CAMERA_PLAN: ExpoRuntimePlan = {
     },
   ],
   nativeConfig: {
-    androidPermissions: ['android.permission.CAMERA'],
+    androidPermissions: [],
     configHints: ['cameraPermission'],
     plugins: [
       {
         name: 'expo-camera',
         options: {
           cameraPermission: 'Allow camera access to scan barcodes.',
+          barcodeScannerEnabled: true,
+          microphonePermission: false,
+          recordAudioAndroid: false,
         },
       },
       {
@@ -65,7 +69,15 @@ const CAMERA_PLAN: ExpoRuntimePlan = {
 describe('generatedAppOutput', () => {
   test('keeps Expo config plugins as a distinct external ecosystem concept', () => {
     expect(resolveExpoRuntimeConfigPluginOutput(CAMERA_PLAN)).toEqual([
-      ['expo-camera', { cameraPermission: 'Allow camera access to scan barcodes.' }],
+      [
+        'expo-camera',
+        {
+          barcodeScannerEnabled: true,
+          cameraPermission: 'Allow camera access to scan barcodes.',
+          microphonePermission: false,
+          recordAudioAndroid: false,
+        },
+      ],
       'expo-something',
     ]);
   });
@@ -82,7 +94,7 @@ describe('generatedAppOutput', () => {
   test('maps runtime dependencies into a package dependency map', () => {
     expect(resolveExpoRuntimeDependencyMap(CAMERA_PLAN)).toEqual({
       '@ankhorage/expo-runtime': '^0.0.7',
-      'expo-camera': '~17.0.10',
+      'expo-camera': EXPO_PLATFORM.packages.camera.version,
     });
   });
 
@@ -91,7 +103,10 @@ describe('generatedAppOutput', () => {
       [
         'expo-camera',
         {
+          barcodeScannerEnabled: true,
           cameraPermission: 'Allow camera access to scan barcodes.',
+          microphonePermission: false,
+          recordAudioAndroid: false,
         },
       ],
       'expo-something',
@@ -102,7 +117,7 @@ describe('generatedAppOutput', () => {
     expect(resolveExpoRuntimeGeneratedAppOutput(CAMERA_PLAN)).toEqual({
       dependencies: {
         '@ankhorage/expo-runtime': '^0.0.7',
-        'expo-camera': '~17.0.10',
+        'expo-camera': EXPO_PLATFORM.packages.camera.version,
       },
       layoutIntegration: {
         imports: ["import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';"],
@@ -111,12 +126,15 @@ describe('generatedAppOutput', () => {
         providerEnd: ['</ExpoRuntimeProviders>'],
       },
       native: {
-        androidPermissions: ['android.permission.CAMERA'],
+        androidPermissions: [],
         configPlugins: [
           [
             'expo-camera',
             {
+              barcodeScannerEnabled: true,
               cameraPermission: 'Allow camera access to scan barcodes.',
+              microphonePermission: false,
+              recordAudioAndroid: false,
             },
           ],
           'expo-something',

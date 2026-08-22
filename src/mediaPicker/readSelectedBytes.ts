@@ -1,17 +1,17 @@
-export interface ArrayBufferReadable {
+interface ArrayBufferReadable {
   arrayBuffer(): Promise<ArrayBuffer>;
 }
 
 export interface SelectedMediaByteSource {
   readonly uri: string;
-  readonly file?: ArrayBufferReadable;
+  readonly file?: unknown;
 }
 
 export async function readSelectedMediaBytes(
   source: SelectedMediaByteSource,
 ): Promise<Uint8Array | null> {
   try {
-    if (source.file) {
+    if (isArrayBufferReadable(source.file)) {
       return new Uint8Array(await source.file.arrayBuffer());
     }
     const { File } = await import('expo-file-system');
@@ -19,4 +19,13 @@ export async function readSelectedMediaBytes(
   } catch {
     return null;
   }
+}
+
+function isArrayBufferReadable(value: unknown): value is ArrayBufferReadable {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    'arrayBuffer' in value &&
+    typeof value.arrayBuffer === 'function'
+  );
 }

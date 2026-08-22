@@ -25,6 +25,7 @@ graph LR
   module_src_oauthBrowserTransport_ts["src/oauthBrowserTransport.ts"]
   module_src_permissionRuntime_ts["src/permissionRuntime.ts"]
   module_src_planning_ts["src/planning.ts"]
+  module_src_platform_ts["src/platform.ts"]
   module_src_resolveExpoRuntimePlan_ts["src/resolveExpoRuntimePlan.ts"]
   export_BARCODE_SCAN_DEDUPE_WINDOW_MS["BARCODE_SCAN_DEDUPE_WINDOW_MS"]
   module_src_barcodeScanRuntime_ts --> export_BARCODE_SCAN_DEDUPE_WINDOW_MS
@@ -44,6 +45,11 @@ graph LR
   export_createExpoRuntimeRegistry["createExpoRuntimeRegistry"]
   module_src_createExpoRuntimeRegistry_tsx --> export_createExpoRuntimeRegistry
   export_createExpoRuntimeRegistry -.-> export_ComponentRegistry
+  export_dispatchExpoBarcodeScan["dispatchExpoBarcodeScan"]
+  module_src_barcodeScanRuntime_ts --> export_dispatchExpoBarcodeScan
+  export_dispatchExpoBarcodeScan -.-> export_BarcodeScanRecord
+  export_dispatchExpoBarcodeScan -.-> export_ExpoBarcodeScanCallback
+  export_dispatchExpoBarcodeScan -.-> export_ExpoBarcodeScanResultLike
   export_executeExpoRuntimeAction["executeExpoRuntimeAction"]
   module_src_expoActionBridge_ts --> export_executeExpoRuntimeAction
   export_executeExpoRuntimeAction -.-> export_ExecuteExpoRuntimeActionArgs
@@ -52,6 +58,10 @@ graph LR
   export_ExecuteExpoRuntimeActionArgs -.-> export_ExpoRuntimeActionHandlers
   export_ExecuteExpoRuntimeActionArgs -.-> export_ExpoRuntimeRouterLike
   export_ExecuteExpoRuntimeActionArgs -.-> export_ExpoRuntimeThemeMode
+  export_EXPO_PLATFORM["EXPO_PLATFORM"]
+  module_src_platform_ts --> export_EXPO_PLATFORM
+  export_ExpoBarcodeScanCallback["ExpoBarcodeScanCallback"]
+  module_src_barcodeScanRuntime_ts --> export_ExpoBarcodeScanCallback
   export_ExpoBarcodeScannerAdapter["ExpoBarcodeScannerAdapter"]
   module_src_ExpoBarcodeScannerAdapter_tsx --> export_ExpoBarcodeScannerAdapter
   export_ExpoBarcodeScanResultLike["ExpoBarcodeScanResultLike"]
@@ -66,6 +76,10 @@ graph LR
   module_src_bundledMediaResolver_ts --> export_ExpoBundledMediaResolverArgs
   export_ExpoBundledMediaValue["ExpoBundledMediaValue"]
   module_src_bundledMediaResolver_ts --> export_ExpoBundledMediaValue
+  export_ExpoPlatform["ExpoPlatform"]
+  module_src_platform_ts --> export_ExpoPlatform
+  export_ExpoPlatformPackage["ExpoPlatformPackage"]
+  module_src_platform_ts --> export_ExpoPlatformPackage
   export_ExpoRuntimeActionHandlerArgs["ExpoRuntimeActionHandlerArgs"]
   module_src_expoActionBridge_ts --> export_ExpoRuntimeActionHandlerArgs
   export_ExpoRuntimeActionHandlers["ExpoRuntimeActionHandlers"]

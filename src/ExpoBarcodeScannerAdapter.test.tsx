@@ -3,6 +3,7 @@ import { describe, expect, it } from 'bun:test';
 import {
   BARCODE_SCAN_DEDUPE_WINDOW_MS,
   BARCODE_SCANNER_TYPES,
+  dispatchExpoBarcodeScan,
   mapPermissionStatusToCameraPermissionStatus,
   normalizeExpoBarcodeScanResult,
   shouldIgnoreBarcodeScan,
@@ -68,8 +69,32 @@ describe('ExpoBarcodeScannerAdapter helpers', () => {
     expect(mapPermissionStatusToCameraPermissionStatus('blocked', true)).toBe('requesting');
   });
 
-  it('keeps the exported scanner barcode type allowlist intact', () => {
-    expect(BARCODE_SCANNER_TYPES).toContain('qr');
-    expect(BARCODE_SCANNER_TYPES).toContain('ean13');
+  it('configures the Expo camera for the capability-supported barcode formats', () => {
+    expect(BARCODE_SCANNER_TYPES).toEqual(['ean13', 'ean8', 'qr']);
+  });
+
+  it.each([
+    ['qr', 'https://ankhorage.dev'],
+    ['ean13', '4006381333931'],
+    ['ean8', '96385074'],
+  ])('forwards a valid %s payload through the canonical scanner callback', async (type, data) => {
+    const forwarded: { value: string; type?: string }[] = [];
+    let acceptedRecord: { value: string; type?: string; timestamp: number } | undefined;
+
+    expect(
+      await dispatchExpoBarcodeScan(
+        { data, type },
+        null,
+        1_000,
+        (result) => {
+          forwarded.push(result);
+        },
+        (record) => {
+          acceptedRecord = record;
+        },
+      ),
+    ).toBe(true);
+    expect(forwarded).toEqual([{ value: data, type }]);
+    expect(acceptedRecord).toEqual({ value: data, type, timestamp: 1_000 });
   });
 });

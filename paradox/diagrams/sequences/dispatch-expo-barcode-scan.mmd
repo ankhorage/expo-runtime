@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant participant_dispatchExpoBarcodeScan as dispatchExpoBarcodeScan
+  participant participant_normalizeExpoBarcodeScanResult as normalizeExpoBarcodeScanResult
+  participant participant_onAccepted as onAccepted
+  participant participant_onBarcodeScanned as onBarcodeScanned
+  participant participant_shouldIgnoreBarcodeScan as shouldIgnoreBarcodeScan
+  participant_dispatchExpoBarcodeScan->>participant_normalizeExpoBarcodeScanResult: normalizeExpoBarcodeScanResult()
+  participant_normalizeExpoBarcodeScanResult-->>participant_dispatchExpoBarcodeScan: return
+  participant_dispatchExpoBarcodeScan->>participant_shouldIgnoreBarcodeScan: shouldIgnoreBarcodeScan()
+  participant_shouldIgnoreBarcodeScan-->>participant_dispatchExpoBarcodeScan: return
+  participant_dispatchExpoBarcodeScan->>participant_onAccepted: onAccepted()
+  participant_onAccepted-->>participant_dispatchExpoBarcodeScan: return
+  participant_dispatchExpoBarcodeScan->>participant_onBarcodeScanned: onBarcodeScanned()
+  participant_onBarcodeScanned-->>participant_dispatchExpoBarcodeScan: return

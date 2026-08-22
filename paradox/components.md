@@ -2,7 +2,7 @@
 
 ## ExpoBarcodeScannerAdapter
 
-Source: `src/ExpoBarcodeScannerAdapter.tsx:17:1`
+Source: `src/ExpoBarcodeScannerAdapter.tsx:16:1`
 
 Export paths: `src/index.ts`
 
