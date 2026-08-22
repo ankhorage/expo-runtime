@@ -1,4 +1,5 @@
 sequenceDiagram
+  participant participant_createBarcodeScanHandler as createBarcodeScanHandler
   participant participant_ExpoBarcodeScannerAdapter as ExpoBarcodeScannerAdapter
   participant participant_mapPermissionStatusToCameraPermissionStatus as mapPermissionStatusToCameraPermissionStatus
   participant participant_usePermission as usePermission
@@ -6,3 +7,5 @@ sequenceDiagram
   participant_usePermission-->>participant_ExpoBarcodeScannerAdapter: return
   participant_ExpoBarcodeScannerAdapter->>participant_mapPermissionStatusToCameraPermissionStatus: mapPermissionStatusToCameraPermissionStatus()
   participant_mapPermissionStatusToCameraPermissionStatus-->>participant_ExpoBarcodeScannerAdapter: return
+  participant_ExpoBarcodeScannerAdapter->>participant_createBarcodeScanHandler: createBarcodeScanHandler()
+  participant_createBarcodeScanHandler-->>participant_ExpoBarcodeScannerAdapter: return

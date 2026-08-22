@@ -22,9 +22,54 @@ export interface BarcodeScanRecord extends BarcodeScanResult {
   readonly timestamp: number;
 }
 
+export interface BarcodeScanRecordRef {
+  current: BarcodeScanRecord | null;
+}
+
 export interface ExpoBarcodeScanResultLike {
   readonly data: string;
   readonly type?: string;
+}
+
+export interface CreateBarcodeScanHandlerOptions {
+  readonly lastScanRef: BarcodeScanRecordRef;
+  readonly now?: () => number;
+  readonly onBarcodeDelivered?: (result: BarcodeScanResult) => void;
+  readonly onBarcodeNormalized?: (result: BarcodeScanResult) => void;
+  readonly onBarcodeScanned?: (result: BarcodeScanResult) => void | Promise<void>;
+  readonly onRawBarcodeScanned?: (result: ExpoBarcodeScanResultLike) => void;
+}
+
+export function createBarcodeScanHandler({
+  lastScanRef,
+  now = Date.now,
+  onBarcodeDelivered,
+  onBarcodeNormalized,
+  onBarcodeScanned,
+  onRawBarcodeScanned,
+}: CreateBarcodeScanHandlerOptions): (result: ExpoBarcodeScanResultLike) => void {
+  return (result) => {
+    void (async () => {
+      onRawBarcodeScanned?.(result);
+      const normalizedResult = normalizeExpoBarcodeScanResult(result);
+      if (normalizedResult === null) {
+        return;
+      }
+      onBarcodeNormalized?.(normalizedResult);
+
+      const timestamp = now();
+      if (shouldIgnoreBarcodeScan(lastScanRef.current, normalizedResult, timestamp)) {
+        return;
+      }
+
+      lastScanRef.current = {
+        ...normalizedResult,
+        timestamp,
+      };
+      await onBarcodeScanned?.(normalizedResult);
+      onBarcodeDelivered?.(normalizedResult);
+    })();
+  };
 }
 
 export function mapPermissionStatusToCameraPermissionStatus(

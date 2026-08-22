@@ -21,6 +21,15 @@ graph TD
   module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
   package__ankhorage_expo_runtime -.-> module_src_ExpoBarcodeScannerAdapter_tsx
   module_src_ExpoBarcodeScannerAdapter_tsx --> module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerAdapter_tsx --> module_src_ExpoBarcodeScannerCamera_tsx
+  module_src_ExpoBarcodeScannerCamera_tsx["src/ExpoBarcodeScannerCamera.tsx"]
+  package__ankhorage_expo_runtime -.-> module_src_ExpoBarcodeScannerCamera_tsx
+  module_src_ExpoBarcodeScannerCamera_tsx --> module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerCamera_tsx --> module_src_nativeBarcodeScannerCamera_ts
+  module_src_ExpoBarcodeScannerCamera_web_tsx["src/ExpoBarcodeScannerCamera.web.tsx"]
+  package__ankhorage_expo_runtime -.-> module_src_ExpoBarcodeScannerCamera_web_tsx
+  module_src_ExpoBarcodeScannerCamera_web_tsx --> module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerCamera_web_tsx --> module_src_ExpoBarcodeScannerCamera_tsx
   module_src_ExpoRuntimeProviders_tsx["src/ExpoRuntimeProviders.tsx"]
   package__ankhorage_expo_runtime -.-> module_src_ExpoRuntimeProviders_tsx
   module_src_ExpoRuntimeProviders_tsx --> module_src_permissionRuntime_ts
@@ -58,6 +67,9 @@ graph TD
   package__ankhorage_expo_runtime -.-> module_src_mediaPicker_readSelectedBytes_ts
   module_src_mediaPicker_types_ts["src/mediaPicker/types.ts"]
   package__ankhorage_expo_runtime -.-> module_src_mediaPicker_types_ts
+  module_src_nativeBarcodeScannerCamera_ts["src/nativeBarcodeScannerCamera.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_nativeBarcodeScannerCamera_ts
+  module_src_nativeBarcodeScannerCamera_ts --> module_src_barcodeScanRuntime_ts
   module_src_nativeLinkingPlanning_ts["src/nativeLinkingPlanning.ts"]
   package__ankhorage_expo_runtime -.-> module_src_nativeLinkingPlanning_ts
   module_src_oauthBrowserRuntime_ts["src/oauthBrowserRuntime.ts"]

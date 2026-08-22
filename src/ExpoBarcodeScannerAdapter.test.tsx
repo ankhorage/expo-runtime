@@ -3,6 +3,7 @@ import { describe, expect, it } from 'bun:test';
 import {
   BARCODE_SCAN_DEDUPE_WINDOW_MS,
   BARCODE_SCANNER_TYPES,
+  createBarcodeScanHandler,
   mapPermissionStatusToCameraPermissionStatus,
   normalizeExpoBarcodeScanResult,
   shouldIgnoreBarcodeScan,
@@ -71,5 +72,35 @@ describe('ExpoBarcodeScannerAdapter helpers', () => {
   it('keeps the exported scanner barcode type allowlist intact', () => {
     expect(BARCODE_SCANNER_TYPES).toContain('qr');
     expect(BARCODE_SCANNER_TYPES).toContain('ean13');
+    expect(BARCODE_SCANNER_TYPES).toContain('ean8');
+  });
+
+  it('wires raw platform events to the canonical callback with normalization and dedupe', async () => {
+    const delivered: unknown[] = [];
+    const normalized: unknown[] = [];
+    const raw: unknown[] = [];
+    const scanned: unknown[] = [];
+    const lastScanRef = { current: null };
+    const handleBarcodeScanned = createBarcodeScanHandler({
+      lastScanRef,
+      now: () => 1_000,
+      onBarcodeDelivered: (result) => delivered.push(result),
+      onBarcodeNormalized: (result) => normalized.push(result),
+      onBarcodeScanned: (result) => {
+        scanned.push(result);
+      },
+      onRawBarcodeScanned: (result) => raw.push(result),
+    });
+
+    handleBarcodeScanned({ data: ' 5901234123457 ', type: 'ean13' });
+    handleBarcodeScanned({ data: ' 5901234123457 ', type: 'ean13' });
+    handleBarcodeScanned({ data: '   ', type: 'ean8' });
+    await Promise.resolve();
+
+    const canonicalResult = { value: '5901234123457', type: 'ean13' };
+    expect(raw).toHaveLength(3);
+    expect(normalized).toEqual([canonicalResult, canonicalResult]);
+    expect(scanned).toEqual([canonicalResult]);
+    expect(delivered).toEqual([canonicalResult]);
   });
 });

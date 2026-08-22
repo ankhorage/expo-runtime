@@ -2,7 +2,7 @@
 
 ## ExpoBarcodeScannerAdapter
 
-Source: `src/ExpoBarcodeScannerAdapter.tsx:17:1`
+Source: `src/ExpoBarcodeScannerAdapter.tsx:29:1`
 
 Export paths: `src/index.ts`
 
@@ -13,6 +13,7 @@ Export paths: `src/index.ts`
 | cornerLabel            | `React.ReactNode \| undefined`                                      | no       | —       |             |
 | deniedPermissionLabel  | `React.ReactNode \| undefined`                                      | no       | —       |             |
 | description            | `React.ReactNode \| undefined`                                      | no       | —       |             |
+| diagnostics            | `ExpoBarcodeScannerDiagnostics \| undefined`                        | no       | —       |             |
 | manualEntryLabel       | `React.ReactNode \| undefined`                                      | no       | —       |             |
 | mode                   | `ZoraThemeMode \| undefined`                                        | no       | —       |             |
 | onBarcodeScanned       | `(result: BarcodeScanResult) => void \| Promise<void> \| undefined` | no       | —       |             |

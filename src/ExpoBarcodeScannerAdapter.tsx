@@ -1,22 +1,35 @@
 import { Permission, usePermission } from '@ankhorage/permissions';
-import { BarcodeScannerView, type BarcodeScannerViewProps } from '@ankhorage/zora';
-import { type BarcodeScanningResult, type BarcodeType, CameraView } from 'expo-camera';
+import {
+  BarcodeScannerView,
+  type BarcodeScannerViewProps,
+  type BarcodeScanResult,
+} from '@ankhorage/zora';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 
 import {
-  BARCODE_SCANNER_TYPES,
   type BarcodeScanRecord,
+  createBarcodeScanHandler,
+  type ExpoBarcodeScanResultLike,
   mapPermissionStatusToCameraPermissionStatus,
-  normalizeExpoBarcodeScanResult,
-  shouldIgnoreBarcodeScan,
 } from './barcodeScanRuntime';
+import { ExpoBarcodeScannerCamera } from './ExpoBarcodeScannerCamera';
 
-const CAMERA_BARCODE_TYPES: BarcodeType[] = [...BARCODE_SCANNER_TYPES];
+export interface ExpoBarcodeScannerDiagnostics {
+  readonly onBarcodeDelivered?: (result: BarcodeScanResult) => void;
+  readonly onBarcodeNormalized?: (result: BarcodeScanResult) => void;
+  readonly onCameraReady?: () => void;
+  readonly onMountError?: (error: Error) => void;
+  readonly onRawBarcodeScanned?: (result: ExpoBarcodeScanResultLike) => void;
+}
 
-export function ExpoBarcodeScannerAdapter(props: BarcodeScannerViewProps) {
-  const { onBarcodeScanned, onRequestPermission, ...viewProps } = props;
+export interface ExpoBarcodeScannerAdapterProps extends BarcodeScannerViewProps {
+  readonly diagnostics?: ExpoBarcodeScannerDiagnostics;
+}
+
+export function ExpoBarcodeScannerAdapter(props: ExpoBarcodeScannerAdapterProps) {
+  const { diagnostics, onBarcodeScanned, onRequestPermission, ...viewProps } = props;
   const cameraPermission = usePermission(Permission.Camera);
+  const [cameraError, setCameraError] = React.useState<Error | null>(null);
   const [isRequestingPermission, setIsRequestingPermission] = React.useState(false);
   const lastScanRef = React.useRef<BarcodeScanRecord | null>(null);
 
@@ -26,6 +39,7 @@ export function ExpoBarcodeScannerAdapter(props: BarcodeScannerViewProps) {
   );
 
   const handleRequestPermission = React.useCallback(async () => {
+    setCameraError(null);
     setIsRequestingPermission(true);
     try {
       await cameraPermission.request();
@@ -36,49 +50,47 @@ export function ExpoBarcodeScannerAdapter(props: BarcodeScannerViewProps) {
   }, [cameraPermission, onRequestPermission]);
 
   const handleBarcodeScanned = React.useCallback(
-    (result: BarcodeScanningResult) => {
-      void (async () => {
-        const normalizedResult = normalizeExpoBarcodeScanResult(result);
-        if (normalizedResult === null) {
-          return;
-        }
+    createBarcodeScanHandler({
+      lastScanRef,
+      onBarcodeDelivered: diagnostics?.onBarcodeDelivered,
+      onBarcodeNormalized: diagnostics?.onBarcodeNormalized,
+      onBarcodeScanned,
+      onRawBarcodeScanned: diagnostics?.onRawBarcodeScanned,
+    }),
+    [diagnostics, onBarcodeScanned],
+  );
 
-        const now = Date.now();
-        if (shouldIgnoreBarcodeScan(lastScanRef.current, normalizedResult, now)) {
-          return;
-        }
-
-        lastScanRef.current = {
-          ...normalizedResult,
-          timestamp: now,
-        };
-        await onBarcodeScanned?.(normalizedResult);
-      })();
+  const handleMountError = React.useCallback(
+    (error: Error) => {
+      setCameraError(error);
+      diagnostics?.onMountError?.(error);
     },
-    [onBarcodeScanned],
+    [diagnostics],
   );
 
   const camera =
-    permissionStatus === 'granted' ? (
-      <CameraView
-        barcodeScannerSettings={{ barcodeTypes: CAMERA_BARCODE_TYPES }}
+    permissionStatus === 'granted' && cameraError === null ? (
+      <ExpoBarcodeScannerCamera
         onBarcodeScanned={handleBarcodeScanned}
-        style={styles.camera}
+        onCameraReady={diagnostics?.onCameraReady}
+        onMountError={handleMountError}
       />
     ) : undefined;
+
+  const effectivePermissionStatus = cameraError === null ? permissionStatus : 'denied';
+  const deniedPermissionLabel =
+    cameraError === null
+      ? viewProps.deniedPermissionLabel
+      : (viewProps.deniedPermissionLabel ??
+        'Automatic barcode scanning is unavailable. Try again or enter the barcode manually.');
 
   return (
     <BarcodeScannerView
       {...viewProps}
       camera={camera}
+      deniedPermissionLabel={deniedPermissionLabel}
       onRequestPermission={handleRequestPermission}
-      permissionStatus={permissionStatus}
+      permissionStatus={effectivePermissionStatus}
     />
   );
 }
-
-const styles = StyleSheet.create({
-  camera: {
-    flex: 1,
-  },
-});

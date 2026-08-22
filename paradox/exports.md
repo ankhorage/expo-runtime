@@ -26,11 +26,66 @@ Source: `src/barcodeScanRuntime.ts:21:1`
 | type      | property | `string \| undefined` | no       |             |
 | value     | property | `string`              | yes      |             |
 
+## BarcodeScanRecordRef
+
+Kind: `type`
+Module: `src/barcodeScanRuntime.ts`
+Source: `src/barcodeScanRuntime.ts:25:1`
+
+### Members
+
+| Name    | Kind     | Type                        | Required | Description |
+| ------- | -------- | --------------------------- | -------- | ----------- |
+| current | property | `BarcodeScanRecord \| null` | yes      |             |
+
 ## ComponentRegistry
 
 Kind: `unknown`
 Module: `src/componentRegistry.ts`
 Source: `src/componentRegistry.ts:3:1`
+
+## createBarcodeScanHandler
+
+Kind: `function`
+Module: `src/barcodeScanRuntime.ts`
+Source: `src/barcodeScanRuntime.ts:43:1`
+
+### Signatures
+
+- `({
+  lastScanRef,
+  now = Date.now,
+  onBarcodeDelivered,
+  onBarcodeNormalized,
+  onBarcodeScanned,
+  onRawBarcodeScanned,
+}: CreateBarcodeScanHandlerOptions) => (result: ExpoBarcodeScanResultLike) => void`
+  - {
+    lastScanRef,
+    now = Date.now,
+    onBarcodeDelivered,
+    onBarcodeNormalized,
+    onBarcodeScanned,
+    onRawBarcodeScanned,
+    }: `CreateBarcodeScanHandlerOptions`
+  - returns: `(result: ExpoBarcodeScanResultLike) => void`
+
+## CreateBarcodeScanHandlerOptions
+
+Kind: `type`
+Module: `src/barcodeScanRuntime.ts`
+Source: `src/barcodeScanRuntime.ts:34:1`
+
+### Members
+
+| Name                | Kind     | Type                                                                  | Required | Description |
+| ------------------- | -------- | --------------------------------------------------------------------- | -------- | ----------- |
+| lastScanRef         | property | `BarcodeScanRecordRef`                                                | yes      |             |
+| now                 | property | `(() => number) \| undefined`                                         | no       |             |
+| onBarcodeDelivered  | property | `((result: BarcodeScanResult) => void) \| undefined`                  | no       |             |
+| onBarcodeNormalized | property | `((result: BarcodeScanResult) => void) \| undefined`                  | no       |             |
+| onBarcodeScanned    | property | `((result: BarcodeScanResult) => void \| Promise<void>) \| undefined` | no       |             |
+| onRawBarcodeScanned | property | `((result: ExpoBarcodeScanResultLike) => void) \| undefined`          | no       |             |
 
 ## createComponentRegistry
 
@@ -103,19 +158,64 @@ Source: `src/expoActionBridge.ts:18:1`
 
 Kind: `function`
 Module: `src/ExpoBarcodeScannerAdapter.tsx`
-Source: `src/ExpoBarcodeScannerAdapter.tsx:17:1`
+Source: `src/ExpoBarcodeScannerAdapter.tsx:29:1`
 
 ### Signatures
 
-- `(props: BarcodeScannerViewProps) => React.JSX.Element`
-  - props: `BarcodeScannerViewProps`
+- `(props: ExpoBarcodeScannerAdapterProps) => React.JSX.Element`
+  - props: `ExpoBarcodeScannerAdapterProps`
   - returns: `React.JSX.Element`
+
+## ExpoBarcodeScannerAdapterProps
+
+Kind: `type`
+Module: `src/ExpoBarcodeScannerAdapter.tsx`
+Source: `src/ExpoBarcodeScannerAdapter.tsx:25:1`
+
+### Members
+
+| Name                   | Kind     | Type                                                                  | Required | Description |
+| ---------------------- | -------- | --------------------------------------------------------------------- | -------- | ----------- |
+| camera                 | property | `React.ReactNode`                                                     | no       |             |
+| children               | property | `React.ReactNode`                                                     | no       |             |
+| cornerLabel            | property | `React.ReactNode`                                                     | no       |             |
+| deniedPermissionLabel  | property | `React.ReactNode`                                                     | no       |             |
+| description            | property | `React.ReactNode`                                                     | no       |             |
+| diagnostics            | property | `ExpoBarcodeScannerDiagnostics \| undefined`                          | no       |             |
+| manualEntryLabel       | property | `React.ReactNode`                                                     | no       |             |
+| mode                   | property | `ZoraThemeMode \| undefined`                                          | no       |             |
+| onBarcodeScanned       | property | `((result: BarcodeScanResult) => void \| Promise<void>) \| undefined` | no       |             |
+| onManualEntry          | property | `(() => void \| Promise<void>) \| undefined`                          | no       |             |
+| onRequestPermission    | property | `(() => void \| Promise<void>) \| undefined`                          | no       |             |
+| overlayDescription     | property | `React.ReactNode`                                                     | no       |             |
+| overlayTitle           | property | `React.ReactNode`                                                     | no       |             |
+| permissionStatus       | property | `CameraPermissionStatus`                                              | yes      |             |
+| requestPermissionLabel | property | `React.ReactNode`                                                     | no       |             |
+| testID                 | property | `string \| undefined`                                                 | no       |             |
+| themeId                | property | `string \| undefined`                                                 | no       |             |
+| title                  | property | `React.ReactNode`                                                     | no       |             |
+
+## ExpoBarcodeScannerDiagnostics
+
+Kind: `type`
+Module: `src/ExpoBarcodeScannerAdapter.tsx`
+Source: `src/ExpoBarcodeScannerAdapter.tsx:17:1`
+
+### Members
+
+| Name                | Kind     | Type                                                         | Required | Description |
+| ------------------- | -------- | ------------------------------------------------------------ | -------- | ----------- |
+| onBarcodeDelivered  | property | `((result: BarcodeScanResult) => void) \| undefined`         | no       |             |
+| onBarcodeNormalized | property | `((result: BarcodeScanResult) => void) \| undefined`         | no       |             |
+| onCameraReady       | property | `(() => void) \| undefined`                                  | no       |             |
+| onMountError        | property | `((error: Error) => void) \| undefined`                      | no       |             |
+| onRawBarcodeScanned | property | `((result: ExpoBarcodeScanResultLike) => void) \| undefined` | no       |             |
 
 ## ExpoBarcodeScanResultLike
 
 Kind: `type`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:25:1`
+Source: `src/barcodeScanRuntime.ts:29:1`
 
 ### Members
 
@@ -189,7 +289,7 @@ Source: `src/expoActionBridge.ts:13:1`
 
 Kind: `unknown`
 Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:27:1`
+Source: `src/resolveExpoRuntimePlan.ts:37:1`
 
 ## ExpoRuntimeConfigPluginOutput
 
@@ -249,7 +349,7 @@ Source: `src/generatedAppOutput.ts:13:1`
 
 Kind: `type`
 Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:37:1`
+Source: `src/resolveExpoRuntimePlan.ts:47:1`
 
 ### Members
 
@@ -270,7 +370,7 @@ Source: `src/resolveExpoRuntimePlan.ts:37:1`
 
 Kind: `unknown`
 Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:26:1`
+Source: `src/resolveExpoRuntimePlan.ts:36:1`
 
 ## ExpoRuntimeProviders
 
@@ -355,7 +455,7 @@ Source: `src/bundledMediaRegistrySource.ts:6:1`
 
 Kind: `function`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:30:1`
+Source: `src/barcodeScanRuntime.ts:75:1`
 
 ### Signatures
 
@@ -368,7 +468,7 @@ Source: `src/barcodeScanRuntime.ts:30:1`
 
 Kind: `function`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:48:1`
+Source: `src/barcodeScanRuntime.ts:93:1`
 
 ### Signatures
 
@@ -453,12 +553,12 @@ Source: `src/generatedAppOutput.ts:40:1`
 
 Kind: `function`
 Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:121:1`
+Source: `src/resolveExpoRuntimePlan.ts:131:1`
 
 ### Signatures
 
-- `(manifest: AppManifest, options?: ResolveExpoRuntimePlanOptions) => ExpoRuntimePlan`
-  - manifest: `AppManifest`
+- `(manifest: ExpoRuntimePlanningManifest, options?: ResolveExpoRuntimePlanOptions) => ExpoRuntimePlan`
+  - manifest: `ExpoRuntimePlanningManifest`
   - options: `ResolveExpoRuntimePlanOptions` (optional)
   - returns: `ExpoRuntimePlan`
 
@@ -479,7 +579,7 @@ Source: `src/expoActionBridge.ts:34:1`
 
 Kind: `function`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:64:1`
+Source: `src/barcodeScanRuntime.ts:109:1`
 
 ### Signatures
 

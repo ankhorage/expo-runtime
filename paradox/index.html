@@ -201,7 +201,7 @@
             <li>
               <button class="nav-button" type="button" data-target="src/barcodeScanRuntime.ts">
                 src/barcodeScanRuntime.ts
-                <small>3 functions</small>
+                <small>4 functions</small>
               </button>
             </li>
             <li>
@@ -250,6 +250,26 @@
               >
                 src/ExpoBarcodeScannerAdapter.tsx
                 <small>1 function</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/ExpoBarcodeScannerCamera.tsx"
+              >
+                src/ExpoBarcodeScannerCamera.tsx
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/ExpoBarcodeScannerCamera.web.tsx"
+              >
+                src/ExpoBarcodeScannerCamera.web.tsx
+                <small>4 functions</small>
               </button>
             </li>
             <li>
@@ -327,6 +347,16 @@
               </button>
             </li>
             <li>
+              <button
+                class="nav-button"
+                type="button"
+                data-target="src/nativeBarcodeScannerCamera.ts"
+              >
+                src/nativeBarcodeScannerCamera.ts
+                <small>1 function</small>
+              </button>
+            </li>
+            <li>
               <button class="nav-button" type="button" data-target="src/nativeLinkingPlanning.ts">
                 src/nativeLinkingPlanning.ts
                 <small>1 function</small>
@@ -364,9 +394,9 @@
           <section class="panel">
             <h2>Package overview</h2>
             <div class="summary">
-              <div><strong>44</strong><span class="muted">public exports</span></div>
+              <div><strong>49</strong><span class="muted">public exports</span></div>
               <div><strong>2</strong><span class="muted">components</span></div>
-              <div><strong>27</strong><span class="muted">modules</span></div>
+              <div><strong>30</strong><span class="muted">modules</span></div>
               <div><strong>1</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -379,7 +409,7 @@
             <h2>Modules</h2>
             <article
               class="item"
-              data-search="src/barcodeScanRuntime.ts BARCODE_SCAN_DEDUPE_WINDOW_MS BARCODE_SCANNER_TYPES BarcodeScanRecord ExpoBarcodeScanResultLike mapPermissionStatusToCameraPermissionStatus normalizeExpoBarcodeScanResult shouldIgnoreBarcodeScan"
+              data-search="src/barcodeScanRuntime.ts BARCODE_SCAN_DEDUPE_WINDOW_MS BARCODE_SCANNER_TYPES BarcodeScanRecord BarcodeScanRecordRef createBarcodeScanHandler CreateBarcodeScanHandlerOptions ExpoBarcodeScanResultLike mapPermissionStatusToCameraPermissionStatus normalizeExpoBarcodeScanResult shouldIgnoreBarcodeScan"
             >
               <h3>src/barcodeScanRuntime.ts</h3>
               <p class="muted">Referenced module</p>
@@ -387,6 +417,8 @@
               <p>
                 <strong>Exports:</strong> <code>BARCODE_SCAN_DEDUPE_WINDOW_MS</code>,
                 <code>BARCODE_SCANNER_TYPES</code>, <code>BarcodeScanRecord</code>,
+                <code>BarcodeScanRecordRef</code>, <code>createBarcodeScanHandler</code>,
+                <code>CreateBarcodeScanHandlerOptions</code>,
                 <code>ExpoBarcodeScanResultLike</code>,
                 <code>mapPermissionStatusToCameraPermissionStatus</code>,
                 <code>normalizeExpoBarcodeScanResult</code>, <code>shouldIgnoreBarcodeScan</code>
@@ -475,12 +507,50 @@
             </article>
             <article
               class="item"
-              data-search="src/ExpoBarcodeScannerAdapter.tsx src/barcodeScanRuntime.ts ExpoBarcodeScannerAdapter"
+              data-search="src/ExpoBarcodeScannerAdapter.tsx src/barcodeScanRuntime.ts src/ExpoBarcodeScannerCamera.tsx ExpoBarcodeScannerAdapter ExpoBarcodeScannerAdapterProps ExpoBarcodeScannerDiagnostics"
             >
               <h3>src/ExpoBarcodeScannerAdapter.tsx</h3>
               <p class="muted">Referenced module</p>
-              <p><strong>Dependencies:</strong> <code>src/barcodeScanRuntime.ts</code></p>
-              <p><strong>Exports:</strong> <code>ExpoBarcodeScannerAdapter</code></p>
+              <p>
+                <strong>Dependencies:</strong> <code>src/barcodeScanRuntime.ts</code>,
+                <code>src/ExpoBarcodeScannerCamera.tsx</code>
+              </p>
+              <p>
+                <strong>Exports:</strong> <code>ExpoBarcodeScannerAdapter</code>,
+                <code>ExpoBarcodeScannerAdapterProps</code>,
+                <code>ExpoBarcodeScannerDiagnostics</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/ExpoBarcodeScannerCamera.tsx src/barcodeScanRuntime.ts src/nativeBarcodeScannerCamera.ts EXPO_BARCODE_SCANNER_IMPLEMENTATION ExpoBarcodeScannerCamera ExpoBarcodeScannerCameraProps"
+            >
+              <h3>src/ExpoBarcodeScannerCamera.tsx</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong> <code>src/barcodeScanRuntime.ts</code>,
+                <code>src/nativeBarcodeScannerCamera.ts</code>
+              </p>
+              <p>
+                <strong>Exports:</strong> <code>EXPO_BARCODE_SCANNER_IMPLEMENTATION</code>,
+                <code>ExpoBarcodeScannerCamera</code>, <code>ExpoBarcodeScannerCameraProps</code>
+              </p>
+            </article>
+            <article
+              class="item"
+              data-search="src/ExpoBarcodeScannerCamera.web.tsx src/barcodeScanRuntime.ts src/ExpoBarcodeScannerCamera.tsx EXPO_BARCODE_SCANNER_IMPLEMENTATION ExpoBarcodeScannerCamera normalizeWebBarcodeScanResult startWebBarcodeScanner WebBarcodeScanResultLike"
+            >
+              <h3>src/ExpoBarcodeScannerCamera.web.tsx</h3>
+              <p class="muted">Referenced module</p>
+              <p>
+                <strong>Dependencies:</strong> <code>src/barcodeScanRuntime.ts</code>,
+                <code>src/ExpoBarcodeScannerCamera.tsx</code>
+              </p>
+              <p>
+                <strong>Exports:</strong> <code>EXPO_BARCODE_SCANNER_IMPLEMENTATION</code>,
+                <code>ExpoBarcodeScannerCamera</code>, <code>normalizeWebBarcodeScanResult</code>,
+                <code>startWebBarcodeScanner</code>, <code>WebBarcodeScanResultLike</code>
+              </p>
             </article>
             <article
               class="item"
@@ -529,7 +599,7 @@
             </article>
             <article
               class="item"
-              data-search="src/index.ts BARCODE_SCAN_DEDUPE_WINDOW_MS BARCODE_SCANNER_TYPES BarcodeScanRecord ComponentRegistry createComponentRegistry createExpoBundledMediaResolver createExpoRuntimeRegistry executeExpoRuntimeAction ExecuteExpoRuntimeActionArgs ExpoBarcodeScannerAdapter ExpoBarcodeScanResultLike ExpoBundledMediaRegistry ExpoBundledMediaRegistrySourceEntry ExpoBundledMediaResolver ExpoBundledMediaResolverArgs ExpoBundledMediaValue ExpoRuntimeActionHandlerArgs ExpoRuntimeActionHandlers ExpoRuntimeAdapterId ExpoRuntimeConfigPluginOutput ExpoRuntimeDependencyMap ExpoRuntimeGeneratedAppOutputPlan ExpoRuntimeLayoutIntegrationPlan ExpoRuntimeNativeOutputPlan ExpoRuntimePlan ExpoRuntimeProviderId ExpoRuntimeProviders ExpoRuntimeProvidersProps ExpoRuntimeRouteResolution ExpoRuntimeRouterLike ExpoRuntimeThemeMode getExpoBarcodeScannerViewSource getExpoBundledMediaRegistrySource mapPermissionStatusToCameraPermissionStatus normalizeExpoBarcodeScanResult resolveExpoBundledMediaAsset resolveExpoRuntimeConfigPluginOutput resolveExpoRuntimeDependencyMap resolveExpoRuntimeGeneratedAppOutput resolveExpoRuntimeLayoutIntegration resolveExpoRuntimeNativeOutput resolveExpoRuntimePlan resolveExpoRuntimeRoutePath shouldIgnoreBarcodeScan"
+              data-search="src/index.ts BARCODE_SCAN_DEDUPE_WINDOW_MS BARCODE_SCANNER_TYPES BarcodeScanRecord BarcodeScanRecordRef ComponentRegistry createBarcodeScanHandler CreateBarcodeScanHandlerOptions createComponentRegistry createExpoBundledMediaResolver createExpoRuntimeRegistry executeExpoRuntimeAction ExecuteExpoRuntimeActionArgs ExpoBarcodeScannerAdapter ExpoBarcodeScannerAdapterProps ExpoBarcodeScannerDiagnostics ExpoBarcodeScanResultLike ExpoBundledMediaRegistry ExpoBundledMediaRegistrySourceEntry ExpoBundledMediaResolver ExpoBundledMediaResolverArgs ExpoBundledMediaValue ExpoRuntimeActionHandlerArgs ExpoRuntimeActionHandlers ExpoRuntimeAdapterId ExpoRuntimeConfigPluginOutput ExpoRuntimeDependencyMap ExpoRuntimeGeneratedAppOutputPlan ExpoRuntimeLayoutIntegrationPlan ExpoRuntimeNativeOutputPlan ExpoRuntimePlan ExpoRuntimeProviderId ExpoRuntimeProviders ExpoRuntimeProvidersProps ExpoRuntimeRouteResolution ExpoRuntimeRouterLike ExpoRuntimeThemeMode getExpoBarcodeScannerViewSource getExpoBundledMediaRegistrySource mapPermissionStatusToCameraPermissionStatus normalizeExpoBarcodeScanResult resolveExpoBundledMediaAsset resolveExpoRuntimeConfigPluginOutput resolveExpoRuntimeDependencyMap resolveExpoRuntimeGeneratedAppOutput resolveExpoRuntimeLayoutIntegration resolveExpoRuntimeNativeOutput resolveExpoRuntimePlan resolveExpoRuntimeRoutePath shouldIgnoreBarcodeScan"
             >
               <h3>src/index.ts</h3>
               <p class="muted">Configured entrypoint</p>
@@ -537,10 +607,13 @@
               <p>
                 <strong>Exports:</strong> <code>BARCODE_SCAN_DEDUPE_WINDOW_MS</code>,
                 <code>BARCODE_SCANNER_TYPES</code>, <code>BarcodeScanRecord</code>,
-                <code>ComponentRegistry</code>, <code>createComponentRegistry</code>,
-                <code>createExpoBundledMediaResolver</code>, <code>createExpoRuntimeRegistry</code>,
-                <code>executeExpoRuntimeAction</code>, <code>ExecuteExpoRuntimeActionArgs</code>,
-                <code>ExpoBarcodeScannerAdapter</code>, <code>ExpoBarcodeScanResultLike</code>,
+                <code>BarcodeScanRecordRef</code>, <code>ComponentRegistry</code>,
+                <code>createBarcodeScanHandler</code>, <code>CreateBarcodeScanHandlerOptions</code>,
+                <code>createComponentRegistry</code>, <code>createExpoBundledMediaResolver</code>,
+                <code>createExpoRuntimeRegistry</code>, <code>executeExpoRuntimeAction</code>,
+                <code>ExecuteExpoRuntimeActionArgs</code>, <code>ExpoBarcodeScannerAdapter</code>,
+                <code>ExpoBarcodeScannerAdapterProps</code>,
+                <code>ExpoBarcodeScannerDiagnostics</code>, <code>ExpoBarcodeScanResultLike</code>,
                 <code>ExpoBundledMediaRegistry</code>,
                 <code>ExpoBundledMediaRegistrySourceEntry</code>,
                 <code>ExpoBundledMediaResolver</code>, <code>ExpoBundledMediaResolverArgs</code>,
@@ -679,6 +752,19 @@
             </article>
             <article
               class="item"
+              data-search="src/nativeBarcodeScannerCamera.ts src/barcodeScanRuntime.ts createNativeBarcodeScannerCameraProps NATIVE_BARCODE_SCANNER_TYPES NativeBarcodeScannerCameraCallbacks"
+            >
+              <h3>src/nativeBarcodeScannerCamera.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <code>src/barcodeScanRuntime.ts</code></p>
+              <p>
+                <strong>Exports:</strong> <code>createNativeBarcodeScannerCameraProps</code>,
+                <code>NATIVE_BARCODE_SCANNER_TYPES</code>,
+                <code>NativeBarcodeScannerCameraCallbacks</code>
+              </p>
+            </article>
+            <article
+              class="item"
               data-search="src/nativeLinkingPlanning.ts ExpoRuntimeNativePlatform ExpoRuntimeNativeSchemeMap resolveExpoRuntimeNativeSchemeMap"
             >
               <h3>src/nativeLinkingPlanning.ts</h3>
@@ -704,14 +790,15 @@
             </article>
             <article
               class="item"
-              data-search="src/oauthBrowserRuntimeCore.ts ExpoOAuthBrowserRuntimeReadiness resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig"
+              data-search="src/oauthBrowserRuntimeCore.ts ExpoOAuthBrowserRuntimeEnvironment ExpoOAuthBrowserRuntimeReadiness resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment"
             >
               <h3>src/oauthBrowserRuntimeCore.ts</h3>
               <p class="muted">Referenced module</p>
               <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
               <p>
-                <strong>Exports:</strong> <code>ExpoOAuthBrowserRuntimeReadiness</code>,
-                <code>resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig</code>
+                <strong>Exports:</strong> <code>ExpoOAuthBrowserRuntimeEnvironment</code>,
+                <code>ExpoOAuthBrowserRuntimeReadiness</code>,
+                <code>resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment</code>
               </p>
             </article>
             <article
@@ -740,7 +827,7 @@
             </article>
             <article
               class="item"
-              data-search="src/planning.ts ExpoRuntimeAdapterId ExpoRuntimeConfigPluginOutput ExpoRuntimeDependencyMap ExpoRuntimeGeneratedAppOutputPlan ExpoRuntimeLayoutIntegrationPlan ExpoRuntimeNativeOutputPlan ExpoRuntimeNativePlatform ExpoRuntimeNativeSchemeMap ExpoRuntimePlan ExpoRuntimeProviderId getExpoBarcodeScannerViewSource resolveExpoRuntimeConfigPluginOutput resolveExpoRuntimeDependencyMap resolveExpoRuntimeGeneratedAppOutput resolveExpoRuntimeLayoutIntegration resolveExpoRuntimeNativeOutput resolveExpoRuntimeNativeSchemeMap resolveExpoRuntimePlan"
+              data-search="src/planning.ts ExpoRuntimeAdapterId ExpoRuntimeConfigPluginOutput ExpoRuntimeDependencyMap ExpoRuntimeGeneratedAppOutputPlan ExpoRuntimeLayoutIntegrationPlan ExpoRuntimeNativeOutputPlan ExpoRuntimeNativePlatform ExpoRuntimeNativeSchemeMap ExpoRuntimePlan ExpoRuntimePlanningManifest ExpoRuntimePlanningScreen ExpoRuntimeProviderId getExpoBarcodeScannerViewSource resolveExpoRuntimeConfigPluginOutput resolveExpoRuntimeDependencyMap resolveExpoRuntimeGeneratedAppOutput resolveExpoRuntimeLayoutIntegration resolveExpoRuntimeNativeOutput resolveExpoRuntimeNativeSchemeMap resolveExpoRuntimePlan"
             >
               <h3>src/planning.ts</h3>
               <p class="muted">Referenced module</p>
@@ -752,6 +839,7 @@
                 <code>ExpoRuntimeLayoutIntegrationPlan</code>,
                 <code>ExpoRuntimeNativeOutputPlan</code>, <code>ExpoRuntimeNativePlatform</code>,
                 <code>ExpoRuntimeNativeSchemeMap</code>, <code>ExpoRuntimePlan</code>,
+                <code>ExpoRuntimePlanningManifest</code>, <code>ExpoRuntimePlanningScreen</code>,
                 <code>ExpoRuntimeProviderId</code>, <code>getExpoBarcodeScannerViewSource</code>,
                 <code>resolveExpoRuntimeConfigPluginOutput</code>,
                 <code>resolveExpoRuntimeDependencyMap</code>,
@@ -763,14 +851,15 @@
             </article>
             <article
               class="item"
-              data-search="src/resolveExpoRuntimePlan.ts ExpoRuntimeAdapterId ExpoRuntimePlan ExpoRuntimeProviderId resolveExpoRuntimePlan"
+              data-search="src/resolveExpoRuntimePlan.ts ExpoRuntimeAdapterId ExpoRuntimePlan ExpoRuntimePlanningManifest ExpoRuntimePlanningScreen ExpoRuntimeProviderId resolveExpoRuntimePlan"
             >
               <h3>src/resolveExpoRuntimePlan.ts</h3>
               <p class="muted">Referenced module</p>
               <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
               <p>
                 <strong>Exports:</strong> <code>ExpoRuntimeAdapterId</code>,
-                <code>ExpoRuntimePlan</code>, <code>ExpoRuntimeProviderId</code>,
+                <code>ExpoRuntimePlan</code>, <code>ExpoRuntimePlanningManifest</code>,
+                <code>ExpoRuntimePlanningScreen</code>, <code>ExpoRuntimeProviderId</code>,
                 <code>resolveExpoRuntimePlan</code>
               </p>
             </article>
@@ -850,11 +939,185 @@
               </article>
               <article
                 class="item"
+                id="symbol-barcodescanrecordref"
+                data-search="BarcodeScanRecordRef type src/barcodeScanRuntime.ts  BarcodeScanRecord"
+              >
+                <h4>BarcodeScanRecordRef</h4>
+                <p class="muted">type • <code>src/barcodeScanRuntime.ts:25:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">BarcodeScanRecord</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>current</code></td>
+                      <td>property</td>
+                      <td><code>BarcodeScanRecord | null</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-createbarcodescanhandler"
+                data-search="createBarcodeScanHandler function src/barcodeScanRuntime.ts  CreateBarcodeScanHandlerOptions ExpoBarcodeScanResultLike ({&#10;  lastScanRef,&#10;  now = Date.now,&#10;  onBarcodeDelivered,&#10;  onBarcodeNormalized,&#10;  onBarcodeScanned,&#10;  onRawBarcodeScanned,&#10;}: CreateBarcodeScanHandlerOptions) =&gt; (result: ExpoBarcodeScanResultLike) =&gt; void"
+              >
+                <h4>createBarcodeScanHandler</h4>
+                <p class="muted">function • <code>src/barcodeScanRuntime.ts:43:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">CreateBarcodeScanHandlerOptions</li>
+                    <li class="chip">ExpoBarcodeScanResultLike</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Signature</h5>
+                  <pre>
+({
+  lastScanRef,
+  now = Date.now,
+  onBarcodeDelivered,
+  onBarcodeNormalized,
+  onBarcodeScanned,
+  onRawBarcodeScanned,
+}: CreateBarcodeScanHandlerOptions) =&gt; (result: ExpoBarcodeScanResultLike) =&gt; void</pre
+                  >
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <code
+                            >{ lastScanRef, now = Date.now, onBarcodeDelivered, onBarcodeNormalized,
+                            onBarcodeScanned, onRawBarcodeScanned, }</code
+                          >
+                        </td>
+                        <td><code>CreateBarcodeScanHandlerOptions</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    <strong>Returns:</strong>
+                    <code>(result: ExpoBarcodeScanResultLike) =&gt; void</code>
+                  </p>
+                </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-createbarcodescanhandleroptions"
+                data-search="CreateBarcodeScanHandlerOptions type src/barcodeScanRuntime.ts  BarcodeScanRecordRef ExpoBarcodeScanResultLike"
+              >
+                <h4>CreateBarcodeScanHandlerOptions</h4>
+                <p class="muted">type • <code>src/barcodeScanRuntime.ts:34:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">BarcodeScanRecordRef</li>
+                    <li class="chip">ExpoBarcodeScanResultLike</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>lastScanRef</code></td>
+                      <td>property</td>
+                      <td><code>BarcodeScanRecordRef</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>now</code></td>
+                      <td>property</td>
+                      <td><code>(() =&gt; number) | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>onBarcodeDelivered</code></td>
+                      <td>property</td>
+                      <td><code>((result: BarcodeScanResult) =&gt; void) | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>onBarcodeNormalized</code></td>
+                      <td>property</td>
+                      <td><code>((result: BarcodeScanResult) =&gt; void) | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>onBarcodeScanned</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >((result: BarcodeScanResult) =&gt; void | Promise&lt;void&gt;) |
+                          undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>onRawBarcodeScanned</code></td>
+                      <td>property</td>
+                      <td>
+                        <code>((result: ExpoBarcodeScanResultLike) =&gt; void) | undefined</code>
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
                 id="symbol-expobarcodescanresultlike"
                 data-search="ExpoBarcodeScanResultLike type src/barcodeScanRuntime.ts "
               >
                 <h4>ExpoBarcodeScanResultLike</h4>
-                <p class="muted">type • <code>src/barcodeScanRuntime.ts:25:1</code></p>
+                <p class="muted">type • <code>src/barcodeScanRuntime.ts:29:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -893,7 +1156,7 @@
                 data-search="mapPermissionStatusToCameraPermissionStatus function src/barcodeScanRuntime.ts  (status: PermissionStatus, isRequestingPermission: boolean) =&gt; CameraPermissionStatus"
               >
                 <h4>mapPermissionStatusToCameraPermissionStatus</h4>
-                <p class="muted">function • <code>src/barcodeScanRuntime.ts:30:1</code></p>
+                <p class="muted">function • <code>src/barcodeScanRuntime.ts:75:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -935,7 +1198,7 @@
                 data-search="normalizeExpoBarcodeScanResult function src/barcodeScanRuntime.ts  ExpoBarcodeScanResultLike (result: ExpoBarcodeScanResultLike) =&gt; BarcodeScanResult | null"
               >
                 <h4>normalizeExpoBarcodeScanResult</h4>
-                <p class="muted">function • <code>src/barcodeScanRuntime.ts:48:1</code></p>
+                <p class="muted">function • <code>src/barcodeScanRuntime.ts:93:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -974,7 +1237,7 @@
                 data-search="shouldIgnoreBarcodeScan function src/barcodeScanRuntime.ts  BarcodeScanRecord (previous: BarcodeScanRecord | null, next: BarcodeScanResult, now: number) =&gt; boolean"
               >
                 <h4>shouldIgnoreBarcodeScan</h4>
-                <p class="muted">function • <code>src/barcodeScanRuntime.ts:64:1</code></p>
+                <p class="muted">function • <code>src/barcodeScanRuntime.ts:109:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -1673,16 +1936,21 @@
               <article
                 class="item"
                 id="symbol-expobarcodescanneradapter"
-                data-search="ExpoBarcodeScannerAdapter function src/ExpoBarcodeScannerAdapter.tsx  (props: BarcodeScannerViewProps) =&gt; React.JSX.Element"
+                data-search="ExpoBarcodeScannerAdapter function src/ExpoBarcodeScannerAdapter.tsx  ExpoBarcodeScannerAdapterProps (props: ExpoBarcodeScannerAdapterProps) =&gt; React.JSX.Element"
               >
                 <h4>ExpoBarcodeScannerAdapter</h4>
-                <p class="muted">function • <code>src/ExpoBarcodeScannerAdapter.tsx:17:1</code></p>
+                <p class="muted">function • <code>src/ExpoBarcodeScannerAdapter.tsx:29:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
-                <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ExpoBarcodeScannerAdapterProps</li>
+                  </ul>
+                </div>
                 <div>
                   <h5>Signature</h5>
-                  <pre>(props: BarcodeScannerViewProps) =&gt; React.JSX.Element</pre>
+                  <pre>(props: ExpoBarcodeScannerAdapterProps) =&gt; React.JSX.Element</pre>
                   <table>
                     <thead>
                       <tr>
@@ -1695,7 +1963,7 @@
                     <tbody>
                       <tr>
                         <td><code>props</code></td>
-                        <td><code>BarcodeScannerViewProps</code></td>
+                        <td><code>ExpoBarcodeScannerAdapterProps</code></td>
                         <td>yes</td>
                         <td></td>
                       </tr>
@@ -1703,6 +1971,234 @@
                   </table>
                   <p><strong>Returns:</strong> <code>React.JSX.Element</code></p>
                 </div>
+              </article>
+              <article
+                class="item"
+                id="symbol-expobarcodescanneradapterprops"
+                data-search="ExpoBarcodeScannerAdapterProps type src/ExpoBarcodeScannerAdapter.tsx  ExpoBarcodeScannerDiagnostics"
+              >
+                <h4>ExpoBarcodeScannerAdapterProps</h4>
+                <p class="muted">type • <code>src/ExpoBarcodeScannerAdapter.tsx:25:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ExpoBarcodeScannerDiagnostics</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>camera</code></td>
+                      <td>property</td>
+                      <td><code>React.ReactNode</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>children</code></td>
+                      <td>property</td>
+                      <td><code>React.ReactNode</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>cornerLabel</code></td>
+                      <td>property</td>
+                      <td><code>React.ReactNode</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>deniedPermissionLabel</code></td>
+                      <td>property</td>
+                      <td><code>React.ReactNode</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code></td>
+                      <td>property</td>
+                      <td><code>React.ReactNode</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>diagnostics</code></td>
+                      <td>property</td>
+                      <td><code>ExpoBarcodeScannerDiagnostics | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>manualEntryLabel</code></td>
+                      <td>property</td>
+                      <td><code>React.ReactNode</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>mode</code></td>
+                      <td>property</td>
+                      <td><code>ZoraThemeMode | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>onBarcodeScanned</code></td>
+                      <td>property</td>
+                      <td>
+                        <code
+                          >((result: BarcodeScanResult) =&gt; void | Promise&lt;void&gt;) |
+                          undefined</code
+                        >
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>onManualEntry</code></td>
+                      <td>property</td>
+                      <td><code>(() =&gt; void | Promise&lt;void&gt;) | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>onRequestPermission</code></td>
+                      <td>property</td>
+                      <td><code>(() =&gt; void | Promise&lt;void&gt;) | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>overlayDescription</code></td>
+                      <td>property</td>
+                      <td><code>React.ReactNode</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>overlayTitle</code></td>
+                      <td>property</td>
+                      <td><code>React.ReactNode</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>permissionStatus</code></td>
+                      <td>property</td>
+                      <td><code>CameraPermissionStatus</code></td>
+                      <td>yes</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>requestPermissionLabel</code></td>
+                      <td>property</td>
+                      <td><code>React.ReactNode</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>testID</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>themeId</code></td>
+                      <td>property</td>
+                      <td><code>string | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>title</code></td>
+                      <td>property</td>
+                      <td><code>React.ReactNode</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+              <article
+                class="item"
+                id="symbol-expobarcodescannerdiagnostics"
+                data-search="ExpoBarcodeScannerDiagnostics type src/ExpoBarcodeScannerAdapter.tsx  ExpoBarcodeScanResultLike"
+              >
+                <h4>ExpoBarcodeScannerDiagnostics</h4>
+                <p class="muted">type • <code>src/ExpoBarcodeScannerAdapter.tsx:17:1</code></p>
+
+                <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+                <div>
+                  <strong>Related symbols:</strong>
+                  <ul class="chips">
+                    <li class="chip">ExpoBarcodeScanResultLike</li>
+                  </ul>
+                </div>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Member</th>
+                      <th>Kind</th>
+                      <th>Type</th>
+                      <th>Required</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>onBarcodeDelivered</code></td>
+                      <td>property</td>
+                      <td><code>((result: BarcodeScanResult) =&gt; void) | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>onBarcodeNormalized</code></td>
+                      <td>property</td>
+                      <td><code>((result: BarcodeScanResult) =&gt; void) | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>onCameraReady</code></td>
+                      <td>property</td>
+                      <td><code>(() =&gt; void) | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>onMountError</code></td>
+                      <td>property</td>
+                      <td><code>((error: Error) =&gt; void) | undefined</code></td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><code>onRawBarcodeScanned</code></td>
+                      <td>property</td>
+                      <td>
+                        <code>((result: ExpoBarcodeScanResultLike) =&gt; void) | undefined</code>
+                      </td>
+                      <td>no</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
               </article>
             </section>
             <section>
@@ -2205,7 +2701,7 @@
                 data-search="ExpoRuntimeAdapterId unknown src/resolveExpoRuntimePlan.ts "
               >
                 <h4>ExpoRuntimeAdapterId</h4>
-                <p class="muted">unknown • <code>src/resolveExpoRuntimePlan.ts:27:1</code></p>
+                <p class="muted">unknown • <code>src/resolveExpoRuntimePlan.ts:37:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -2216,7 +2712,7 @@
                 data-search="ExpoRuntimePlan type src/resolveExpoRuntimePlan.ts  ExpoBarcodeScannerAdapter"
               >
                 <h4>ExpoRuntimePlan</h4>
-                <p class="muted">type • <code>src/resolveExpoRuntimePlan.ts:37:1</code></p>
+                <p class="muted">type • <code>src/resolveExpoRuntimePlan.ts:47:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -2322,7 +2818,7 @@
                 data-search="ExpoRuntimeProviderId unknown src/resolveExpoRuntimePlan.ts "
               >
                 <h4>ExpoRuntimeProviderId</h4>
-                <p class="muted">unknown • <code>src/resolveExpoRuntimePlan.ts:26:1</code></p>
+                <p class="muted">unknown • <code>src/resolveExpoRuntimePlan.ts:36:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -2330,10 +2826,10 @@
               <article
                 class="item"
                 id="symbol-resolveexporuntimeplan"
-                data-search="resolveExpoRuntimePlan function src/resolveExpoRuntimePlan.ts  ExpoRuntimePlan (manifest: AppManifest, options?: ResolveExpoRuntimePlanOptions) =&gt; ExpoRuntimePlan"
+                data-search="resolveExpoRuntimePlan function src/resolveExpoRuntimePlan.ts  ExpoRuntimePlan (manifest: ExpoRuntimePlanningManifest, options?: ResolveExpoRuntimePlanOptions) =&gt; ExpoRuntimePlan"
               >
                 <h4>resolveExpoRuntimePlan</h4>
-                <p class="muted">function • <code>src/resolveExpoRuntimePlan.ts:121:1</code></p>
+                <p class="muted">function • <code>src/resolveExpoRuntimePlan.ts:131:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -2345,7 +2841,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(manifest: AppManifest, options?: ResolveExpoRuntimePlanOptions) =&gt; ExpoRuntimePlan</pre
+(manifest: ExpoRuntimePlanningManifest, options?: ResolveExpoRuntimePlanOptions) =&gt; ExpoRuntimePlan</pre
                   >
                   <table>
                     <thead>
@@ -2359,7 +2855,7 @@
                     <tbody>
                       <tr>
                         <td><code>manifest</code></td>
-                        <td><code>AppManifest</code></td>
+                        <td><code>ExpoRuntimePlanningManifest</code></td>
                         <td>yes</td>
                         <td></td>
                       </tr>
@@ -2381,10 +2877,10 @@
             <article
               class="item"
               id="component-expobarcodescanneradapter"
-              data-search="ExpoBarcodeScannerAdapter src/ExpoBarcodeScannerAdapter.tsx  camera React.ReactNode | undefined children React.ReactNode | undefined cornerLabel React.ReactNode | undefined deniedPermissionLabel React.ReactNode | undefined description React.ReactNode | undefined manualEntryLabel React.ReactNode | undefined mode ZoraThemeMode | undefined onBarcodeScanned (result: BarcodeScanResult) =&gt; void | Promise&lt;void&gt; | undefined onManualEntry () =&gt; void | Promise&lt;void&gt; | undefined onRequestPermission () =&gt; void | Promise&lt;void&gt; | undefined overlayDescription React.ReactNode | undefined overlayTitle React.ReactNode | undefined permissionStatus CameraPermissionStatus requestPermissionLabel React.ReactNode | undefined testID string | undefined themeId ZoraThemeId | undefined title React.ReactNode | undefined"
+              data-search="ExpoBarcodeScannerAdapter src/ExpoBarcodeScannerAdapter.tsx  camera React.ReactNode | undefined children React.ReactNode | undefined cornerLabel React.ReactNode | undefined deniedPermissionLabel React.ReactNode | undefined description React.ReactNode | undefined diagnostics ExpoBarcodeScannerDiagnostics | undefined manualEntryLabel React.ReactNode | undefined mode ZoraThemeMode | undefined onBarcodeScanned (result: BarcodeScanResult) =&gt; void | Promise&lt;void&gt; | undefined onManualEntry () =&gt; void | Promise&lt;void&gt; | undefined onRequestPermission () =&gt; void | Promise&lt;void&gt; | undefined overlayDescription React.ReactNode | undefined overlayTitle React.ReactNode | undefined permissionStatus CameraPermissionStatus requestPermissionLabel React.ReactNode | undefined testID string | undefined themeId ZoraThemeId | undefined title React.ReactNode | undefined"
             >
               <h3>ExpoBarcodeScannerAdapter</h3>
-              <p class="muted"><code>src/ExpoBarcodeScannerAdapter.tsx:17:1</code></p>
+              <p class="muted"><code>src/ExpoBarcodeScannerAdapter.tsx:29:1</code></p>
 
               <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
               <table>
@@ -2424,6 +2920,12 @@
                   <tr>
                     <td><code>description</code></td>
                     <td><code>React.ReactNode | undefined</code></td>
+                    <td>no</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><code>diagnostics</code></td>
+                    <td><code>ExpoBarcodeScannerDiagnostics | undefined</code></td>
                     <td>no</td>
                     <td></td>
                   </tr>
@@ -2574,6 +3076,18 @@
                 module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_ExpoBarcodeScannerAdapter_tsx
                 module_src_ExpoBarcodeScannerAdapter_tsx --&gt; module_src_barcodeScanRuntime_ts
+                module_src_ExpoBarcodeScannerAdapter_tsx --&gt;
+                module_src_ExpoBarcodeScannerCamera_tsx
+                module_src_ExpoBarcodeScannerCamera_tsx[&quot;src/ExpoBarcodeScannerCamera.tsx&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_ExpoBarcodeScannerCamera_tsx
+                module_src_ExpoBarcodeScannerCamera_tsx --&gt; module_src_barcodeScanRuntime_ts
+                module_src_ExpoBarcodeScannerCamera_tsx --&gt;
+                module_src_nativeBarcodeScannerCamera_ts
+                module_src_ExpoBarcodeScannerCamera_web_tsx[&quot;src/ExpoBarcodeScannerCamera.web.tsx&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_ExpoBarcodeScannerCamera_web_tsx
+                module_src_ExpoBarcodeScannerCamera_web_tsx --&gt; module_src_barcodeScanRuntime_ts
+                module_src_ExpoBarcodeScannerCamera_web_tsx --&gt;
+                module_src_ExpoBarcodeScannerCamera_tsx
                 module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_ExpoRuntimeProviders_tsx
                 module_src_ExpoRuntimeProviders_tsx --&gt; module_src_permissionRuntime_ts
@@ -2617,6 +3131,9 @@
                 package__ankhorage_expo_runtime -.-&gt; module_src_mediaPicker_readSelectedBytes_ts
                 module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_mediaPicker_types_ts
+                module_src_nativeBarcodeScannerCamera_ts[&quot;src/nativeBarcodeScannerCamera.ts&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_nativeBarcodeScannerCamera_ts
+                module_src_nativeBarcodeScannerCamera_ts --&gt; module_src_barcodeScanRuntime_ts
                 module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_nativeLinkingPlanning_ts
                 module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
@@ -2659,6 +3176,15 @@ graph TD
   module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_ExpoBarcodeScannerAdapter_tsx
   module_src_ExpoBarcodeScannerAdapter_tsx --&gt; module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerAdapter_tsx --&gt; module_src_ExpoBarcodeScannerCamera_tsx
+  module_src_ExpoBarcodeScannerCamera_tsx[&quot;src/ExpoBarcodeScannerCamera.tsx&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_ExpoBarcodeScannerCamera_tsx
+  module_src_ExpoBarcodeScannerCamera_tsx --&gt; module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerCamera_tsx --&gt; module_src_nativeBarcodeScannerCamera_ts
+  module_src_ExpoBarcodeScannerCamera_web_tsx[&quot;src/ExpoBarcodeScannerCamera.web.tsx&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_ExpoBarcodeScannerCamera_web_tsx
+  module_src_ExpoBarcodeScannerCamera_web_tsx --&gt; module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerCamera_web_tsx --&gt; module_src_ExpoBarcodeScannerCamera_tsx
   module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_ExpoRuntimeProviders_tsx
   module_src_ExpoRuntimeProviders_tsx --&gt; module_src_permissionRuntime_ts
@@ -2696,6 +3222,9 @@ graph TD
   package__ankhorage_expo_runtime -.-&gt; module_src_mediaPicker_readSelectedBytes_ts
   module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_mediaPicker_types_ts
+  module_src_nativeBarcodeScannerCamera_ts[&quot;src/nativeBarcodeScannerCamera.ts&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_nativeBarcodeScannerCamera_ts
+  module_src_nativeBarcodeScannerCamera_ts --&gt; module_src_barcodeScanRuntime_ts
   module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_nativeLinkingPlanning_ts
   module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
@@ -2730,6 +3259,8 @@ graph TD
                 module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
                 module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
                 module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
+                module_src_ExpoBarcodeScannerCamera_tsx[&quot;src/ExpoBarcodeScannerCamera.tsx&quot;]
+                module_src_ExpoBarcodeScannerCamera_web_tsx[&quot;src/ExpoBarcodeScannerCamera.web.tsx&quot;]
                 module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
                 module_src_generatedAppOutput_ts[&quot;src/generatedAppOutput.ts&quot;]
                 module_src_generatedSources_ts[&quot;src/generatedSources.ts&quot;]
@@ -2742,6 +3273,7 @@ graph TD
                 module_src_mediaPicker_photoLibraryPicker_ts[&quot;src/mediaPicker/photoLibraryPicker.ts&quot;]
                 module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
                 module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
+                module_src_nativeBarcodeScannerCamera_ts[&quot;src/nativeBarcodeScannerCamera.ts&quot;]
                 module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
                 module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
                 module_src_oauthBrowserRuntimeCore_ts[&quot;src/oauthBrowserRuntimeCore.ts&quot;]
@@ -2752,8 +3284,14 @@ graph TD
                 module_src_createExpoRuntimeRegistry_tsx --&gt; module_src_componentRegistry_ts
                 module_src_createExpoRuntimeRegistry_tsx --&gt;
                 module_src_ExpoBarcodeScannerAdapter_tsx module_src_ExpoBarcodeScannerAdapter_tsx
-                --&gt; module_src_barcodeScanRuntime_ts module_src_ExpoRuntimeProviders_tsx --&gt;
-                module_src_permissionRuntime_ts module_src_ExpoRuntimeProviders_tsx --&gt;
+                --&gt; module_src_barcodeScanRuntime_ts module_src_ExpoBarcodeScannerAdapter_tsx
+                --&gt; module_src_ExpoBarcodeScannerCamera_tsx
+                module_src_ExpoBarcodeScannerCamera_tsx --&gt; module_src_barcodeScanRuntime_ts
+                module_src_ExpoBarcodeScannerCamera_tsx --&gt;
+                module_src_nativeBarcodeScannerCamera_ts module_src_ExpoBarcodeScannerCamera_web_tsx
+                --&gt; module_src_barcodeScanRuntime_ts module_src_ExpoBarcodeScannerCamera_web_tsx
+                --&gt; module_src_ExpoBarcodeScannerCamera_tsx module_src_ExpoRuntimeProviders_tsx
+                --&gt; module_src_permissionRuntime_ts module_src_ExpoRuntimeProviders_tsx --&gt;
                 module_src_resolveExpoRuntimePlan_ts module_src_generatedAppOutput_ts --&gt;
                 module_src_layoutIntegrationPlanning_ts module_src_generatedAppOutput_ts --&gt;
                 module_src_resolveExpoRuntimePlan_ts module_src_layoutIntegrationPlanning_ts --&gt;
@@ -2771,6 +3309,7 @@ graph TD
                 module_src_mediaPicker_photoLibraryPicker_ts --&gt;
                 module_src_mediaPicker_readSelectedBytes_ts
                 module_src_mediaPicker_photoLibraryPicker_ts --&gt; module_src_mediaPicker_types_ts
+                module_src_nativeBarcodeScannerCamera_ts --&gt; module_src_barcodeScanRuntime_ts
                 module_src_oauthBrowserRuntime_ts --&gt; module_src_oauthBrowserRuntimeCore_ts
               </div>
               <details>
@@ -2785,6 +3324,8 @@ graph LR
   module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
   module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
   module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
+  module_src_ExpoBarcodeScannerCamera_tsx[&quot;src/ExpoBarcodeScannerCamera.tsx&quot;]
+  module_src_ExpoBarcodeScannerCamera_web_tsx[&quot;src/ExpoBarcodeScannerCamera.web.tsx&quot;]
   module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
   module_src_generatedAppOutput_ts[&quot;src/generatedAppOutput.ts&quot;]
   module_src_generatedSources_ts[&quot;src/generatedSources.ts&quot;]
@@ -2797,6 +3338,7 @@ graph LR
   module_src_mediaPicker_photoLibraryPicker_ts[&quot;src/mediaPicker/photoLibraryPicker.ts&quot;]
   module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
   module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
+  module_src_nativeBarcodeScannerCamera_ts[&quot;src/nativeBarcodeScannerCamera.ts&quot;]
   module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
   module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
   module_src_oauthBrowserRuntimeCore_ts[&quot;src/oauthBrowserRuntimeCore.ts&quot;]
@@ -2807,6 +3349,11 @@ graph LR
   module_src_createExpoRuntimeRegistry_tsx --&gt; module_src_componentRegistry_ts
   module_src_createExpoRuntimeRegistry_tsx --&gt; module_src_ExpoBarcodeScannerAdapter_tsx
   module_src_ExpoBarcodeScannerAdapter_tsx --&gt; module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerAdapter_tsx --&gt; module_src_ExpoBarcodeScannerCamera_tsx
+  module_src_ExpoBarcodeScannerCamera_tsx --&gt; module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerCamera_tsx --&gt; module_src_nativeBarcodeScannerCamera_ts
+  module_src_ExpoBarcodeScannerCamera_web_tsx --&gt; module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerCamera_web_tsx --&gt; module_src_ExpoBarcodeScannerCamera_tsx
   module_src_ExpoRuntimeProviders_tsx --&gt; module_src_permissionRuntime_ts
   module_src_ExpoRuntimeProviders_tsx --&gt; module_src_resolveExpoRuntimePlan_ts
   module_src_generatedAppOutput_ts --&gt; module_src_layoutIntegrationPlanning_ts
@@ -2821,6 +3368,7 @@ graph LR
   module_src_mediaPicker_photoLibraryPicker_ts --&gt; module_src_mediaPicker_mediaKinds_ts
   module_src_mediaPicker_photoLibraryPicker_ts --&gt; module_src_mediaPicker_readSelectedBytes_ts
   module_src_mediaPicker_photoLibraryPicker_ts --&gt; module_src_mediaPicker_types_ts
+  module_src_nativeBarcodeScannerCamera_ts --&gt; module_src_barcodeScanRuntime_ts
   module_src_oauthBrowserRuntime_ts --&gt; module_src_oauthBrowserRuntimeCore_ts
 </pre
                 >
@@ -2838,6 +3386,8 @@ graph LR
                 module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
                 module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
                 module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
+                module_src_ExpoBarcodeScannerCamera_tsx[&quot;src/ExpoBarcodeScannerCamera.tsx&quot;]
+                module_src_ExpoBarcodeScannerCamera_web_tsx[&quot;src/ExpoBarcodeScannerCamera.web.tsx&quot;]
                 module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
                 module_src_generatedAppOutput_ts[&quot;src/generatedAppOutput.ts&quot;]
                 module_src_generatedSources_ts[&quot;src/generatedSources.ts&quot;]
@@ -2850,6 +3400,7 @@ graph LR
                 module_src_mediaPicker_photoLibraryPicker_ts[&quot;src/mediaPicker/photoLibraryPicker.ts&quot;]
                 module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
                 module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
+                module_src_nativeBarcodeScannerCamera_ts[&quot;src/nativeBarcodeScannerCamera.ts&quot;]
                 module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
                 module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
                 module_src_oauthBrowserRuntimeCore_ts[&quot;src/oauthBrowserRuntimeCore.ts&quot;]
@@ -2863,8 +3414,19 @@ graph LR
                 module_src_barcodeScanRuntime_ts --&gt; export_BARCODE_SCANNER_TYPES
                 export_BarcodeScanRecord[&quot;BarcodeScanRecord&quot;]
                 module_src_barcodeScanRuntime_ts --&gt; export_BarcodeScanRecord
+                export_BarcodeScanRecordRef[&quot;BarcodeScanRecordRef&quot;]
+                module_src_barcodeScanRuntime_ts --&gt; export_BarcodeScanRecordRef
+                export_BarcodeScanRecordRef -.-&gt; export_BarcodeScanRecord
                 export_ComponentRegistry[&quot;ComponentRegistry&quot;]
                 module_src_componentRegistry_ts --&gt; export_ComponentRegistry
+                export_createBarcodeScanHandler[&quot;createBarcodeScanHandler&quot;]
+                module_src_barcodeScanRuntime_ts --&gt; export_createBarcodeScanHandler
+                export_createBarcodeScanHandler -.-&gt; export_CreateBarcodeScanHandlerOptions
+                export_createBarcodeScanHandler -.-&gt; export_ExpoBarcodeScanResultLike
+                export_CreateBarcodeScanHandlerOptions[&quot;CreateBarcodeScanHandlerOptions&quot;]
+                module_src_barcodeScanRuntime_ts --&gt; export_CreateBarcodeScanHandlerOptions
+                export_CreateBarcodeScanHandlerOptions -.-&gt; export_BarcodeScanRecordRef
+                export_CreateBarcodeScanHandlerOptions -.-&gt; export_ExpoBarcodeScanResultLike
                 export_createComponentRegistry[&quot;createComponentRegistry&quot;]
                 module_src_componentRegistry_ts --&gt; export_createComponentRegistry
                 export_createComponentRegistry -.-&gt; export_ComponentRegistry
@@ -2885,6 +3447,14 @@ graph LR
                 export_ExecuteExpoRuntimeActionArgs -.-&gt; export_ExpoRuntimeThemeMode
                 export_ExpoBarcodeScannerAdapter[&quot;ExpoBarcodeScannerAdapter&quot;]
                 module_src_ExpoBarcodeScannerAdapter_tsx --&gt; export_ExpoBarcodeScannerAdapter
+                export_ExpoBarcodeScannerAdapter -.-&gt; export_ExpoBarcodeScannerAdapterProps
+                export_ExpoBarcodeScannerAdapterProps[&quot;ExpoBarcodeScannerAdapterProps&quot;]
+                module_src_ExpoBarcodeScannerAdapter_tsx --&gt;
+                export_ExpoBarcodeScannerAdapterProps export_ExpoBarcodeScannerAdapterProps -.-&gt;
+                export_ExpoBarcodeScannerDiagnostics
+                export_ExpoBarcodeScannerDiagnostics[&quot;ExpoBarcodeScannerDiagnostics&quot;]
+                module_src_ExpoBarcodeScannerAdapter_tsx --&gt; export_ExpoBarcodeScannerDiagnostics
+                export_ExpoBarcodeScannerDiagnostics -.-&gt; export_ExpoBarcodeScanResultLike
                 export_ExpoBarcodeScanResultLike[&quot;ExpoBarcodeScanResultLike&quot;]
                 module_src_barcodeScanRuntime_ts --&gt; export_ExpoBarcodeScanResultLike
                 export_ExpoBundledMediaRegistry[&quot;ExpoBundledMediaRegistry&quot;]
@@ -2995,6 +3565,8 @@ graph LR
   module_src_createExpoRuntimeRegistry_tsx[&quot;src/createExpoRuntimeRegistry.tsx&quot;]
   module_src_expoActionBridge_ts[&quot;src/expoActionBridge.ts&quot;]
   module_src_ExpoBarcodeScannerAdapter_tsx[&quot;src/ExpoBarcodeScannerAdapter.tsx&quot;]
+  module_src_ExpoBarcodeScannerCamera_tsx[&quot;src/ExpoBarcodeScannerCamera.tsx&quot;]
+  module_src_ExpoBarcodeScannerCamera_web_tsx[&quot;src/ExpoBarcodeScannerCamera.web.tsx&quot;]
   module_src_ExpoRuntimeProviders_tsx[&quot;src/ExpoRuntimeProviders.tsx&quot;]
   module_src_generatedAppOutput_ts[&quot;src/generatedAppOutput.ts&quot;]
   module_src_generatedSources_ts[&quot;src/generatedSources.ts&quot;]
@@ -3007,6 +3579,7 @@ graph LR
   module_src_mediaPicker_photoLibraryPicker_ts[&quot;src/mediaPicker/photoLibraryPicker.ts&quot;]
   module_src_mediaPicker_readSelectedBytes_ts[&quot;src/mediaPicker/readSelectedBytes.ts&quot;]
   module_src_mediaPicker_types_ts[&quot;src/mediaPicker/types.ts&quot;]
+  module_src_nativeBarcodeScannerCamera_ts[&quot;src/nativeBarcodeScannerCamera.ts&quot;]
   module_src_nativeLinkingPlanning_ts[&quot;src/nativeLinkingPlanning.ts&quot;]
   module_src_oauthBrowserRuntime_ts[&quot;src/oauthBrowserRuntime.ts&quot;]
   module_src_oauthBrowserRuntimeCore_ts[&quot;src/oauthBrowserRuntimeCore.ts&quot;]
@@ -3020,8 +3593,19 @@ graph LR
   module_src_barcodeScanRuntime_ts --&gt; export_BARCODE_SCANNER_TYPES
   export_BarcodeScanRecord[&quot;BarcodeScanRecord&quot;]
   module_src_barcodeScanRuntime_ts --&gt; export_BarcodeScanRecord
+  export_BarcodeScanRecordRef[&quot;BarcodeScanRecordRef&quot;]
+  module_src_barcodeScanRuntime_ts --&gt; export_BarcodeScanRecordRef
+  export_BarcodeScanRecordRef -.-&gt; export_BarcodeScanRecord
   export_ComponentRegistry[&quot;ComponentRegistry&quot;]
   module_src_componentRegistry_ts --&gt; export_ComponentRegistry
+  export_createBarcodeScanHandler[&quot;createBarcodeScanHandler&quot;]
+  module_src_barcodeScanRuntime_ts --&gt; export_createBarcodeScanHandler
+  export_createBarcodeScanHandler -.-&gt; export_CreateBarcodeScanHandlerOptions
+  export_createBarcodeScanHandler -.-&gt; export_ExpoBarcodeScanResultLike
+  export_CreateBarcodeScanHandlerOptions[&quot;CreateBarcodeScanHandlerOptions&quot;]
+  module_src_barcodeScanRuntime_ts --&gt; export_CreateBarcodeScanHandlerOptions
+  export_CreateBarcodeScanHandlerOptions -.-&gt; export_BarcodeScanRecordRef
+  export_CreateBarcodeScanHandlerOptions -.-&gt; export_ExpoBarcodeScanResultLike
   export_createComponentRegistry[&quot;createComponentRegistry&quot;]
   module_src_componentRegistry_ts --&gt; export_createComponentRegistry
   export_createComponentRegistry -.-&gt; export_ComponentRegistry
@@ -3042,6 +3626,13 @@ graph LR
   export_ExecuteExpoRuntimeActionArgs -.-&gt; export_ExpoRuntimeThemeMode
   export_ExpoBarcodeScannerAdapter[&quot;ExpoBarcodeScannerAdapter&quot;]
   module_src_ExpoBarcodeScannerAdapter_tsx --&gt; export_ExpoBarcodeScannerAdapter
+  export_ExpoBarcodeScannerAdapter -.-&gt; export_ExpoBarcodeScannerAdapterProps
+  export_ExpoBarcodeScannerAdapterProps[&quot;ExpoBarcodeScannerAdapterProps&quot;]
+  module_src_ExpoBarcodeScannerAdapter_tsx --&gt; export_ExpoBarcodeScannerAdapterProps
+  export_ExpoBarcodeScannerAdapterProps -.-&gt; export_ExpoBarcodeScannerDiagnostics
+  export_ExpoBarcodeScannerDiagnostics[&quot;ExpoBarcodeScannerDiagnostics&quot;]
+  module_src_ExpoBarcodeScannerAdapter_tsx --&gt; export_ExpoBarcodeScannerDiagnostics
+  export_ExpoBarcodeScannerDiagnostics -.-&gt; export_ExpoBarcodeScanResultLike
   export_ExpoBarcodeScanResultLike[&quot;ExpoBarcodeScanResultLike&quot;]
   module_src_barcodeScanRuntime_ts --&gt; export_ExpoBarcodeScanResultLike
   export_ExpoBundledMediaRegistry[&quot;ExpoBundledMediaRegistry&quot;]
@@ -3230,7 +3821,8 @@ sequenceDiagram
               <h3>ExpoBarcodeScannerAdapter sequence</h3>
               <p class="muted"><code>diagrams/sequences/expo-barcode-scanner-adapter.mmd</code></p>
               <div class="mermaid">
-                sequenceDiagram participant participant_ExpoBarcodeScannerAdapter as
+                sequenceDiagram participant participant_createBarcodeScanHandler as
+                createBarcodeScanHandler participant participant_ExpoBarcodeScannerAdapter as
                 ExpoBarcodeScannerAdapter participant
                 participant_mapPermissionStatusToCameraPermissionStatus as
                 mapPermissionStatusToCameraPermissionStatus participant participant_usePermission as
@@ -3242,11 +3834,16 @@ sequenceDiagram
                 mapPermissionStatusToCameraPermissionStatus()
                 participant_mapPermissionStatusToCameraPermissionStatus--&gt;&gt;participant_ExpoBarcodeScannerAdapter:
                 return
+                participant_ExpoBarcodeScannerAdapter-&gt;&gt;participant_createBarcodeScanHandler:
+                createBarcodeScanHandler()
+                participant_createBarcodeScanHandler--&gt;&gt;participant_ExpoBarcodeScannerAdapter:
+                return
               </div>
               <details>
                 <summary>View Mermaid source</summary>
                 <pre>
 sequenceDiagram
+  participant participant_createBarcodeScanHandler as createBarcodeScanHandler
   participant participant_ExpoBarcodeScannerAdapter as ExpoBarcodeScannerAdapter
   participant participant_mapPermissionStatusToCameraPermissionStatus as mapPermissionStatusToCameraPermissionStatus
   participant participant_usePermission as usePermission
@@ -3254,6 +3851,8 @@ sequenceDiagram
   participant_usePermission--&gt;&gt;participant_ExpoBarcodeScannerAdapter: return
   participant_ExpoBarcodeScannerAdapter-&gt;&gt;participant_mapPermissionStatusToCameraPermissionStatus: mapPermissionStatusToCameraPermissionStatus()
   participant_mapPermissionStatusToCameraPermissionStatus--&gt;&gt;participant_ExpoBarcodeScannerAdapter: return
+  participant_ExpoBarcodeScannerAdapter-&gt;&gt;participant_createBarcodeScanHandler: createBarcodeScanHandler()
+  participant_createBarcodeScanHandler--&gt;&gt;participant_ExpoBarcodeScannerAdapter: return
 </pre
                 >
               </details>
@@ -3422,12 +4021,17 @@ sequenceDiagram
         >
           <section class="panel">
             <h2>src/barcodeScanRuntime.ts</h2>
+            <article class="item" data-search="createBarcodeScanHandler src/barcodeScanRuntime.ts ">
+              <h3>createBarcodeScanHandler</h3>
+              <p class="muted"><code>src/barcodeScanRuntime.ts:43:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
             <article
               class="item"
               data-search="mapPermissionStatusToCameraPermissionStatus src/barcodeScanRuntime.ts "
             >
               <h3>mapPermissionStatusToCameraPermissionStatus</h3>
-              <p class="muted"><code>src/barcodeScanRuntime.ts:30:1</code></p>
+              <p class="muted"><code>src/barcodeScanRuntime.ts:75:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article
@@ -3435,12 +4039,12 @@ sequenceDiagram
               data-search="normalizeExpoBarcodeScanResult src/barcodeScanRuntime.ts "
             >
               <h3>normalizeExpoBarcodeScanResult</h3>
-              <p class="muted"><code>src/barcodeScanRuntime.ts:48:1</code></p>
+              <p class="muted"><code>src/barcodeScanRuntime.ts:93:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="shouldIgnoreBarcodeScan src/barcodeScanRuntime.ts ">
               <h3>shouldIgnoreBarcodeScan</h3>
-              <p class="muted"><code>src/barcodeScanRuntime.ts:64:1</code></p>
+              <p class="muted"><code>src/barcodeScanRuntime.ts:109:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
@@ -3581,7 +4185,64 @@ sequenceDiagram
               data-search="ExpoBarcodeScannerAdapter src/ExpoBarcodeScannerAdapter.tsx "
             >
               <h3>ExpoBarcodeScannerAdapter</h3>
-              <p class="muted"><code>src/ExpoBarcodeScannerAdapter.tsx:17:1</code></p>
+              <p class="muted"><code>src/ExpoBarcodeScannerAdapter.tsx:29:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-expobarcodescannercamera-tsx"
+          class="view"
+          data-view="src/ExpoBarcodeScannerCamera.tsx"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/ExpoBarcodeScannerCamera.tsx</h2>
+            <article
+              class="item"
+              data-search="ExpoBarcodeScannerCamera src/ExpoBarcodeScannerCamera.tsx "
+            >
+              <h3>ExpoBarcodeScannerCamera</h3>
+              <p class="muted"><code>src/ExpoBarcodeScannerCamera.tsx:15:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
+          id="view-src-expobarcodescannercamera-web-tsx"
+          class="view"
+          data-view="src/ExpoBarcodeScannerCamera.web.tsx"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/ExpoBarcodeScannerCamera.web.tsx</h2>
+            <article
+              class="item"
+              data-search="normalizeWebBarcodeScanResult src/ExpoBarcodeScannerCamera.web.tsx "
+            >
+              <h3>normalizeWebBarcodeScanResult</h3>
+              <p class="muted"><code>src/ExpoBarcodeScannerCamera.web.tsx:43:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="startWebBarcodeScanner src/ExpoBarcodeScannerCamera.web.tsx "
+            >
+              <h3>startWebBarcodeScanner</h3>
+              <p class="muted"><code>src/ExpoBarcodeScannerCamera.web.tsx:54:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="ExpoBarcodeScannerCamera src/ExpoBarcodeScannerCamera.web.tsx "
+            >
+              <h3>ExpoBarcodeScannerCamera</h3>
+              <p class="muted"><code>src/ExpoBarcodeScannerCamera.web.tsx:73:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+            <article class="item" data-search="toError src/ExpoBarcodeScannerCamera.web.tsx ">
+              <h3>toError</h3>
+              <p class="muted"><code>src/ExpoBarcodeScannerCamera.web.tsx:130:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
@@ -3812,6 +4473,24 @@ sequenceDiagram
           </section>
         </section>
         <section
+          id="view-src-nativebarcodescannercamera-ts"
+          class="view"
+          data-view="src/nativeBarcodeScannerCamera.ts"
+          hidden
+        >
+          <section class="panel">
+            <h2>src/nativeBarcodeScannerCamera.ts</h2>
+            <article
+              class="item"
+              data-search="createNativeBarcodeScannerCameraProps src/nativeBarcodeScannerCamera.ts "
+            >
+              <h3>createNativeBarcodeScannerCameraProps</h3>
+              <p class="muted"><code>src/nativeBarcodeScannerCamera.ts:13:1</code></p>
+              <p class="empty">No description available.</p>
+            </article>
+          </section>
+        </section>
+        <section
           id="view-src-nativelinkingplanning-ts"
           class="view"
           data-view="src/nativeLinkingPlanning.ts"
@@ -3857,10 +4536,10 @@ sequenceDiagram
             <h2>src/oauthBrowserRuntimeCore.ts</h2>
             <article
               class="item"
-              data-search="resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig src/oauthBrowserRuntimeCore.ts "
+              data-search="resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment src/oauthBrowserRuntimeCore.ts "
             >
-              <h3>resolveExpoOAuthBrowserRuntimeReadinessFromExpoGoConfig</h3>
-              <p class="muted"><code>src/oauthBrowserRuntimeCore.ts:9:1</code></p>
+              <h3>resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment</h3>
+              <p class="muted"><code>src/oauthBrowserRuntimeCore.ts:15:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>
@@ -3914,22 +4593,22 @@ sequenceDiagram
               data-search="resolveExpoRuntimePlan src/resolveExpoRuntimePlan.ts "
             >
               <h3>resolveExpoRuntimePlan</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:121:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:131:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="addDependency src/resolveExpoRuntimePlan.ts ">
               <h3>addDependency</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:166:9</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:176:9</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="addProvider src/resolveExpoRuntimePlan.ts ">
               <h3>addProvider</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:194:9</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:204:9</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="addPlugin src/resolveExpoRuntimePlan.ts ">
               <h3>addPlugin</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:199:9</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:209:9</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article
@@ -3937,7 +4616,7 @@ sequenceDiagram
               data-search="compareCapabilityRequirements src/resolveExpoRuntimePlan.ts "
             >
               <h3>compareCapabilityRequirements</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:325:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:335:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article
@@ -3945,7 +4624,7 @@ sequenceDiagram
               data-search="comparePermissionRequirements src/resolveExpoRuntimePlan.ts "
             >
               <h3>comparePermissionRequirements</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:332:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:342:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>

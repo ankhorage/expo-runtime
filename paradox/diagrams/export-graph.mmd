@@ -7,6 +7,8 @@ graph LR
   module_src_createExpoRuntimeRegistry_tsx["src/createExpoRuntimeRegistry.tsx"]
   module_src_expoActionBridge_ts["src/expoActionBridge.ts"]
   module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
+  module_src_ExpoBarcodeScannerCamera_tsx["src/ExpoBarcodeScannerCamera.tsx"]
+  module_src_ExpoBarcodeScannerCamera_web_tsx["src/ExpoBarcodeScannerCamera.web.tsx"]
   module_src_ExpoRuntimeProviders_tsx["src/ExpoRuntimeProviders.tsx"]
   module_src_generatedAppOutput_ts["src/generatedAppOutput.ts"]
   module_src_generatedSources_ts["src/generatedSources.ts"]
@@ -19,6 +21,7 @@ graph LR
   module_src_mediaPicker_photoLibraryPicker_ts["src/mediaPicker/photoLibraryPicker.ts"]
   module_src_mediaPicker_readSelectedBytes_ts["src/mediaPicker/readSelectedBytes.ts"]
   module_src_mediaPicker_types_ts["src/mediaPicker/types.ts"]
+  module_src_nativeBarcodeScannerCamera_ts["src/nativeBarcodeScannerCamera.ts"]
   module_src_nativeLinkingPlanning_ts["src/nativeLinkingPlanning.ts"]
   module_src_oauthBrowserRuntime_ts["src/oauthBrowserRuntime.ts"]
   module_src_oauthBrowserRuntimeCore_ts["src/oauthBrowserRuntimeCore.ts"]
@@ -32,8 +35,19 @@ graph LR
   module_src_barcodeScanRuntime_ts --> export_BARCODE_SCANNER_TYPES
   export_BarcodeScanRecord["BarcodeScanRecord"]
   module_src_barcodeScanRuntime_ts --> export_BarcodeScanRecord
+  export_BarcodeScanRecordRef["BarcodeScanRecordRef"]
+  module_src_barcodeScanRuntime_ts --> export_BarcodeScanRecordRef
+  export_BarcodeScanRecordRef -.-> export_BarcodeScanRecord
   export_ComponentRegistry["ComponentRegistry"]
   module_src_componentRegistry_ts --> export_ComponentRegistry
+  export_createBarcodeScanHandler["createBarcodeScanHandler"]
+  module_src_barcodeScanRuntime_ts --> export_createBarcodeScanHandler
+  export_createBarcodeScanHandler -.-> export_CreateBarcodeScanHandlerOptions
+  export_createBarcodeScanHandler -.-> export_ExpoBarcodeScanResultLike
+  export_CreateBarcodeScanHandlerOptions["CreateBarcodeScanHandlerOptions"]
+  module_src_barcodeScanRuntime_ts --> export_CreateBarcodeScanHandlerOptions
+  export_CreateBarcodeScanHandlerOptions -.-> export_BarcodeScanRecordRef
+  export_CreateBarcodeScanHandlerOptions -.-> export_ExpoBarcodeScanResultLike
   export_createComponentRegistry["createComponentRegistry"]
   module_src_componentRegistry_ts --> export_createComponentRegistry
   export_createComponentRegistry -.-> export_ComponentRegistry
@@ -54,6 +68,13 @@ graph LR
   export_ExecuteExpoRuntimeActionArgs -.-> export_ExpoRuntimeThemeMode
   export_ExpoBarcodeScannerAdapter["ExpoBarcodeScannerAdapter"]
   module_src_ExpoBarcodeScannerAdapter_tsx --> export_ExpoBarcodeScannerAdapter
+  export_ExpoBarcodeScannerAdapter -.-> export_ExpoBarcodeScannerAdapterProps
+  export_ExpoBarcodeScannerAdapterProps["ExpoBarcodeScannerAdapterProps"]
+  module_src_ExpoBarcodeScannerAdapter_tsx --> export_ExpoBarcodeScannerAdapterProps
+  export_ExpoBarcodeScannerAdapterProps -.-> export_ExpoBarcodeScannerDiagnostics
+  export_ExpoBarcodeScannerDiagnostics["ExpoBarcodeScannerDiagnostics"]
+  module_src_ExpoBarcodeScannerAdapter_tsx --> export_ExpoBarcodeScannerDiagnostics
+  export_ExpoBarcodeScannerDiagnostics -.-> export_ExpoBarcodeScanResultLike
   export_ExpoBarcodeScanResultLike["ExpoBarcodeScanResultLike"]
   module_src_barcodeScanRuntime_ts --> export_ExpoBarcodeScanResultLike
   export_ExpoBundledMediaRegistry["ExpoBundledMediaRegistry"]

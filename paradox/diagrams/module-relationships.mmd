@@ -7,6 +7,8 @@ graph LR
   module_src_createExpoRuntimeRegistry_tsx["src/createExpoRuntimeRegistry.tsx"]
   module_src_expoActionBridge_ts["src/expoActionBridge.ts"]
   module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
+  module_src_ExpoBarcodeScannerCamera_tsx["src/ExpoBarcodeScannerCamera.tsx"]
+  module_src_ExpoBarcodeScannerCamera_web_tsx["src/ExpoBarcodeScannerCamera.web.tsx"]
   module_src_ExpoRuntimeProviders_tsx["src/ExpoRuntimeProviders.tsx"]
   module_src_generatedAppOutput_ts["src/generatedAppOutput.ts"]
   module_src_generatedSources_ts["src/generatedSources.ts"]
@@ -19,6 +21,7 @@ graph LR
   module_src_mediaPicker_photoLibraryPicker_ts["src/mediaPicker/photoLibraryPicker.ts"]
   module_src_mediaPicker_readSelectedBytes_ts["src/mediaPicker/readSelectedBytes.ts"]
   module_src_mediaPicker_types_ts["src/mediaPicker/types.ts"]
+  module_src_nativeBarcodeScannerCamera_ts["src/nativeBarcodeScannerCamera.ts"]
   module_src_nativeLinkingPlanning_ts["src/nativeLinkingPlanning.ts"]
   module_src_oauthBrowserRuntime_ts["src/oauthBrowserRuntime.ts"]
   module_src_oauthBrowserRuntimeCore_ts["src/oauthBrowserRuntimeCore.ts"]
@@ -29,6 +32,11 @@ graph LR
   module_src_createExpoRuntimeRegistry_tsx --> module_src_componentRegistry_ts
   module_src_createExpoRuntimeRegistry_tsx --> module_src_ExpoBarcodeScannerAdapter_tsx
   module_src_ExpoBarcodeScannerAdapter_tsx --> module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerAdapter_tsx --> module_src_ExpoBarcodeScannerCamera_tsx
+  module_src_ExpoBarcodeScannerCamera_tsx --> module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerCamera_tsx --> module_src_nativeBarcodeScannerCamera_ts
+  module_src_ExpoBarcodeScannerCamera_web_tsx --> module_src_barcodeScanRuntime_ts
+  module_src_ExpoBarcodeScannerCamera_web_tsx --> module_src_ExpoBarcodeScannerCamera_tsx
   module_src_ExpoRuntimeProviders_tsx --> module_src_permissionRuntime_ts
   module_src_ExpoRuntimeProviders_tsx --> module_src_resolveExpoRuntimePlan_ts
   module_src_generatedAppOutput_ts --> module_src_layoutIntegrationPlanning_ts
@@ -43,4 +51,5 @@ graph LR
   module_src_mediaPicker_photoLibraryPicker_ts --> module_src_mediaPicker_mediaKinds_ts
   module_src_mediaPicker_photoLibraryPicker_ts --> module_src_mediaPicker_readSelectedBytes_ts
   module_src_mediaPicker_photoLibraryPicker_ts --> module_src_mediaPicker_types_ts
+  module_src_nativeBarcodeScannerCamera_ts --> module_src_barcodeScanRuntime_ts
   module_src_oauthBrowserRuntime_ts --> module_src_oauthBrowserRuntimeCore_ts

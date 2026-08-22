@@ -2,6 +2,9 @@ export {
   BARCODE_SCAN_DEDUPE_WINDOW_MS,
   BARCODE_SCANNER_TYPES,
   type BarcodeScanRecord,
+  type BarcodeScanRecordRef,
+  createBarcodeScanHandler,
+  type CreateBarcodeScanHandlerOptions,
   type ExpoBarcodeScanResultLike,
   mapPermissionStatusToCameraPermissionStatus,
   normalizeExpoBarcodeScanResult,
@@ -32,7 +35,11 @@ export {
   type ExpoRuntimeThemeMode,
   resolveExpoRuntimeRoutePath,
 } from './expoActionBridge';
-export { ExpoBarcodeScannerAdapter } from './ExpoBarcodeScannerAdapter';
+export {
+  ExpoBarcodeScannerAdapter,
+  type ExpoBarcodeScannerAdapterProps,
+  type ExpoBarcodeScannerDiagnostics,
+} from './ExpoBarcodeScannerAdapter';
 export { ExpoRuntimeProviders, type ExpoRuntimeProvidersProps } from './ExpoRuntimeProviders';
 export {
   type ExpoRuntimeConfigPluginOutput,
