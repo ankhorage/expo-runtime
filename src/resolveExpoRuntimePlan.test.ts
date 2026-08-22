@@ -195,7 +195,7 @@ describe('resolveExpoRuntimePlan platform-neutral permissions', () => {
 });
 
 const SUPPORTED_PERMISSION_DEPENDENCIES = [
-  { name: '@ankhorage/expo-runtime', version: 'latest' },
+  { name: '@ankhorage/expo-runtime', version: '^2.7.0' },
   { name: '@ankhorage/permissions', version: '^0.2.2' },
   { name: 'expo-audio', version: EXPO_PLATFORM.packages.audio.version },
   { name: 'expo-location', version: EXPO_PLATFORM.packages.location.version },
