@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 2.7.0
+
+### Minor Changes
+
+- b3f74f3: Add the canonical Expo 57 platform contract, migrate runtime planning and adapters to the SDK 57 baseline, and validate the declared package set with Expo CLI and Expo Doctor.
+
 ## 2.6.0
 
 ### Minor Changes
