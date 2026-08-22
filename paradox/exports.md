@@ -4,19 +4,19 @@
 
 Kind: `value`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:4:14`
+Source: `src/barcodeScanRuntime.ts:5:14`
 
 ## BARCODE_SCANNER_TYPES
 
 Kind: `value`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:6:14`
+Source: `src/barcodeScanRuntime.ts:7:14`
 
 ## BarcodeScanRecord
 
 Kind: `type`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:8:1`
+Source: `src/barcodeScanRuntime.ts:23:1`
 
 ### Members
 
@@ -68,22 +68,6 @@ Source: `src/createExpoRuntimeRegistry.tsx:11:1`
   - baseRegistry: `ComponentRegistry`
   - returns: `ComponentRegistry`
 
-## dispatchExpoBarcodeScan
-
-Kind: `function`
-Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:69:1`
-
-### Signatures
-
-- `(result: ExpoBarcodeScanResultLike, previous: BarcodeScanRecord | null, now: number, onBarcodeScanned: ExpoBarcodeScanCallback | undefined, onAccepted: (record: BarcodeScanRecord) => void) => Promise<boolean>`
-  - now: `number`
-  - onAccepted: `(record: BarcodeScanRecord) => void`
-  - onBarcodeScanned: `ExpoBarcodeScanCallback | undefined`
-  - previous: `BarcodeScanRecord | null`
-  - result: `ExpoBarcodeScanResultLike`
-  - returns: `Promise<boolean>`
-
 ## executeExpoRuntimeAction
 
 Kind: `function`
@@ -121,12 +105,6 @@ Kind: `value`
 Module: `src/platform.ts`
 Source: `src/platform.ts:17:14`
 
-## ExpoBarcodeScanCallback
-
-Kind: `unknown`
-Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:17:1`
-
 ## ExpoBarcodeScannerAdapter
 
 Kind: `function`
@@ -143,7 +121,7 @@ Source: `src/ExpoBarcodeScannerAdapter.tsx:16:1`
 
 Kind: `type`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:12:1`
+Source: `src/barcodeScanRuntime.ts:27:1`
 
 ### Members
 
@@ -199,7 +177,7 @@ Source: `src/bundledMediaResolver.ts:3:1`
 
 Kind: `unknown`
 Module: `src/platform.ts`
-Source: `src/platform.ts:87:1`
+Source: `src/platform.ts:88:1`
 
 ## ExpoPlatformPackage
 
@@ -235,8 +213,8 @@ Source: `src/expoActionBridge.ts:13:1`
 ## ExpoRuntimeAdapterId
 
 Kind: `unknown`
-Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:39:1`
+Module: `src/expoRuntimePlanningMetadata.ts`
+Source: `src/expoRuntimePlanningMetadata.ts:16:1`
 
 ## ExpoRuntimeConfigPluginOutput
 
@@ -316,8 +294,8 @@ Source: `src/resolveExpoRuntimePlan.ts:49:1`
 ## ExpoRuntimeProviderId
 
 Kind: `unknown`
-Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:38:1`
+Module: `src/expoRuntimePlanningMetadata.ts`
+Source: `src/expoRuntimePlanningMetadata.ts:15:1`
 
 ## ExpoRuntimeProviders
 
@@ -402,7 +380,7 @@ Source: `src/bundledMediaRegistrySource.ts:6:1`
 
 Kind: `function`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:19:1`
+Source: `src/barcodeScanRuntime.ts:34:1`
 
 ### Signatures
 
@@ -415,7 +393,7 @@ Source: `src/barcodeScanRuntime.ts:19:1`
 
 Kind: `function`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:37:1`
+Source: `src/barcodeScanRuntime.ts:52:1`
 
 ### Signatures
 
@@ -500,7 +478,7 @@ Source: `src/generatedAppOutput.ts:40:1`
 
 Kind: `function`
 Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:195:1`
+Source: `src/resolveExpoRuntimePlan.ts:98:1`
 
 ### Signatures
 
@@ -526,7 +504,7 @@ Source: `src/expoActionBridge.ts:34:1`
 
 Kind: `function`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:53:1`
+Source: `src/barcodeScanRuntime.ts:68:1`
 
 ### Signatures
 

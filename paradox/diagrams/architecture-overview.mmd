@@ -23,6 +23,9 @@ graph TD
   module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
   package__ankhorage_expo_runtime -.-> module_src_ExpoBarcodeScannerAdapter_tsx
   module_src_ExpoBarcodeScannerAdapter_tsx --> module_src_barcodeScanRuntime_ts
+  module_src_expoRuntimePlanningMetadata_ts["src/expoRuntimePlanningMetadata.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_expoRuntimePlanningMetadata_ts
+  module_src_expoRuntimePlanningMetadata_ts --> module_src_platform_ts
   module_src_ExpoRuntimeProviders_tsx["src/ExpoRuntimeProviders.tsx"]
   package__ankhorage_expo_runtime -.-> module_src_ExpoRuntimeProviders_tsx
   module_src_ExpoRuntimeProviders_tsx --> module_src_permissionRuntime_ts
@@ -76,4 +79,4 @@ graph TD
   module_src_platform_ts["src/platform.ts"]
   module_src_resolveExpoRuntimePlan_ts["src/resolveExpoRuntimePlan.ts"]
   package__ankhorage_expo_runtime -.-> module_src_resolveExpoRuntimePlan_ts
-  module_src_resolveExpoRuntimePlan_ts --> module_src_platform_ts
+  module_src_resolveExpoRuntimePlan_ts --> module_src_expoRuntimePlanningMetadata_ts

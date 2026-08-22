@@ -47,6 +47,7 @@ export const EXPO_PLATFORM = {
     svg: definePackage('react-native-svg', '15.15.4'),
   },
   packages: {
+    metroRuntime: definePackage('@expo/metro-runtime', '~57.0.12'),
     asset: definePackage('expo-asset', '~57.0.13'),
     audio: definePackage('expo-audio', '~57.0.4'),
     authSession: definePackage('expo-auth-session', '~57.0.8'),

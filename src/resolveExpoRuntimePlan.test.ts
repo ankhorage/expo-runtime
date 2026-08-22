@@ -5,7 +5,7 @@ import { describe, expect, test } from 'bun:test';
 import { EXPO_PLATFORM } from './platform';
 import { type ExpoRuntimePlanningManifest, resolveExpoRuntimePlan } from './resolveExpoRuntimePlan';
 
-describe('resolveExpoRuntimePlan', () => {
+describe('resolveExpoRuntimePlan permissions', () => {
   test('accepts a minimal screens-only planning manifest', () => {
     const manifest: ExpoRuntimePlanningManifest = {
       screens: {
@@ -36,6 +36,7 @@ describe('resolveExpoRuntimePlan', () => {
       {
         name: 'expo-camera',
         options: {
+          barcodeScannerEnabled: false,
           cameraPermission: 'Allow camera access.',
           microphonePermission: false,
           recordAudioAndroid: false,
@@ -46,7 +47,9 @@ describe('resolveExpoRuntimePlan', () => {
       EXPO_PLATFORM.packages.camera.version,
     );
   });
+});
 
+describe('resolveExpoRuntimePlan barcode capability', () => {
   test('resolves barcodeScanner capability with implied camera permission and adapter wiring', () => {
     const plan = resolveExpoRuntimePlan(
       withFirstScreenRequirements({ capabilities: [{ capability: 'barcodeScanner' }] }),
@@ -73,6 +76,45 @@ describe('resolveExpoRuntimePlan', () => {
     ]);
   });
 
+  test('lets barcodeScanner capability override camera-only scanner disabling', () => {
+    const plan = resolveExpoRuntimePlan(
+      withFirstScreenRequirements({
+        capabilities: [{ capability: 'barcodeScanner' }],
+        permissions: [{ permission: 'camera' }],
+      }),
+    );
+
+    expect(plan.nativeConfig.plugins).toContainEqual({
+      name: 'expo-camera',
+      options: {
+        barcodeScannerEnabled: true,
+        cameraPermission: 'Allow camera access to scan barcodes.',
+        microphonePermission: false,
+        recordAudioAndroid: false,
+      },
+    });
+  });
+});
+
+describe('resolveExpoRuntimePlan Expo 57 plugin coverage', () => {
+  test('keeps microphone-only native configuration free of background audio behavior', () => {
+    const plan = resolveExpoRuntimePlan(
+      withFirstScreenRequirements({ permissions: [{ permission: 'microphone' }] }),
+    );
+
+    expect(plan.nativeConfig.plugins).toEqual([
+      {
+        name: 'expo-audio',
+        options: {
+          enableBackgroundPlayback: false,
+          enableBackgroundRecording: false,
+          microphonePermission: 'Allow microphone access.',
+          recordAudioAndroid: true,
+        },
+      },
+    ]);
+  });
+
   test('translates every supported permission into current Expo 57 packages and plugins', () => {
     const plan = resolveExpoRuntimePlan(
       withFirstScreenRequirements({
@@ -88,44 +130,15 @@ describe('resolveExpoRuntimePlan', () => {
     );
 
     expect(plan.diagnostics).toEqual([]);
-    expect(plan.dependencies.map(({ name, version }) => ({ name, version }))).toEqual([
-      { name: '@ankhorage/expo-runtime', version: 'latest' },
-      { name: '@ankhorage/permissions', version: '^0.2.0' },
-      { name: 'expo-audio', version: EXPO_PLATFORM.packages.audio.version },
-      { name: 'expo-location', version: EXPO_PLATFORM.packages.location.version },
-      { name: 'expo-media-library', version: EXPO_PLATFORM.packages.mediaLibrary.version },
-      { name: 'expo-notifications', version: EXPO_PLATFORM.packages.notifications.version },
-    ]);
+    expect(plan.dependencies.map(({ name, version }) => ({ name, version }))).toEqual(
+      SUPPORTED_PERMISSION_DEPENDENCIES,
+    );
     expect(plan.nativeConfig.androidPermissions).toEqual([]);
-    expect(plan.nativeConfig.plugins).toEqual([
-      {
-        name: 'expo-audio',
-        options: {
-          microphonePermission: 'Allow microphone access.',
-          recordAudioAndroid: true,
-        },
-      },
-      {
-        name: 'expo-location',
-        options: {
-          isAndroidBackgroundLocationEnabled: true,
-          isAndroidForegroundServiceEnabled: true,
-          isIosBackgroundLocationEnabled: true,
-          locationAlwaysAndWhenInUsePermission: 'Allow location access.',
-          locationWhenInUsePermission: 'Allow location access while using the app.',
-        },
-      },
-      {
-        name: 'expo-media-library',
-        options: {
-          photosPermission: 'Allow photo library access.',
-          savePhotosPermission: 'Allow saving to the photo library.',
-        },
-      },
-      { name: 'expo-notifications' },
-    ]);
+    expect(plan.nativeConfig.plugins).toEqual(SUPPORTED_PERMISSION_PLUGINS);
   });
+});
 
+describe('resolveExpoRuntimePlan diagnostics and deduplication', () => {
   test('dedupes repeated permission and capability requirements', () => {
     const plan = resolveExpoRuntimePlan(
       withAllScreenRequirements({
@@ -167,7 +180,9 @@ describe('resolveExpoRuntimePlan', () => {
     expect(plan.dependencies).toEqual([]);
     expect(plan.providers).toEqual([]);
   });
+});
 
+describe('resolveExpoRuntimePlan platform-neutral permissions', () => {
   test('does not add runtime packages or providers for clipboard permissions', () => {
     const plan = resolveExpoRuntimePlan(
       withFirstScreenRequirements({ permissions: [{ permission: 'clipboard' }] }),
@@ -178,6 +193,45 @@ describe('resolveExpoRuntimePlan', () => {
     expect(plan.nativeConfig.plugins).toEqual([]);
   });
 });
+
+const SUPPORTED_PERMISSION_DEPENDENCIES = [
+  { name: '@ankhorage/expo-runtime', version: 'latest' },
+  { name: '@ankhorage/permissions', version: '^0.2.2' },
+  { name: 'expo-audio', version: EXPO_PLATFORM.packages.audio.version },
+  { name: 'expo-location', version: EXPO_PLATFORM.packages.location.version },
+  { name: 'expo-media-library', version: EXPO_PLATFORM.packages.mediaLibrary.version },
+  { name: 'expo-notifications', version: EXPO_PLATFORM.packages.notifications.version },
+];
+
+const SUPPORTED_PERMISSION_PLUGINS = [
+  {
+    name: 'expo-audio',
+    options: {
+      enableBackgroundPlayback: false,
+      enableBackgroundRecording: false,
+      microphonePermission: 'Allow microphone access.',
+      recordAudioAndroid: true,
+    },
+  },
+  {
+    name: 'expo-location',
+    options: {
+      isAndroidBackgroundLocationEnabled: true,
+      isAndroidForegroundServiceEnabled: true,
+      isIosBackgroundLocationEnabled: true,
+      locationAlwaysAndWhenInUsePermission: 'Allow location access.',
+      locationWhenInUsePermission: 'Allow location access while using the app.',
+    },
+  },
+  {
+    name: 'expo-media-library',
+    options: {
+      photosPermission: 'Allow photo library access.',
+      savePhotosPermission: 'Allow saving to the photo library.',
+    },
+  },
+  { name: 'expo-notifications' },
+];
 
 interface TestScreenRequirements {
   readonly capabilities?: NonNullable<

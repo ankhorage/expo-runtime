@@ -8,7 +8,7 @@
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
       "filePath": "src/barcodeScanRuntime.ts",
-      "line": 4,
+      "line": 5,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -26,7 +26,7 @@
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
       "filePath": "src/barcodeScanRuntime.ts",
-      "line": 6,
+      "line": 7,
       "column": 14
     },
     "exportPaths": ["src/index.ts"],
@@ -44,7 +44,7 @@
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
       "filePath": "src/barcodeScanRuntime.ts",
-      "line": 8,
+      "line": 23,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -190,62 +190,6 @@
     "structuredRows": []
   },
   {
-    "name": "dispatchExpoBarcodeScan",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "function",
-    "modulePath": "src/barcodeScanRuntime.ts",
-    "sourceLocation": {
-      "filePath": "src/barcodeScanRuntime.ts",
-      "line": 69,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["BarcodeScanRecord", "ExpoBarcodeScanCallback", "ExpoBarcodeScanResultLike"],
-    "signatures": [
-      {
-        "label": "(result: ExpoBarcodeScanResultLike, previous: BarcodeScanRecord | null, now: number, onBarcodeScanned: ExpoBarcodeScanCallback | undefined, onAccepted: (record: BarcodeScanRecord) => void) => Promise<boolean>",
-        "parameters": [
-          {
-            "name": "now",
-            "type": "number",
-            "required": true,
-            "description": null
-          },
-          {
-            "name": "onAccepted",
-            "type": "(record: BarcodeScanRecord) => void",
-            "required": true,
-            "description": null
-          },
-          {
-            "name": "onBarcodeScanned",
-            "type": "ExpoBarcodeScanCallback | undefined",
-            "required": true,
-            "description": null
-          },
-          {
-            "name": "previous",
-            "type": "BarcodeScanRecord | null",
-            "required": true,
-            "description": null
-          },
-          {
-            "name": "result",
-            "type": "ExpoBarcodeScanResultLike",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "Promise<boolean>",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "executeExpoRuntimeAction",
     "description": null,
     "isReadme": false,
@@ -368,25 +312,7 @@
       "line": 17,
       "column": 14
     },
-    "exportPaths": ["src/index.ts", "src/platform.ts"],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "ExpoBarcodeScanCallback",
-    "description": null,
-    "isReadme": false,
-    "examples": [],
-    "kind": "unknown",
-    "modulePath": "src/barcodeScanRuntime.ts",
-    "sourceLocation": {
-      "filePath": "src/barcodeScanRuntime.ts",
-      "line": 17,
-      "column": 1
-    },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": ["src/platform.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -433,7 +359,7 @@
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
       "filePath": "src/barcodeScanRuntime.ts",
-      "line": 12,
+      "line": 27,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -579,10 +505,10 @@
     "modulePath": "src/platform.ts",
     "sourceLocation": {
       "filePath": "src/platform.ts",
-      "line": 87,
+      "line": 88,
       "column": 1
     },
-    "exportPaths": ["src/index.ts", "src/platform.ts"],
+    "exportPaths": ["src/platform.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -600,7 +526,7 @@
       "line": 1,
       "column": 1
     },
-    "exportPaths": ["src/index.ts", "src/platform.ts"],
+    "exportPaths": ["src/platform.ts"],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -671,10 +597,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/resolveExpoRuntimePlan.ts",
+    "modulePath": "src/expoRuntimePlanningMetadata.ts",
     "sourceLocation": {
-      "filePath": "src/resolveExpoRuntimePlan.ts",
-      "line": 39,
+      "filePath": "src/expoRuntimePlanningMetadata.ts",
+      "line": 16,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -934,10 +860,10 @@
     "isReadme": false,
     "examples": [],
     "kind": "unknown",
-    "modulePath": "src/resolveExpoRuntimePlan.ts",
+    "modulePath": "src/expoRuntimePlanningMetadata.ts",
     "sourceLocation": {
-      "filePath": "src/resolveExpoRuntimePlan.ts",
-      "line": 38,
+      "filePath": "src/expoRuntimePlanningMetadata.ts",
+      "line": 15,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1154,7 +1080,7 @@
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
       "filePath": "src/barcodeScanRuntime.ts",
-      "line": 19,
+      "line": 34,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1192,7 +1118,7 @@
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
       "filePath": "src/barcodeScanRuntime.ts",
-      "line": 37,
+      "line": 52,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1422,7 +1348,7 @@
     "modulePath": "src/resolveExpoRuntimePlan.ts",
     "sourceLocation": {
       "filePath": "src/resolveExpoRuntimePlan.ts",
-      "line": 195,
+      "line": 98,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1498,7 +1424,7 @@
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
       "filePath": "src/barcodeScanRuntime.ts",
-      "line": 53,
+      "line": 68,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],

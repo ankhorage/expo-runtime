@@ -1,9 +1,24 @@
 import type { PermissionStatus } from '@ankhorage/permissions';
 import type { BarcodeScanResult, CameraPermissionStatus } from '@ankhorage/zora';
+import type { BarcodeType } from 'expo-camera';
 
 export const BARCODE_SCAN_DEDUPE_WINDOW_MS = 1500;
 
-export const BARCODE_SCANNER_TYPES = ['ean13', 'ean8', 'qr'] as const;
+export const BARCODE_SCANNER_TYPES = [
+  'aztec',
+  'codabar',
+  'code39',
+  'code93',
+  'code128',
+  'datamatrix',
+  'ean13',
+  'ean8',
+  'itf14',
+  'pdf417',
+  'qr',
+  'upc_a',
+  'upc_e',
+] as const satisfies readonly BarcodeType[];
 
 export interface BarcodeScanRecord extends BarcodeScanResult {
   readonly timestamp: number;
@@ -14,7 +29,7 @@ export interface ExpoBarcodeScanResultLike {
   readonly type?: string;
 }
 
-export type ExpoBarcodeScanCallback = (result: BarcodeScanResult) => Promise<void> | void;
+type ExpoBarcodeScanCallback = (result: BarcodeScanResult) => Promise<void> | void;
 
 export function mapPermissionStatusToCameraPermissionStatus(
   status: PermissionStatus,

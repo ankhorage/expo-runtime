@@ -9,7 +9,7 @@ import {
   shouldIgnoreBarcodeScan,
 } from './barcodeScanRuntime';
 
-describe('ExpoBarcodeScannerAdapter helpers', () => {
+describe('Expo barcode event helpers', () => {
   it('normalizes Expo barcode scan payloads for the runtime event pipeline', () => {
     expect(
       normalizeExpoBarcodeScanResult({
@@ -30,7 +30,9 @@ describe('ExpoBarcodeScannerAdapter helpers', () => {
       }),
     ).toBeNull();
   });
+});
 
+describe('Expo barcode event deduplication', () => {
   it('suppresses repeated scans inside the dedupe window', () => {
     expect(
       shouldIgnoreBarcodeScan(
@@ -61,7 +63,9 @@ describe('ExpoBarcodeScannerAdapter helpers', () => {
       ),
     ).toBe(false);
   });
+});
 
+describe('Expo barcode adapter configuration', () => {
   it('maps permission states into the ZORA camera permission surface', () => {
     expect(mapPermissionStatusToCameraPermissionStatus('unknown', false)).toBe('unknown');
     expect(mapPermissionStatusToCameraPermissionStatus('granted', false)).toBe('granted');
@@ -70,14 +74,28 @@ describe('ExpoBarcodeScannerAdapter helpers', () => {
   });
 
   it('configures the Expo camera for the capability-supported barcode formats', () => {
-    expect(BARCODE_SCANNER_TYPES).toEqual(['ean13', 'ean8', 'qr']);
+    expect(BARCODE_SCANNER_TYPES).toEqual([
+      'aztec',
+      'codabar',
+      'code39',
+      'code93',
+      'code128',
+      'datamatrix',
+      'ean13',
+      'ean8',
+      'itf14',
+      'pdf417',
+      'qr',
+      'upc_a',
+      'upc_e',
+    ]);
   });
 
   it.each([
     ['qr', 'https://ankhorage.dev'],
     ['ean13', '4006381333931'],
     ['ean8', '96385074'],
-  ])('forwards a valid %s payload through the canonical scanner callback', async (type, data) => {
+  ])('normalizes and forwards an accepted %s event', async (type, data) => {
     const forwarded: { value: string; type?: string }[] = [];
     let acceptedRecord: { value: string; type?: string; timestamp: number } | undefined;
 

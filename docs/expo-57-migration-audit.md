@@ -8,7 +8,7 @@ This audit covers Expo Runtime ownership only. Downstream Runtime, Surface, ZORA
 - **CHANGE REQUIRED — native architecture and platforms.** SDK 55 removed the Legacy Architecture; SDK 56 raised iOS to 16.4 and Xcode to 26.4; SDK 57 uses RN 0.86. The platform contract records New-Architecture-only support, Android 7/API 24 with compile/target SDK 36 and edge-to-edge, and iOS 16.4/Xcode 26.4. tvOS is not advertised.
 - **CHANGE REQUIRED — Node and TypeScript.** Runtime policy now declares Node 24 LTS, uses matching Node 24 typings, and typechecks with TypeScript 6.0.3.
 - **CHANGE REQUIRED — permission/config planning.** Camera, audio recording, media-library, foreground/background location, and notifications requirements now resolve to current Expo 57 packages and built-in config plugins. Manual Android permission duplication was removed because these modules own their manifest entries.
-- **CHANGE REQUIRED — barcode scanning.** The adapter uses Expo 57 `CameraView` directly on native and Web and configures the capability-supported QR, EAN-13, and EAN-8 formats. No ZXing compatibility layer exists.
+- **CHANGE REQUIRED — barcode scanning.** The adapter uses Expo 57 `CameraView` directly on native and Web and keeps all 13 SDK 57 Camera barcode types available. QR, EAN-13, and EAN-8 are acceptance formats, not a product-specific filter. No direct/custom ZXing compatibility layer exists.
 - **CHANGE REQUIRED — picker Web file typing.** Expo 57 picker assets no longer structurally guarantee `file.arrayBuffer()` in their cross-platform type. The byte reader now feature-detects that Web API and otherwise falls back to `new File(uri).bytes()`.
 - **VERIFIED: NO CHANGE REQUIRED — file-system copy/move API.** Expo Runtime does not call the SDK 56-breaking `copy()` or `move()` APIs.
 - **VERIFIED: NO CHANGE REQUIRED — fetch.** Expo Runtime has no `expo/fetch` imports or fetch override, so SDK 56's `globalThis.fetch` default needs no package change.
@@ -30,9 +30,15 @@ This audit covers Expo Runtime ownership only. Downstream Runtime, Surface, ZORA
 - **VERIFIED: NO CHANGE REQUIRED — Metro/module resolution.** The package has no custom resolver, alias, singleton override, or React Navigation compatibility dependency.
 - **VERIFIED: NO CHANGE REQUIRED — React Native Web interaction.** `CameraView` is the only scanner implementation on Web, and its Expo 57 barcode settings and event payload are shared with native.
 
-Physical-device camera acceptance is not available in this package repository. Native QR/EAN hardware validation remains an acceptance responsibility after consumers rebuild their Expo 57 development clients; the package-level boundary is covered by adapter format and payload tests.
+## Web barcode recognition acceptance
+
+`bun run validate:web-barcode` builds a clean Expo 57 Web app with the packed package, mounts the real `ExpoBarcodeScannerAdapter` and Expo `CameraView`, and feeds generated barcode images through a live canvas-backed browser camera stream. Headless Chrome must then report QR, valid EAN-13 `4006381333931`, and valid EAN-8 `96385074` from Expo Camera into the canonical Ankhorage callback. This executable browser check is distinct from the unit tests for event normalization and deduplication.
+
+The command uses Google Chrome or Chromium at a standard macOS/Linux path. Set `CHROME_PATH=/absolute/path/to/browser` when it is installed elsewhere. CI runs the same command in the repository-owned Expo platform workflow.
+
+Physical-device camera acceptance is not available in this package repository. Native QR/EAN hardware validation remains an acceptance responsibility after consumers rebuild their Expo 57 development clients.
 
 ## Release-boundary follow-ups
 
-- The currently published `@ankhorage/zora` peer metadata still contains its pre-migration optional Expo Font and icon assumptions. Those are owned by roadmap steps `[expo 3]` and `[expo 4]`; they do not block this package's Expo 57 compile or compatibility fixture, and they were not patched or copied here.
+- The currently published `@ankhorage/zora` peer metadata still contains its pre-migration optional Expo Font and icon assumptions. Those are owned by roadmap steps `[expo 3]` and `[expo 4]`; the Web acceptance fixture resolves those peer packages from Expo 57's bundled module map without copying version truth or modifying ZORA.
 - Runtime, Surface, ZORA, DnD, Expo orchestrator modules, Studio, generated-app scaffolding, and native release/device acceptance must consume the published platform contract in their numbered roadmap steps. No downstream repository was modified or deep-imported.

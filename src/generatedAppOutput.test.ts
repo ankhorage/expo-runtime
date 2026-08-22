@@ -66,7 +66,7 @@ const CAMERA_PLAN: ExpoRuntimePlan = {
   needsPermissionsProvider: true,
 };
 
-describe('generatedAppOutput', () => {
+describe('generated App config output', () => {
   test('keeps Expo config plugins as a distinct external ecosystem concept', () => {
     expect(resolveExpoRuntimeConfigPluginOutput(CAMERA_PLAN)).toEqual([
       [
@@ -90,7 +90,9 @@ describe('generatedAppOutput', () => {
       configPlugins: [],
     });
   });
+});
 
+describe('generated App dependency output', () => {
   test('maps runtime dependencies into a package dependency map', () => {
     expect(resolveExpoRuntimeDependencyMap(CAMERA_PLAN)).toEqual({
       '@ankhorage/expo-runtime': '^0.0.7',
@@ -112,7 +114,9 @@ describe('generatedAppOutput', () => {
       'expo-something',
     ]);
   });
+});
 
+describe('combined generated App output', () => {
   test('combines dependency, native and layout output', () => {
     expect(resolveExpoRuntimeGeneratedAppOutput(CAMERA_PLAN)).toEqual({
       dependencies: {
