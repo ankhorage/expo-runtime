@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.0.0
+
+### Major Changes
+
+- 8621e2b: Align the root Expo 57 runtime with released ZORA 3 and Surface 3, and make package-wide application peers optional at install time so the public `platform` subpath remains independently consumable by headless planners. Root and feature entrypoints still require consumers to install the peers they execute.
+
 ## 2.7.0
 
 ### Minor Changes
