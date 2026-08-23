@@ -382,7 +382,7 @@
             <div class="summary">
               <div><strong>47</strong><span class="muted">public exports</span></div>
               <div><strong>2</strong><span class="muted">components</span></div>
-              <div><strong>29</strong><span class="muted">modules</span></div>
+              <div><strong>30</strong><span class="muted">modules</span></div>
               <div><strong>2</strong><span class="muted">entrypoints</span></div>
             </div>
             <h3>Entrypoints</h3>
@@ -394,6 +394,21 @@
 
           <section class="panel">
             <h2>Modules</h2>
+            <article
+              class="item"
+              data-search="src/actionBridge.ts executeExpoRuntimeAction ExecuteExpoRuntimeActionArgs ExpoRuntimeActionHandlerArgs ExpoRuntimeActionHandlers ExpoRuntimeRouteResolution ExpoRuntimeRouterLike ExpoRuntimeThemeMode resolveExpoRuntimeRoutePath"
+            >
+              <h3>src/actionBridge.ts</h3>
+              <p class="muted">Referenced module</p>
+              <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+              <p>
+                <strong>Exports:</strong> <code>executeExpoRuntimeAction</code>,
+                <code>ExecuteExpoRuntimeActionArgs</code>,
+                <code>ExpoRuntimeActionHandlerArgs</code>, <code>ExpoRuntimeActionHandlers</code>,
+                <code>ExpoRuntimeRouteResolution</code>, <code>ExpoRuntimeRouterLike</code>,
+                <code>ExpoRuntimeThemeMode</code>, <code>resolveExpoRuntimeRoutePath</code>
+              </p>
+            </article>
             <article
               class="item"
               data-search="src/barcodeScanRuntime.ts BARCODE_SCAN_DEDUPE_WINDOW_MS BARCODE_SCANNER_TYPES BarcodeScanRecord dispatchExpoBarcodeScan ExpoBarcodeScanResultLike mapPermissionStatusToCameraPermissionStatus normalizeExpoBarcodeScanResult shouldIgnoreBarcodeScan"
@@ -2680,6 +2695,8 @@
                 --&gt; entrypoint_src_index_ts
                 entrypoint_src_platform_ts[&quot;src/platform.ts&quot;]
                 package__ankhorage_expo_runtime --&gt; entrypoint_src_platform_ts
+                module_src_actionBridge_ts[&quot;src/actionBridge.ts&quot;]
+                package__ankhorage_expo_runtime -.-&gt; module_src_actionBridge_ts
                 module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
                 package__ankhorage_expo_runtime -.-&gt; module_src_barcodeScanRuntime_ts
                 module_src_bundledMedia_index_ts[&quot;src/bundledMedia/index.ts&quot;]
@@ -2773,6 +2790,8 @@ graph TD
   package__ankhorage_expo_runtime --&gt; entrypoint_src_index_ts
   entrypoint_src_platform_ts[&quot;src/platform.ts&quot;]
   package__ankhorage_expo_runtime --&gt; entrypoint_src_platform_ts
+  module_src_actionBridge_ts[&quot;src/actionBridge.ts&quot;]
+  package__ankhorage_expo_runtime -.-&gt; module_src_actionBridge_ts
   module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_barcodeScanRuntime_ts
   module_src_bundledMedia_index_ts[&quot;src/bundledMedia/index.ts&quot;]
@@ -2860,7 +2879,8 @@ graph TD
               <h3>Module relationships</h3>
               <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
               <div class="mermaid">
-                graph LR module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
+                graph LR module_src_actionBridge_ts[&quot;src/actionBridge.ts&quot;]
+                module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
                 module_src_bundledMedia_index_ts[&quot;src/bundledMedia/index.ts&quot;]
                 module_src_bundledMediaRegistrySource_ts[&quot;src/bundledMediaRegistrySource.ts&quot;]
                 module_src_bundledMediaResolver_ts[&quot;src/bundledMediaResolver.ts&quot;]
@@ -2920,6 +2940,7 @@ graph TD
                 <summary>View Mermaid source</summary>
                 <pre>
 graph LR
+  module_src_actionBridge_ts[&quot;src/actionBridge.ts&quot;]
   module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
   module_src_bundledMedia_index_ts[&quot;src/bundledMedia/index.ts&quot;]
   module_src_bundledMediaRegistrySource_ts[&quot;src/bundledMediaRegistrySource.ts&quot;]
@@ -2977,7 +2998,8 @@ graph LR
               <h3>Export graph</h3>
               <p class="muted"><code>diagrams/export-graph.mmd</code></p>
               <div class="mermaid">
-                graph LR module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
+                graph LR module_src_actionBridge_ts[&quot;src/actionBridge.ts&quot;]
+                module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
                 module_src_bundledMedia_index_ts[&quot;src/bundledMedia/index.ts&quot;]
                 module_src_bundledMediaRegistrySource_ts[&quot;src/bundledMediaRegistrySource.ts&quot;]
                 module_src_bundledMediaResolver_ts[&quot;src/bundledMediaResolver.ts&quot;]
@@ -3141,6 +3163,7 @@ graph LR
                 <summary>View Mermaid source</summary>
                 <pre>
 graph LR
+  module_src_actionBridge_ts[&quot;src/actionBridge.ts&quot;]
   module_src_barcodeScanRuntime_ts[&quot;src/barcodeScanRuntime.ts&quot;]
   module_src_bundledMedia_index_ts[&quot;src/bundledMedia/index.ts&quot;]
   module_src_bundledMediaRegistrySource_ts[&quot;src/bundledMediaRegistrySource.ts&quot;]

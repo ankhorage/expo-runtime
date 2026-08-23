@@ -43,6 +43,13 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
+    "./action-bridge": {
+      "react-native": "./src/actionBridge.ts",
+      "browser": "./src/actionBridge.ts",
+      "types": "./src/actionBridge.ts",
+      "import": "./dist/actionBridge.js",
+      "default": "./dist/actionBridge.js"
+    },
     "./planning": {
       "react-native": "./src/planning.ts",
       "browser": "./src/planning.ts",
@@ -102,6 +109,7 @@
     "prepack": "bun run build",
     "test": "bun test src",
     "typecheck": "bun x tsc --noEmit -p tsconfig.json && bun x tsc --noEmit -p tsconfig.scripts.json",
+    "validate:action-bridge": "bun scripts/actionBridgeAcceptance.ts",
     "validate:expo-platform": "bun scripts/validateExpoPlatform.ts",
     "validate:headless-platform": "bun scripts/headlessPlatformAcceptance.ts",
     "validate:packed-runtime": "bun scripts/packedRuntimeAcceptance.ts",

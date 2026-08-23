@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v2.7.0",
+      "value": "v3.0.0",
       "color": "cb3837"
     },
     {
@@ -66,6 +66,21 @@
   "config": null,
   "entrypoints": ["src/index.ts", "src/platform.ts"],
   "modules": [
+    {
+      "path": "src/actionBridge.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "executeExpoRuntimeAction",
+        "ExecuteExpoRuntimeActionArgs",
+        "ExpoRuntimeActionHandlerArgs",
+        "ExpoRuntimeActionHandlers",
+        "ExpoRuntimeRouteResolution",
+        "ExpoRuntimeRouterLike",
+        "ExpoRuntimeThemeMode",
+        "resolveExpoRuntimeRoutePath"
+      ]
+    },
     {
       "path": "src/barcodeScanRuntime.ts",
       "isEntrypoint": false,
@@ -2762,6 +2777,11 @@
   ],
   "graphs": {
     "imports": [
+      {
+        "fromPath": "src/actionBridge.ts",
+        "toPath": "src/expoActionBridge.ts",
+        "sourcePath": "src/actionBridge.ts"
+      },
       {
         "fromPath": "src/createExpoRuntimeRegistry.tsx",
         "toPath": "src/componentRegistry.ts",
