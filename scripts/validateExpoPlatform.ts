@@ -89,6 +89,7 @@ async function validateRepositoryManifest(): Promise<void> {
     JSON.parse(await Bun.file(join(repositoryRoot, 'package.json')).text()),
   );
   const peerDependencies = asStringRecord(manifest.peerDependencies);
+  const peerDependenciesMeta = asRecord(manifest.peerDependenciesMeta);
   const devDependencies = asStringRecord(manifest.devDependencies);
   const engines = asStringRecord(manifest.engines);
 
@@ -106,7 +107,17 @@ async function validateRepositoryManifest(): Promise<void> {
   for (const dependency of ownedPeers) {
     assertVersion(peerDependencies, dependency, 'peerDependencies');
     assertVersion(devDependencies, dependency, 'devDependencies');
+    assertOptionalPeer(peerDependenciesMeta, dependency.name);
   }
+  assertVersionString(peerDependencies, '@ankhorage/permissions', '^0.2.2', 'peerDependencies');
+  assertVersionString(devDependencies, '@ankhorage/permissions', '^0.2.2', 'devDependencies');
+  assertOptionalPeer(peerDependenciesMeta, '@ankhorage/permissions');
+  assertVersionString(peerDependencies, '@ankhorage/zora', '^3.0.0', 'peerDependencies');
+  assertVersionString(devDependencies, '@ankhorage/zora', '^3.0.0', 'devDependencies');
+  assertOptionalPeer(peerDependenciesMeta, '@ankhorage/zora');
+  assertVersion(devDependencies, EXPO_PLATFORM.runtime.reactDom, 'devDependencies');
+  assertVersion(devDependencies, EXPO_PLATFORM.runtime.reactNativeWeb, 'devDependencies');
+  assertVersion(devDependencies, EXPO_PLATFORM.navigation.safeArea, 'devDependencies');
   assertVersion(devDependencies, EXPO_PLATFORM.tooling.nodeTypes, 'devDependencies');
   assertVersion(devDependencies, EXPO_PLATFORM.tooling.typescript, 'devDependencies');
 
@@ -114,6 +125,16 @@ async function validateRepositoryManifest(): Promise<void> {
     throw new Error(
       `package.json engines.node must be '${EXPO_PLATFORM.tooling.node.version}', received '${engines.node ?? 'missing'}'.`,
     );
+  }
+}
+
+function assertOptionalPeer(
+  peerDependenciesMeta: Readonly<Record<string, unknown>>,
+  packageName: string,
+): void {
+  const metadata = asRecord(Reflect.get(peerDependenciesMeta, packageName));
+  if (metadata.optional !== true) {
+    throw new Error(`package.json peerDependenciesMeta.${packageName}.optional must be true.`);
   }
 }
 
@@ -126,6 +147,21 @@ function assertVersion(
   if (actual !== expected.version) {
     throw new Error(
       `package.json ${field}.${expected.name} must be '${expected.version}', received '${actual ?? 'missing'}'.`,
+    );
+  }
+}
+
+function assertVersionString(
+  dependencies: Readonly<Record<string, string>>,
+  packageName: string,
+  expectedVersion: string,
+  field: string,
+): void {
+  const actual = Reflect.get(dependencies, packageName) as unknown;
+  if (actual !== expectedVersion) {
+    const actualVersion = typeof actual === 'string' ? actual : 'missing';
+    throw new Error(
+      `package.json ${field}.${packageName} must be '${expectedVersion}', received '${actualVersion}'.`,
     );
   }
 }

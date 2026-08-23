@@ -28,9 +28,9 @@ export async function runBrowserAcceptance(origin: string, videoPath: string): P
     page.on('pageerror', (error) => console.error(`[browser:error] ${error.message}`));
     await page.addInitScript(disableNativeBarcodeDetector);
     await page.goto(origin, { waitUntil: 'networkidle' });
-    const permissionButton = page.getByRole('button');
+    const permissionButton = page.getByRole('button', { name: 'Allow camera access' });
     try {
-      await permissionButton.click({ timeout: 10_000 });
+      await permissionButton.press('Enter', { timeout: 10_000 });
     } catch (error) {
       console.error(`[browser:body] ${await page.locator('body').innerText()}`);
       throw error;

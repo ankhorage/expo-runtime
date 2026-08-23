@@ -32,3 +32,9 @@ jobs:
 
       - name: Validate Expo platform compatibility
         run: bun run validate:expo-platform
+
+      - name: Validate packed headless platform subpath
+        run: bun run validate:headless-platform
+
+      - name: Validate packed ZORA 3 runtime
+        run: bun run validate:packed-runtime

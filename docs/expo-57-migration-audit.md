@@ -40,7 +40,8 @@ The repository-owned Expo platform workflow runs the deterministic `validate:exp
 
 Physical-device camera acceptance is not available in this package repository. Native QR/EAN hardware validation remains an acceptance responsibility after consumers rebuild their Expo 57 development clients.
 
-## Release-boundary follow-ups
+## Expo Runtime peer boundary correction
 
-- The currently published `@ankhorage/zora` peer metadata still contains its pre-migration optional Expo Font and icon assumptions. Those are owned by roadmap steps `[expo 3]` and `[expo 4]`; the Web acceptance fixture resolves those peer packages from Expo 57's bundled module map without copying version truth or modifying ZORA.
-- Runtime, Surface, ZORA, DnD, Expo orchestrator modules, Studio, generated-app scaffolding, and native release/device acceptance must consume the published platform contract in their numbered roadmap steps. No downstream repository was modified or deep-imported.
+- The released ZORA 3 and Surface 3 graph replaces the obsolete ZORA 2 runtime peer. Barcode scanner exports and props were verified against the released package before migration.
+- Package-wide application peers are optional at install time so the pure `./platform` contract remains independently consumable. Root and feature entrypoints retain explicit documented runtime requirements and fail normal module resolution when a dependency they actually execute is absent.
+- Packed headless and root-runtime acceptance independently prove both sides of that boundary. No downstream repository was modified or deep-imported.
