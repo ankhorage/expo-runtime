@@ -36,5 +36,8 @@ jobs:
       - name: Validate packed headless platform subpath
         run: bun run validate:headless-platform
 
+      - name: Validate packed action bridge subpath
+        run: bun run validate:action-bridge
+
       - name: Validate packed ZORA 3 runtime
         run: bun run validate:packed-runtime
