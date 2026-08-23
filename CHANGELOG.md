@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.0.1
+
+### Patch Changes
+
+- c14bbd0: Expose the Expo action bridge through a lightweight public subpath that does not require native runtime peers.
+
 ## 3.0.0
 
 ### Major Changes
