@@ -53,20 +53,37 @@ async function writeManifest(
   repositoryRoot: string,
   runtimePackagePath: string,
 ): Promise<void> {
-  const bundledModules = await readExpoBundledModules(repositoryRoot);
   const repositoryDependencies = await readRepositoryDependencies(repositoryRoot);
   const zoraDependencies = await readPackageDependencies(repositoryRoot, '@ankhorage/zora');
+  const zoraPeerDependencies = await readPackagePeerDependencies(repositoryRoot, '@ankhorage/zora');
   const dependencies = {
     '@ankhorage/expo-runtime': `file:${runtimePackagePath}`,
     '@ankhorage/permissions': requiredVersion(repositoryDependencies, '@ankhorage/permissions'),
     '@ankhorage/surface': requiredVersion(zoraDependencies, '@ankhorage/surface'),
     '@ankhorage/zora': requiredVersion(repositoryDependencies, '@ankhorage/zora'),
-    '@expo/vector-icons': requiredVersion(bundledModules, '@expo/vector-icons'),
-    '@react-native-picker/picker': requiredVersion(bundledModules, '@react-native-picker/picker'),
+    '@react-native-picker/picker': requiredVersion(
+      zoraPeerDependencies,
+      '@react-native-picker/picker',
+    ),
+    '@react-native-vector-icons/fontawesome': requiredVersion(
+      zoraPeerDependencies,
+      '@react-native-vector-icons/fontawesome',
+    ),
+    '@react-native-vector-icons/fontawesome5': requiredVersion(
+      zoraPeerDependencies,
+      '@react-native-vector-icons/fontawesome5',
+    ),
+    '@react-native-vector-icons/fontawesome6': requiredVersion(
+      zoraPeerDependencies,
+      '@react-native-vector-icons/fontawesome6',
+    ),
+    '@react-native-vector-icons/ionicons': requiredVersion(
+      zoraPeerDependencies,
+      '@react-native-vector-icons/ionicons',
+    ),
     [EXPO_PLATFORM.packages.metroRuntime.name]: EXPO_PLATFORM.packages.metroRuntime.version,
     [EXPO_PLATFORM.packages.camera.name]: EXPO_PLATFORM.packages.camera.version,
-    [EXPO_PLATFORM.packages.font.name]: EXPO_PLATFORM.packages.font.version,
-    [EXPO_PLATFORM.packages.linearGradient.name]: EXPO_PLATFORM.packages.linearGradient.version,
+    [EXPO_PLATFORM.navigation.safeArea.name]: EXPO_PLATFORM.navigation.safeArea.version,
     [EXPO_PLATFORM.runtime.expo.name]: EXPO_PLATFORM.runtime.expo.version,
     [EXPO_PLATFORM.runtime.react.name]: EXPO_PLATFORM.runtime.react.version,
     [EXPO_PLATFORM.runtime.reactDom.name]: EXPO_PLATFORM.runtime.reactDom.version,
@@ -82,11 +99,6 @@ async function writeManifest(
   });
 }
 
-async function readExpoBundledModules(repositoryRoot: string): Promise<Record<string, string>> {
-  const path = join(repositoryRoot, 'node_modules', 'expo', 'bundledNativeModules.json');
-  return JSON.parse(await Bun.file(path).text()) as Record<string, string>;
-}
-
 async function readPackageDependencies(
   repositoryRoot: string,
   packageName: string,
@@ -96,6 +108,17 @@ async function readPackageDependencies(
     readonly dependencies?: Record<string, string>;
   };
   return manifest.dependencies ?? {};
+}
+
+async function readPackagePeerDependencies(
+  repositoryRoot: string,
+  packageName: string,
+): Promise<Record<string, string>> {
+  const path = join(repositoryRoot, 'node_modules', packageName, 'package.json');
+  const manifest = JSON.parse(await Bun.file(path).text()) as {
+    readonly peerDependencies?: Record<string, string>;
+  };
+  return manifest.peerDependencies ?? {};
 }
 
 async function readRepositoryDependencies(repositoryRoot: string): Promise<Record<string, string>> {
