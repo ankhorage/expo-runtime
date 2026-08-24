@@ -1,5 +1,12 @@
 # @ankhorage/expo-runtime
 
+## 3.0.3
+
+### Patch Changes
+
+- 62d80af: Require the released permissions adapter with blocked, limited, iOS notification, and settings
+  recovery normalization in generated Expo runtime plans.
+
 ## 3.0.2
 
 ### Patch Changes
