@@ -109,8 +109,8 @@ async function validateRepositoryManifest(): Promise<void> {
     assertVersion(devDependencies, dependency, 'devDependencies');
     assertOptionalPeer(peerDependenciesMeta, dependency.name);
   }
-  assertVersionString(peerDependencies, '@ankhorage/permissions', '^0.2.2', 'peerDependencies');
-  assertVersionString(devDependencies, '@ankhorage/permissions', '^0.2.2', 'devDependencies');
+  assertVersionString(peerDependencies, '@ankhorage/permissions', '^0.2.3', 'peerDependencies');
+  assertVersionString(devDependencies, '@ankhorage/permissions', '^0.2.3', 'devDependencies');
   assertOptionalPeer(peerDependenciesMeta, '@ankhorage/permissions');
   assertVersionString(peerDependencies, '@ankhorage/zora', '^3.0.0', 'peerDependencies');
   assertVersionString(devDependencies, '@ankhorage/zora', '^3.0.0', 'devDependencies');
