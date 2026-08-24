@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.0.2
+
+### Patch Changes
+
+- a6576bc: Emit the generated barcode-scanner adapter with the canonical source format.
+
 ## 3.0.1
 
 ### Patch Changes
