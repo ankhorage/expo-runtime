@@ -38,7 +38,7 @@ export interface ExpoRuntimeHintMetadata {
 }
 
 const GENERATED_ANKHORAGE_DEPENDENCY_VERSIONS = {
-  '@ankhorage/permissions': '^0.2.2',
+  '@ankhorage/permissions': '^0.2.3',
   '@ankhorage/expo-runtime': '^3.0.0',
 } as const satisfies Record<string, string>;
 
