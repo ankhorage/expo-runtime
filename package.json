@@ -117,7 +117,7 @@
     "version-packages": "changeset version"
   },
   "peerDependencies": {
-    "@ankhorage/permissions": "^0.2.2",
+    "@ankhorage/permissions": "^0.2.3",
     "@ankhorage/zora": "^3.0.0",
     "expo": "~57.0.15",
     "expo-camera": "~57.0.4",
@@ -163,7 +163,7 @@
   "devDependencies": {
     "@ankhorage/devtools": "^1.6.0",
     "@ankhorage/paradox": "^0.1.21",
-    "@ankhorage/permissions": "^0.2.2",
+    "@ankhorage/permissions": "^0.2.3",
     "@ankhorage/zora": "^3.0.0",
     "@changesets/cli": "^2.31.0",
     "@react-native-picker/picker": "2.11.4",
