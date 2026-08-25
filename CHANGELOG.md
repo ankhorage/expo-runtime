@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.0.5
+
+### Patch Changes
+
+- b69bb95: Include `expo-asset` as a direct generated-app dependency whenever Expo audio is planned.
+
 ## 3.0.4
 
 ### Patch Changes
