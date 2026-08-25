@@ -113,6 +113,11 @@ describe('resolveExpoRuntimePlan Expo 57 plugin coverage', () => {
         },
       },
     ]);
+    expect(plan.dependencies).toContainEqual({
+      name: EXPO_PLATFORM.packages.asset.name,
+      version: EXPO_PLATFORM.packages.asset.version,
+      reasons: [`peer:${EXPO_PLATFORM.packages.audio.name}`],
+    });
   });
 
   test('translates every supported permission into current Expo 57 packages and plugins', () => {
@@ -197,6 +202,7 @@ describe('resolveExpoRuntimePlan platform-neutral permissions', () => {
 const SUPPORTED_PERMISSION_DEPENDENCIES = [
   { name: '@ankhorage/expo-runtime', version: '^3.0.0' },
   { name: '@ankhorage/permissions', version: '^0.2.3' },
+  { name: 'expo-asset', version: EXPO_PLATFORM.packages.asset.version },
   { name: 'expo-audio', version: EXPO_PLATFORM.packages.audio.version },
   { name: 'expo-location', version: EXPO_PLATFORM.packages.location.version },
   { name: 'expo-media-library', version: EXPO_PLATFORM.packages.mediaLibrary.version },

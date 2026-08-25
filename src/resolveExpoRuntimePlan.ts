@@ -13,6 +13,7 @@ import {
 
 import {
   EXPO_CAPABILITY_RUNTIME_REGISTRY,
+  EXPO_RUNTIME_PACKAGE_PEERS,
   EXPO_RUNTIME_PROVIDER_PACKAGES,
   type ExpoRuntimeAdapterId,
   type ExpoRuntimeCapabilityMetadata,
@@ -233,6 +234,12 @@ function addDependency(context: PlanningContext, name: string, reason: string): 
     version,
     reasons: existing === undefined ? [reason] : Array.from(new Set([...existing.reasons, reason])),
   });
+  const requiredPeers = Object.entries(EXPO_RUNTIME_PACKAGE_PEERS).find(
+    ([packageName]) => packageName === name,
+  )?.[1];
+  for (const peerName of requiredPeers ?? []) {
+    addDependency(context, peerName, `peer:${name}`);
+  }
 }
 
 function addProvider(
