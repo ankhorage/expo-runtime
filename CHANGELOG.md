@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.0.4
+
+### Patch Changes
+
+- 744e3e9: Expose the Expo 57 crypto package in the canonical platform dependency projection.
+
 ## 3.0.3
 
 ### Patch Changes
