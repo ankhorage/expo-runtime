@@ -28,6 +28,10 @@ describe('EXPO_PLATFORM', () => {
       name: 'react-native',
       version: '0.86.2',
     });
+    expect(EXPO_PLATFORM.packages.crypto).toEqual({
+      name: 'expo-crypto',
+      version: '~57.0.2',
+    });
     expect(EXPO_PLATFORM.tooling.node).toEqual({ lts: 24, version: '24.x' });
     expect(EXPO_PLATFORM.animation.worklets.version).toBe('0.10.1');
   });
