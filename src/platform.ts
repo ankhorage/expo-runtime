@@ -53,6 +53,7 @@ export const EXPO_PLATFORM = {
     authSession: definePackage('expo-auth-session', '~57.0.8'),
     camera: definePackage('expo-camera', '~57.0.4'),
     constants: definePackage('expo-constants', '~57.0.13'),
+    crypto: definePackage('expo-crypto', '~57.0.2'),
     devClient: definePackage('expo-dev-client', '~57.0.14'),
     documentPicker: definePackage('expo-document-picker', '~57.0.1'),
     fileSystem: definePackage('expo-file-system', '~57.0.5'),
