@@ -58,6 +58,11 @@ export const EXPO_RUNTIME_PROVIDER_PACKAGES = {
   permissions: '@ankhorage/permissions',
 } as const satisfies Record<ExpoRuntimeProviderId, string>;
 
+/** Native Expo packages whose peer modules must be direct generated-app dependencies. */
+export const EXPO_RUNTIME_PACKAGE_PEERS = {
+  [EXPO_PLATFORM.packages.audio.name]: [EXPO_PLATFORM.packages.asset.name],
+} as const satisfies Readonly<Record<string, readonly string[]>>;
+
 const EXPO_RUNTIME_CONFIG_HINTS = {
   cameraPermission: {
     plugin: {
