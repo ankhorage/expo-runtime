@@ -84,7 +84,7 @@ async function writeFixtureAsync(
     `import { EXPO_PLATFORM } from '@ankhorage/expo-runtime/platform';
 
 if (EXPO_PLATFORM.sdk !== 57) throw new Error('Expected Expo SDK 57.');
-if (EXPO_PLATFORM.runtime.expo.version !== '~57.0.15') throw new Error('Unexpected Expo version.');
+if (EXPO_PLATFORM.runtime.expo.version !== '57.0.17') throw new Error('Unexpected Expo version.');
 if (EXPO_PLATFORM.packages.camera.version !== '~57.0.4') throw new Error('Unexpected Camera version.');
 if (EXPO_PLATFORM.tooling.typescript.version !== '~6.0.3') throw new Error('Unexpected TypeScript version.');
 console.log(JSON.stringify(EXPO_PLATFORM));

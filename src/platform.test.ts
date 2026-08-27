@@ -23,10 +23,10 @@ describe('EXPO_PLATFORM', () => {
   });
 
   test('keeps the Hermes fix, React Native and Node policy in one contract', () => {
-    expect(EXPO_PLATFORM.runtime.expo).toEqual({ name: 'expo', version: '~57.0.15' });
+    expect(EXPO_PLATFORM.runtime.expo).toEqual({ name: 'expo', version: '57.0.17' });
     expect(EXPO_PLATFORM.runtime.reactNative).toEqual({
       name: 'react-native',
-      version: '0.86.2',
+      version: '0.86.3',
     });
     expect(EXPO_PLATFORM.packages.crypto).toEqual({
       name: 'expo-crypto',

@@ -119,14 +119,14 @@
   "peerDependencies": {
     "@ankhorage/permissions": "^0.2.3",
     "@ankhorage/zora": "^3.0.0",
-    "expo": "~57.0.15",
+    "expo": "57.0.17",
     "expo-camera": "~57.0.4",
     "expo-constants": "~57.0.13",
     "expo-document-picker": "~57.0.1",
     "expo-file-system": "~57.0.5",
     "expo-image-picker": "~57.0.12",
     "react": "19.2.3",
-    "react-native": "0.86.2"
+    "react-native": "0.86.3"
   },
   "peerDependenciesMeta": {
     "@ankhorage/permissions": {
@@ -176,7 +176,7 @@
     "@types/pngjs": "^6.0.5",
     "@types/react": "^19.2.18",
     "bwip-js": "^4.11.4",
-    "expo": "~57.0.15",
+    "expo": "57.0.17",
     "expo-camera": "~57.0.4",
     "expo-constants": "~57.0.13",
     "expo-document-picker": "~57.0.1",
@@ -184,7 +184,7 @@
     "expo-image-picker": "~57.0.12",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-native": "0.86.2",
+    "react-native": "0.86.3",
     "react-native-safe-area-context": "~5.7.0",
     "react-native-web": "~0.21.0",
     "playwright-core": "^1.62.1",
