@@ -19,7 +19,7 @@ This audit covers Expo Runtime ownership only. Downstream Runtime, Surface, ZORA
 
 ## React Native 0.82 to 0.86
 
-- **CHANGE REQUIRED — React/RN types and peers.** React 19.2.3 and RN 0.86.2 replace React 19.1/RN 0.81.5 in peer, development, and compatibility-fixture manifests.
+- **CHANGE REQUIRED — React/RN types and peers.** React 19.2.3 and RN 0.86.3 replace React 19.1/RN 0.81.5 in peer, development, and compatibility-fixture manifests.
 - **VERIFIED: NO CHANGE REQUIRED — removed/deprecated JS APIs.** Source does not use `Appearance.setColorScheme(null)`, private feature flags, legacy subscription removers, `StyleSheet.absoluteFillObject`, the React Native Jest preset, deprecated accessibility focus APIs, or deprecated `AppRegistry` hook parameters.
 - **VERIFIED: NO CHANGE REQUIRED — Fabric/New Architecture.** Expo Runtime contains React components and Expo module adapters but no legacy native modules, bridge-only implementation, native view manager, or architecture switch.
 - **VERIFIED: NO CHANGE REQUIRED — layout and measurement.** The camera adapter uses ordinary flex styles and does not use imperative measurement or coordinates affected by edge-to-edge changes.
