@@ -125,7 +125,7 @@
     "expo-document-picker": "~57.0.1",
     "expo-file-system": "~57.0.5",
     "expo-image-picker": "~57.0.12",
-    "react": "19.2.3",
+    "react": "19.2.8",
     "react-native": "0.86.3"
   },
   "peerDependenciesMeta": {
@@ -182,8 +182,8 @@
     "expo-document-picker": "~57.0.1",
     "expo-file-system": "~57.0.5",
     "expo-image-picker": "~57.0.12",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "react-native": "0.86.3",
     "react-native-safe-area-context": "~5.7.0",
     "react-native-web": "~0.21.0",
