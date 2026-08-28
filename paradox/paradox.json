@@ -12,7 +12,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v3.0.0",
+      "value": "v3.0.6",
       "color": "cb3837"
     },
     {
@@ -169,6 +169,7 @@
       "dependencies": ["src/platform.ts"],
       "exports": [
         "EXPO_CAPABILITY_RUNTIME_REGISTRY",
+        "EXPO_RUNTIME_PACKAGE_PEERS",
         "EXPO_RUNTIME_PROVIDER_PACKAGES",
         "ExpoRuntimeAdapterId",
         "ExpoRuntimeCapabilityMetadata",
@@ -189,6 +190,18 @@
       "isEntrypoint": false,
       "dependencies": ["src/permissionRuntime.ts", "src/resolveExpoRuntimePlan.ts"],
       "exports": ["ExpoRuntimeProviders", "ExpoRuntimeProvidersProps"]
+    },
+    {
+      "path": "src/ExpoZoraIconFontProvider.tsx",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["ExpoZoraIconFontProvider", "ExpoZoraIconFontProviderProps"]
+    },
+    {
+      "path": "src/ExpoZoraIconFontProvider.web.tsx",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["ExpoZoraIconFontProvider", "ExpoZoraIconFontProviderProps"]
     },
     {
       "path": "src/generatedAppOutput.ts",
@@ -247,6 +260,8 @@
         "ExpoRuntimeRouteResolution",
         "ExpoRuntimeRouterLike",
         "ExpoRuntimeThemeMode",
+        "ExpoZoraIconFontProvider",
+        "ExpoZoraIconFontProviderProps",
         "getExpoBarcodeScannerViewSource",
         "getExpoBundledMediaRegistrySource",
         "mapPermissionStatusToCameraPermissionStatus",
@@ -936,7 +951,7 @@
       "modulePath": "src/platform.ts",
       "sourceLocation": {
         "filePath": "src/platform.ts",
-        "line": 88,
+        "line": 89,
         "column": 1
       },
       "exportPaths": ["src/platform.ts"],
@@ -1205,7 +1220,7 @@
       "modulePath": "src/resolveExpoRuntimePlan.ts",
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 49,
+        "line": 50,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1443,6 +1458,64 @@
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoZoraIconFontProvider",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/ExpoZoraIconFontProvider.tsx",
+      "sourceLocation": {
+        "filePath": "src/ExpoZoraIconFontProvider.tsx",
+        "line": 7,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ExpoZoraIconFontProviderProps"],
+      "signatures": [
+        {
+          "label": "(props: ExpoZoraIconFontProviderProps) => React.JSX.Element",
+          "parameters": [
+            {
+              "name": "props",
+              "type": "ExpoZoraIconFontProviderProps",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "React.JSX.Element",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoZoraIconFontProviderProps",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/ExpoZoraIconFontProvider.tsx",
+      "sourceLocation": {
+        "filePath": "src/ExpoZoraIconFontProvider.tsx",
+        "line": 3,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "children",
+          "kind": "property",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -1779,7 +1852,7 @@
       "modulePath": "src/resolveExpoRuntimePlan.ts",
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 98,
+        "line": 99,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2041,6 +2114,27 @@
           "description": null
         }
       ]
+    },
+    {
+      "name": "ExpoZoraIconFontProvider",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "modulePath": "src/ExpoZoraIconFontProvider.tsx",
+      "sourceLocation": {
+        "filePath": "src/ExpoZoraIconFontProvider.tsx",
+        "line": 7,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "props": [
+        {
+          "name": "children",
+          "type": "React.ReactNode | undefined",
+          "required": false,
+          "description": null
+        }
+      ]
     }
   ],
   "sourceFunctions": [
@@ -2193,7 +2287,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/expoRuntimePlanningMetadata.ts",
-        "line": 150,
+        "line": 155,
         "column": 1
       }
     },
@@ -2202,7 +2296,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/expoRuntimePlanningMetadata.ts",
-        "line": 157,
+        "line": 162,
         "column": 1
       }
     },
@@ -2211,7 +2305,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/expoRuntimePlanningMetadata.ts",
-        "line": 161,
+        "line": 166,
         "column": 1
       }
     },
@@ -2220,7 +2314,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/expoRuntimePlanningMetadata.ts",
-        "line": 170,
+        "line": 175,
         "column": 1
       }
     },
@@ -2229,7 +2323,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/expoRuntimePlanningMetadata.ts",
-        "line": 183,
+        "line": 188,
         "column": 1
       }
     },
@@ -2239,6 +2333,24 @@
       "sourceLocation": {
         "filePath": "src/ExpoRuntimeProviders.tsx",
         "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "ExpoZoraIconFontProvider",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/ExpoZoraIconFontProvider.tsx",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "name": "ExpoZoraIconFontProvider",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/ExpoZoraIconFontProvider.web.tsx",
+        "line": 27,
         "column": 1
       }
     },
@@ -2481,7 +2593,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 98,
+        "line": 99,
         "column": 1
       }
     },
@@ -2490,7 +2602,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 118,
+        "line": 119,
         "column": 1
       }
     },
@@ -2499,7 +2611,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 143,
+        "line": 144,
         "column": 1
       }
     },
@@ -2508,7 +2620,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 156,
+        "line": 157,
         "column": 1
       }
     },
@@ -2517,7 +2629,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 162,
+        "line": 163,
         "column": 1
       }
     },
@@ -2526,7 +2638,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 183,
+        "line": 184,
         "column": 1
       }
     },
@@ -2535,7 +2647,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 201,
+        "line": 202,
         "column": 1
       }
     },
@@ -2544,7 +2656,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 219,
+        "line": 220,
         "column": 1
       }
     },
@@ -2553,7 +2665,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 238,
+        "line": 245,
         "column": 1
       }
     },
@@ -2562,7 +2674,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 253,
+        "line": 260,
         "column": 1
       }
     },
@@ -2571,7 +2683,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 258,
+        "line": 265,
         "column": 1
       }
     },
@@ -2580,7 +2692,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 283,
+        "line": 290,
         "column": 1
       }
     },
@@ -2589,7 +2701,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 294,
+        "line": 301,
         "column": 1
       }
     },
@@ -2598,7 +2710,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 301,
+        "line": 308,
         "column": 1
       }
     },
@@ -2607,7 +2719,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 305,
+        "line": 312,
         "column": 1
       }
     },
@@ -2616,7 +2728,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 312,
+        "line": 319,
         "column": 1
       }
     }
@@ -2667,6 +2779,14 @@
       "name": "ExpoRuntimeProviders",
       "sourcePath": "src/ExpoRuntimeProviders.tsx",
       "symbolName": "ExpoRuntimeProviders",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "ExpoZoraIconFontProvider",
+      "sourcePath": "src/ExpoZoraIconFontProvider.tsx",
+      "symbolName": "ExpoZoraIconFontProvider",
       "description": null,
       "isReadme": false
     },
@@ -2860,6 +2980,11 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/ExpoRuntimeProviders.tsx",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/ExpoZoraIconFontProvider.tsx",
         "sourcePath": "src/index.ts"
       },
       {
@@ -3128,6 +3253,12 @@
         "sourcePath": "src/ExpoRuntimeProviders.tsx"
       },
       {
+        "fromSymbol": "ExpoZoraIconFontProvider",
+        "toSymbol": "useFonts",
+        "callExpression": "useFonts",
+        "sourcePath": "src/ExpoZoraIconFontProvider.web.tsx"
+      },
+      {
         "fromSymbol": "resolveExpoRuntimeNativeOutput",
         "toSymbol": "resolveExpoRuntimeConfigPluginOutput",
         "callExpression": "resolveExpoRuntimeConfigPluginOutput",
@@ -3311,6 +3442,12 @@
         "fromSymbol": "addDependency",
         "toSymbol": "findDependencyVersion",
         "callExpression": "findDependencyVersion",
+        "sourcePath": "src/resolveExpoRuntimePlan.ts"
+      },
+      {
+        "fromSymbol": "addDependency",
+        "toSymbol": "addDependency",
+        "callExpression": "addDependency",
         "sourcePath": "src/resolveExpoRuntimePlan.ts"
       },
       {
@@ -3554,6 +3691,26 @@
         "fromSymbol": "ExpoRuntimeProvidersProps",
         "toType": "ReactNode",
         "sourcePath": "src/ExpoRuntimeProviders.tsx"
+      },
+      {
+        "fromSymbol": "ExpoZoraIconFontProvider",
+        "toType": "ExpoZoraIconFontProviderProps",
+        "sourcePath": "src/ExpoZoraIconFontProvider.tsx"
+      },
+      {
+        "fromSymbol": "ExpoZoraIconFontProvider",
+        "toType": "React",
+        "sourcePath": "src/ExpoZoraIconFontProvider.tsx"
+      },
+      {
+        "fromSymbol": "ExpoZoraIconFontProviderProps",
+        "toType": "React",
+        "sourcePath": "src/ExpoZoraIconFontProvider.tsx"
+      },
+      {
+        "fromSymbol": "ExpoZoraIconFontProviderProps",
+        "toType": "ReactNode",
+        "sourcePath": "src/ExpoZoraIconFontProvider.tsx"
       },
       {
         "fromSymbol": "ExpoRuntimeGeneratedAppOutputPlan",

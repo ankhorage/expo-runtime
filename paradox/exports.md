@@ -177,7 +177,7 @@ Source: `src/bundledMediaResolver.ts:3:1`
 
 Kind: `unknown`
 Module: `src/platform.ts`
-Source: `src/platform.ts:88:1`
+Source: `src/platform.ts:89:1`
 
 ## ExpoPlatformPackage
 
@@ -274,7 +274,7 @@ Source: `src/generatedAppOutput.ts:13:1`
 
 Kind: `type`
 Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:49:1`
+Source: `src/resolveExpoRuntimePlan.ts:50:1`
 
 ### Members
 
@@ -352,6 +352,30 @@ Source: `src/expoActionBridge.ts:5:1`
 Kind: `unknown`
 Module: `src/expoActionBridge.ts`
 Source: `src/expoActionBridge.ts:3:1`
+
+## ExpoZoraIconFontProvider
+
+Kind: `function`
+Module: `src/ExpoZoraIconFontProvider.tsx`
+Source: `src/ExpoZoraIconFontProvider.tsx:7:1`
+
+### Signatures
+
+- `(props: ExpoZoraIconFontProviderProps) => React.JSX.Element`
+  - props: `ExpoZoraIconFontProviderProps`
+  - returns: `React.JSX.Element`
+
+## ExpoZoraIconFontProviderProps
+
+Kind: `type`
+Module: `src/ExpoZoraIconFontProvider.tsx`
+Source: `src/ExpoZoraIconFontProvider.tsx:3:1`
+
+### Members
+
+| Name     | Kind     | Type              | Required | Description |
+| -------- | -------- | ----------------- | -------- | ----------- |
+| children | property | `React.ReactNode` | yes      |             |
 
 ## getExpoBarcodeScannerViewSource
 
@@ -478,7 +502,7 @@ Source: `src/generatedAppOutput.ts:40:1`
 
 Kind: `function`
 Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:98:1`
+Source: `src/resolveExpoRuntimePlan.ts:99:1`
 
 ### Signatures
 

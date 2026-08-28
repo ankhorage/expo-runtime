@@ -37,3 +37,13 @@ Export paths: `src/index.ts`
 | --------- | ----------------------------------------------- | -------- | ------- | ----------- |
 | children  | `React.ReactNode \| undefined`                  | no       | —       |             |
 | providers | `readonly ExpoRuntimeProviderId[] \| undefined` | no       | —       |             |
+
+## ExpoZoraIconFontProvider
+
+Source: `src/ExpoZoraIconFontProvider.tsx:7:1`
+
+Export paths: `src/index.ts`
+
+| Prop     | Type                           | Required | Default | Description |
+| -------- | ------------------------------ | -------- | ------- | ----------- |
+| children | `React.ReactNode \| undefined` | no       | —       |             |

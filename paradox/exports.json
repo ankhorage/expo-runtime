@@ -505,7 +505,7 @@
     "modulePath": "src/platform.ts",
     "sourceLocation": {
       "filePath": "src/platform.ts",
-      "line": 88,
+      "line": 89,
       "column": 1
     },
     "exportPaths": ["src/platform.ts"],
@@ -774,7 +774,7 @@
     "modulePath": "src/resolveExpoRuntimePlan.ts",
     "sourceLocation": {
       "filePath": "src/resolveExpoRuntimePlan.ts",
-      "line": 49,
+      "line": 50,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1012,6 +1012,64 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoZoraIconFontProvider",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/ExpoZoraIconFontProvider.tsx",
+    "sourceLocation": {
+      "filePath": "src/ExpoZoraIconFontProvider.tsx",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": ["ExpoZoraIconFontProviderProps"],
+    "signatures": [
+      {
+        "label": "(props: ExpoZoraIconFontProviderProps) => React.JSX.Element",
+        "parameters": [
+          {
+            "name": "props",
+            "type": "ExpoZoraIconFontProviderProps",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "React.JSX.Element",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoZoraIconFontProviderProps",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/ExpoZoraIconFontProvider.tsx",
+    "sourceLocation": {
+      "filePath": "src/ExpoZoraIconFontProvider.tsx",
+      "line": 3,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "children",
+        "kind": "property",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -1348,7 +1406,7 @@
     "modulePath": "src/resolveExpoRuntimePlan.ts",
     "sourceLocation": {
       "filePath": "src/resolveExpoRuntimePlan.ts",
-      "line": 98,
+      "line": 99,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],

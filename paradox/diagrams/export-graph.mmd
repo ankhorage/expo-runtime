@@ -10,6 +10,8 @@ graph LR
   module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
   module_src_expoRuntimePlanningMetadata_ts["src/expoRuntimePlanningMetadata.ts"]
   module_src_ExpoRuntimeProviders_tsx["src/ExpoRuntimeProviders.tsx"]
+  module_src_ExpoZoraIconFontProvider_tsx["src/ExpoZoraIconFontProvider.tsx"]
+  module_src_ExpoZoraIconFontProvider_web_tsx["src/ExpoZoraIconFontProvider.web.tsx"]
   module_src_generatedAppOutput_ts["src/generatedAppOutput.ts"]
   module_src_generatedSources_ts["src/generatedSources.ts"]
   module_src_index_ts["src/index.ts"]
@@ -110,6 +112,11 @@ graph LR
   module_src_expoActionBridge_ts --> export_ExpoRuntimeRouterLike
   export_ExpoRuntimeThemeMode["ExpoRuntimeThemeMode"]
   module_src_expoActionBridge_ts --> export_ExpoRuntimeThemeMode
+  export_ExpoZoraIconFontProvider["ExpoZoraIconFontProvider"]
+  module_src_ExpoZoraIconFontProvider_tsx --> export_ExpoZoraIconFontProvider
+  export_ExpoZoraIconFontProvider -.-> export_ExpoZoraIconFontProviderProps
+  export_ExpoZoraIconFontProviderProps["ExpoZoraIconFontProviderProps"]
+  module_src_ExpoZoraIconFontProvider_tsx --> export_ExpoZoraIconFontProviderProps
   export_getExpoBarcodeScannerViewSource["getExpoBarcodeScannerViewSource"]
   module_src_generatedSources_ts --> export_getExpoBarcodeScannerViewSource
   export_getExpoBundledMediaRegistrySource["getExpoBundledMediaRegistrySource"]
