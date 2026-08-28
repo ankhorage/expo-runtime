@@ -64,6 +64,13 @@
       "import": "./dist/platform.js",
       "default": "./dist/platform.js"
     },
+    "./icon-fonts": {
+      "react-native": "./src/ExpoZoraIconFontProvider.tsx",
+      "browser": "./src/ExpoZoraIconFontProvider.web.tsx",
+      "types": "./src/ExpoZoraIconFontProvider.tsx",
+      "import": "./dist/ExpoZoraIconFontProvider.js",
+      "default": "./dist/ExpoZoraIconFontProvider.js"
+    },
     "./oauth-browser": {
       "react-native": "./src/oauthBrowserTransport.ts",
       "browser": "./src/oauthBrowserTransport.ts",
