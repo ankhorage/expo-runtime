@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.0.8
+
+### Patch Changes
+
+- cb70c0f: Expose the ZORA icon font boundary through a focused subpath so camera-free Expo apps do not load unrelated root runtime types.
+
 ## 3.0.7
 
 ### Patch Changes
