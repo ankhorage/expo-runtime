@@ -109,11 +109,9 @@ async function validateRepositoryManifest(): Promise<void> {
     assertVersion(devDependencies, dependency, 'devDependencies');
     assertOptionalPeer(peerDependenciesMeta, dependency.name);
   }
-  assertVersionString(peerDependencies, '@ankhorage/permissions', '^0.2.3', 'peerDependencies');
-  assertVersionString(devDependencies, '@ankhorage/permissions', '^0.2.3', 'devDependencies');
+  assertMatchingVersion(peerDependencies, devDependencies, '@ankhorage/permissions');
   assertOptionalPeer(peerDependenciesMeta, '@ankhorage/permissions');
-  assertVersionString(peerDependencies, '@ankhorage/zora', '^3.0.0', 'peerDependencies');
-  assertVersionString(devDependencies, '@ankhorage/zora', '^3.0.0', 'devDependencies');
+  assertMatchingVersion(peerDependencies, devDependencies, '@ankhorage/zora');
   assertOptionalPeer(peerDependenciesMeta, '@ankhorage/zora');
   assertVersion(devDependencies, EXPO_PLATFORM.runtime.reactDom, 'devDependencies');
   assertVersion(devDependencies, EXPO_PLATFORM.runtime.reactNativeWeb, 'devDependencies');
@@ -151,17 +149,18 @@ function assertVersion(
   }
 }
 
-function assertVersionString(
-  dependencies: Readonly<Record<string, string>>,
+function assertMatchingVersion(
+  peerDependencies: Readonly<Record<string, string>>,
+  devDependencies: Readonly<Record<string, string>>,
   packageName: string,
-  expectedVersion: string,
-  field: string,
 ): void {
-  const actual = Reflect.get(dependencies, packageName) as unknown;
-  if (actual !== expectedVersion) {
-    const actualVersion = typeof actual === 'string' ? actual : 'missing';
+  const peerVersion = Reflect.get(peerDependencies, packageName) as unknown;
+  const devVersion = Reflect.get(devDependencies, packageName) as unknown;
+  if (typeof peerVersion !== 'string' || peerVersion !== devVersion) {
+    const actualPeerVersion = typeof peerVersion === 'string' ? peerVersion : 'missing';
+    const actualDevVersion = typeof devVersion === 'string' ? devVersion : 'missing';
     throw new Error(
-      `package.json ${field}.${packageName} must be '${expectedVersion}', received '${actualVersion}'.`,
+      `package.json peerDependencies.${packageName} and devDependencies.${packageName} must match, received '${actualPeerVersion}' and '${actualDevVersion}'.`,
     );
   }
 }
