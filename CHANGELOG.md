@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.0.9
+
+### Patch Changes
+
+- 15df28a: Prefer the browser icon-font provider when Expo Web matches both browser and React Native package conditions.
+
 ## 3.0.8
 
 ### Patch Changes
