@@ -102,6 +102,7 @@
     "changeset:status": "changeset status --since=origin/main",
     "docs": "paradox",
     "knip": "ankhorage-knip",
+    "knip:check": "ankhorage-knip",
     "lint": "ankhorage-eslint . --max-warnings=0",
     "lint:fix": "ankhorage-eslint . --fix --max-warnings=0",
     "format": "ankhorage-prettier --write .",

@@ -66,8 +66,8 @@ async function assertInstalledGraphAsync(
     throw new Error('Installed Expo Runtime does not match its packed candidate version.');
   }
   if (
-    versions.get('@ankhorage/zora') !== '3.0.0' ||
-    versions.get('@ankhorage/surface') !== '3.0.0'
+    !isMajorVersion(versions.get('@ankhorage/zora'), 3) ||
+    !isMajorVersion(versions.get('@ankhorage/surface'), 3)
   ) {
     throw new Error('Packed root consumer did not resolve released ZORA 3 and Surface 3.');
   }
@@ -86,6 +86,10 @@ async function assertInstalledGraphAsync(
   if (fileDependencies.length !== 1 || fileDependencies[0]?.[0] !== candidateName) {
     throw new Error('Only the packed Expo Runtime candidate may use the file protocol.');
   }
+}
+
+function isMajorVersion(version: string | undefined, expectedMajor: number): boolean {
+  return version?.startsWith(`${expectedMajor}.`) ?? false;
 }
 
 async function exportPlatformAsync(
