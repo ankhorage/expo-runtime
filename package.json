@@ -65,8 +65,8 @@
       "default": "./dist/platform.js"
     },
     "./icon-fonts": {
-      "react-native": "./src/ExpoZoraIconFontProvider.tsx",
       "browser": "./src/ExpoZoraIconFontProvider.web.tsx",
+      "react-native": "./src/ExpoZoraIconFontProvider.tsx",
       "types": "./src/ExpoZoraIconFontProvider.tsx",
       "import": "./dist/ExpoZoraIconFontProvider.js",
       "default": "./dist/ExpoZoraIconFontProvider.js"
