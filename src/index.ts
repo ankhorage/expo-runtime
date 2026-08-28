@@ -35,6 +35,10 @@ export {
 export { ExpoBarcodeScannerAdapter } from './ExpoBarcodeScannerAdapter';
 export { ExpoRuntimeProviders, type ExpoRuntimeProvidersProps } from './ExpoRuntimeProviders';
 export {
+  ExpoZoraIconFontProvider,
+  type ExpoZoraIconFontProviderProps,
+} from './ExpoZoraIconFontProvider';
+export {
   type ExpoRuntimeConfigPluginOutput,
   type ExpoRuntimeDependencyMap,
   type ExpoRuntimeGeneratedAppOutputPlan,

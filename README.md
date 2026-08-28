@@ -3,7 +3,7 @@
 
 # EXPO-RUNTIME
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v3.0.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v3.0.6](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
 
 Declarative runtime integration for Expo apps: maps app capabilities to permissions, packages, config plugins, providers, and adapters
 
@@ -18,6 +18,7 @@ Declarative runtime integration for Expo apps: maps app capabilities to permissi
 - [createExpoRuntimeRegistry sequence](././paradox/diagrams/sequences/create-expo-runtime-registry.mmd)
 - [executeExpoRuntimeAction sequence](././paradox/diagrams/sequences/execute-expo-runtime-action.mmd)
 - [ExpoBarcodeScannerAdapter sequence](././paradox/diagrams/sequences/expo-barcode-scanner-adapter.mmd)
+- [ExpoZoraIconFontProvider sequence](././paradox/diagrams/sequences/expo-zora-icon-font-provider.mmd)
 - [getExpoBundledMediaRegistrySource sequence](././paradox/diagrams/sequences/get-expo-bundled-media-registry-source.mmd)
 - [resolveExpoRuntimeGeneratedAppOutput sequence](././paradox/diagrams/sequences/resolve-expo-runtime-generated-app-output.mmd)
 - [resolveExpoRuntimeNativeOutput sequence](././paradox/diagrams/sequences/resolve-expo-runtime-native-output.mmd)

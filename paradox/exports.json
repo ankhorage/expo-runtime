@@ -11,7 +11,9 @@
       "line": 5,
       "column": 14
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -29,7 +31,9 @@
       "line": 7,
       "column": 14
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -47,7 +51,9 @@
       "line": 23,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -87,7 +93,9 @@
       "line": 3,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -105,8 +113,12 @@
       "line": 5,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ComponentRegistry"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ComponentRegistry"
+    ],
     "signatures": [
       {
         "label": "(registries?: readonly ComponentRegistry[]) => ComponentRegistry",
@@ -137,8 +149,13 @@
       "line": 15,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoBundledMediaResolver", "ExpoBundledMediaValue"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoBundledMediaResolver",
+      "ExpoBundledMediaValue"
+    ],
     "signatures": [
       {
         "label": "(registry: Readonly<Record<string, ExpoBundledMediaValue>>) => ExpoBundledMediaResolver",
@@ -169,8 +186,12 @@
       "line": 11,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ComponentRegistry"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ComponentRegistry"
+    ],
     "signatures": [
       {
         "label": "(baseRegistry: ComponentRegistry) => ComponentRegistry",
@@ -201,8 +222,12 @@
       "line": 66,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExecuteExpoRuntimeActionArgs"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExecuteExpoRuntimeActionArgs"
+    ],
     "signatures": [
       {
         "label": "(args: ExecuteExpoRuntimeActionArgs) => Promise<void>",
@@ -233,7 +258,9 @@
       "line": 18,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [
       "ExpoRuntimeActionHandlers",
       "ExpoRuntimeRouterLike",
@@ -312,7 +339,9 @@
       "line": 17,
       "column": 14
     },
-    "exportPaths": ["src/platform.ts"],
+    "exportPaths": [
+      "src/platform.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -330,7 +359,9 @@
       "line": 16,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -362,7 +393,9 @@
       "line": 27,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -395,7 +428,9 @@
       "line": 5,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -413,7 +448,9 @@
       "line": 1,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -446,7 +483,9 @@
       "line": 11,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -464,7 +503,9 @@
       "line": 7,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -490,7 +531,9 @@
       "line": 3,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -505,10 +548,12 @@
     "modulePath": "src/platform.ts",
     "sourceLocation": {
       "filePath": "src/platform.ts",
-      "line": 88,
+      "line": 89,
       "column": 1
     },
-    "exportPaths": ["src/platform.ts"],
+    "exportPaths": [
+      "src/platform.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -526,7 +571,9 @@
       "line": 1,
       "column": 1
     },
-    "exportPaths": ["src/platform.ts"],
+    "exportPaths": [
+      "src/platform.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -559,7 +606,9 @@
       "line": 9,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -585,7 +634,9 @@
       "line": 13,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -603,7 +654,9 @@
       "line": 16,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -621,7 +674,9 @@
       "line": 9,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -639,7 +694,9 @@
       "line": 7,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -657,8 +714,13 @@
       "line": 18,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoRuntimeLayoutIntegrationPlan", "ExpoRuntimeNativeOutputPlan"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeLayoutIntegrationPlan",
+      "ExpoRuntimeNativeOutputPlan"
+    ],
     "signatures": [],
     "members": [
       {
@@ -697,7 +759,9 @@
       "line": 3,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -744,8 +808,12 @@
       "line": 13,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoRuntimeConfigPluginOutput"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeConfigPluginOutput"
+    ],
     "signatures": [],
     "members": [
       {
@@ -774,11 +842,15 @@
     "modulePath": "src/resolveExpoRuntimePlan.ts",
     "sourceLocation": {
       "filePath": "src/resolveExpoRuntimePlan.ts",
-      "line": 49,
+      "line": 50,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoBarcodeScannerAdapter"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoBarcodeScannerAdapter"
+    ],
     "signatures": [],
     "members": [
       {
@@ -866,7 +938,9 @@
       "line": 15,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
@@ -884,8 +958,12 @@
       "line": 13,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoRuntimeProvidersProps"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeProvidersProps"
+    ],
     "signatures": [
       {
         "label": "(props: ExpoRuntimeProvidersProps) => React.JSX.Element",
@@ -916,7 +994,9 @@
       "line": 8,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -949,7 +1029,9 @@
       "line": 29,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -982,7 +1064,9 @@
       "line": 5,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [
@@ -1008,10 +1092,76 @@
       "line": 3,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoZoraIconFontProvider",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/ExpoZoraIconFontProvider.tsx",
+    "sourceLocation": {
+      "filePath": "src/ExpoZoraIconFontProvider.tsx",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoZoraIconFontProviderProps"
+    ],
+    "signatures": [
+      {
+        "label": "(props: ExpoZoraIconFontProviderProps) => React.JSX.Element",
+        "parameters": [
+          {
+            "name": "props",
+            "type": "ExpoZoraIconFontProviderProps",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "React.JSX.Element",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoZoraIconFontProviderProps",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "type",
+    "modulePath": "src/ExpoZoraIconFontProvider.tsx",
+    "sourceLocation": {
+      "filePath": "src/ExpoZoraIconFontProvider.tsx",
+      "line": 3,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "children",
+        "kind": "property",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -1026,7 +1176,9 @@
       "line": 7,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -1051,8 +1203,12 @@
       "line": 6,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoBundledMediaRegistrySourceEntry"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoBundledMediaRegistrySourceEntry"
+    ],
     "signatures": [
       {
         "label": "(entries: readonly ExpoBundledMediaRegistrySourceEntry[]) => string",
@@ -1083,7 +1239,9 @@
       "line": 34,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
     "relatedSymbols": [],
     "signatures": [
       {
@@ -1121,8 +1279,12 @@
       "line": 52,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoBarcodeScanResultLike"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoBarcodeScanResultLike"
+    ],
     "signatures": [
       {
         "label": "(result: ExpoBarcodeScanResultLike) => BarcodeScanResult | null",
@@ -1153,8 +1315,12 @@
       "line": 21,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoBundledMediaValue"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoBundledMediaValue"
+    ],
     "signatures": [
       {
         "label": "(registry: Readonly<Record<string, ExpoBundledMediaValue>>, asset: MediaAsset) => ExpoBundledMediaValue | null",
@@ -1191,8 +1357,13 @@
       "line": 32,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoRuntimeConfigPluginOutput", "ExpoRuntimePlan"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeConfigPluginOutput",
+      "ExpoRuntimePlan"
+    ],
     "signatures": [
       {
         "label": "(runtimePlan: ExpoRuntimePlan | undefined) => readonly ExpoRuntimeConfigPluginOutput[]",
@@ -1223,8 +1394,12 @@
       "line": 24,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoRuntimePlan"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimePlan"
+    ],
     "signatures": [
       {
         "label": "(runtimePlan: ExpoRuntimePlan | undefined) => Readonly<Record<string, string>>",
@@ -1255,8 +1430,13 @@
       "line": 49,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoRuntimeGeneratedAppOutputPlan", "ExpoRuntimePlan"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeGeneratedAppOutputPlan",
+      "ExpoRuntimePlan"
+    ],
     "signatures": [
       {
         "label": "(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppOutputPlan",
@@ -1287,8 +1467,13 @@
       "line": 10,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoRuntimeLayoutIntegrationPlan", "ExpoRuntimePlan"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeLayoutIntegrationPlan",
+      "ExpoRuntimePlan"
+    ],
     "signatures": [
       {
         "label": "(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeLayoutIntegrationPlan",
@@ -1319,8 +1504,13 @@
       "line": 40,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoRuntimeNativeOutputPlan", "ExpoRuntimePlan"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeNativeOutputPlan",
+      "ExpoRuntimePlan"
+    ],
     "signatures": [
       {
         "label": "(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeNativeOutputPlan",
@@ -1348,11 +1538,15 @@
     "modulePath": "src/resolveExpoRuntimePlan.ts",
     "sourceLocation": {
       "filePath": "src/resolveExpoRuntimePlan.ts",
-      "line": 98,
+      "line": 99,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoRuntimePlan"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimePlan"
+    ],
     "signatures": [
       {
         "label": "(manifest: ExpoRuntimePlanningManifest, options?: ResolveExpoRuntimePlanOptions) => ExpoRuntimePlan",
@@ -1389,8 +1583,12 @@
       "line": 34,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoRuntimeRouteResolution"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeRouteResolution"
+    ],
     "signatures": [
       {
         "label": "(pathname: string, params?: Record<string, string | number> | undefined) => ExpoRuntimeRouteResolution",
@@ -1427,8 +1625,12 @@
       "line": 68,
       "column": 1
     },
-    "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["BarcodeScanRecord"],
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "BarcodeScanRecord"
+    ],
     "signatures": [
       {
         "label": "(previous: BarcodeScanRecord | null, next: BarcodeScanResult, now: number) => boolean",
