@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.0.11
+
+### Patch Changes
+
+- defaa7f: Update Ankhorage dependencies: `@ankhorage/paradox`, `@ankhorage/zora`.
+
 ## 3.0.10
 
 ### Patch Changes
