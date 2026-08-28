@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.0.7
+
+### Patch Changes
+
+- b115422: Add the shared Expo provider that loads every ZORA icon font face on Web before presenting an interactive app.
+
 ## 3.0.6
 
 ### Patch Changes
