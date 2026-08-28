@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.0.10
+
+### Patch Changes
+
+- b94b350: Use the Web icon-font provider during Expo static server rendering so browser hydration starts from matching font registrations.
+
 ## 3.0.9
 
 ### Patch Changes
