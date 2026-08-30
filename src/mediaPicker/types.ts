@@ -21,11 +21,7 @@ export interface ExpoMediaPickerSelection {
 }
 
 export type ExpoMediaPickerFailureReason =
-  | 'cancelled'
-  | 'empty-selection'
-  | 'picker-failed'
-  | 'read-failed'
-  | 'unsupported-kind';
+  'cancelled' | 'empty-selection' | 'picker-failed' | 'read-failed' | 'unsupported-kind';
 
 export type ExpoMediaPickerResult =
   | { readonly ok: true; readonly selection: ExpoMediaPickerSelection }

@@ -2,6 +2,8 @@
   "packageName": "EXPO-RUNTIME",
   "packageId": "@ankhorage/expo-runtime",
   "description": "Declarative runtime integration for Expo apps: maps app capabilities to permissions, packages, config plugins, providers, and adapters",
+  "collaborators": null,
+  "donation": null,
   "badges": [
     {
       "id": "license",
@@ -12,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v3.0.7",
+      "value": "v3.0.11",
       "color": "cb3837"
     },
     {
@@ -1100,7 +1102,7 @@
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
-        "line": 18,
+        "line": 17,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1187,7 +1189,7 @@
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
-        "line": 13,
+        "line": 12,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1692,7 +1694,7 @@
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
-        "line": 32,
+        "line": 31,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1724,7 +1726,7 @@
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
-        "line": 24,
+        "line": 23,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1756,7 +1758,7 @@
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
-        "line": 49,
+        "line": 48,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1820,7 +1822,7 @@
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
-        "line": 40,
+        "line": 39,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -2359,7 +2361,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
-        "line": 24,
+        "line": 23,
         "column": 1
       }
     },
@@ -2368,7 +2370,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
-        "line": 32,
+        "line": 31,
         "column": 1
       }
     },
@@ -2377,7 +2379,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
-        "line": 40,
+        "line": 39,
         "column": 1
       }
     },
@@ -2386,7 +2388,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
-        "line": 49,
+        "line": 48,
         "column": 1
       }
     },
