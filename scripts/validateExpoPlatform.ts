@@ -13,6 +13,13 @@ const navigationPackages = Object.values(EXPO_PLATFORM.navigation);
 const animationPackages = Object.values(EXPO_PLATFORM.animation);
 const uiPackages = Object.values(EXPO_PLATFORM.ui);
 const expoPackages = Object.values(EXPO_PLATFORM.packages);
+const bundledNativeModulePackages = [
+  ...runtimePackages.filter((dependency) => dependency.name !== 'expo'),
+  ...navigationPackages,
+  ...animationPackages,
+  ...uiPackages,
+  ...expoPackages,
+];
 const fixtureDependencies = toDependencyMap([
   ...runtimePackages,
   ...navigationPackages,
@@ -74,6 +81,7 @@ try {
   );
 
   await run('bun', ['install'], fixtureRoot);
+  await validateBundledNativeModules(fixtureRoot);
   await run(join(fixtureRoot, 'node_modules/.bin/expo'), ['install', '--check'], fixtureRoot);
   await run(join(fixtureRoot, 'node_modules/.bin/expo-doctor'), [], fixtureRoot);
 } finally {
@@ -82,6 +90,22 @@ try {
 
 function toDependencyMap(packages: readonly ExpoPlatformPackage[]): Record<string, string> {
   return Object.fromEntries(packages.map((dependency) => [dependency.name, dependency.version]));
+}
+
+async function validateBundledNativeModules(fixtureRoot: string): Promise<void> {
+  const bundledNativeModules = asStringRecord(
+    JSON.parse(
+      await Bun.file(join(fixtureRoot, 'node_modules', 'expo', 'bundledNativeModules.json')).text(),
+    ),
+  );
+  for (const dependency of bundledNativeModulePackages) {
+    const actual = bundledNativeModules[dependency.name];
+    if (actual !== dependency.version) {
+      throw new Error(
+        `EXPO_PLATFORM ${dependency.name} must match expo/bundledNativeModules.json: expected '${actual ?? 'missing'}', received '${dependency.version}'.`,
+      );
+    }
+  }
 }
 
 async function validateRepositoryManifest(): Promise<void> {
@@ -101,6 +125,7 @@ async function validateRepositoryManifest(): Promise<void> {
     EXPO_PLATFORM.packages.constants,
     EXPO_PLATFORM.packages.documentPicker,
     EXPO_PLATFORM.packages.fileSystem,
+    EXPO_PLATFORM.packages.font,
     EXPO_PLATFORM.packages.imagePicker,
   ];
 

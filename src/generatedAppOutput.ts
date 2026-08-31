@@ -7,8 +7,7 @@ import type { ExpoRuntimePlan } from './resolveExpoRuntimePlan';
 export type ExpoRuntimeDependencyMap = Readonly<Record<string, string>>;
 
 export type ExpoRuntimeConfigPluginOutput =
-  | string
-  | readonly [string, Readonly<Record<string, boolean | string>>];
+  string | readonly [string, Readonly<Record<string, boolean | string>>];
 
 export interface ExpoRuntimeNativeOutputPlan {
   readonly androidPermissions: readonly string[];
