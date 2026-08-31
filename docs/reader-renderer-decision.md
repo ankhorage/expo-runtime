@@ -27,7 +27,7 @@ Rejected alternatives:
 The selected libraries are engines, not the security boundary. The reader implementation must enforce these rules before renderer integration:
 
 1. Download a remote document as bytes with an abort signal, explicit HTTP-status handling, size limits, and canonical media-type/format validation. Never give a renderer ambient credentials.
-2. Serve EPUB resources only from the opened archive through a package-owned Readium `Fetcher`. Reject path traversal, duplicate normalized paths, encrypted/DRM resources, malformed container/package documents, and undeclared active content.
+2. Serve EPUB resources only from the opened archive through a package-owned Readium `Fetcher`. Reject path traversal, duplicate normalized paths, encrypted/DRM resources, malformed container/package documents, and undeclared active content. Before extracting any entry, reject archives with more than 10,000 entries, an entry above 64 MiB uncompressed, more than 512 MiB aggregate uncompressed content, or a compression ratio above 100:1. Run zip.js strict local-header and overlap-only preflight checks for every file before the first actual `getData()` read; actual reads must retain strict local-header and overlap checking, verify CRC-32, and carry the document abort signal.
 3. Remove publication scripts, inline event handlers, forms, nested browsing contexts, and active-object content before Readium receives XHTML. Readium's own iframe needs scripts for navigation, so its default `allow-scripts` sandbox and CSP are not sufficient to disable publication scripts by themselves.
 4. Keep the publication base local/blob-based. Allow local archive images, styles, and fonts; block network subresources and `connect-src`. Intercept external links and emit a serializable adapter event instead of navigating.
 5. Create the PDF.js worker URL from the same installed `pdfjs-dist` pin; never use a CDN worker. Call `getDocument` with `enableScripting: false` and `isEvalSupported: false`. Render links through the adapter policy, and normalize password/encryption failures as `protected-document`.
@@ -57,6 +57,8 @@ Fixtures are small, locally authored, redistributable, checked-in files with no 
 | Protected EPUB/PDF  | one normalized `protected-document` error without decoding attempts                |
 
 Source fixture entries remain readable beside generated archives. Archive generation fixes entry order, compression settings, and timestamps so regeneration is byte-stable. Browser/platform acceptance verifies resize/orientation, appearance repagination, gesture thresholds, keyboard direction, boundaries, cleanup, external-link interception, reduced motion, and accessible page announcements.
+
+Archive-safety acceptance additionally includes deterministic entry-count, per-entry, aggregate-expansion, compression-ratio, invalid-size, and overlapping-range rejection. All declared-size budgets are checked before zip.js reads an entry body, and zip.js performs its overlap-only preflight before any publication resource is exposed to Readium.
 
 ## Release gate
 
