@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.1.2
+
+### Patch Changes
+
+- 143a62a: Add executable EPUB archive expansion and overlap preflight limits for the reader adapter.
+
 ## 3.1.1
 
 ### Patch Changes
