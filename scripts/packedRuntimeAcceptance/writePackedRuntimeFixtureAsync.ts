@@ -50,6 +50,7 @@ async function writeConfigAsync(consumerRoot: string): Promise<void> {
       ios: { bundleIdentifier: 'com.ankhorage.exporuntimeacceptance' },
       plugins: [
         'expo-router',
+        ...Object.values(EXPO_PLATFORM.ui.iconProviders).map(({ name }) => name),
         [
           EXPO_PLATFORM.packages.camera.name,
           {
@@ -87,6 +88,9 @@ async function writePackageAsync(
 ): Promise<void> {
   const dependencies = {
     ...zoraPeers,
+    ...Object.fromEntries(
+      Object.values(EXPO_PLATFORM.ui.iconProviders).map(({ name, version }) => [name, version]),
+    ),
     [candidateName]: `file:${candidatePath}`,
     '@ankhorage/permissions': requireVersion(runtimePeers, '@ankhorage/permissions'),
     '@ankhorage/surface': requireVersion(zoraManifest.dependencies ?? {}, '@ankhorage/surface'),

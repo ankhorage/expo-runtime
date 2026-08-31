@@ -11,7 +11,8 @@ const fixtureRoot = await mkdtemp(join(tmpdir(), 'ankhorage-expo-platform-'));
 const runtimePackages = Object.values(EXPO_PLATFORM.runtime);
 const navigationPackages = Object.values(EXPO_PLATFORM.navigation);
 const animationPackages = Object.values(EXPO_PLATFORM.animation);
-const uiPackages = Object.values(EXPO_PLATFORM.ui);
+const uiPackages = [EXPO_PLATFORM.ui.svg];
+const iconProviderPackages = Object.values(EXPO_PLATFORM.ui.iconProviders);
 const expoPackages = Object.values(EXPO_PLATFORM.packages);
 const bundledNativeModulePackages = [
   ...runtimePackages.filter((dependency) => dependency.name !== 'expo'),
@@ -25,6 +26,7 @@ const fixtureDependencies = toDependencyMap([
   ...navigationPackages,
   ...animationPackages,
   ...uiPackages,
+  ...iconProviderPackages,
   ...expoPackages,
 ]);
 
@@ -72,6 +74,7 @@ try {
             EXPO_PLATFORM.packages.mediaLibrary.name,
             EXPO_PLATFORM.packages.location.name,
             EXPO_PLATFORM.packages.notifications.name,
+            ...iconProviderPackages.map((dependency) => dependency.name),
           ],
         },
       },
@@ -127,6 +130,7 @@ async function validateRepositoryManifest(): Promise<void> {
     EXPO_PLATFORM.packages.fileSystem,
     EXPO_PLATFORM.packages.font,
     EXPO_PLATFORM.packages.imagePicker,
+    ...iconProviderPackages,
   ];
 
   for (const dependency of ownedPeers) {

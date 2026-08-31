@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v3.0.11",
+      "value": "v3.0.12",
       "color": "cb3837"
     },
     {
@@ -953,7 +953,7 @@
       "modulePath": "src/platform.ts",
       "sourceLocation": {
         "filePath": "src/platform.ts",
-        "line": 89,
+        "line": 99,
         "column": 1
       },
       "exportPaths": ["src/platform.ts"],
@@ -2352,7 +2352,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/ExpoZoraIconFontProvider.web.tsx",
-        "line": 27,
+        "line": 29,
         "column": 1
       }
     },

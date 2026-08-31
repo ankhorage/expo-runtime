@@ -38,6 +38,33 @@ describe('EXPO_PLATFORM', () => {
   });
 });
 
+describe('EXPO_PLATFORM icon providers', () => {
+  test('owns the complete static provider package inventory', () => {
+    expect(EXPO_PLATFORM.ui.iconProviders).toEqual({
+      Ionicons: {
+        name: '@react-native-vector-icons/ionicons',
+        version: '^13.1.3',
+      },
+      FontAwesome: {
+        name: '@react-native-vector-icons/fontawesome',
+        version: '^13.1.3',
+      },
+      FontAwesome5: {
+        name: '@react-native-vector-icons/fontawesome5',
+        version: '^13.1.3',
+      },
+      FontAwesome6: {
+        name: '@react-native-vector-icons/fontawesome6',
+        version: '^13.1.3',
+      },
+      MaterialDesignIcons: {
+        name: '@react-native-vector-icons/material-design-icons',
+        version: '^13.1.3',
+      },
+    });
+  });
+});
+
 describe('EXPO_PLATFORM compatibility metadata', () => {
   test('projects the current Expo bundled native-module patch ranges', () => {
     expect(EXPO_PLATFORM.navigation.expoRouter.version).toBe('~57.0.17');

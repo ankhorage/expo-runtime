@@ -177,7 +177,7 @@ Source: `src/bundledMediaResolver.ts:3:1`
 
 Kind: `unknown`
 Module: `src/platform.ts`
-Source: `src/platform.ts:89:1`
+Source: `src/platform.ts:99:1`
 
 ## ExpoPlatformPackage
 

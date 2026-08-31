@@ -4,6 +4,8 @@
 
 The contract targets Expo SDK 57.0.18 on React Native 0.86.3. Expo is exact so a clean generated-app lockfile cannot drift to a later SDK patch with a different React Native compatibility baseline; this baseline also includes the Hermes V1 memory-regression fix. The contract records the Node 24 LTS and TypeScript 6 toolchain policy, New-Architecture-only support, Android 7/API 24 with SDK 36 and edge-to-edge layout, and iOS 16.4 with Xcode 26.4. tvOS is intentionally not advertised.
 
+`EXPO_PLATFORM.ui.iconProviders` is the canonical provider-to-package inventory for the five static React Native Vector Icons families used by Surface and ZORA. Generated applications use each package name both as a direct dependency and as its Expo config plugin so native builds register the static fonts.
+
 The repository compatibility check assembles a clean temporary app directly from `EXPO_PLATFORM`, installs its app-owned dependencies, verifies every projected compatibility range against that exact Expo package's `bundledNativeModules.json`, and runs the app's local `expo install --check` and `expo-doctor` binaries. The same check verifies that this package's peer and development dependencies are projections of the contract.
 
 The separate `bun run validate:web-barcode` browser fixture proves Expo Camera Web recognition through the real adapter callback for QR, valid EAN-13, and valid EAN-8 inputs. Unit event-normalization coverage is intentionally not treated as decoder acceptance.
@@ -21,6 +23,7 @@ npm peer metadata applies to a whole package even though Expo Runtime has multip
 | `expo-constants`                                  | feature subpath        | `./oauth-browser-runtime`                             | no                                                                  |
 | Document Picker, File System, Image Picker        | optional capabilities  | `./media-picker` operations                           | no                                                                  |
 | Devtools, Paradox, and the ZORA 3/Surface 3 graph | development validation | repository tooling and packed runtime acceptance      | no                                                                  |
+| Scoped React Native Vector Icons packages         | optional UI peers      | Surface/ZORA static icon rendering                    | no                                                                  |
 
 All application/runtime peers are optional at package-install time so a Node planner can install the released package and import only `@ankhorage/expo-runtime/platform` without materializing the Expo UI graph. This does not make root runtime dependencies optional in use: importing the root entrypoint without Permissions, ZORA 3, Expo Camera, React, and React Native fails normal module resolution. Likewise, invoking a feature subpath without its capability package fails when that feature dynamically loads the missing package. Consumers must install the peers for every entrypoint and capability they use.
 

@@ -505,7 +505,7 @@
     "modulePath": "src/platform.ts",
     "sourceLocation": {
       "filePath": "src/platform.ts",
-      "line": 89,
+      "line": 99,
       "column": 1
     },
     "exportPaths": ["src/platform.ts"],

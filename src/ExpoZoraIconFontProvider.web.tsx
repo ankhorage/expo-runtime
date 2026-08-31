@@ -6,6 +6,7 @@ import fontAwesome6Brands from '@react-native-vector-icons/fontawesome6/fonts/Fo
 import fontAwesome6Regular from '@react-native-vector-icons/fontawesome6/fonts/FontAwesome6_Regular.ttf';
 import fontAwesome6Solid from '@react-native-vector-icons/fontawesome6/fonts/FontAwesome6_Solid.ttf';
 import ionicons from '@react-native-vector-icons/ionicons/fonts/Ionicons.ttf';
+import materialDesignIcons from '@react-native-vector-icons/material-design-icons/fonts/MaterialDesignIcons.ttf';
 import { useFonts } from 'expo-font';
 import React from 'react';
 
@@ -18,6 +19,7 @@ const ZORA_ICON_FONTS = {
   'FontAwesome6Free-Regular': fontAwesome6Regular,
   'FontAwesome6Free-Solid': fontAwesome6Solid,
   Ionicons: ionicons,
+  MaterialDesignIcons: materialDesignIcons,
 } as const;
 
 export interface ExpoZoraIconFontProviderProps {
