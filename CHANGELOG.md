@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.0.13
+
+### Patch Changes
+
+- dbf640c: Update Ankhorage dependencies: `@ankhorage/zora`.
+
 ## 3.0.12
 
 ### Patch Changes
