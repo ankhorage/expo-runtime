@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.1.0
+
+### Minor Changes
+
+- 955498a: Expose the five canonical static icon provider packages through the Expo platform contract, including Material Design Icons.
+
 ## 3.0.13
 
 ### Patch Changes
