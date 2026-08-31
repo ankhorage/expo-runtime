@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.2.0
+
+### Minor Changes
+
+- 2c1d08a: Add the Expo ReaderSurface adapter for EPUB 3 and PDF documents, including isolated DOM rendering, swipe and keyboard pagination, protected-content handling, and declarative ebookReader dependency planning.
+
 ## 3.1.2
 
 ### Patch Changes
