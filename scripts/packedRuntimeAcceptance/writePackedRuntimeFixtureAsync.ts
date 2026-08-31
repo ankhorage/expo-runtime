@@ -6,6 +6,7 @@ import { readJsonFileAsync } from '../packedAcceptance/readJsonFileAsync';
 
 interface PackageManifest {
   readonly dependencies?: Readonly<Record<string, string>>;
+  readonly devDependencies?: Readonly<Record<string, string>>;
   readonly peerDependencies?: Readonly<Record<string, string>>;
 }
 
@@ -30,6 +31,7 @@ export async function writePackedRuntimeFixtureAsync(
       consumerRoot,
       candidateName,
       candidatePath,
+      repositoryManifest.devDependencies ?? {},
       peerDependencies,
       zoraManifest,
       zoraPeers,
@@ -50,6 +52,7 @@ async function writeConfigAsync(consumerRoot: string): Promise<void> {
       ios: { bundleIdentifier: 'com.ankhorage.exporuntimeacceptance' },
       plugins: [
         'expo-router',
+        ...Object.values(EXPO_PLATFORM.ui.iconProviders).map(({ name }) => name),
         [
           EXPO_PLATFORM.packages.camera.name,
           {
@@ -81,12 +84,16 @@ async function writePackageAsync(
   consumerRoot: string,
   candidateName: string,
   candidatePath: string,
+  runtimeDevDependencies: Readonly<Record<string, string>>,
   runtimePeers: Readonly<Record<string, string>>,
   zoraManifest: PackageManifest,
   zoraPeers: Readonly<Record<string, string>>,
 ): Promise<void> {
   const dependencies = {
     ...zoraPeers,
+    ...Object.fromEntries(
+      Object.values(EXPO_PLATFORM.ui.iconProviders).map(({ name, version }) => [name, version]),
+    ),
     [candidateName]: `file:${candidatePath}`,
     '@ankhorage/permissions': requireVersion(runtimePeers, '@ankhorage/permissions'),
     '@ankhorage/surface': requireVersion(zoraManifest.dependencies ?? {}, '@ankhorage/surface'),
@@ -112,7 +119,7 @@ async function writePackageAsync(
     engines: { node: EXPO_PLATFORM.tooling.node.version },
     dependencies,
     devDependencies: {
-      '@types/react': '^19.2.18',
+      '@types/react': requireVersion(runtimeDevDependencies, '@types/react'),
       [EXPO_PLATFORM.tooling.expoDoctor.name]: EXPO_PLATFORM.tooling.expoDoctor.version,
       [EXPO_PLATFORM.tooling.typescript.name]: EXPO_PLATFORM.tooling.typescript.version,
     },

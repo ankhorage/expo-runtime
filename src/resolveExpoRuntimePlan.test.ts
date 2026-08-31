@@ -2,6 +2,7 @@ import { Permission } from '@ankhorage/permissions';
 import { EXPO_PERMISSION_SUPPORT } from '@ankhorage/permissions/expo/manifest';
 import { describe, expect, test } from 'bun:test';
 
+import { GENERATED_RUNTIME_DEPENDENCY_VERSIONS } from './expoRuntimePlanningMetadata';
 import { EXPO_PLATFORM } from './platform';
 import { type ExpoRuntimePlanningManifest, resolveExpoRuntimePlan } from './resolveExpoRuntimePlan';
 
@@ -200,8 +201,14 @@ describe('resolveExpoRuntimePlan platform-neutral permissions', () => {
 });
 
 const SUPPORTED_PERMISSION_DEPENDENCIES = [
-  { name: '@ankhorage/expo-runtime', version: '^3.0.0' },
-  { name: '@ankhorage/permissions', version: '^0.2.3' },
+  {
+    name: '@ankhorage/expo-runtime',
+    version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@ankhorage/expo-runtime'],
+  },
+  {
+    name: '@ankhorage/permissions',
+    version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@ankhorage/permissions'],
+  },
   { name: 'expo-asset', version: EXPO_PLATFORM.packages.asset.version },
   { name: 'expo-audio', version: EXPO_PLATFORM.packages.audio.version },
   { name: 'expo-location', version: EXPO_PLATFORM.packages.location.version },

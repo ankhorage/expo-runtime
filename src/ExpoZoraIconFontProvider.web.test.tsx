@@ -31,6 +31,7 @@ describe('ExpoZoraIconFontProvider Web', () => {
       ['FontAwesome6Free-Regular', 'FontAwesome6_Regular.ttf'],
       ['FontAwesome6Free-Solid', 'FontAwesome6_Solid.ttf'],
       ['Ionicons', 'Ionicons.ttf'],
+      ['MaterialDesignIcons', 'MaterialDesignIcons.ttf'],
     ]);
     expect(React.isValidElement(element)).toBe(true);
     if (!React.isValidElement(element)) {

@@ -45,6 +45,16 @@ export const EXPO_PLATFORM = {
   },
   ui: {
     svg: definePackage('react-native-svg', '15.15.4'),
+    iconProviders: {
+      Ionicons: definePackage('@react-native-vector-icons/ionicons', '^13.1.3'),
+      FontAwesome: definePackage('@react-native-vector-icons/fontawesome', '^13.1.3'),
+      FontAwesome5: definePackage('@react-native-vector-icons/fontawesome5', '^13.1.3'),
+      FontAwesome6: definePackage('@react-native-vector-icons/fontawesome6', '^13.1.3'),
+      MaterialDesignIcons: definePackage(
+        '@react-native-vector-icons/material-design-icons',
+        '^13.1.3',
+      ),
+    },
   },
   packages: {
     metroRuntime: definePackage('@expo/metro-runtime', '~57.0.14'),

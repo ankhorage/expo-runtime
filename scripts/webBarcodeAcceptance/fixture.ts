@@ -56,6 +56,9 @@ async function writeManifest(
   const repositoryDependencies = await readRepositoryDependencies(repositoryRoot);
   const zoraDependencies = await readPackageDependencies(repositoryRoot, '@ankhorage/zora');
   const zoraPeerDependencies = await readPackagePeerDependencies(repositoryRoot, '@ankhorage/zora');
+  const iconProviderDependencies = Object.fromEntries(
+    Object.values(EXPO_PLATFORM.ui.iconProviders).map(({ name, version }) => [name, version]),
+  );
   const dependencies = {
     '@ankhorage/expo-runtime': `file:${runtimePackagePath}`,
     '@ankhorage/permissions': requiredVersion(repositoryDependencies, '@ankhorage/permissions'),
@@ -65,22 +68,7 @@ async function writeManifest(
       zoraPeerDependencies,
       '@react-native-picker/picker',
     ),
-    '@react-native-vector-icons/fontawesome': requiredVersion(
-      zoraPeerDependencies,
-      '@react-native-vector-icons/fontawesome',
-    ),
-    '@react-native-vector-icons/fontawesome5': requiredVersion(
-      zoraPeerDependencies,
-      '@react-native-vector-icons/fontawesome5',
-    ),
-    '@react-native-vector-icons/fontawesome6': requiredVersion(
-      zoraPeerDependencies,
-      '@react-native-vector-icons/fontawesome6',
-    ),
-    '@react-native-vector-icons/ionicons': requiredVersion(
-      zoraPeerDependencies,
-      '@react-native-vector-icons/ionicons',
-    ),
+    ...iconProviderDependencies,
     [EXPO_PLATFORM.packages.metroRuntime.name]: EXPO_PLATFORM.packages.metroRuntime.version,
     [EXPO_PLATFORM.packages.camera.name]: EXPO_PLATFORM.packages.camera.version,
     [EXPO_PLATFORM.navigation.safeArea.name]: EXPO_PLATFORM.navigation.safeArea.version,
