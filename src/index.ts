@@ -53,6 +53,7 @@ export {
   type ExpoRuntimeLayoutIntegrationPlan,
   resolveExpoRuntimeLayoutIntegration,
 } from './layoutIntegrationPlanning';
+export { ExpoReaderSurfaceAdapter } from './reader/ExpoReaderSurfaceAdapter';
 export type {
   ExpoRuntimeAdapterId,
   ExpoRuntimePlan,

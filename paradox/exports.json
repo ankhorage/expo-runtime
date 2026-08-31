@@ -166,7 +166,7 @@
     "modulePath": "src/createExpoRuntimeRegistry.tsx",
     "sourceLocation": {
       "filePath": "src/createExpoRuntimeRegistry.tsx",
-      "line": 11,
+      "line": 13,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -548,6 +548,38 @@
     "structuredRows": []
   },
   {
+    "name": "ExpoReaderSurfaceAdapter",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
+    "sourceLocation": {
+      "filePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
+      "line": 16,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(props: ReaderSurfaceProps) => React.JSX.Element",
+        "parameters": [
+          {
+            "name": "props",
+            "type": "ReaderSurfaceProps",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "React.JSX.Element",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "ExpoRuntimeActionHandlerArgs",
     "description": null,
     "isReadme": false,
@@ -778,7 +810,7 @@
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
-    "relatedSymbols": ["ExpoBarcodeScannerAdapter"],
+    "relatedSymbols": ["ExpoRuntimeAdapterId"],
     "signatures": [],
     "members": [
       {
@@ -840,7 +872,7 @@
       {
         "name": "runtimeAdapters",
         "kind": "property",
-        "type": "readonly \"ExpoBarcodeScannerAdapter\"[]",
+        "type": "readonly ExpoRuntimeAdapterId[]",
         "required": true,
         "description": null
       },

@@ -98,6 +98,7 @@ async function writePackageAsync(
     '@ankhorage/permissions': requireVersion(runtimePeers, '@ankhorage/permissions'),
     '@ankhorage/surface': requireVersion(zoraManifest.dependencies ?? {}, '@ankhorage/surface'),
     '@ankhorage/zora': requireVersion(runtimePeers, '@ankhorage/zora'),
+    ...resolveReaderRendererDependencies(runtimePeers),
     [EXPO_PLATFORM.packages.camera.name]: EXPO_PLATFORM.packages.camera.version,
     [EXPO_PLATFORM.packages.constants.name]: EXPO_PLATFORM.packages.constants.version,
     [EXPO_PLATFORM.packages.linking.name]: EXPO_PLATFORM.packages.linking.version,
@@ -153,17 +154,29 @@ export default function RootLayout() {
   );
   await Bun.write(
     path.join(consumerRoot, 'src/app/index.tsx'),
-    `import { ExpoBarcodeScannerAdapter } from '@ankhorage/expo-runtime';
+    `import { ExpoBarcodeScannerAdapter, ExpoReaderSurfaceAdapter } from '@ankhorage/expo-runtime';
 import { View } from 'react-native';
 
 export default function Index() {
   return (
     <View style={{ flex: 1 }}>
       <ExpoBarcodeScannerAdapter permissionStatus="unknown" />
+      <ExpoReaderSurfaceAdapter format="pdf" source={null} />
     </View>
   );
 }
 `,
+  );
+}
+
+function resolveReaderRendererDependencies(
+  runtimePeers: Readonly<Record<string, string>>,
+): Record<string, string> {
+  return Object.fromEntries(
+    ['@readium/navigator', '@readium/shared', '@zip.js/zip.js', 'pdfjs-dist'].map((name) => [
+      name,
+      requireVersion(runtimePeers, name),
+    ]),
   );
 }
 

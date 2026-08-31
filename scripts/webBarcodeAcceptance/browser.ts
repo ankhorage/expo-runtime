@@ -46,7 +46,7 @@ export async function runBrowserAcceptance(origin: string, videoPath: string): P
   }
 }
 
-async function findChromeExecutable(): Promise<string> {
+export async function findChromeExecutable(): Promise<string> {
   const candidates = [process.env.CHROME_PATH, ...CHROME_PATHS].filter(
     (path): path is string => path !== undefined,
   );
