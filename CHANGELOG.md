@@ -1,5 +1,12 @@
 # @ankhorage/expo-runtime
 
+## 3.1.1
+
+### Patch Changes
+
+- 979cb5b: Pin the audited EPUB/PDF renderer foundations and document the isolated DOM, content-safety, and deterministic fixture contract for the reader adapter.
+- 162fb2a: Update Ankhorage dependencies: `@ankhorage/contracts`.
+
 ## 3.1.0
 
 ### Minor Changes
