@@ -1,0 +1,17 @@
+sequenceDiagram
+  participant participant_ExpoReaderSurfaceAdapter as ExpoReaderSurfaceAdapter
+  participant participant_resolveLineHeight as resolveLineHeight
+  participant participant_resolveReaderSourceUri as resolveReaderSourceUri
+  participant participant_useReaderAppearance as useReaderAppearance
+  participant participant_useReaderCommandState as useReaderCommandState
+  participant participant_useReaderController as useReaderController
+  participant_ExpoReaderSurfaceAdapter->>participant_resolveReaderSourceUri: resolveReaderSourceUri()
+  participant_resolveReaderSourceUri-->>participant_ExpoReaderSurfaceAdapter: return
+  participant_ExpoReaderSurfaceAdapter->>participant_useReaderController: useReaderController()
+  participant_useReaderController->>participant_useReaderCommandState: useReaderCommandState()
+  participant_useReaderCommandState-->>participant_useReaderController: return
+  participant_useReaderController-->>participant_ExpoReaderSurfaceAdapter: return
+  participant_ExpoReaderSurfaceAdapter->>participant_useReaderAppearance: useReaderAppearance()
+  participant_useReaderAppearance->>participant_resolveLineHeight: resolveLineHeight()
+  participant_resolveLineHeight-->>participant_useReaderAppearance: return
+  participant_useReaderAppearance-->>participant_ExpoReaderSurfaceAdapter: return

@@ -9,6 +9,7 @@ The renderer dependencies are exact optional peers and exact development depende
 | Responsibility                          | Package              | Selected version | License      |
 | --------------------------------------- | -------------------- | ---------------- | ------------ |
 | EPUB reflowable/fixed-layout navigation | `@readium/navigator` | `2.8.2`          | BSD-3-Clause |
+| Readium publication/fetcher model       | `@readium/shared`    | `2.4.0`          | BSD-3-Clause |
 | EPUB ZIP archive access                 | `@zip.js/zip.js`     | `2.9.0`          | BSD-3-Clause |
 | PDF parsing and rendering               | `pdfjs-dist`         | `6.3.289`        | Apache-2.0   |
 
@@ -30,7 +31,7 @@ The selected libraries are engines, not the security boundary. The reader implem
 2. Serve EPUB resources only from the opened archive through a package-owned Readium `Fetcher`. Reject path traversal, duplicate normalized paths, encrypted/DRM resources, malformed container/package documents, and undeclared active content. Before extracting any entry, reject archives with more than 10,000 entries, an entry above 64 MiB uncompressed, more than 512 MiB aggregate uncompressed content, or a compression ratio above 100:1. Run zip.js strict local-header and overlap-only preflight checks for every file before the first actual `getData()` read; actual reads must retain strict local-header and overlap checking, verify CRC-32, and carry the document abort signal.
 3. Remove publication scripts, inline event handlers, forms, nested browsing contexts, and active-object content before Readium receives XHTML. Readium's own iframe needs scripts for navigation, so its default `allow-scripts` sandbox and CSP are not sufficient to disable publication scripts by themselves.
 4. Keep the publication base local/blob-based. Allow local archive images, styles, and fonts; block network subresources and `connect-src`. Intercept external links and emit a serializable adapter event instead of navigating.
-5. Create the PDF.js worker URL from the same installed `pdfjs-dist` pin; never use a CDN worker. Call `getDocument` with `enableScripting: false` and `isEvalSupported: false`. Render links through the adapter policy, and normalize password/encryption failures as `protected-document`.
+5. Create the PDF.js worker URL from the same installed `pdfjs-dist` pin; never use a CDN worker. The PDF driver does not instantiate PDF.js's annotation scripting/form layer, so embedded actions are not executed. It renders only bounded external-link hit targets through the adapter policy and normalizes password/encryption failures as `protected-document`. (`pdfjs-dist` 6 removed the older `getDocument` `isEvalSupported` option; scripting is now an annotation-layer setting.)
 6. Revoke object URLs and destroy Readium navigators, PDF loading/render tasks, workers, listeners, and abort controllers on source changes and unmount.
 
 `pdfjs-dist@6.3.289` is newer than the patched version for GHSA-hq66-cqwq-w95j/CVE-2026-16633. Disabling scripting remains mandatory defense in depth and is covered by adapter tests rather than inferred from the installed version.
@@ -60,6 +61,8 @@ Source fixture entries remain readable beside generated archives. Archive genera
 
 Archive-safety acceptance additionally includes deterministic entry-count, per-entry, aggregate-expansion, compression-ratio, invalid-size, and overlapping-range rejection. All declared-size budgets are checked before zip.js reads an entry body, and zip.js performs its overlap-only preflight before any publication resource is exposed to Readium.
 
-## Release gate
+## Implemented integration
 
-This decision does not import unpublished ZORA or Contracts source. Driver and DOM integration can land only after the released `ReaderSurface` contract and `ebookReader` capability are installed through normal Renovate updates. The renderer pins and fixture plan may merge independently so those downstream phases start from an audited, reproducible baseline.
+The released ZORA 3.1 `ReaderSurface` is overridden by `ExpoReaderSurfaceAdapter` in the normal Expo Runtime registry. The released Contracts `ebookReader` capability selects that adapter and the exact Readium, zip.js, and PDF.js package set without implying camera or another native permission. Generated apps, Studio, and hand-written Expo apps therefore use the same manifest planning and runtime registry path.
+
+The adapter accepts remote HTTPS, storage/download URLs, and bundled asset URIs; downloads have explicit HTTP and byte limits and are aborted on replacement/unmount. The DOM viewport is the gesture owner, while ZORA's visible previous/next controls send the same serialized commands. Completed navigation emits the shared opaque locator/page/progression event for app-owned persistence.

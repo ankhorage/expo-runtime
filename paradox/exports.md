@@ -60,7 +60,7 @@ Source: `src/bundledMediaResolver.ts:15:1`
 
 Kind: `function`
 Module: `src/createExpoRuntimeRegistry.tsx`
-Source: `src/createExpoRuntimeRegistry.tsx:11:1`
+Source: `src/createExpoRuntimeRegistry.tsx:13:1`
 
 ### Signatures
 
@@ -192,6 +192,18 @@ Source: `src/platform.ts:1:1`
 | name    | property | `string` | yes      |             |
 | version | property | `string` | yes      |             |
 
+## ExpoReaderSurfaceAdapter
+
+Kind: `function`
+Module: `src/reader/ExpoReaderSurfaceAdapter.tsx`
+Source: `src/reader/ExpoReaderSurfaceAdapter.tsx:16:1`
+
+### Signatures
+
+- `(props: ReaderSurfaceProps) => React.JSX.Element`
+  - props: `ReaderSurfaceProps`
+  - returns: `React.JSX.Element`
+
 ## ExpoRuntimeActionHandlerArgs
 
 Kind: `type`
@@ -288,7 +300,7 @@ Source: `src/resolveExpoRuntimePlan.ts:50:1`
 | needsPermissionsProvider | property | `boolean`                                                                                                                                            | yes      |             |
 | permissions              | property | `readonly ScreenPermissionRequirement[]`                                                                                                             | yes      |             |
 | providers                | property | `readonly "permissions"[]`                                                                                                                           | yes      |             |
-| runtimeAdapters          | property | `readonly "ExpoBarcodeScannerAdapter"[]`                                                                                                             | yes      |             |
+| runtimeAdapters          | property | `readonly ExpoRuntimeAdapterId[]`                                                                                                                    | yes      |             |
 | usesExpoRuntimeRegistry  | property | `boolean`                                                                                                                                            | yes      |             |
 
 ## ExpoRuntimeProviderId

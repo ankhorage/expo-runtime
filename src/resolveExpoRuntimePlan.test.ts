@@ -97,6 +97,42 @@ describe('resolveExpoRuntimePlan barcode capability', () => {
   });
 });
 
+describe('resolveExpoRuntimePlan ebook reader capability', () => {
+  test('selects the reader adapter and exact renderer packages without permissions', () => {
+    const plan = resolveExpoRuntimePlan(
+      withFirstScreenRequirements({ capabilities: [{ capability: 'ebookReader' }] }),
+    );
+
+    expect(plan.permissions).toEqual([]);
+    expect(plan.impliedPermissions).toEqual([]);
+    expect(plan.providers).toEqual([]);
+    expect(plan.nativeConfig.plugins).toEqual([]);
+    expect(plan.runtimeAdapters).toEqual(['ExpoReaderSurfaceAdapter']);
+    expect(plan.dependencies.map(({ name, version }) => ({ name, version }))).toEqual([
+      {
+        name: '@ankhorage/expo-runtime',
+        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@ankhorage/expo-runtime'],
+      },
+      {
+        name: '@readium/navigator',
+        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@readium/navigator'],
+      },
+      {
+        name: '@readium/shared',
+        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@readium/shared'],
+      },
+      {
+        name: '@zip.js/zip.js',
+        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@zip.js/zip.js'],
+      },
+      {
+        name: 'pdfjs-dist',
+        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['pdfjs-dist'],
+      },
+    ]);
+  });
+});
+
 describe('resolveExpoRuntimePlan Expo 57 plugin coverage', () => {
   test('keeps microphone-only native configuration free of background audio behavior', () => {
     const plan = resolveExpoRuntimePlan(
