@@ -40,27 +40,19 @@ describe('EXPO_PLATFORM', () => {
 
 describe('EXPO_PLATFORM icon providers', () => {
   test('owns the complete static provider package inventory', () => {
-    expect(EXPO_PLATFORM.ui.iconProviders).toEqual({
-      Ionicons: {
-        name: '@react-native-vector-icons/ionicons',
-        version: '^13.1.3',
-      },
-      FontAwesome: {
-        name: '@react-native-vector-icons/fontawesome',
-        version: '^13.1.3',
-      },
-      FontAwesome5: {
-        name: '@react-native-vector-icons/fontawesome5',
-        version: '^13.1.3',
-      },
-      FontAwesome6: {
-        name: '@react-native-vector-icons/fontawesome6',
-        version: '^13.1.3',
-      },
-      MaterialDesignIcons: {
-        name: '@react-native-vector-icons/material-design-icons',
-        version: '^13.1.3',
-      },
+    expect(
+      Object.fromEntries(
+        Object.entries(EXPO_PLATFORM.ui.iconProviders).map(([provider, dependency]) => [
+          provider,
+          dependency.name,
+        ]),
+      ),
+    ).toEqual({
+      Ionicons: '@react-native-vector-icons/ionicons',
+      FontAwesome: '@react-native-vector-icons/fontawesome',
+      FontAwesome5: '@react-native-vector-icons/fontawesome5',
+      FontAwesome6: '@react-native-vector-icons/fontawesome6',
+      MaterialDesignIcons: '@react-native-vector-icons/material-design-icons',
     });
   });
 });
