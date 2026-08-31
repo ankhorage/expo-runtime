@@ -2,6 +2,7 @@ import { mkdir, mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
+import { EXPO_PLATFORM } from '../src/platform';
 import { assertPackedCandidateAsync } from './packedAcceptance/assertPackedCandidateAsync';
 import { packCandidateAsync } from './packedAcceptance/packCandidateAsync';
 import { runCommandAsync } from './packedAcceptance/runCommandAsync';
@@ -72,21 +73,28 @@ async function writeFixtureAsync(
     version: '0.0.0',
     private: true,
     type: 'module',
-    engines: { node: '24.x' },
+    engines: { node: EXPO_PLATFORM.tooling.node.version },
     dependencies: { [candidateName]: `file:${candidatePath}` },
   };
   await Bun.write(
     path.join(consumerRoot, 'package.json'),
     `${JSON.stringify(packageJson, null, 2)}\n`,
   );
+  const expected = JSON.stringify({
+    sdk: EXPO_PLATFORM.sdk,
+    expoVersion: EXPO_PLATFORM.runtime.expo.version,
+    cameraVersion: EXPO_PLATFORM.packages.camera.version,
+    typescriptVersion: EXPO_PLATFORM.tooling.typescript.version,
+  });
   await Bun.write(
     path.join(consumerRoot, 'platform-check.ts'),
     `import { EXPO_PLATFORM } from '@ankhorage/expo-runtime/platform';
 
-if (EXPO_PLATFORM.sdk !== 57) throw new Error('Expected Expo SDK 57.');
-if (EXPO_PLATFORM.runtime.expo.version !== '57.0.18') throw new Error('Unexpected Expo version.');
-if (EXPO_PLATFORM.packages.camera.version !== '~57.0.4') throw new Error('Unexpected Camera version.');
-if (EXPO_PLATFORM.tooling.typescript.version !== '~6.0.3') throw new Error('Unexpected TypeScript version.');
+const expected = ${expected};
+if (EXPO_PLATFORM.sdk !== expected.sdk) throw new Error('Unexpected Expo SDK.');
+if (EXPO_PLATFORM.runtime.expo.version !== expected.expoVersion) throw new Error('Unexpected Expo version.');
+if (EXPO_PLATFORM.packages.camera.version !== expected.cameraVersion) throw new Error('Unexpected Camera version.');
+if (EXPO_PLATFORM.tooling.typescript.version !== expected.typescriptVersion) throw new Error('Unexpected TypeScript version.');
 console.log(JSON.stringify(EXPO_PLATFORM));
 `,
   );

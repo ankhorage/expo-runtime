@@ -6,6 +6,7 @@ import { readJsonFileAsync } from '../packedAcceptance/readJsonFileAsync';
 
 interface PackageManifest {
   readonly dependencies?: Readonly<Record<string, string>>;
+  readonly devDependencies?: Readonly<Record<string, string>>;
   readonly peerDependencies?: Readonly<Record<string, string>>;
 }
 
@@ -30,6 +31,7 @@ export async function writePackedRuntimeFixtureAsync(
       consumerRoot,
       candidateName,
       candidatePath,
+      repositoryManifest.devDependencies ?? {},
       peerDependencies,
       zoraManifest,
       zoraPeers,
@@ -82,6 +84,7 @@ async function writePackageAsync(
   consumerRoot: string,
   candidateName: string,
   candidatePath: string,
+  runtimeDevDependencies: Readonly<Record<string, string>>,
   runtimePeers: Readonly<Record<string, string>>,
   zoraManifest: PackageManifest,
   zoraPeers: Readonly<Record<string, string>>,
@@ -116,7 +119,7 @@ async function writePackageAsync(
     engines: { node: EXPO_PLATFORM.tooling.node.version },
     dependencies,
     devDependencies: {
-      '@types/react': '^19.2.18',
+      '@types/react': requireVersion(runtimeDevDependencies, '@types/react'),
       [EXPO_PLATFORM.tooling.expoDoctor.name]: EXPO_PLATFORM.tooling.expoDoctor.version,
       [EXPO_PLATFORM.tooling.typescript.name]: EXPO_PLATFORM.tooling.typescript.version,
     },
