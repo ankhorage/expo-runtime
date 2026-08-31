@@ -41,6 +41,8 @@ The viewport lives in its own file with the `'use dom'` directive and one defaul
 
 Native actions carry completed location changes, normalized reader errors, and intercepted external links. A narrow serializable command input drives previous, next, and location restore; commands are acknowledged only after the destination is displayed. CSS, the PDF canvas/text/annotation layers, and publication containment remain inside the DOM component.
 
+The package-owned pure navigation policy requires horizontal intent (`abs(dx) > 1.25 * abs(dy)`) and a strict distance above `max(48 CSS px, 15% of viewport width)`. It ignores text selection and interactive document targets, respects first/last-page boundaries, and maps left/right gestures and arrow keys through publication direction. `PageUp` and `PageDown` remain logical previous/next commands in either direction. The DOM gesture controller calls this policy at most once when a gesture completes.
+
 ## Deterministic fixture matrix
 
 Fixtures are small, locally authored, redistributable, checked-in files with no network dependency:
