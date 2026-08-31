@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, readFile, rm } from 'node:fs/promises';
+import { mkdir, mkdtemp, readdir, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
@@ -96,19 +96,18 @@ async function exportPlatformAsync(
   consumerRoot: string,
   platform: 'android' | 'ios' | 'web',
 ): Promise<void> {
+  const outputDirectory = path.join(consumerRoot, `dist-${platform}`);
   await runCommandAsync(
     'bunx',
-    [
-      'expo',
-      'export',
-      '--platform',
-      platform,
-      '--output-dir',
-      path.join(consumerRoot, `dist-${platform}`),
-      '--clear',
-    ],
+    ['expo', 'export', '--platform', platform, '--output-dir', outputDirectory, '--clear'],
     consumerRoot,
   );
+  if (platform === 'web') {
+    const outputFiles = await readdir(outputDirectory, { recursive: true });
+    if (!outputFiles.some((name) => name.includes('pdf.worker-'))) {
+      throw new Error('Packed web export did not emit the same-package PDF.js worker bundle.');
+    }
+  }
 }
 
 async function prebuildPlatformAsync(

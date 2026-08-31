@@ -121,13 +121,15 @@
     "validate:expo-platform": "bun scripts/validateExpoPlatform.ts",
     "validate:headless-platform": "bun scripts/headlessPlatformAcceptance.ts",
     "validate:packed-runtime": "bun scripts/packedRuntimeAcceptance.ts",
+    "validate:reader-dom": "bun scripts/readerDomAcceptance.ts",
     "validate:web-barcode": "bun scripts/webBarcodeAcceptance.ts",
     "version-packages": "ankhorage-changeset version"
   },
   "peerDependencies": {
     "@ankhorage/permissions": "^0.2.3",
-    "@ankhorage/zora": "^3.0.2",
+    "@ankhorage/zora": "^3.1.0",
     "@readium/navigator": "2.8.2",
+    "@readium/shared": "2.4.0",
     "@react-native-vector-icons/fontawesome": "^13.1.3",
     "@react-native-vector-icons/fontawesome5": "^13.1.3",
     "@react-native-vector-icons/fontawesome6": "^13.1.3",
@@ -153,6 +155,9 @@
       "optional": true
     },
     "@readium/navigator": {
+      "optional": true
+    },
+    "@readium/shared": {
       "optional": true
     },
     "@react-native-vector-icons/fontawesome": {
@@ -208,8 +213,9 @@
     "@ankhorage/devtools": "^1.8.3",
     "@ankhorage/paradox": "^0.1.24",
     "@ankhorage/permissions": "^0.2.3",
-    "@ankhorage/zora": "^3.0.2",
+    "@ankhorage/zora": "^3.1.0",
     "@readium/navigator": "2.8.2",
+    "@readium/shared": "2.4.0",
     "@react-native-picker/picker": "2.11.4",
     "@react-native-vector-icons/fontawesome": "^13.1.3",
     "@react-native-vector-icons/fontawesome5": "^13.1.3",
@@ -221,6 +227,7 @@
     "@types/node": "^24.13.3",
     "@types/pngjs": "^6.0.5",
     "@types/react": "^19.2.18",
+    "@xmldom/xmldom": "0.9.10",
     "bwip-js": "^4.11.4",
     "expo": "57.0.18",
     "expo-camera": "~57.0.4",

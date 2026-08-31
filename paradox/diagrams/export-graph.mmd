@@ -30,6 +30,23 @@ graph LR
   module_src_permissionRuntime_ts["src/permissionRuntime.ts"]
   module_src_planning_ts["src/planning.ts"]
   module_src_platform_ts["src/platform.ts"]
+  module_src_reader_drivers_EpubReaderDriver_ts["src/reader/drivers/EpubReaderDriver.ts"]
+  module_src_reader_drivers_PdfReaderDriver_ts["src/reader/drivers/PdfReaderDriver.ts"]
+  module_src_reader_epub_EpubArchive_ts["src/reader/epub/EpubArchive.ts"]
+  module_src_reader_epub_EpubArchiveFetcher_ts["src/reader/epub/EpubArchiveFetcher.ts"]
+  module_src_reader_epub_mediaTypes_ts["src/reader/epub/mediaTypes.ts"]
+  module_src_reader_epub_parseEpubPackage_ts["src/reader/epub/parseEpubPackage.ts"]
+  module_src_reader_epub_path_ts["src/reader/epub/path.ts"]
+  module_src_reader_epub_sanitizeEpubDocument_ts["src/reader/epub/sanitizeEpubDocument.ts"]
+  module_src_reader_ExpoReaderSurfaceAdapter_tsx["src/reader/ExpoReaderSurfaceAdapter.tsx"]
+  module_src_reader_loadReaderSourceAsync_ts["src/reader/loadReaderSourceAsync.ts"]
+  module_src_reader_navigation_resolveReaderKeyboardIntent_ts["src/reader/navigation/resolveReaderKeyboardIntent.ts"]
+  module_src_reader_navigation_resolveReaderNavigationIntent_ts["src/reader/navigation/resolveReaderNavigationIntent.ts"]
+  module_src_reader_ReaderDocumentError_ts["src/reader/ReaderDocumentError.ts"]
+  module_src_reader_ReaderViewport_tsx["src/reader/ReaderViewport.tsx"]
+  module_src_reader_readerViewportPresentation_ts["src/reader/readerViewportPresentation.ts"]
+  module_src_reader_types_ts["src/reader/types.ts"]
+  module_src_reader_validateEpubArchiveEntriesAsync_ts["src/reader/validateEpubArchiveEntriesAsync.ts"]
   module_src_resolveExpoRuntimePlan_ts["src/resolveExpoRuntimePlan.ts"]
   export_BARCODE_SCAN_DEDUPE_WINDOW_MS["BARCODE_SCAN_DEDUPE_WINDOW_MS"]
   module_src_barcodeScanRuntime_ts --> export_BARCODE_SCAN_DEDUPE_WINDOW_MS
@@ -77,6 +94,8 @@ graph LR
   module_src_platform_ts --> export_ExpoPlatform
   export_ExpoPlatformPackage["ExpoPlatformPackage"]
   module_src_platform_ts --> export_ExpoPlatformPackage
+  export_ExpoReaderSurfaceAdapter["ExpoReaderSurfaceAdapter"]
+  module_src_reader_ExpoReaderSurfaceAdapter_tsx --> export_ExpoReaderSurfaceAdapter
   export_ExpoRuntimeActionHandlerArgs["ExpoRuntimeActionHandlerArgs"]
   module_src_expoActionBridge_ts --> export_ExpoRuntimeActionHandlerArgs
   export_ExpoRuntimeActionHandlers["ExpoRuntimeActionHandlers"]
@@ -98,7 +117,7 @@ graph LR
   export_ExpoRuntimeNativeOutputPlan -.-> export_ExpoRuntimeConfigPluginOutput
   export_ExpoRuntimePlan["ExpoRuntimePlan"]
   module_src_resolveExpoRuntimePlan_ts --> export_ExpoRuntimePlan
-  export_ExpoRuntimePlan -.-> export_ExpoBarcodeScannerAdapter
+  export_ExpoRuntimePlan -.-> export_ExpoRuntimeAdapterId
   export_ExpoRuntimeProviderId["ExpoRuntimeProviderId"]
   module_src_expoRuntimePlanningMetadata_ts --> export_ExpoRuntimeProviderId
   export_ExpoRuntimeProviders["ExpoRuntimeProviders"]
