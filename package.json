@@ -100,6 +100,13 @@
       "import": "./dist/bundledMedia/index.js",
       "default": "./dist/bundledMedia/index.js"
     },
+    "./providers": {
+      "react-native": "./src/ExpoRuntimeProviders.tsx",
+      "browser": "./src/ExpoRuntimeProviders.tsx",
+      "types": "./src/ExpoRuntimeProviders.tsx",
+      "import": "./dist/ExpoRuntimeProviders.js",
+      "default": "./dist/ExpoRuntimeProviders.js"
+    },
     "./barcode-scanner": {
       "react-native": "./src/barcodeScanner.ts",
       "browser": "./src/barcodeScanner.ts",

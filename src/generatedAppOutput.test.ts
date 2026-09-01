@@ -124,7 +124,7 @@ describe('combined generated App output', () => {
         'expo-camera': EXPO_PLATFORM.packages.camera.version,
       },
       layoutIntegration: {
-        imports: ["import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';"],
+        imports: ["import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime/providers';"],
         moduleDeclarations: [],
         providerStart: [PROVIDER_START],
         providerEnd: ['</ExpoRuntimeProviders>'],
