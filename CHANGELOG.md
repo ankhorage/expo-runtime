@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.2.6
+
+### Patch Changes
+
+- 5f992a6: Update Ankhorage dependencies: `@ankhorage/permissions`.
+
 ## 3.2.5
 
 ### Patch Changes
