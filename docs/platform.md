@@ -25,6 +25,8 @@ npm peer metadata applies to a whole package even though Expo Runtime has multip
 | Devtools, Paradox, and the ZORA 3/Surface 3 graph | development validation | repository tooling and packed runtime acceptance      | no                                                                  |
 | Scoped React Native Vector Icons packages         | optional UI peers      | Surface/ZORA static icon rendering                    | no                                                                  |
 
+Generated layouts import `ExpoRuntimeProviders` from the focused `@ankhorage/expo-runtime/providers` subpath. This keeps capability-specific adapters and their optional peers out of generated applications that only need runtime provider composition. The root entrypoint remains available for consumers that intentionally use the combined runtime API.
+
 All application/runtime peers are optional at package-install time so a Node planner can install the released package and import only `@ankhorage/expo-runtime/platform` without materializing the Expo UI graph. This does not make root runtime dependencies optional in use: importing the root entrypoint without Permissions, ZORA 3, Expo Camera, React, and React Native fails normal module resolution. Likewise, invoking a feature subpath without its capability package fails when that feature dynamically loads the missing package. Consumers must install the peers for every entrypoint and capability they use.
 
 `bun run validate:headless-platform` permanently proves the packed `./platform` boundary. `bun run validate:packed-runtime` separately proves that the real root runtime compiles and bundles with released ZORA 3, Surface 3, Expo 57, React 19.2.3, React Native 0.86.3, and React Native Web 0.21.

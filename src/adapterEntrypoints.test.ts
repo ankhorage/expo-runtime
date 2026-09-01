@@ -5,11 +5,16 @@ interface PackageJson {
 }
 
 describe('capability-scoped adapter entrypoints', () => {
-  it('publishes focused barcode scanner and reader exports', async () => {
+  it('publishes focused provider, barcode scanner, and reader exports', async () => {
     const packageJson = (await Bun.file(
       new URL('../package.json', import.meta.url),
     ).json()) as PackageJson;
 
+    expect(packageJson.exports['./providers']).toMatchObject({
+      import: './dist/ExpoRuntimeProviders.js',
+      'react-native': './src/ExpoRuntimeProviders.tsx',
+      types: './src/ExpoRuntimeProviders.tsx',
+    });
     expect(packageJson.exports['./barcode-scanner']).toMatchObject({
       import: './dist/barcodeScanner.js',
       'react-native': './src/barcodeScanner.ts',
@@ -20,6 +25,16 @@ describe('capability-scoped adapter entrypoints', () => {
       'react-native': './src/reader/index.ts',
       types: './src/reader/index.ts',
     });
+  });
+
+  it('keeps document renderer ownership out of the providers entrypoint', async () => {
+    const entrypoint = await Bun.file(
+      new URL('./ExpoRuntimeProviders.tsx', import.meta.url),
+    ).text();
+
+    expect(entrypoint).not.toContain('@readium/');
+    expect(entrypoint).not.toContain('@zip.js/zip.js');
+    expect(entrypoint).not.toContain('pdfjs-dist');
   });
 
   it('keeps camera ownership out of the reader entrypoint', async () => {
