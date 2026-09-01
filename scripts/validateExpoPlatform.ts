@@ -103,12 +103,25 @@ async function validateBundledNativeModules(fixtureRoot: string): Promise<void> 
   );
   for (const dependency of bundledNativeModulePackages) {
     const actual = bundledNativeModules[dependency.name];
-    if (actual !== dependency.version) {
+    if (actual === undefined || !isCompatibleBundledNativeModuleRange(dependency.version, actual)) {
       throw new Error(
-        `EXPO_PLATFORM ${dependency.name} must match expo/bundledNativeModules.json: expected '${actual ?? 'missing'}', received '${dependency.version}'.`,
+        `EXPO_PLATFORM ${dependency.name} must match or advance within the Expo bundled patch range: expected '${actual ?? 'missing'}', received '${dependency.version}'.`,
       );
     }
   }
+}
+
+/*** Accepts a current tilde patch range when Expo's bundled manifest still names an older patch. */
+function isCompatibleBundledNativeModuleRange(policy: string, bundled: string): boolean {
+  if (policy === bundled) return true;
+  const policyRange = /^~(\d+)\.(\d+)\.(\d+)$/u.exec(policy);
+  const bundledRange = /^~(\d+)\.(\d+)\.(\d+)$/u.exec(bundled);
+  if (policyRange === null || bundledRange === null) return false;
+  return (
+    policyRange[1] === bundledRange[1] &&
+    policyRange[2] === bundledRange[2] &&
+    Number(policyRange[3]) >= Number(bundledRange[3])
+  );
 }
 
 async function validateRepositoryManifest(): Promise<void> {
