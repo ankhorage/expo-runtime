@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.2.4
+
+### Patch Changes
+
+- 281a3fa: Generate Expo layout provider imports through the focused `@ankhorage/expo-runtime/providers` subpath so unrelated capability peers do not leak into generated applications.
+
 ## 3.2.3
 
 ### Patch Changes
