@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.2.3
+
+### Patch Changes
+
+- 4c8afa1: Update Ankhorage dependencies: `@ankhorage/zora`.
+
 ## 3.2.2
 
 ### Patch Changes
