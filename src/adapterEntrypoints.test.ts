@@ -4,8 +4,8 @@ interface PackageJson {
   readonly exports: Readonly<Record<string, Readonly<Record<string, string>>>>;
 }
 
-describe('capability-scoped adapter entrypoints', () => {
-  it('publishes focused barcode scanner and reader exports', async () => {
+describe('capability-scoped runtime entrypoints', () => {
+  it('publishes focused barcode scanner, reader, and provider exports', async () => {
     const packageJson = (await Bun.file(
       new URL('../package.json', import.meta.url),
     ).json()) as PackageJson;
@@ -19,6 +19,11 @@ describe('capability-scoped adapter entrypoints', () => {
       import: './dist/reader/index.js',
       'react-native': './src/reader/index.ts',
       types: './src/reader/index.ts',
+    });
+    expect(packageJson.exports['./providers']).toMatchObject({
+      import: './dist/providers.js',
+      'react-native': './src/providers.ts',
+      types: './src/providers.ts',
     });
   });
 
@@ -41,6 +46,20 @@ describe('capability-scoped adapter entrypoints', () => {
     const source = `${entrypoint}\n${adapter}`;
 
     expect(entrypoint).toContain("from './ExpoBarcodeScannerAdapter'");
+    expect(source).not.toContain('@readium/');
+    expect(source).not.toContain('@zip.js/zip.js');
+    expect(source).not.toContain('pdfjs-dist');
+  });
+});
+
+describe('provider-scoped runtime entrypoint', () => {
+  it('keeps adapter ownership out of the provider entrypoint', async () => {
+    const entrypoint = await Bun.file(new URL('./providers.ts', import.meta.url)).text();
+    const providers = await Bun.file(new URL('./ExpoRuntimeProviders.tsx', import.meta.url)).text();
+    const source = `${entrypoint}\n${providers}`;
+
+    expect(entrypoint).toContain("from './ExpoRuntimeProviders'");
+    expect(source).not.toContain('expo-camera');
     expect(source).not.toContain('@readium/');
     expect(source).not.toContain('@zip.js/zip.js');
     expect(source).not.toContain('pdfjs-dist');

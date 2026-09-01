@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v3.2.1",
+      "value": "v3.2.2",
       "color": "cb3837"
     },
     {
@@ -444,6 +444,12 @@
       "isEntrypoint": true,
       "dependencies": [],
       "exports": ["EXPO_PLATFORM", "ExpoPlatform", "ExpoPlatformPackage"]
+    },
+    {
+      "path": "src/providers.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["ExpoRuntimeProviders", "ExpoRuntimeProvidersProps"]
     },
     {
       "path": "src/reader/drivers/EpubReaderDriver.ts",
@@ -4058,6 +4064,11 @@
         "fromPath": "src/planning.ts",
         "toPath": "src/resolveExpoRuntimePlan.ts",
         "sourcePath": "src/planning.ts"
+      },
+      {
+        "fromPath": "src/providers.ts",
+        "toPath": "src/ExpoRuntimeProviders.tsx",
+        "sourcePath": "src/providers.ts"
       },
       {
         "fromPath": "src/resolveExpoRuntimePlan.ts",

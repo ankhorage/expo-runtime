@@ -46,7 +46,7 @@ describe('layoutIntegrationPlanning', () => {
         needsPermissionsProvider: true,
       }),
     ).toEqual({
-      imports: ["import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';"],
+      imports: ["import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime/providers';"],
       moduleDeclarations: [],
       providerStart: [PERMISSIONS_PROVIDER_START],
       providerEnd: ['</ExpoRuntimeProviders>'],

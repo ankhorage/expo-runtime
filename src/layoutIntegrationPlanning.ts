@@ -26,7 +26,7 @@ export function resolveExpoRuntimeLayoutIntegration(
 
   if (expoRuntimeImports.length > 0) {
     imports.push(
-      `import { ${Array.from(new Set(expoRuntimeImports)).join(', ')} } from '@ankhorage/expo-runtime';`,
+      `import { ${Array.from(new Set(expoRuntimeImports)).join(', ')} } from '@ankhorage/expo-runtime/providers';`,
     );
   }
 

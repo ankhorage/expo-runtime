@@ -134,7 +134,7 @@ async function writePackageAsync(
 async function writeSourceAsync(consumerRoot: string): Promise<void> {
   await Bun.write(
     path.join(consumerRoot, 'src/app/_layout.tsx'),
-    `import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';
+    `import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime/providers';
 import { ResponsiveProvider } from '@ankhorage/surface';
 import { ZoraProvider } from '@ankhorage/zora';
 import { Slot } from 'expo-router';

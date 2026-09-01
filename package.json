@@ -113,6 +113,13 @@
       "types": "./src/reader/index.ts",
       "import": "./dist/reader/index.js",
       "default": "./dist/reader/index.js"
+    },
+    "./providers": {
+      "react-native": "./src/providers.ts",
+      "browser": "./src/providers.ts",
+      "types": "./src/providers.ts",
+      "import": "./dist/providers.js",
+      "default": "./dist/providers.js"
     }
   },
   "publishConfig": {
