@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.2.5
+
+### Patch Changes
+
+- bcf2c01: Update the canonical Expo SDK 57 patch policy used by generated applications and platform checks.
+
 ## 3.2.4
 
 ### Patch Changes
