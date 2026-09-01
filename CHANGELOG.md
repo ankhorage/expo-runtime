@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.2.2
+
+### Patch Changes
+
+- 1aeaf53: Expose capability-scoped barcode scanner and ebook reader adapter entrypoints, and generate bridges that avoid importing unrelated optional platform dependencies.
+
 ## 3.2.1
 
 ### Patch Changes
