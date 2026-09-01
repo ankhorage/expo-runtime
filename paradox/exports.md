@@ -20,11 +20,11 @@ Source: `src/barcodeScanRuntime.ts:23:1`
 
 ### Members
 
-| Name      | Kind     | Type                  | Required | Description |
-| --------- | -------- | --------------------- | -------- | ----------- |
-| timestamp | property | `number`              | yes      |             |
-| type      | property | `string \| undefined` | no       |             |
-| value     | property | `string`              | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| timestamp | property | `number` | yes |  |
+| type | property | `string \| undefined` | no |  |
+| value | property | `string` | yes |  |
 
 ## ComponentRegistry
 
@@ -88,16 +88,16 @@ Source: `src/expoActionBridge.ts:18:1`
 
 ### Members
 
-| Name                      | Kind     | Type                                                      | Required | Description |
-| ------------------------- | -------- | --------------------------------------------------------- | -------- | ----------- |
-| action                    | property | `unknown`                                                 | yes      |             |
-| actionHandlers            | property | `ExpoRuntimeActionHandlers \| undefined`                  | no       |             |
-| alertImpl                 | property | `((message: string) => void) \| undefined`                | no       |             |
-| consoleImpl               | property | `Pick<Console, "log"> \| undefined`                       | no       |             |
-| mode                      | property | `ExpoRuntimeThemeMode`                                    | yes      |             |
-| requestAnimationFrameImpl | property | `((callback: () => void) => number \| void) \| undefined` | no       |             |
-| router                    | property | `ExpoRuntimeRouterLike`                                   | yes      |             |
-| setMode                   | property | `(mode: ExpoRuntimeThemeMode) => void`                    | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| action | property | `unknown` | yes |  |
+| actionHandlers | property | `ExpoRuntimeActionHandlers \| undefined` | no |  |
+| alertImpl | property | `((message: string) => void) \| undefined` | no |  |
+| consoleImpl | property | `Pick<Console, "log"> \| undefined` | no |  |
+| mode | property | `ExpoRuntimeThemeMode` | yes |  |
+| requestAnimationFrameImpl | property | `((callback: () => void) => number \| void) \| undefined` | no |  |
+| router | property | `ExpoRuntimeRouterLike` | yes |  |
+| setMode | property | `(mode: ExpoRuntimeThemeMode) => void` | yes |  |
 
 ## EXPO_PLATFORM
 
@@ -125,10 +125,10 @@ Source: `src/barcodeScanRuntime.ts:27:1`
 
 ### Members
 
-| Name | Kind     | Type                  | Required | Description |
-| ---- | -------- | --------------------- | -------- | ----------- |
-| data | property | `string`              | yes      |             |
-| type | property | `string \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| data | property | `string` | yes |  |
+| type | property | `string \| undefined` | no |  |
 
 ## ExpoBundledMediaRegistry
 
@@ -144,10 +144,10 @@ Source: `src/bundledMediaRegistrySource.ts:1:1`
 
 ### Members
 
-| Name        | Kind     | Type     | Required | Description |
-| ----------- | -------- | -------- | -------- | ----------- |
-| path        | property | `string` | yes      |             |
-| requirePath | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| path | property | `string` | yes |  |
+| requirePath | property | `string` | yes |  |
 
 ## ExpoBundledMediaResolver
 
@@ -163,9 +163,9 @@ Source: `src/bundledMediaResolver.ts:7:1`
 
 ### Members
 
-| Name  | Kind     | Type         | Required | Description |
-| ----- | -------- | ------------ | -------- | ----------- |
-| asset | property | `MediaAsset` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| asset | property | `MediaAsset` | yes |  |
 
 ## ExpoBundledMediaValue
 
@@ -187,10 +187,10 @@ Source: `src/platform.ts:1:1`
 
 ### Members
 
-| Name    | Kind     | Type     | Required | Description |
-| ------- | -------- | -------- | -------- | ----------- |
-| name    | property | `string` | yes      |             |
-| version | property | `string` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| name | property | `string` | yes |  |
+| version | property | `string` | yes |  |
 
 ## ExpoReaderSurfaceAdapter
 
@@ -212,9 +212,9 @@ Source: `src/expoActionBridge.ts:9:1`
 
 ### Members
 
-| Name   | Kind     | Type     | Required | Description |
-| ------ | -------- | -------- | -------- | ----------- |
-| action | property | `Action` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| action | property | `Action` | yes |  |
 
 ## ExpoRuntimeActionHandlers
 
@@ -248,11 +248,11 @@ Source: `src/generatedAppOutput.ts:17:1`
 
 ### Members
 
-| Name              | Kind     | Type                               | Required | Description |
-| ----------------- | -------- | ---------------------------------- | -------- | ----------- |
-| dependencies      | property | `Readonly<Record<string, string>>` | yes      |             |
-| layoutIntegration | property | `ExpoRuntimeLayoutIntegrationPlan` | yes      |             |
-| native            | property | `ExpoRuntimeNativeOutputPlan`      | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| dependencies | property | `Readonly<Record<string, string>>` | yes |  |
+| layoutIntegration | property | `ExpoRuntimeLayoutIntegrationPlan` | yes |  |
+| native | property | `ExpoRuntimeNativeOutputPlan` | yes |  |
 
 ## ExpoRuntimeLayoutIntegrationPlan
 
@@ -262,12 +262,12 @@ Source: `src/layoutIntegrationPlanning.ts:3:1`
 
 ### Members
 
-| Name               | Kind     | Type                | Required | Description |
-| ------------------ | -------- | ------------------- | -------- | ----------- |
-| imports            | property | `readonly string[]` | yes      |             |
-| moduleDeclarations | property | `readonly string[]` | yes      |             |
-| providerEnd        | property | `readonly string[]` | yes      |             |
-| providerStart      | property | `readonly string[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| imports | property | `readonly string[]` | yes |  |
+| moduleDeclarations | property | `readonly string[]` | yes |  |
+| providerEnd | property | `readonly string[]` | yes |  |
+| providerStart | property | `readonly string[]` | yes |  |
 
 ## ExpoRuntimeNativeOutputPlan
 
@@ -277,10 +277,10 @@ Source: `src/generatedAppOutput.ts:12:1`
 
 ### Members
 
-| Name               | Kind     | Type                                       | Required | Description |
-| ------------------ | -------- | ------------------------------------------ | -------- | ----------- |
-| androidPermissions | property | `readonly string[]`                        | yes      |             |
-| configPlugins      | property | `readonly ExpoRuntimeConfigPluginOutput[]` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| androidPermissions | property | `readonly string[]` | yes |  |
+| configPlugins | property | `readonly ExpoRuntimeConfigPluginOutput[]` | yes |  |
 
 ## ExpoRuntimePlan
 
@@ -290,18 +290,18 @@ Source: `src/resolveExpoRuntimePlan.ts:50:1`
 
 ### Members
 
-| Name                     | Kind     | Type                                                                                                                                                 | Required | Description |
-| ------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| capabilities             | property | `readonly ScreenCapabilityRequirement[]`                                                                                                             | yes      |             |
-| dependencies             | property | `readonly ExpoRuntimeDependency[]`                                                                                                                   | yes      |             |
-| diagnostics              | property | `readonly ExpoRuntimeDiagnostic[]`                                                                                                                   | yes      |             |
-| impliedPermissions       | property | `readonly ScreenPermissionRequirement[]`                                                                                                             | yes      |             |
-| nativeConfig             | property | `{ readonly androidPermissions: readonly string[]; readonly configHints: readonly string[]; readonly plugins: readonly ExpoRuntimeConfigPlugin[]; }` | yes      |             |
-| needsPermissionsProvider | property | `boolean`                                                                                                                                            | yes      |             |
-| permissions              | property | `readonly ScreenPermissionRequirement[]`                                                                                                             | yes      |             |
-| providers                | property | `readonly "permissions"[]`                                                                                                                           | yes      |             |
-| runtimeAdapters          | property | `readonly ExpoRuntimeAdapterId[]`                                                                                                                    | yes      |             |
-| usesExpoRuntimeRegistry  | property | `boolean`                                                                                                                                            | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilities | property | `readonly ScreenCapabilityRequirement[]` | yes |  |
+| dependencies | property | `readonly ExpoRuntimeDependency[]` | yes |  |
+| diagnostics | property | `readonly ExpoRuntimeDiagnostic[]` | yes |  |
+| impliedPermissions | property | `readonly ScreenPermissionRequirement[]` | yes |  |
+| nativeConfig | property | `{ readonly androidPermissions: readonly string[]; readonly configHints: readonly string[]; readonly plugins: readonly ExpoRuntimeConfigPlugin[]; }` | yes |  |
+| needsPermissionsProvider | property | `boolean` | yes |  |
+| permissions | property | `readonly ScreenPermissionRequirement[]` | yes |  |
+| providers | property | `readonly "permissions"[]` | yes |  |
+| runtimeAdapters | property | `readonly ExpoRuntimeAdapterId[]` | yes |  |
+| usesExpoRuntimeRegistry | property | `boolean` | yes |  |
 
 ## ExpoRuntimeProviderId
 
@@ -329,10 +329,10 @@ Source: `src/ExpoRuntimeProviders.tsx:8:1`
 
 ### Members
 
-| Name      | Kind     | Type                                    | Required | Description |
-| --------- | -------- | --------------------------------------- | -------- | ----------- |
-| children  | property | `React.ReactNode`                       | yes      |             |
-| providers | property | `readonly "permissions"[] \| undefined` | no       |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| children | property | `React.ReactNode` | yes |  |
+| providers | property | `readonly "permissions"[] \| undefined` | no |  |
 
 ## ExpoRuntimeRouteResolution
 
@@ -342,10 +342,10 @@ Source: `src/expoActionBridge.ts:29:1`
 
 ### Members
 
-| Name         | Kind     | Type                               | Required | Description |
-| ------------ | -------- | ---------------------------------- | -------- | ----------- |
-| resolvedPath | property | `string`                           | yes      |             |
-| unusedParams | property | `Record<string, string \| number>` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| resolvedPath | property | `string` | yes |  |
+| unusedParams | property | `Record<string, string \| number>` | yes |  |
 
 ## ExpoRuntimeRouterLike
 
@@ -355,9 +355,9 @@ Source: `src/expoActionBridge.ts:5:1`
 
 ### Members
 
-| Name | Kind     | Type                                                                              | Required | Description |
-| ---- | -------- | --------------------------------------------------------------------------------- | -------- | ----------- |
-| push | property | `(args: { pathname: string; params: Record<string, number \| string>; }) => void` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| push | property | `(args: { pathname: string; params: Record<string, number \| string>; }) => void` | yes |  |
 
 ## ExpoRuntimeThemeMode
 
@@ -385,15 +385,15 @@ Source: `src/ExpoZoraIconFontProvider.tsx:3:1`
 
 ### Members
 
-| Name     | Kind     | Type              | Required | Description |
-| -------- | -------- | ----------------- | -------- | ----------- |
-| children | property | `React.ReactNode` | yes      |             |
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| children | property | `React.ReactNode` | yes |  |
 
 ## getExpoBarcodeScannerViewSource
 
 Kind: `function`
 Module: `src/generatedSources.ts`
-Source: `src/generatedSources.ts:7:1`
+Source: `src/generatedSources.ts:13:1`
 
 ### Signatures
 
@@ -410,6 +410,17 @@ Source: `src/bundledMediaRegistrySource.ts:6:1`
 
 - `(entries: readonly ExpoBundledMediaRegistrySourceEntry[]) => string`
   - entries: `readonly ExpoBundledMediaRegistrySourceEntry[]`
+  - returns: `string`
+
+## getExpoReaderSurfaceViewSource
+
+Kind: `function`
+Module: `src/generatedSources.ts`
+Source: `src/generatedSources.ts:17:1`
+
+### Signatures
+
+- `() => string`
   - returns: `string`
 
 ## mapPermissionStatusToCameraPermissionStatus
