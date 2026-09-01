@@ -1113,7 +1113,7 @@
     "modulePath": "src/generatedSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedSources.ts",
-      "line": 7,
+      "line": 13,
       "column": 1
     },
     "exportPaths": ["src/index.ts"],
@@ -1154,6 +1154,31 @@
             "description": null
           }
         ],
+        "returnType": "string",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "getExpoReaderSurfaceViewSource",
+    "description": null,
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/generatedSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedSources.ts",
+      "line": 17,
+      "column": 1
+    },
+    "exportPaths": ["src/index.ts"],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "() => string",
+        "parameters": [],
         "returnType": "string",
         "returnDescription": null
       }

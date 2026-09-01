@@ -1,0 +1,1 @@
+export { ExpoBarcodeScannerAdapter } from './ExpoBarcodeScannerAdapter';

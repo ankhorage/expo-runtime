@@ -99,6 +99,20 @@
       "types": "./src/bundledMedia/index.ts",
       "import": "./dist/bundledMedia/index.js",
       "default": "./dist/bundledMedia/index.js"
+    },
+    "./barcode-scanner": {
+      "react-native": "./src/barcodeScanner.ts",
+      "browser": "./src/barcodeScanner.ts",
+      "types": "./src/barcodeScanner.ts",
+      "import": "./dist/barcodeScanner.js",
+      "default": "./dist/barcodeScanner.js"
+    },
+    "./reader": {
+      "react-native": "./src/reader/index.ts",
+      "browser": "./src/reader/index.ts",
+      "types": "./src/reader/index.ts",
+      "import": "./dist/reader/index.js",
+      "default": "./dist/reader/index.js"
     }
   },
   "publishConfig": {

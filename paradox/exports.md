@@ -393,7 +393,7 @@ Source: `src/ExpoZoraIconFontProvider.tsx:3:1`
 
 Kind: `function`
 Module: `src/generatedSources.ts`
-Source: `src/generatedSources.ts:7:1`
+Source: `src/generatedSources.ts:13:1`
 
 ### Signatures
 
@@ -410,6 +410,17 @@ Source: `src/bundledMediaRegistrySource.ts:6:1`
 
 - `(entries: readonly ExpoBundledMediaRegistrySourceEntry[]) => string`
   - entries: `readonly ExpoBundledMediaRegistrySourceEntry[]`
+  - returns: `string`
+
+## getExpoReaderSurfaceViewSource
+
+Kind: `function`
+Module: `src/generatedSources.ts`
+Source: `src/generatedSources.ts:17:1`
+
+### Signatures
+
+- `() => string`
   - returns: `string`
 
 ## mapPermissionStatusToCameraPermissionStatus

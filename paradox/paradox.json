@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v3.1.2",
+      "value": "v3.2.1",
       "color": "cb3837"
     },
     {
@@ -82,6 +82,12 @@
         "ExpoRuntimeThemeMode",
         "resolveExpoRuntimeRoutePath"
       ]
+    },
+    {
+      "path": "src/barcodeScanner.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["ExpoBarcodeScannerAdapter"]
     },
     {
       "path": "src/barcodeScanRuntime.ts",
@@ -228,7 +234,7 @@
       "path": "src/generatedSources.ts",
       "isEntrypoint": false,
       "dependencies": [],
-      "exports": ["getExpoBarcodeScannerViewSource"]
+      "exports": ["getExpoBarcodeScannerViewSource", "getExpoReaderSurfaceViewSource"]
     },
     {
       "path": "src/index.ts",
@@ -271,6 +277,7 @@
         "ExpoZoraIconFontProviderProps",
         "getExpoBarcodeScannerViewSource",
         "getExpoBundledMediaRegistrySource",
+        "getExpoReaderSurfaceViewSource",
         "mapPermissionStatusToCameraPermissionStatus",
         "normalizeExpoBarcodeScanResult",
         "resolveExpoBundledMediaAsset",
@@ -422,6 +429,7 @@
         "ExpoRuntimePlanningScreen",
         "ExpoRuntimeProviderId",
         "getExpoBarcodeScannerViewSource",
+        "getExpoReaderSurfaceViewSource",
         "resolveExpoRuntimeConfigPluginOutput",
         "resolveExpoRuntimeDependencyMap",
         "resolveExpoRuntimeGeneratedAppOutput",
@@ -504,6 +512,12 @@
       "path": "src/reader/ExpoReaderSurfaceAdapter.tsx",
       "isEntrypoint": false,
       "dependencies": ["src/reader/ReaderViewport.tsx", "src/reader/types.ts"],
+      "exports": ["ExpoReaderSurfaceAdapter"]
+    },
+    {
+      "path": "src/reader/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
       "exports": ["ExpoReaderSurfaceAdapter"]
     },
     {
@@ -1700,7 +1714,7 @@
       "modulePath": "src/generatedSources.ts",
       "sourceLocation": {
         "filePath": "src/generatedSources.ts",
-        "line": 7,
+        "line": 13,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1741,6 +1755,31 @@
               "description": null
             }
           ],
+          "returnType": "string",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "getExpoReaderSurfaceViewSource",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/generatedSources.ts",
+      "sourceLocation": {
+        "filePath": "src/generatedSources.ts",
+        "line": 17,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "() => string",
+          "parameters": [],
           "returnType": "string",
           "returnDescription": null
         }
@@ -2838,7 +2877,16 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/generatedSources.ts",
-        "line": 7,
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "getExpoReaderSurfaceViewSource",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/generatedSources.ts",
+        "line": 17,
         "column": 1
       }
     },
@@ -3754,6 +3802,14 @@
     },
     {
       "kind": "export",
+      "name": "getExpoReaderSurfaceViewSource",
+      "sourcePath": "src/generatedSources.ts",
+      "symbolName": "getExpoReaderSurfaceViewSource",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "mapPermissionStatusToCameraPermissionStatus",
       "sourcePath": "src/barcodeScanRuntime.ts",
       "symbolName": "mapPermissionStatusToCameraPermissionStatus",
@@ -3847,6 +3903,11 @@
         "fromPath": "src/actionBridge.ts",
         "toPath": "src/expoActionBridge.ts",
         "sourcePath": "src/actionBridge.ts"
+      },
+      {
+        "fromPath": "src/barcodeScanner.ts",
+        "toPath": "src/ExpoBarcodeScannerAdapter.tsx",
+        "sourcePath": "src/barcodeScanner.ts"
       },
       {
         "fromPath": "src/createExpoRuntimeRegistry.tsx",
@@ -4077,6 +4138,11 @@
         "fromPath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
         "toPath": "src/reader/types.ts",
         "sourcePath": "src/reader/ExpoReaderSurfaceAdapter.tsx"
+      },
+      {
+        "fromPath": "src/reader/index.ts",
+        "toPath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
+        "sourcePath": "src/reader/index.ts"
       },
       {
         "fromPath": "src/reader/ReaderViewport.tsx",
