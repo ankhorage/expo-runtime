@@ -12,6 +12,8 @@ interface PackageIdentity {
   readonly version?: string;
 }
 
+const expectedZoraMajorVersion = 4;
+const expectedSurfaceMajorVersion = 3;
 const repositoryRoot = path.resolve(import.meta.dir, '..');
 const scratchRoot = await mkdtemp(path.join(tmpdir(), 'expo-runtime-packed-root-'));
 
@@ -43,7 +45,7 @@ try {
   await prebuildPlatformAsync(consumerRoot, 'android');
   await prebuildPlatformAsync(consumerRoot, 'ios');
 
-  console.log('Packed Expo Runtime root acceptance passed with ZORA 3 and Surface 3.');
+  console.log('Packed Expo Runtime root acceptance passed.');
 } finally {
   await rm(scratchRoot, { recursive: true, force: true });
 }
@@ -66,16 +68,21 @@ async function assertInstalledGraphAsync(
     throw new Error('Installed Expo Runtime does not match its packed candidate version.');
   }
   if (
-    !isMajorVersion(versions.get('@ankhorage/zora'), 3) ||
-    !isMajorVersion(versions.get('@ankhorage/surface'), 3)
+    !isMajorVersion(versions.get('@ankhorage/zora'), expectedZoraMajorVersion) ||
+    !isMajorVersion(versions.get('@ankhorage/surface'), expectedSurfaceMajorVersion)
   ) {
-    throw new Error('Packed root consumer did not resolve released ZORA 3 and Surface 3.');
+    throw new Error(
+      `Packed root consumer did not resolve released ZORA ${expectedZoraMajorVersion} and Surface ${expectedSurfaceMajorVersion}.`,
+    );
   }
   const graph = await runCommandAsync('bun', ['pm', 'ls', '--all'], consumerRoot, {
     capture: true,
   });
-  if (/@ankhorage\/(?:zora|surface)@2(?:\.|\s|$)/u.test(graph)) {
-    throw new Error('Packed root consumer retained a ZORA 2 or Surface 2 dependency.');
+  if (
+    /@ankhorage\/zora@[23](?:\.|\s|$)/u.test(graph) ||
+    /@ankhorage\/surface@2(?:\.|\s|$)/u.test(graph)
+  ) {
+    throw new Error('Packed root consumer retained an unsupported ZORA or Surface dependency.');
   }
   const packageJson = await readJsonFileAsync<{ dependencies?: Record<string, string> }>(
     path.join(consumerRoot, 'package.json'),

@@ -39,5 +39,5 @@ jobs:
       - name: Validate packed action bridge subpath
         run: bun run validate:action-bridge
 
-      - name: Validate packed ZORA 3 runtime
+      - name: Validate packed runtime
         run: bun run validate:packed-runtime
