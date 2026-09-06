@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.2.11
+
+### Patch Changes
+
+- d70632a: Update `@ankhorage/contracts` and align the supported Expo SDK 57 patch release.
+
 ## 3.2.10
 
 ### Patch Changes
