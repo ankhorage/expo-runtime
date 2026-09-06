@@ -99,6 +99,7 @@ async function writePackageAsync(
     '@ankhorage/surface': requireVersion(zoraManifest.dependencies ?? {}, '@ankhorage/surface'),
     '@ankhorage/zora': requireVersion(runtimePeers, '@ankhorage/zora'),
     ...resolveReaderRendererDependencies(runtimePeers),
+    [EXPO_PLATFORM.ui.svg.name]: EXPO_PLATFORM.ui.svg.version,
     [EXPO_PLATFORM.packages.camera.name]: EXPO_PLATFORM.packages.camera.version,
     [EXPO_PLATFORM.packages.constants.name]: EXPO_PLATFORM.packages.constants.version,
     [EXPO_PLATFORM.packages.linking.name]: EXPO_PLATFORM.packages.linking.version,
