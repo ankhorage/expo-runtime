@@ -231,7 +231,7 @@
     }
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^1.11.1",
+    "@ankhorage/devtools": "^1.11.7",
     "@ankhorage/paradox": "^0.1.24",
     "@ankhorage/permissions": "^0.2.4",
     "@ankhorage/zora": "^4.2.2",
@@ -267,5 +267,5 @@
     "pngjs": "^7.0.0",
     "typescript": "~6.0.3"
   },
-  "packageManager": "bun@1.4.1"
+  "packageManager": "bun@1.4.2"
 }
