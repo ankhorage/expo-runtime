@@ -1,5 +1,12 @@
 # @ankhorage/expo-runtime
 
+## 3.2.13
+
+### Patch Changes
+
+- f3d9afd: Update Ankhorage dependencies: `@ankhorage/contracts`.
+- dd4521a: Update Ankhorage dependencies: `@ankhorage/zora`.
+
 ## 3.2.12
 
 ### Patch Changes
