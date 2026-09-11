@@ -30,6 +30,7 @@ describe('EXPO_PLATFORM', () => {
     expect(EXPO_PLATFORM.tooling.node.lts).toBe(24);
     expect(EXPO_PLATFORM.tooling.node.version).toBe(`${EXPO_PLATFORM.tooling.node.lts}.x`);
     expect(EXPO_PLATFORM.tooling.expoDoctor.name).toBe('expo-doctor');
+    expect(EXPO_PLATFORM.tooling.reactTypes.name).toBe('@types/react');
     expect(EXPO_PLATFORM.animation.worklets.name).toBe('react-native-worklets');
   });
 });
