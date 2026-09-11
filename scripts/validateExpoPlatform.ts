@@ -126,7 +126,9 @@ function isCompatibleBundledNativeModuleRange(policy: string, bundled: string): 
 }
 
 async function validateRepositoryManifest(): Promise<void> {
-  const manifest = asRecord(JSON.parse(await Bun.file(join(repositoryRoot, 'package.json')).text()));
+  const manifest = asRecord(
+    JSON.parse(await Bun.file(join(repositoryRoot, 'package.json')).text()),
+  );
   const peerDependencies = asStringRecord(manifest.peerDependencies);
   const peerDependenciesMeta = asRecord(manifest.peerDependenciesMeta);
   const devDependencies = asStringRecord(manifest.devDependencies);
