@@ -1,5 +1,12 @@
 # @ankhorage/expo-runtime
 
+## 3.2.14
+
+### Patch Changes
+
+- 7f2b95b: Refresh the canonical Expo SDK 57 package projection to the current released Expo 57 patch graph,
+  including the compatible React type range.
+
 ## 3.2.13
 
 ### Patch Changes
