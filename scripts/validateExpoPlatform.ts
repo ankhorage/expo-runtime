@@ -45,6 +45,7 @@ try {
         devDependencies: toDependencyMap([
           EXPO_PLATFORM.tooling.expoDoctor,
           EXPO_PLATFORM.tooling.nodeTypes,
+          EXPO_PLATFORM.tooling.reactTypes,
           EXPO_PLATFORM.tooling.typescript,
         ]),
       },
@@ -125,9 +126,7 @@ function isCompatibleBundledNativeModuleRange(policy: string, bundled: string): 
 }
 
 async function validateRepositoryManifest(): Promise<void> {
-  const manifest = asRecord(
-    JSON.parse(await Bun.file(join(repositoryRoot, 'package.json')).text()),
-  );
+  const manifest = asRecord(JSON.parse(await Bun.file(join(repositoryRoot, 'package.json')).text()));
   const peerDependencies = asStringRecord(manifest.peerDependencies);
   const peerDependenciesMeta = asRecord(manifest.peerDependenciesMeta);
   const devDependencies = asStringRecord(manifest.devDependencies);
@@ -159,6 +158,7 @@ async function validateRepositoryManifest(): Promise<void> {
   assertVersion(devDependencies, EXPO_PLATFORM.runtime.reactNativeWeb, 'devDependencies');
   assertVersion(devDependencies, EXPO_PLATFORM.navigation.safeArea, 'devDependencies');
   assertVersion(devDependencies, EXPO_PLATFORM.tooling.nodeTypes, 'devDependencies');
+  assertVersion(devDependencies, EXPO_PLATFORM.tooling.reactTypes, 'devDependencies');
   assertVersion(devDependencies, EXPO_PLATFORM.tooling.typescript, 'devDependencies');
 
   if (engines.node !== EXPO_PLATFORM.tooling.node.version) {
