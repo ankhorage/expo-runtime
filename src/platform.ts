@@ -18,7 +18,7 @@ export const EXPO_PLATFORM = {
   sdk: 57,
   architecture: 'new-architecture-only',
   runtime: {
-    expo: definePackage('expo', '57.0.22'),
+    expo: definePackage('expo', '57.0.23'),
     react: definePackage('react', '19.2.3'),
     reactDom: definePackage('react-dom', '19.2.3'),
     reactNative: definePackage('react-native', '0.86.3'),
