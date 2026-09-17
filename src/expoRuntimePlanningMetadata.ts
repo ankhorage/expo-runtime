@@ -38,7 +38,7 @@ export interface ExpoRuntimeHintMetadata {
 }
 
 const GENERATED_ANKHORAGE_DEPENDENCY_VERSIONS = {
-  '@ankhorage/permissions': '^0.2.3',
+  '@ankhorage/permissions': '^0.2.5',
   '@ankhorage/expo-runtime': '^3.0.0',
   '@readium/navigator': '2.8.2',
   '@readium/shared': '2.4.0',
