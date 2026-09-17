@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 3.2.16
+
+### Patch Changes
+
+- 8dba116: Keep Expo Runtime planning headless by consuming the Permissions registry subpath and import the React permission provider only from the explicit React entrypoint.
+
 ## 3.2.15
 
 ### Patch Changes
