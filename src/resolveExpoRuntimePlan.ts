@@ -3,12 +3,12 @@ import type {
   ScreenCapabilityRequirement,
   ScreenPermissionRequirement,
 } from '@ankhorage/contracts';
-import { isPermission, type Permission } from '@ankhorage/permissions/registry';
 import {
   EXPO_PERMISSION_SUPPORT,
   type ExpoPermissionMetadata,
   type PermissionSupport,
 } from '@ankhorage/permissions/expo/manifest';
+import { isPermission, type Permission } from '@ankhorage/permissions/registry';
 
 import {
   EXPO_CAPABILITY_RUNTIME_REGISTRY,
