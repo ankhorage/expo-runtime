@@ -1,5 +1,4 @@
 import {
-  ANKHORAGE_CAPABILITY_NAMES,
   ANKHORAGE_PERMISSION_NAMES,
   type AnkhorageCapabilityName,
   type AnkhoragePermissionName,
@@ -12,6 +11,7 @@ import {
 } from '@ankhorage/permissions/expo/manifest';
 import { isPermission, type Permission } from '@ankhorage/permissions/registry';
 
+import { collectExpoRuntimeManifestRequirements } from './collectExpoRuntimeManifestRequirements';
 import {
   EXPO_CAPABILITY_RUNTIME_REGISTRY,
   EXPO_RUNTIME_PACKAGE_PEERS,
@@ -123,23 +123,10 @@ export function resolveExpoRuntimePlan(
 }
 
 function createPlanningState(manifest: ExpoRuntimePlanningManifest): PlanningState {
-  const permissions = new Map<AnkhoragePermissionName, ExpoRuntimePermissionRequirement>();
-  const capabilities = new Map<AnkhorageCapabilityName, ExpoRuntimeCapabilityRequirement>();
-  for (const screen of Object.values(manifest.screens)) {
-    for (const permission of ANKHORAGE_PERMISSION_NAMES) {
-      if (hasRequirement(screen.requires?.permissions, permission)) {
-        permissions.set(permission, { permission });
-      }
-    }
-    for (const capability of ANKHORAGE_CAPABILITY_NAMES) {
-      if (hasRequirement(screen.requires?.capabilities, capability)) {
-        capabilities.set(capability, { capability });
-      }
-    }
-  }
+  const requirements = collectExpoRuntimeManifestRequirements(manifest.screens);
   return {
-    permissions,
-    capabilities,
+    permissions: requirements.permissions,
+    capabilities: requirements.capabilities,
     impliedPermissions: new Map(),
     diagnostics: [],
     dependencies: new Map(),
@@ -283,9 +270,15 @@ function buildPlan(state: PlanningState): ExpoRuntimePlan {
     options: Object.keys(options).length > 0 ? options : undefined,
   })).sort((left, right) => left.name.localeCompare(right.name));
   return {
-    permissions: Array.from(state.permissions.values()).sort(comparePermissions),
-    capabilities: Array.from(state.capabilities.values()).sort(compareCapabilities),
-    impliedPermissions: Array.from(state.impliedPermissions.values()).sort(comparePermissions),
+    permissions: Array.from(state.permissions.values()).sort((left, right) =>
+      left.permission.localeCompare(right.permission),
+    ),
+    capabilities: Array.from(state.capabilities.values()).sort((left, right) =>
+      left.capability.localeCompare(right.capability),
+    ),
+    impliedPermissions: Array.from(state.impliedPermissions.values()).sort((left, right) =>
+      left.permission.localeCompare(right.permission),
+    ),
     dependencies: Array.from(state.dependencies.values()).sort((left, right) =>
       left.name.localeCompare(right.name),
     ),
@@ -335,16 +328,3 @@ function isUnsupported(support: PermissionSupport): boolean {
   return support === 'unsupported' || support === 'notImplemented' || support === 'limited';
 }
 
-function compareCapabilities(
-  left: ExpoRuntimeCapabilityRequirement,
-  right: ExpoRuntimeCapabilityRequirement,
-): number {
-  return left.capability.localeCompare(right.capability);
-}
-
-function comparePermissions(
-  left: ExpoRuntimePermissionRequirement,
-  right: ExpoRuntimePermissionRequirement,
-): number {
-  return left.permission.localeCompare(right.permission);
-}
