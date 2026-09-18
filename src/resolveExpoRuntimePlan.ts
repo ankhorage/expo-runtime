@@ -31,8 +31,8 @@ import type {
   ExpoRuntimeCapabilityRequirement,
   ExpoRuntimeDependency,
   ExpoRuntimePermissionRequirement,
-  ExpoRuntimeExpoRuntimePlanningContext,
-  ExpoRuntimeExpoRuntimePlanningState,
+  ExpoRuntimePlanningContext,
+  ExpoRuntimePlanningState,
 } from './types/expoRuntimePlanning';
 
 export type { ExpoRuntimeAdapterId, ExpoRuntimeProviderId };
