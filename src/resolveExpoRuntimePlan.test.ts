@@ -184,8 +184,8 @@ describe('resolveExpoRuntimePlan diagnostics and deduplication', () => {
   test('dedupes repeated permission and capability requirements', () => {
     const plan = resolveExpoRuntimePlan(
       withAllScreenRequirements({
-        capabilities: [{ capability: 'barcodeScanner' }],
-        permissions: [{ permission: 'camera' }],
+        capabilities: { barcodeScanner: true },
+        permissions: { camera: true },
       }),
     );
 
