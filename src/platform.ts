@@ -18,7 +18,7 @@ export const EXPO_PLATFORM = {
   sdk: 57,
   architecture: 'new-architecture-only',
   runtime: {
-    expo: definePackage('expo', '57.0.23'),
+    expo: definePackage('expo', '57.0.24'),
     react: definePackage('react', '19.2.3'),
     reactDom: definePackage('react-dom', '19.2.3'),
     reactNative: definePackage('react-native', '0.86.3'),
@@ -35,7 +35,7 @@ export const EXPO_PLATFORM = {
     expoDoctor: definePackage('expo-doctor', '1.20.4'),
   },
   navigation: {
-    expoRouter: definePackage('expo-router', '~57.0.21'),
+    expoRouter: definePackage('expo-router', '~57.0.22'),
     screens: definePackage('react-native-screens', '~4.26.0'),
     safeArea: definePackage('react-native-safe-area-context', '~5.7.0'),
   },
@@ -58,12 +58,12 @@ export const EXPO_PLATFORM = {
     },
   },
   packages: {
-    metroRuntime: definePackage('@expo/metro-runtime', '~57.0.15'),
+    metroRuntime: definePackage('@expo/metro-runtime', '~57.0.16'),
     asset: definePackage('expo-asset', '~57.0.17'),
     audio: definePackage('expo-audio', '~57.0.5'),
     authSession: definePackage('expo-auth-session', '~57.0.12'),
     camera: definePackage('expo-camera', '~57.0.5'),
-    constants: definePackage('expo-constants', '~57.0.18'),
+    constants: definePackage('expo-constants', '~57.0.19'),
     crypto: definePackage('expo-crypto', '~57.0.3'),
     devClient: definePackage('expo-dev-client', '~57.0.19'),
     documentPicker: definePackage('expo-document-picker', '~57.0.2'),
