@@ -1,7 +1,6 @@
 import {
   ANKHORAGE_PERMISSION_NAMES,
   type AnkhorageCapabilityName,
-  type AnkhoragePermissionName,
   type ScreenRequirements,
 } from '@ankhorage/contracts';
 import {
@@ -28,6 +27,13 @@ import {
   unknownPermissionDiagnostic,
   unsupportedPermissionDiagnostic,
 } from './expoRuntimePlanningMetadata';
+import type {
+  ExpoRuntimeCapabilityRequirement,
+  ExpoRuntimeDependency,
+  ExpoRuntimePermissionRequirement,
+  ExpoRuntimeExpoRuntimePlanningContext,
+  ExpoRuntimeExpoRuntimePlanningState,
+} from './types/expoRuntimePlanning';
 
 export type { ExpoRuntimeAdapterId, ExpoRuntimeProviderId };
 
@@ -35,22 +41,8 @@ export interface ExpoRuntimePlanningScreen {
   readonly requires?: ScreenRequirements;
 }
 
-export interface ExpoRuntimePermissionRequirement {
-  readonly permission: AnkhoragePermissionName;
-}
-
-export interface ExpoRuntimeCapabilityRequirement {
-  readonly capability: AnkhorageCapabilityName;
-}
-
 export interface ExpoRuntimePlanningManifest {
   readonly screens: Readonly<Record<string, ExpoRuntimePlanningScreen>>;
-}
-
-interface ExpoRuntimeDependency {
-  readonly name: string;
-  readonly version: string;
-  readonly reasons: readonly string[];
 }
 
 export interface ExpoRuntimePlan {
@@ -78,36 +70,14 @@ interface ResolveExpoRuntimePlanOptions {
   readonly permissionSupport?: Readonly<Record<Permission, ExpoPermissionMetadata>>;
 }
 
-interface PlanningState {
-  readonly permissions: Map<AnkhoragePermissionName, ExpoRuntimePermissionRequirement>;
-  readonly impliedPermissions: Map<AnkhoragePermissionName, ExpoRuntimePermissionRequirement>;
-  readonly capabilities: Map<AnkhorageCapabilityName, ExpoRuntimeCapabilityRequirement>;
-  readonly diagnostics: ExpoRuntimeDiagnostic[];
-  readonly dependencies: Map<string, ExpoRuntimeDependency>;
-  readonly pluginOptions: Map<string, Record<string, boolean | string>>;
-  readonly configHints: Set<string>;
-  readonly androidPermissions: Set<string>;
-  readonly providers: Set<ExpoRuntimeProviderId>;
-  readonly runtimeAdapters: Set<ExpoRuntimeAdapterId>;
-}
-
-interface PlanningContext {
-  readonly state: PlanningState;
-  readonly capabilityRegistry: Readonly<
-    Partial<Record<AnkhorageCapabilityName, ExpoRuntimeCapabilityMetadata>>
-  >;
-  readonly dependencyVersions: Readonly<Record<string, string>>;
-  readonly permissionSupport: Readonly<Record<Permission, ExpoPermissionMetadata>>;
-}
-
 const EXPO_RUNTIME_PACKAGE_NAME = '@ankhorage/expo-runtime';
 
 export function resolveExpoRuntimePlan(
   manifest: ExpoRuntimePlanningManifest,
   options: ResolveExpoRuntimePlanOptions = {},
 ): ExpoRuntimePlan {
-  const state = createPlanningState(manifest);
-  const context: PlanningContext = {
+  const state = createExpoRuntimePlanningState(manifest);
+  const context: ExpoRuntimePlanningContext = {
     state,
     capabilityRegistry: options.capabilityRegistry ?? EXPO_CAPABILITY_RUNTIME_REGISTRY,
     dependencyVersions: options.dependencyVersions ?? GENERATED_RUNTIME_DEPENDENCY_VERSIONS,
@@ -122,7 +92,7 @@ export function resolveExpoRuntimePlan(
   return buildPlan(state);
 }
 
-function createPlanningState(manifest: ExpoRuntimePlanningManifest): PlanningState {
+function createExpoRuntimePlanningState(manifest: ExpoRuntimePlanningManifest): ExpoRuntimePlanningState {
   const requirements = collectExpoRuntimeManifestRequirements(manifest.screens);
   return {
     permissions: requirements.permissions,
@@ -138,7 +108,7 @@ function createPlanningState(manifest: ExpoRuntimePlanningManifest): PlanningSta
   };
 }
 
-function addImpliedPermissions(context: PlanningContext): void {
+function addImpliedPermissions(context: ExpoRuntimePlanningContext): void {
   const { state } = context;
   for (const capability of state.capabilities.values()) {
     const metadata = findCapabilityMetadata(context.capabilityRegistry, capability.capability);
@@ -153,14 +123,14 @@ function addImpliedPermissions(context: PlanningContext): void {
   }
 }
 
-function planPermissions(context: PlanningContext): void {
+function planPermissions(context: ExpoRuntimePlanningContext): void {
   for (const requirement of context.state.permissions.values()) {
     planPermission(context, requirement);
   }
 }
 
 function planPermission(
-  context: PlanningContext,
+  context: ExpoRuntimePlanningContext,
   requirement: ExpoRuntimePermissionRequirement,
 ): void {
   if (!isPermission(requirement.permission)) {
@@ -183,7 +153,7 @@ function planPermission(
   metadata.configHints.forEach((hint) => applyConfigHint(context.state, hint));
 }
 
-function planCapabilities(context: PlanningContext): void {
+function planCapabilities(context: ExpoRuntimePlanningContext): void {
   for (const requirement of context.state.capabilities.values()) {
     const metadata = findCapabilityMetadata(context.capabilityRegistry, requirement.capability);
     if (metadata === undefined) {
@@ -201,7 +171,7 @@ function planCapabilities(context: PlanningContext): void {
   }
 }
 
-function applyConfigHint(state: PlanningState, configHint: string): void {
+function applyConfigHint(state: ExpoRuntimePlanningState, configHint: string): void {
   state.configHints.add(configHint);
   const metadata = findConfigHintMetadata(configHint);
   if (metadata === undefined) {
@@ -219,7 +189,7 @@ function applyConfigHint(state: PlanningState, configHint: string): void {
   }
 }
 
-function addDependency(context: PlanningContext, name: string, reason: string): void {
+function addDependency(context: ExpoRuntimePlanningContext, name: string, reason: string): void {
   const version = findDependencyVersion(context.dependencyVersions, name);
   if (version === undefined) {
     context.state.diagnostics.push({
@@ -245,7 +215,7 @@ function addDependency(context: PlanningContext, name: string, reason: string): 
 }
 
 function addProvider(
-  context: PlanningContext,
+  context: ExpoRuntimePlanningContext,
   provider: ExpoRuntimeProviderId,
   reason: string,
 ): void {
@@ -259,12 +229,12 @@ function addProvider(
   addDependency(context, packageName, reason);
 }
 
-function addPlugin(state: PlanningState, plugin: ExpoRuntimeConfigPlugin): void {
+function addPlugin(state: ExpoRuntimePlanningState, plugin: ExpoRuntimeConfigPlugin): void {
   const existingOptions = state.pluginOptions.get(plugin.name) ?? {};
   state.pluginOptions.set(plugin.name, { ...existingOptions, ...(plugin.options ?? {}) });
 }
 
-function buildPlan(state: PlanningState): ExpoRuntimePlan {
+function buildPlan(state: ExpoRuntimePlanningState): ExpoRuntimePlan {
   const plugins = Array.from(state.pluginOptions, ([name, options]) => ({
     name,
     options: Object.keys(options).length > 0 ? options : undefined,
@@ -293,17 +263,6 @@ function buildPlan(state: PlanningState): ExpoRuntimePlan {
     needsPermissionsProvider: state.providers.has('permissions'),
     diagnostics: state.diagnostics,
   };
-}
-
-
-/*** Return whether a canonical serializable requirement set contains one enabled name. */
-function hasRequirement(
-  requirements: Readonly<Partial<Record<string, true>>> | undefined,
-  name: string,
-): boolean {
-  return Object.entries(requirements ?? {}).some(
-    ([candidate, enabled]) => candidate === name && enabled === true,
-  );
 }
 
 function findPermissionSupport(
