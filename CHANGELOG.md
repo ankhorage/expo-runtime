@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 4.0.0
+
+### Major Changes
+
+- 821eff4: Consume Contracts 22.0.2 canonical screen requirement sets while preserving deterministic Expo runtime plan output.
+
 ## 3.2.17
 
 ### Patch Changes
