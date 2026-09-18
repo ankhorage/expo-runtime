@@ -12,7 +12,7 @@ describe('planning entrypoint', () => {
       screens: {
         camera: {
           requires: {
-            permissions: [{ permission: 'camera' }],
+            permissions: { camera: true },
           },
         },
       },
