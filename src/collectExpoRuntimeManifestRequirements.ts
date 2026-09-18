@@ -7,7 +7,10 @@ import {
 } from '@ankhorage/contracts';
 
 interface ExpoRuntimeManifestRequirementSelection {
-  readonly permissions: Map<AnkhoragePermissionName, { readonly permission: AnkhoragePermissionName }>;
+  readonly permissions: Map<
+    AnkhoragePermissionName,
+    { readonly permission: AnkhoragePermissionName }
+  >;
   readonly capabilities: Map<
     AnkhorageCapabilityName,
     { readonly capability: AnkhorageCapabilityName }
