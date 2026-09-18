@@ -92,7 +92,9 @@ export function resolveExpoRuntimePlan(
   return buildPlan(state);
 }
 
-function createExpoRuntimePlanningState(manifest: ExpoRuntimePlanningManifest): ExpoRuntimePlanningState {
+function createExpoRuntimePlanningState(
+  manifest: ExpoRuntimePlanningManifest,
+): ExpoRuntimePlanningState {
   const requirements = collectExpoRuntimeManifestRequirements(manifest.screens);
   return {
     permissions: requirements.permissions,
@@ -113,9 +115,7 @@ function addImpliedPermissions(context: ExpoRuntimePlanningContext): void {
   for (const capability of state.capabilities.values()) {
     const metadata = findCapabilityMetadata(context.capabilityRegistry, capability.capability);
     for (const permission of ANKHORAGE_PERMISSION_NAMES) {
-      const implied = Object.entries(metadata?.impliedPermissions ?? {}).some(
-        ([candidate, enabled]) => candidate === permission && enabled === true,
-      );
+      const implied = Object.hasOwn(metadata?.impliedPermissions ?? {}, permission);
       if (!implied) continue;
       const requirement = { permission };
       if (!state.permissions.has(permission)) {
@@ -289,4 +289,3 @@ function findDependencyVersion(
 function isUnsupported(support: PermissionSupport): boolean {
   return support === 'unsupported' || support === 'notImplemented' || support === 'limited';
 }
-
