@@ -6,7 +6,7 @@ import {
   type ScreenRequirements,
 } from '@ankhorage/contracts';
 
-export interface ExpoRuntimeManifestRequirementSelection {
+interface ExpoRuntimeManifestRequirementSelection {
   readonly permissions: Map<AnkhoragePermissionName, { readonly permission: AnkhoragePermissionName }>;
   readonly capabilities: Map<
     AnkhorageCapabilityName,
