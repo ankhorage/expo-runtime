@@ -48,7 +48,5 @@ function hasRequirement(
   requirements: Readonly<Partial<Record<string, true>>> | undefined,
   name: string,
 ): boolean {
-  return Object.entries(requirements ?? {}).some(
-    ([candidate, enabled]) => candidate === name && enabled === true,
-  );
+  return Object.hasOwn(requirements ?? {}, name);
 }
