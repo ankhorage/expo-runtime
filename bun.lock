@@ -5,7 +5,7 @@
     "": {
       "name": "@ankhorage/expo-runtime",
       "dependencies": {
-        "@ankhorage/contracts": "^22.0.1",
+        "@ankhorage/contracts": "^22.0.2",
       },
       "devDependencies": {
         "@ankhorage/devtools": "^1.14.0",
