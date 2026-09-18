@@ -177,7 +177,7 @@ Source: `src/bundledMediaResolver.ts:3:1`
 
 Kind: `unknown`
 Module: `src/platform.ts`
-Source: `src/platform.ts:99:1`
+Source: `src/platform.ts:100:1`
 
 ## ExpoPlatformPackage
 
@@ -286,19 +286,19 @@ Source: `src/generatedAppOutput.ts:12:1`
 
 Kind: `type`
 Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:50:1`
+Source: `src/resolveExpoRuntimePlan.ts:56:1`
 
 ### Members
 
 | Name                     | Kind     | Type                                                                                                                                                 | Required | Description |
 | ------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| capabilities             | property | `readonly ScreenCapabilityRequirement[]`                                                                                                             | yes      |             |
+| capabilities             | property | `readonly ExpoRuntimeCapabilityRequirement[]`                                                                                                        | yes      |             |
 | dependencies             | property | `readonly ExpoRuntimeDependency[]`                                                                                                                   | yes      |             |
 | diagnostics              | property | `readonly ExpoRuntimeDiagnostic[]`                                                                                                                   | yes      |             |
-| impliedPermissions       | property | `readonly ScreenPermissionRequirement[]`                                                                                                             | yes      |             |
+| impliedPermissions       | property | `readonly ExpoRuntimePermissionRequirement[]`                                                                                                        | yes      |             |
 | nativeConfig             | property | `{ readonly androidPermissions: readonly string[]; readonly configHints: readonly string[]; readonly plugins: readonly ExpoRuntimeConfigPlugin[]; }` | yes      |             |
 | needsPermissionsProvider | property | `boolean`                                                                                                                                            | yes      |             |
-| permissions              | property | `readonly ScreenPermissionRequirement[]`                                                                                                             | yes      |             |
+| permissions              | property | `readonly ExpoRuntimePermissionRequirement[]`                                                                                                        | yes      |             |
 | providers                | property | `readonly "permissions"[]`                                                                                                                           | yes      |             |
 | runtimeAdapters          | property | `readonly ExpoRuntimeAdapterId[]`                                                                                                                    | yes      |             |
 | usesExpoRuntimeRegistry  | property | `boolean`                                                                                                                                            | yes      |             |
@@ -525,7 +525,7 @@ Source: `src/generatedAppOutput.ts:39:1`
 
 Kind: `function`
 Module: `src/resolveExpoRuntimePlan.ts`
-Source: `src/resolveExpoRuntimePlan.ts:99:1`
+Source: `src/resolveExpoRuntimePlan.ts:105:1`
 
 ### Signatures
 

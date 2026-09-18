@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v3.2.10",
+      "value": "v3.2.16",
       "color": "cb3837"
     },
     {
@@ -591,6 +591,8 @@
       "dependencies": ["src/expoRuntimePlanningMetadata.ts"],
       "exports": [
         "ExpoRuntimeAdapterId",
+        "ExpoRuntimeCapabilityRequirement",
+        "ExpoRuntimePermissionRequirement",
         "ExpoRuntimePlan",
         "ExpoRuntimePlanningManifest",
         "ExpoRuntimePlanningScreen",
@@ -1106,7 +1108,7 @@
       "modulePath": "src/platform.ts",
       "sourceLocation": {
         "filePath": "src/platform.ts",
-        "line": 99,
+        "line": 100,
         "column": 1
       },
       "exportPaths": ["src/platform.ts"],
@@ -1407,7 +1409,7 @@
       "modulePath": "src/resolveExpoRuntimePlan.ts",
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 50,
+        "line": 56,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -1417,7 +1419,7 @@
         {
           "name": "capabilities",
           "kind": "property",
-          "type": "readonly ScreenCapabilityRequirement[]",
+          "type": "readonly ExpoRuntimeCapabilityRequirement[]",
           "required": true,
           "description": null
         },
@@ -1438,7 +1440,7 @@
         {
           "name": "impliedPermissions",
           "kind": "property",
-          "type": "readonly ScreenPermissionRequirement[]",
+          "type": "readonly ExpoRuntimePermissionRequirement[]",
           "required": true,
           "description": null
         },
@@ -1459,7 +1461,7 @@
         {
           "name": "permissions",
           "kind": "property",
-          "type": "readonly ScreenPermissionRequirement[]",
+          "type": "readonly ExpoRuntimePermissionRequirement[]",
           "required": true,
           "description": null
         },
@@ -2064,7 +2066,7 @@
       "modulePath": "src/resolveExpoRuntimePlan.ts",
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 99,
+        "line": 105,
         "column": 1
       },
       "exportPaths": ["src/index.ts"],
@@ -3579,7 +3581,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 99,
+        "line": 105,
         "column": 1
       }
     },
@@ -3588,7 +3590,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 119,
+        "line": 125,
         "column": 1
       }
     },
@@ -3597,7 +3599,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 144,
+        "line": 154,
         "column": 1
       }
     },
@@ -3606,7 +3608,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 157,
+        "line": 169,
         "column": 1
       }
     },
@@ -3615,7 +3617,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 163,
+        "line": 175,
         "column": 1
       }
     },
@@ -3624,7 +3626,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 184,
+        "line": 199,
         "column": 1
       }
     },
@@ -3633,7 +3635,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 202,
+        "line": 217,
         "column": 1
       }
     },
@@ -3642,7 +3644,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 220,
+        "line": 235,
         "column": 1
       }
     },
@@ -3651,7 +3653,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 245,
+        "line": 260,
         "column": 1
       }
     },
@@ -3660,7 +3662,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 260,
+        "line": 275,
         "column": 1
       }
     },
@@ -3669,7 +3671,16 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 265,
+        "line": 280,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasRequirement",
+      "description": "Return whether a canonical serializable requirement set contains one enabled name.",
+      "sourceLocation": {
+        "filePath": "src/resolveExpoRuntimePlan.ts",
+        "line": 307,
         "column": 1
       }
     },
@@ -3678,7 +3689,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 290,
+        "line": 316,
         "column": 1
       }
     },
@@ -3687,7 +3698,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 301,
+        "line": 327,
         "column": 1
       }
     },
@@ -3696,7 +3707,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 308,
+        "line": 334,
         "column": 1
       }
     },
@@ -3705,7 +3716,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 312,
+        "line": 338,
         "column": 1
       }
     },
@@ -3714,7 +3725,7 @@
       "description": null,
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
-        "line": 319,
+        "line": 345,
         "column": 1
       }
     }
@@ -4500,9 +4511,21 @@
         "sourcePath": "src/resolveExpoRuntimePlan.ts"
       },
       {
+        "fromSymbol": "createPlanningState",
+        "toSymbol": "hasRequirement",
+        "callExpression": "hasRequirement",
+        "sourcePath": "src/resolveExpoRuntimePlan.ts"
+      },
+      {
         "fromSymbol": "addImpliedPermissions",
         "toSymbol": "findCapabilityMetadata",
         "callExpression": "findCapabilityMetadata",
+        "sourcePath": "src/resolveExpoRuntimePlan.ts"
+      },
+      {
+        "fromSymbol": "addImpliedPermissions",
+        "toSymbol": "hasRequirement",
+        "callExpression": "hasRequirement",
         "sourcePath": "src/resolveExpoRuntimePlan.ts"
       },
       {
@@ -5712,6 +5735,11 @@
       },
       {
         "fromSymbol": "ExpoRuntimePlan",
+        "toType": "ExpoRuntimeCapabilityRequirement",
+        "sourcePath": "src/resolveExpoRuntimePlan.ts"
+      },
+      {
+        "fromSymbol": "ExpoRuntimePlan",
         "toType": "ExpoRuntimeConfigPlugin",
         "sourcePath": "src/resolveExpoRuntimePlan.ts"
       },
@@ -5727,12 +5755,7 @@
       },
       {
         "fromSymbol": "ExpoRuntimePlan",
-        "toType": "ScreenCapabilityRequirement",
-        "sourcePath": "src/resolveExpoRuntimePlan.ts"
-      },
-      {
-        "fromSymbol": "ExpoRuntimePlan",
-        "toType": "ScreenPermissionRequirement",
+        "toType": "ExpoRuntimePermissionRequirement",
         "sourcePath": "src/resolveExpoRuntimePlan.ts"
       },
       {

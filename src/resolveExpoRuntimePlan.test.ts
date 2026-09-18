@@ -11,7 +11,7 @@ describe('resolveExpoRuntimePlan permissions', () => {
     const manifest: ExpoRuntimePlanningManifest = {
       screens: {
         home: {
-          requires: { permissions: [{ permission: 'camera' }] },
+          requires: { permissions: { camera: true } },
         },
       },
     };
@@ -21,7 +21,7 @@ describe('resolveExpoRuntimePlan permissions', () => {
 
   test('resolves camera permission through Expo permission metadata', () => {
     const plan = resolveExpoRuntimePlan(
-      withFirstScreenRequirements({ permissions: [{ permission: 'camera' }] }),
+      withFirstScreenRequirements({ permissions: { camera: true } }),
     );
 
     expect(plan.dependencies.map((dependency) => dependency.name)).toEqual([
@@ -53,7 +53,7 @@ describe('resolveExpoRuntimePlan permissions', () => {
 describe('resolveExpoRuntimePlan barcode capability', () => {
   test('resolves barcodeScanner capability with implied camera permission and adapter wiring', () => {
     const plan = resolveExpoRuntimePlan(
-      withFirstScreenRequirements({ capabilities: [{ capability: 'barcodeScanner' }] }),
+      withFirstScreenRequirements({ capabilities: { barcodeScanner: true } }),
     );
 
     expect(plan.impliedPermissions).toEqual([{ permission: 'camera' }]);
@@ -80,8 +80,8 @@ describe('resolveExpoRuntimePlan barcode capability', () => {
   test('lets barcodeScanner capability override camera-only scanner disabling', () => {
     const plan = resolveExpoRuntimePlan(
       withFirstScreenRequirements({
-        capabilities: [{ capability: 'barcodeScanner' }],
-        permissions: [{ permission: 'camera' }],
+        capabilities: { barcodeScanner: true },
+        permissions: { camera: true },
       }),
     );
 
@@ -100,7 +100,7 @@ describe('resolveExpoRuntimePlan barcode capability', () => {
 describe('resolveExpoRuntimePlan ebook reader capability', () => {
   test('selects the reader adapter and exact renderer packages without permissions', () => {
     const plan = resolveExpoRuntimePlan(
-      withFirstScreenRequirements({ capabilities: [{ capability: 'ebookReader' }] }),
+      withFirstScreenRequirements({ capabilities: { ebookReader: true } }),
     );
 
     expect(plan.permissions).toEqual([]);
@@ -136,7 +136,7 @@ describe('resolveExpoRuntimePlan ebook reader capability', () => {
 describe('resolveExpoRuntimePlan Expo 57 plugin coverage', () => {
   test('keeps microphone-only native configuration free of background audio behavior', () => {
     const plan = resolveExpoRuntimePlan(
-      withFirstScreenRequirements({ permissions: [{ permission: 'microphone' }] }),
+      withFirstScreenRequirements({ permissions: { microphone: true } }),
     );
 
     expect(plan.nativeConfig.plugins).toEqual([
@@ -160,14 +160,14 @@ describe('resolveExpoRuntimePlan Expo 57 plugin coverage', () => {
   test('translates every supported permission into current Expo 57 packages and plugins', () => {
     const plan = resolveExpoRuntimePlan(
       withFirstScreenRequirements({
-        permissions: [
-          { permission: 'microphone' },
-          { permission: 'mediaLibrary' },
-          { permission: 'mediaLibraryWrite' },
-          { permission: 'locationForeground' },
-          { permission: 'locationBackground' },
-          { permission: 'notifications' },
-        ],
+        permissions: {
+          microphone: true,
+          mediaLibrary: true,
+          mediaLibraryWrite: true,
+          locationForeground: true,
+          locationBackground: true,
+          notifications: true,
+        },
       }),
     );
 
@@ -184,8 +184,8 @@ describe('resolveExpoRuntimePlan diagnostics and deduplication', () => {
   test('dedupes repeated permission and capability requirements', () => {
     const plan = resolveExpoRuntimePlan(
       withAllScreenRequirements({
-        capabilities: [{ capability: 'barcodeScanner' }],
-        permissions: [{ permission: 'camera' }],
+        capabilities: { barcodeScanner: true },
+        permissions: { camera: true },
       }),
     );
 
@@ -200,7 +200,7 @@ describe('resolveExpoRuntimePlan diagnostics and deduplication', () => {
 
   test('surfaces unsupported permission support explicitly', () => {
     const plan = resolveExpoRuntimePlan(
-      withFirstScreenRequirements({ permissions: [{ permission: 'camera' }] }),
+      withFirstScreenRequirements({ permissions: { camera: true } }),
       {
         permissionSupport: {
           ...EXPO_PERMISSION_SUPPORT,
@@ -227,7 +227,7 @@ describe('resolveExpoRuntimePlan diagnostics and deduplication', () => {
 describe('resolveExpoRuntimePlan platform-neutral permissions', () => {
   test('does not add runtime packages or providers for clipboard permissions', () => {
     const plan = resolveExpoRuntimePlan(
-      withFirstScreenRequirements({ permissions: [{ permission: 'clipboard' }] }),
+      withFirstScreenRequirements({ permissions: { clipboard: true } }),
     );
 
     expect(plan.dependencies).toEqual([]);

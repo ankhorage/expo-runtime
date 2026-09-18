@@ -503,7 +503,7 @@
             <li>
               <button class="nav-button" type="button" data-target="src/resolveExpoRuntimePlan.ts">
                 src/resolveExpoRuntimePlan.ts
-                <small>16 functions</small>
+                <small>17 functions</small>
               </button>
             </li>
           </ul>
@@ -1208,16 +1208,17 @@
             </article>
             <article
               class="item"
-              data-search="src/resolveExpoRuntimePlan.ts src/expoRuntimePlanningMetadata.ts ExpoRuntimeAdapterId ExpoRuntimePlan ExpoRuntimePlanningManifest ExpoRuntimePlanningScreen ExpoRuntimeProviderId resolveExpoRuntimePlan"
+              data-search="src/resolveExpoRuntimePlan.ts src/expoRuntimePlanningMetadata.ts ExpoRuntimeAdapterId ExpoRuntimeCapabilityRequirement ExpoRuntimePermissionRequirement ExpoRuntimePlan ExpoRuntimePlanningManifest ExpoRuntimePlanningScreen ExpoRuntimeProviderId resolveExpoRuntimePlan"
             >
               <h3>src/resolveExpoRuntimePlan.ts</h3>
               <p class="muted">Referenced module</p>
               <p><strong>Dependencies:</strong> <code>src/expoRuntimePlanningMetadata.ts</code></p>
               <p>
                 <strong>Exports:</strong> <code>ExpoRuntimeAdapterId</code>,
-                <code>ExpoRuntimePlan</code>, <code>ExpoRuntimePlanningManifest</code>,
-                <code>ExpoRuntimePlanningScreen</code>, <code>ExpoRuntimeProviderId</code>,
-                <code>resolveExpoRuntimePlan</code>
+                <code>ExpoRuntimeCapabilityRequirement</code>,
+                <code>ExpoRuntimePermissionRequirement</code>, <code>ExpoRuntimePlan</code>,
+                <code>ExpoRuntimePlanningManifest</code>, <code>ExpoRuntimePlanningScreen</code>,
+                <code>ExpoRuntimeProviderId</code>, <code>resolveExpoRuntimePlan</code>
               </p>
             </article>
           </section>
@@ -2768,7 +2769,7 @@
                 data-search="ExpoPlatform unknown src/platform.ts "
               >
                 <h4>ExpoPlatform</h4>
-                <p class="muted">unknown • <code>src/platform.ts:99:1</code></p>
+                <p class="muted">unknown • <code>src/platform.ts:100:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/platform.ts</code></p>
                 <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
@@ -2860,7 +2861,7 @@
                 data-search="ExpoRuntimePlan type src/resolveExpoRuntimePlan.ts  ExpoRuntimeAdapterId"
               >
                 <h4>ExpoRuntimePlan</h4>
-                <p class="muted">type • <code>src/resolveExpoRuntimePlan.ts:50:1</code></p>
+                <p class="muted">type • <code>src/resolveExpoRuntimePlan.ts:56:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -2884,7 +2885,7 @@
                     <tr>
                       <td><code>capabilities</code></td>
                       <td>property</td>
-                      <td><code>readonly ScreenCapabilityRequirement[]</code></td>
+                      <td><code>readonly ExpoRuntimeCapabilityRequirement[]</code></td>
                       <td>yes</td>
                       <td></td>
                     </tr>
@@ -2905,7 +2906,7 @@
                     <tr>
                       <td><code>impliedPermissions</code></td>
                       <td>property</td>
-                      <td><code>readonly ScreenPermissionRequirement[]</code></td>
+                      <td><code>readonly ExpoRuntimePermissionRequirement[]</code></td>
                       <td>yes</td>
                       <td></td>
                     </tr>
@@ -2932,7 +2933,7 @@
                     <tr>
                       <td><code>permissions</code></td>
                       <td>property</td>
-                      <td><code>readonly ScreenPermissionRequirement[]</code></td>
+                      <td><code>readonly ExpoRuntimePermissionRequirement[]</code></td>
                       <td>yes</td>
                       <td></td>
                     </tr>
@@ -2966,7 +2967,7 @@
                 data-search="resolveExpoRuntimePlan function src/resolveExpoRuntimePlan.ts  ExpoRuntimePlan (manifest: ExpoRuntimePlanningManifest, options?: ResolveExpoRuntimePlanOptions) =&gt; ExpoRuntimePlan"
               >
                 <h4>resolveExpoRuntimePlan</h4>
-                <p class="muted">function • <code>src/resolveExpoRuntimePlan.ts:99:1</code></p>
+                <p class="muted">function • <code>src/resolveExpoRuntimePlan.ts:105:1</code></p>
 
                 <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
                 <div>
@@ -5900,12 +5901,12 @@ sequenceDiagram
               data-search="resolveExpoRuntimePlan src/resolveExpoRuntimePlan.ts "
             >
               <h3>resolveExpoRuntimePlan</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:99:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:105:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="createPlanningState src/resolveExpoRuntimePlan.ts ">
               <h3>createPlanningState</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:119:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:125:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article
@@ -5913,55 +5914,65 @@ sequenceDiagram
               data-search="addImpliedPermissions src/resolveExpoRuntimePlan.ts "
             >
               <h3>addImpliedPermissions</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:144:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:154:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="planPermissions src/resolveExpoRuntimePlan.ts ">
               <h3>planPermissions</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:157:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:169:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="planPermission src/resolveExpoRuntimePlan.ts ">
               <h3>planPermission</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:163:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:175:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="planCapabilities src/resolveExpoRuntimePlan.ts ">
               <h3>planCapabilities</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:184:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:199:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="applyConfigHint src/resolveExpoRuntimePlan.ts ">
               <h3>applyConfigHint</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:202:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:217:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="addDependency src/resolveExpoRuntimePlan.ts ">
               <h3>addDependency</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:220:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:235:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="addProvider src/resolveExpoRuntimePlan.ts ">
               <h3>addProvider</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:245:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:260:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="addPlugin src/resolveExpoRuntimePlan.ts ">
               <h3>addPlugin</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:260:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:275:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="buildPlan src/resolveExpoRuntimePlan.ts ">
               <h3>buildPlan</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:265:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:280:1</code></p>
               <p class="empty">No description available.</p>
+            </article>
+            <article
+              class="item"
+              data-search="hasRequirement src/resolveExpoRuntimePlan.ts Return whether a canonical serializable requirement set contains one enabled name."
+            >
+              <h3>hasRequirement</h3>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:307:1</code></p>
+              <p>
+                Return whether a canonical serializable requirement set contains one enabled name.
+              </p>
             </article>
             <article
               class="item"
               data-search="findPermissionSupport src/resolveExpoRuntimePlan.ts "
             >
               <h3>findPermissionSupport</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:290:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:316:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article
@@ -5969,22 +5980,22 @@ sequenceDiagram
               data-search="findDependencyVersion src/resolveExpoRuntimePlan.ts "
             >
               <h3>findDependencyVersion</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:301:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:327:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="isUnsupported src/resolveExpoRuntimePlan.ts ">
               <h3>isUnsupported</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:308:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:334:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="compareCapabilities src/resolveExpoRuntimePlan.ts ">
               <h3>compareCapabilities</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:312:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:338:1</code></p>
               <p class="empty">No description available.</p>
             </article>
             <article class="item" data-search="comparePermissions src/resolveExpoRuntimePlan.ts ">
               <h3>comparePermissions</h3>
-              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:319:1</code></p>
+              <p class="muted"><code>src/resolveExpoRuntimePlan.ts:345:1</code></p>
               <p class="empty">No description available.</p>
             </article>
           </section>

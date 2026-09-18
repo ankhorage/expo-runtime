@@ -1,7 +1,7 @@
-import type {
-  AnkhorageCapabilityName,
-  ScreenCapabilityRequirement,
-  ScreenPermissionRequirement,
+import {
+  ANKHORAGE_PERMISSION_NAMES,
+  type AnkhorageCapabilityName,
+  type ScreenRequirements,
 } from '@ankhorage/contracts';
 import {
   EXPO_PERMISSION_SUPPORT,
@@ -10,6 +10,7 @@ import {
 } from '@ankhorage/permissions/expo/manifest';
 import { isPermission, type Permission } from '@ankhorage/permissions/registry';
 
+import { collectExpoRuntimeManifestRequirements } from './collectExpoRuntimeManifestRequirements';
 import {
   EXPO_CAPABILITY_RUNTIME_REGISTRY,
   EXPO_RUNTIME_PACKAGE_PEERS,
@@ -26,30 +27,28 @@ import {
   unknownPermissionDiagnostic,
   unsupportedPermissionDiagnostic,
 } from './expoRuntimePlanningMetadata';
+import type {
+  ExpoRuntimeCapabilityRequirement,
+  ExpoRuntimeDependency,
+  ExpoRuntimePermissionRequirement,
+  ExpoRuntimePlanningContext,
+  ExpoRuntimePlanningState,
+} from './types/expoRuntimePlanning';
 
 export type { ExpoRuntimeAdapterId, ExpoRuntimeProviderId };
 
 export interface ExpoRuntimePlanningScreen {
-  readonly requires?: {
-    readonly capabilities?: readonly ScreenCapabilityRequirement[];
-    readonly permissions?: readonly ScreenPermissionRequirement[];
-  };
+  readonly requires?: ScreenRequirements;
 }
 
 export interface ExpoRuntimePlanningManifest {
   readonly screens: Readonly<Record<string, ExpoRuntimePlanningScreen>>;
 }
 
-interface ExpoRuntimeDependency {
-  readonly name: string;
-  readonly version: string;
-  readonly reasons: readonly string[];
-}
-
 export interface ExpoRuntimePlan {
-  readonly permissions: readonly ScreenPermissionRequirement[];
-  readonly capabilities: readonly ScreenCapabilityRequirement[];
-  readonly impliedPermissions: readonly ScreenPermissionRequirement[];
+  readonly permissions: readonly ExpoRuntimePermissionRequirement[];
+  readonly capabilities: readonly ExpoRuntimeCapabilityRequirement[];
+  readonly impliedPermissions: readonly ExpoRuntimePermissionRequirement[];
   readonly dependencies: readonly ExpoRuntimeDependency[];
   readonly nativeConfig: {
     readonly androidPermissions: readonly string[];
@@ -71,36 +70,14 @@ interface ResolveExpoRuntimePlanOptions {
   readonly permissionSupport?: Readonly<Record<Permission, ExpoPermissionMetadata>>;
 }
 
-interface PlanningState {
-  readonly permissions: Map<string, ScreenPermissionRequirement>;
-  readonly impliedPermissions: Map<string, ScreenPermissionRequirement>;
-  readonly capabilities: Map<string, ScreenCapabilityRequirement>;
-  readonly diagnostics: ExpoRuntimeDiagnostic[];
-  readonly dependencies: Map<string, ExpoRuntimeDependency>;
-  readonly pluginOptions: Map<string, Record<string, boolean | string>>;
-  readonly configHints: Set<string>;
-  readonly androidPermissions: Set<string>;
-  readonly providers: Set<ExpoRuntimeProviderId>;
-  readonly runtimeAdapters: Set<ExpoRuntimeAdapterId>;
-}
-
-interface PlanningContext {
-  readonly state: PlanningState;
-  readonly capabilityRegistry: Readonly<
-    Partial<Record<AnkhorageCapabilityName, ExpoRuntimeCapabilityMetadata>>
-  >;
-  readonly dependencyVersions: Readonly<Record<string, string>>;
-  readonly permissionSupport: Readonly<Record<Permission, ExpoPermissionMetadata>>;
-}
-
 const EXPO_RUNTIME_PACKAGE_NAME = '@ankhorage/expo-runtime';
 
 export function resolveExpoRuntimePlan(
   manifest: ExpoRuntimePlanningManifest,
   options: ResolveExpoRuntimePlanOptions = {},
 ): ExpoRuntimePlan {
-  const state = createPlanningState(manifest);
-  const context: PlanningContext = {
+  const state = createExpoRuntimePlanningState(manifest);
+  const context: ExpoRuntimePlanningContext = {
     state,
     capabilityRegistry: options.capabilityRegistry ?? EXPO_CAPABILITY_RUNTIME_REGISTRY,
     dependencyVersions: options.dependencyVersions ?? GENERATED_RUNTIME_DEPENDENCY_VERSIONS,
@@ -115,20 +92,13 @@ export function resolveExpoRuntimePlan(
   return buildPlan(state);
 }
 
-function createPlanningState(manifest: ExpoRuntimePlanningManifest): PlanningState {
-  const permissions = new Map<string, ScreenPermissionRequirement>();
-  const capabilities = new Map<string, ScreenCapabilityRequirement>();
-  for (const screen of Object.values(manifest.screens)) {
-    for (const requirement of screen.requires?.permissions ?? []) {
-      permissions.set(requirement.permission, requirement);
-    }
-    for (const requirement of screen.requires?.capabilities ?? []) {
-      capabilities.set(requirement.capability, requirement);
-    }
-  }
+function createExpoRuntimePlanningState(
+  manifest: ExpoRuntimePlanningManifest,
+): ExpoRuntimePlanningState {
+  const requirements = collectExpoRuntimeManifestRequirements(manifest.screens);
   return {
-    permissions,
-    capabilities,
+    permissions: requirements.permissions,
+    capabilities: requirements.capabilities,
     impliedPermissions: new Map(),
     diagnostics: [],
     dependencies: new Map(),
@@ -140,26 +110,32 @@ function createPlanningState(manifest: ExpoRuntimePlanningManifest): PlanningSta
   };
 }
 
-function addImpliedPermissions(context: PlanningContext): void {
+function addImpliedPermissions(context: ExpoRuntimePlanningContext): void {
   const { state } = context;
   for (const capability of state.capabilities.values()) {
-    const metadata = findCapabilityMetadata(context.capabilityRegistry, capability);
-    for (const permission of metadata?.impliedPermissions ?? []) {
-      if (!state.permissions.has(permission.permission)) {
-        state.permissions.set(permission.permission, permission);
-        state.impliedPermissions.set(permission.permission, permission);
+    const metadata = findCapabilityMetadata(context.capabilityRegistry, capability.capability);
+    for (const permission of ANKHORAGE_PERMISSION_NAMES) {
+      const implied = Object.hasOwn(metadata?.impliedPermissions ?? {}, permission);
+      if (!implied) continue;
+      const requirement = { permission };
+      if (!state.permissions.has(permission)) {
+        state.permissions.set(permission, requirement);
+        state.impliedPermissions.set(permission, requirement);
       }
     }
   }
 }
 
-function planPermissions(context: PlanningContext): void {
+function planPermissions(context: ExpoRuntimePlanningContext): void {
   for (const requirement of context.state.permissions.values()) {
     planPermission(context, requirement);
   }
 }
 
-function planPermission(context: PlanningContext, requirement: ScreenPermissionRequirement): void {
+function planPermission(
+  context: ExpoRuntimePlanningContext,
+  requirement: ExpoRuntimePermissionRequirement,
+): void {
   if (!isPermission(requirement.permission)) {
     context.state.diagnostics.push(unknownPermissionDiagnostic(requirement.permission));
     return;
@@ -180,9 +156,9 @@ function planPermission(context: PlanningContext, requirement: ScreenPermissionR
   metadata.configHints.forEach((hint) => applyConfigHint(context.state, hint));
 }
 
-function planCapabilities(context: PlanningContext): void {
+function planCapabilities(context: ExpoRuntimePlanningContext): void {
   for (const requirement of context.state.capabilities.values()) {
-    const metadata = findCapabilityMetadata(context.capabilityRegistry, requirement);
+    const metadata = findCapabilityMetadata(context.capabilityRegistry, requirement.capability);
     if (metadata === undefined) {
       context.state.diagnostics.push(unknownCapabilityDiagnostic(requirement.capability));
       continue;
@@ -198,7 +174,7 @@ function planCapabilities(context: PlanningContext): void {
   }
 }
 
-function applyConfigHint(state: PlanningState, configHint: string): void {
+function applyConfigHint(state: ExpoRuntimePlanningState, configHint: string): void {
   state.configHints.add(configHint);
   const metadata = findConfigHintMetadata(configHint);
   if (metadata === undefined) {
@@ -216,7 +192,7 @@ function applyConfigHint(state: PlanningState, configHint: string): void {
   }
 }
 
-function addDependency(context: PlanningContext, name: string, reason: string): void {
+function addDependency(context: ExpoRuntimePlanningContext, name: string, reason: string): void {
   const version = findDependencyVersion(context.dependencyVersions, name);
   if (version === undefined) {
     context.state.diagnostics.push({
@@ -242,7 +218,7 @@ function addDependency(context: PlanningContext, name: string, reason: string): 
 }
 
 function addProvider(
-  context: PlanningContext,
+  context: ExpoRuntimePlanningContext,
   provider: ExpoRuntimeProviderId,
   reason: string,
 ): void {
@@ -256,20 +232,26 @@ function addProvider(
   addDependency(context, packageName, reason);
 }
 
-function addPlugin(state: PlanningState, plugin: ExpoRuntimeConfigPlugin): void {
+function addPlugin(state: ExpoRuntimePlanningState, plugin: ExpoRuntimeConfigPlugin): void {
   const existingOptions = state.pluginOptions.get(plugin.name) ?? {};
   state.pluginOptions.set(plugin.name, { ...existingOptions, ...(plugin.options ?? {}) });
 }
 
-function buildPlan(state: PlanningState): ExpoRuntimePlan {
+function buildPlan(state: ExpoRuntimePlanningState): ExpoRuntimePlan {
   const plugins = Array.from(state.pluginOptions, ([name, options]) => ({
     name,
     options: Object.keys(options).length > 0 ? options : undefined,
   })).sort((left, right) => left.name.localeCompare(right.name));
   return {
-    permissions: Array.from(state.permissions.values()).sort(comparePermissions),
-    capabilities: Array.from(state.capabilities.values()).sort(compareCapabilities),
-    impliedPermissions: Array.from(state.impliedPermissions.values()).sort(comparePermissions),
+    permissions: Array.from(state.permissions.values()).sort((left, right) =>
+      left.permission.localeCompare(right.permission),
+    ),
+    capabilities: Array.from(state.capabilities.values()).sort((left, right) =>
+      left.capability.localeCompare(right.capability),
+    ),
+    impliedPermissions: Array.from(state.impliedPermissions.values()).sort((left, right) =>
+      left.permission.localeCompare(right.permission),
+    ),
     dependencies: Array.from(state.dependencies.values()).sort((left, right) =>
       left.name.localeCompare(right.name),
     ),
@@ -306,18 +288,4 @@ function findDependencyVersion(
 
 function isUnsupported(support: PermissionSupport): boolean {
   return support === 'unsupported' || support === 'notImplemented' || support === 'limited';
-}
-
-function compareCapabilities(
-  left: ScreenCapabilityRequirement,
-  right: ScreenCapabilityRequirement,
-): number {
-  return left.capability.localeCompare(right.capability);
-}
-
-function comparePermissions(
-  left: ScreenPermissionRequirement,
-  right: ScreenPermissionRequirement,
-): number {
-  return left.permission.localeCompare(right.permission);
 }
