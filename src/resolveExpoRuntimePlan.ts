@@ -113,7 +113,10 @@ function addImpliedPermissions(context: ExpoRuntimePlanningContext): void {
   for (const capability of state.capabilities.values()) {
     const metadata = findCapabilityMetadata(context.capabilityRegistry, capability.capability);
     for (const permission of ANKHORAGE_PERMISSION_NAMES) {
-      if (!hasRequirement(metadata?.impliedPermissions, permission)) continue;
+      const implied = Object.entries(metadata?.impliedPermissions ?? {}).some(
+        ([candidate, enabled]) => candidate === permission && enabled === true,
+      );
+      if (!implied) continue;
       const requirement = { permission };
       if (!state.permissions.has(permission)) {
         state.permissions.set(permission, requirement);
