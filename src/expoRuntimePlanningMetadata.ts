@@ -1,7 +1,7 @@
 import type {
   AnkhorageCapabilityName,
-  ScreenCapabilityRequirement,
-  ScreenPermissionRequirement,
+  AnkhoragePermissionName,
+  SerializableSet,
 } from '@ankhorage/contracts';
 import type { PermissionSupport } from '@ankhorage/permissions/expo/manifest';
 
@@ -24,7 +24,7 @@ export interface ExpoRuntimeDiagnostic {
 }
 
 export interface ExpoRuntimeCapabilityMetadata {
-  readonly impliedPermissions?: readonly ScreenPermissionRequirement[];
+  readonly impliedPermissions?: SerializableSet<AnkhoragePermissionName>;
   readonly requiredPackages?: readonly string[];
   readonly providers?: readonly ExpoRuntimeProviderId[];
   readonly runtimeAdapters?: readonly ExpoRuntimeAdapterId[];
@@ -136,7 +136,7 @@ const EXPO_RUNTIME_CONFIG_HINTS = {
 
 export const EXPO_CAPABILITY_RUNTIME_REGISTRY = {
   barcodeScanner: {
-    impliedPermissions: [{ permission: 'camera' }],
+    impliedPermissions: { camera: true },
     requiredPackages: [EXPO_PLATFORM.packages.camera.name],
     providers: ['permissions'],
     runtimeAdapters: ['ExpoBarcodeScannerAdapter'],
@@ -162,9 +162,9 @@ export const EXPO_CAPABILITY_RUNTIME_REGISTRY = {
 
 export function findCapabilityMetadata(
   registry: Readonly<Partial<Record<AnkhorageCapabilityName, ExpoRuntimeCapabilityMetadata>>>,
-  requirement: ScreenCapabilityRequirement,
+  capability: AnkhorageCapabilityName,
 ): ExpoRuntimeCapabilityMetadata | undefined {
-  return Object.entries(registry).find(([name]) => name === requirement.capability)?.[1];
+  return Object.entries(registry).find(([name]) => name === capability)?.[1];
 }
 
 export function findConfigHintMetadata(configHint: string): ExpoRuntimeHintMetadata | undefined {
