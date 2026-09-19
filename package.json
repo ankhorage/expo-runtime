@@ -232,7 +232,7 @@
     }
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^1.14.0",
+    "@ankhorage/devtools": "^1.17.2",
     "@ankhorage/paradox": "^0.1.26",
     "@ankhorage/permissions": "^0.2.5",
     "@ankhorage/zora": "^4.5.0",
