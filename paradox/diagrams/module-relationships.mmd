@@ -5,6 +5,7 @@ graph LR
   module_src_bundledMedia_index_ts["src/bundledMedia/index.ts"]
   module_src_bundledMediaRegistrySource_ts["src/bundledMediaRegistrySource.ts"]
   module_src_bundledMediaResolver_ts["src/bundledMediaResolver.ts"]
+  module_src_collectExpoRuntimeManifestRequirements_ts["src/collectExpoRuntimeManifestRequirements.ts"]
   module_src_componentRegistry_ts["src/componentRegistry.ts"]
   module_src_createExpoRuntimeRegistry_tsx["src/createExpoRuntimeRegistry.tsx"]
   module_src_expoActionBridge_ts["src/expoActionBridge.ts"]
@@ -50,6 +51,7 @@ graph LR
   module_src_reader_types_ts["src/reader/types.ts"]
   module_src_reader_validateEpubArchiveEntriesAsync_ts["src/reader/validateEpubArchiveEntriesAsync.ts"]
   module_src_resolveExpoRuntimePlan_ts["src/resolveExpoRuntimePlan.ts"]
+  module_src_types_expoRuntimePlanning_ts["src/types/expoRuntimePlanning.ts"]
   module_src_createExpoRuntimeRegistry_tsx --> module_src_componentRegistry_ts
   module_src_createExpoRuntimeRegistry_tsx --> module_src_ExpoBarcodeScannerAdapter_tsx
   module_src_createExpoRuntimeRegistry_tsx --> module_src_reader_ExpoReaderSurfaceAdapter_tsx
@@ -97,4 +99,7 @@ graph LR
   module_src_reader_ReaderViewport_tsx --> module_src_reader_readerViewportPresentation_ts
   module_src_reader_ReaderViewport_tsx --> module_src_reader_types_ts
   module_src_reader_readerViewportPresentation_ts --> module_src_reader_types_ts
+  module_src_resolveExpoRuntimePlan_ts --> module_src_collectExpoRuntimeManifestRequirements_ts
   module_src_resolveExpoRuntimePlan_ts --> module_src_expoRuntimePlanningMetadata_ts
+  module_src_resolveExpoRuntimePlan_ts --> module_src_types_expoRuntimePlanning_ts
+  module_src_types_expoRuntimePlanning_ts --> module_src_expoRuntimePlanningMetadata_ts

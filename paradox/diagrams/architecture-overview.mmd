@@ -16,6 +16,8 @@ graph TD
   package__ankhorage_expo_runtime -.-> module_src_bundledMediaRegistrySource_ts
   module_src_bundledMediaResolver_ts["src/bundledMediaResolver.ts"]
   package__ankhorage_expo_runtime -.-> module_src_bundledMediaResolver_ts
+  module_src_collectExpoRuntimeManifestRequirements_ts["src/collectExpoRuntimeManifestRequirements.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_collectExpoRuntimeManifestRequirements_ts
   module_src_componentRegistry_ts["src/componentRegistry.ts"]
   package__ankhorage_expo_runtime -.-> module_src_componentRegistry_ts
   module_src_createExpoRuntimeRegistry_tsx["src/createExpoRuntimeRegistry.tsx"]
@@ -151,4 +153,9 @@ graph TD
   package__ankhorage_expo_runtime -.-> module_src_reader_validateEpubArchiveEntriesAsync_ts
   module_src_resolveExpoRuntimePlan_ts["src/resolveExpoRuntimePlan.ts"]
   package__ankhorage_expo_runtime -.-> module_src_resolveExpoRuntimePlan_ts
+  module_src_resolveExpoRuntimePlan_ts --> module_src_collectExpoRuntimeManifestRequirements_ts
   module_src_resolveExpoRuntimePlan_ts --> module_src_expoRuntimePlanningMetadata_ts
+  module_src_resolveExpoRuntimePlan_ts --> module_src_types_expoRuntimePlanning_ts
+  module_src_types_expoRuntimePlanning_ts["src/types/expoRuntimePlanning.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_types_expoRuntimePlanning_ts
+  module_src_types_expoRuntimePlanning_ts --> module_src_expoRuntimePlanningMetadata_ts
