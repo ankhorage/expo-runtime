@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 4.0.5
+
+### Patch Changes
+
+- 2b71c56: Update Ankhorage dependencies: `@ankhorage/contracts`.
+
 ## 4.0.4
 
 ### Patch Changes
