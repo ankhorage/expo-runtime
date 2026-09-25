@@ -1,5 +1,12 @@
 # @ankhorage/expo-runtime
 
+## 4.0.7
+
+### Patch Changes
+
+- 8eeac36: Align the canonical Expo SDK 57 platform contract with the current Expo, Router, Linking, Metro Runtime, and Constants patches.
+- 858500a: Update Ankhorage dependencies: `@ankhorage/contracts`, `@ankhorage/paradox`.
+
 ## 4.0.6
 
 ### Patch Changes

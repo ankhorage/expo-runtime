@@ -3,9 +3,73 @@
 
 # EXPO-RUNTIME
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v4.0.6](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![docs: paradox](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v4.0.7](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: warnings](././paradox/badges/docs.svg)
 
 Declarative runtime integration for Expo apps: maps app capabilities to permissions, packages, config plugins, providers, and adapters
+
+## Usage
+
+### CLI
+
+Ankhorage packages expose their command-line interface through `ankh`. Use `ankh --help` to discover available package commands, or run a package command with `--help` for package-specific usage.
+
+```zsh
+# Install the Ankhorage CLI
+bun add --global @ankhorage/ankh
+
+# Show usage information for expo-runtime
+ankh expo-runtime --help
+```
+
+### Basic Usage
+
+Derive the Expo packages, providers, config plugins, and runtime adapters required by an app
+directly from its declared screen requirements. The planner keeps Expo-specific implementation
+details out of the manifest while preserving one deterministic owner-derived runtime plan.
+
+This example requests barcode scanning on one screen. Expo Runtime automatically includes the
+implied camera permission, Expo Camera dependency, permissions provider, and barcode adapter.
+
+```ts
+export function createBasicExpoRuntimePlan() {
+  return resolveExpoRuntimePlan({
+    screens: {
+      scanner: {
+        requires: {
+          capabilities: {
+            barcodeScanner: true,
+          },
+        },
+      },
+    },
+  });
+}
+```
+
+## Configuration
+
+### Example
+
+```ts
+import { defineParadoxConfig } from '@ankhorage/paradox';
+
+export default defineParadoxConfig({
+  mode: 'write',
+
+  docs: {
+    title: 'EXPO-RUNTIME',
+  },
+
+  package: {
+    root: '.',
+    entrypoints: ['src/index.ts', 'src/platform.ts'],
+  },
+
+  output: {
+    dir: './paradox',
+  },
+});
+```
 
 ## Generated documentation
 

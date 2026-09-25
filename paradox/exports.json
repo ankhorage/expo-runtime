@@ -1,9 +1,11 @@
 [
   {
     "name": "BARCODE_SCAN_DEDUPE_WINDOW_MS",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "value",
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
@@ -21,9 +23,11 @@
   },
   {
     "name": "BARCODE_SCANNER_TYPES",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "value",
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
@@ -41,9 +45,11 @@
   },
   {
     "name": "BarcodeScanRecord",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
@@ -83,9 +89,11 @@
   },
   {
     "name": "ComponentRegistry",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/componentRegistry.ts",
     "sourceLocation": {
@@ -103,9 +111,11 @@
   },
   {
     "name": "createComponentRegistry",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/componentRegistry.ts",
     "sourceLocation": {
@@ -139,9 +149,11 @@
   },
   {
     "name": "createExpoBundledMediaResolver",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/bundledMediaResolver.ts",
     "sourceLocation": {
@@ -176,9 +188,11 @@
   },
   {
     "name": "createExpoRuntimeRegistry",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/createExpoRuntimeRegistry.tsx",
     "sourceLocation": {
@@ -212,9 +226,11 @@
   },
   {
     "name": "executeExpoRuntimeAction",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/expoActionBridge.ts",
     "sourceLocation": {
@@ -248,9 +264,11 @@
   },
   {
     "name": "ExecuteExpoRuntimeActionArgs",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/expoActionBridge.ts",
     "sourceLocation": {
@@ -329,9 +347,11 @@
   },
   {
     "name": "EXPO_PLATFORM",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "value",
     "modulePath": "src/platform.ts",
     "sourceLocation": {
@@ -349,9 +369,11 @@
   },
   {
     "name": "ExpoBarcodeScannerAdapter",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/ExpoBarcodeScannerAdapter.tsx",
     "sourceLocation": {
@@ -383,9 +405,11 @@
   },
   {
     "name": "ExpoBarcodeScanResultLike",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
@@ -418,9 +442,11 @@
   },
   {
     "name": "ExpoBundledMediaRegistry",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/bundledMediaResolver.ts",
     "sourceLocation": {
@@ -438,9 +464,11 @@
   },
   {
     "name": "ExpoBundledMediaRegistrySourceEntry",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/bundledMediaRegistrySource.ts",
     "sourceLocation": {
@@ -473,9 +501,11 @@
   },
   {
     "name": "ExpoBundledMediaResolver",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/bundledMediaResolver.ts",
     "sourceLocation": {
@@ -493,9 +523,11 @@
   },
   {
     "name": "ExpoBundledMediaResolverArgs",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/bundledMediaResolver.ts",
     "sourceLocation": {
@@ -521,9 +553,11 @@
   },
   {
     "name": "ExpoBundledMediaValue",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/bundledMediaResolver.ts",
     "sourceLocation": {
@@ -541,9 +575,11 @@
   },
   {
     "name": "ExpoPlatform",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/platform.ts",
     "sourceLocation": {
@@ -561,9 +597,11 @@
   },
   {
     "name": "ExpoPlatformPackage",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/platform.ts",
     "sourceLocation": {
@@ -596,9 +634,11 @@
   },
   {
     "name": "ExpoReaderSurfaceAdapter",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
     "sourceLocation": {
@@ -630,9 +670,11 @@
   },
   {
     "name": "ExpoRuntimeActionHandlerArgs",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/expoActionBridge.ts",
     "sourceLocation": {
@@ -658,9 +700,11 @@
   },
   {
     "name": "ExpoRuntimeActionHandlers",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/expoActionBridge.ts",
     "sourceLocation": {
@@ -678,9 +722,11 @@
   },
   {
     "name": "ExpoRuntimeAdapterId",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/expoRuntimePlanningMetadata.ts",
     "sourceLocation": {
@@ -698,9 +744,11 @@
   },
   {
     "name": "ExpoRuntimeConfigPluginOutput",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/generatedAppOutput.ts",
     "sourceLocation": {
@@ -718,9 +766,11 @@
   },
   {
     "name": "ExpoRuntimeDependencyMap",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/generatedAppOutput.ts",
     "sourceLocation": {
@@ -738,9 +788,11 @@
   },
   {
     "name": "ExpoRuntimeGeneratedAppOutputPlan",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/generatedAppOutput.ts",
     "sourceLocation": {
@@ -783,9 +835,11 @@
   },
   {
     "name": "ExpoRuntimeLayoutIntegrationPlan",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/layoutIntegrationPlanning.ts",
     "sourceLocation": {
@@ -832,9 +886,11 @@
   },
   {
     "name": "ExpoRuntimeNativeOutputPlan",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/generatedAppOutput.ts",
     "sourceLocation": {
@@ -869,9 +925,11 @@
   },
   {
     "name": "ExpoRuntimePlan",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/resolveExpoRuntimePlan.ts",
     "sourceLocation": {
@@ -962,9 +1020,11 @@
   },
   {
     "name": "ExpoRuntimeProviderId",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/expoRuntimePlanningMetadata.ts",
     "sourceLocation": {
@@ -982,9 +1042,11 @@
   },
   {
     "name": "ExpoRuntimeProviders",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/ExpoRuntimeProviders.tsx",
     "sourceLocation": {
@@ -1018,9 +1080,11 @@
   },
   {
     "name": "ExpoRuntimeProvidersProps",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/ExpoRuntimeProviders.tsx",
     "sourceLocation": {
@@ -1053,9 +1117,11 @@
   },
   {
     "name": "ExpoRuntimeRouteResolution",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/expoActionBridge.ts",
     "sourceLocation": {
@@ -1088,9 +1154,11 @@
   },
   {
     "name": "ExpoRuntimeRouterLike",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/expoActionBridge.ts",
     "sourceLocation": {
@@ -1116,9 +1184,11 @@
   },
   {
     "name": "ExpoRuntimeThemeMode",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "unknown",
     "modulePath": "src/expoActionBridge.ts",
     "sourceLocation": {
@@ -1136,9 +1206,11 @@
   },
   {
     "name": "ExpoZoraIconFontProvider",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/ExpoZoraIconFontProvider.tsx",
     "sourceLocation": {
@@ -1172,9 +1244,11 @@
   },
   {
     "name": "ExpoZoraIconFontProviderProps",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "type",
     "modulePath": "src/ExpoZoraIconFontProvider.tsx",
     "sourceLocation": {
@@ -1200,9 +1274,11 @@
   },
   {
     "name": "getExpoBarcodeScannerViewSource",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/generatedSources.ts",
     "sourceLocation": {
@@ -1227,9 +1303,11 @@
   },
   {
     "name": "getExpoBundledMediaRegistrySource",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/bundledMediaRegistrySource.ts",
     "sourceLocation": {
@@ -1263,9 +1341,11 @@
   },
   {
     "name": "getExpoReaderSurfaceViewSource",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/generatedSources.ts",
     "sourceLocation": {
@@ -1290,9 +1370,11 @@
   },
   {
     "name": "mapPermissionStatusToCameraPermissionStatus",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
@@ -1330,9 +1412,11 @@
   },
   {
     "name": "normalizeExpoBarcodeScanResult",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {
@@ -1366,9 +1450,11 @@
   },
   {
     "name": "resolveExpoBundledMediaAsset",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/bundledMediaResolver.ts",
     "sourceLocation": {
@@ -1408,9 +1494,11 @@
   },
   {
     "name": "resolveExpoRuntimeConfigPluginOutput",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/generatedAppOutput.ts",
     "sourceLocation": {
@@ -1445,9 +1533,11 @@
   },
   {
     "name": "resolveExpoRuntimeDependencyMap",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/generatedAppOutput.ts",
     "sourceLocation": {
@@ -1481,9 +1571,11 @@
   },
   {
     "name": "resolveExpoRuntimeGeneratedAppOutput",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/generatedAppOutput.ts",
     "sourceLocation": {
@@ -1518,9 +1610,11 @@
   },
   {
     "name": "resolveExpoRuntimeLayoutIntegration",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/layoutIntegrationPlanning.ts",
     "sourceLocation": {
@@ -1555,9 +1649,11 @@
   },
   {
     "name": "resolveExpoRuntimeNativeOutput",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/generatedAppOutput.ts",
     "sourceLocation": {
@@ -1592,9 +1688,11 @@
   },
   {
     "name": "resolveExpoRuntimePlan",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/resolveExpoRuntimePlan.ts",
     "sourceLocation": {
@@ -1634,9 +1732,11 @@
   },
   {
     "name": "resolveExpoRuntimeRoutePath",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/expoActionBridge.ts",
     "sourceLocation": {
@@ -1676,9 +1776,11 @@
   },
   {
     "name": "shouldIgnoreBarcodeScan",
+    "title": null,
     "description": null,
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/barcodeScanRuntime.ts",
     "sourceLocation": {

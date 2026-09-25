@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v4.0.6",
+      "value": "v4.0.7",
       "color": "cb3837"
     },
     {
@@ -55,16 +55,190 @@
     },
     {
       "id": "docs",
-      "label": "docs",
-      "value": "paradox",
-      "color": "0f766e"
+      "label": "paradox",
+      "value": "warnings",
+      "color": "ca8a04"
     }
   ],
-  "usage": null,
-  "readmeUsageDescription": null,
-  "readmeUsage": [],
-  "readmeCli": null,
-  "readmeConfig": null,
+  "usage": {
+    "packageName": "@ankhorage/expo-runtime",
+    "command": "ankh expo-runtime --help"
+  },
+  "usageEntries": [
+    {
+      "area": "examples",
+      "title": "Basic Usage",
+      "description": "Derive the Expo packages, providers, config plugins, and runtime adapters required by an app\ndirectly from its declared screen requirements. The planner keeps Expo-specific implementation\ndetails out of the manifest while preserving one deterministic owner-derived runtime plan.\n\nThis example requests barcode scanning on one screen. Expo Runtime automatically includes the\nimplied camera permission, Expo Camera dependency, permissions provider, and barcode adapter.",
+      "language": "ts",
+      "code": "export function createBasicExpoRuntimePlan() {\n  return resolveExpoRuntimePlan({\n    screens: {\n      scanner: {\n        requires: {\n          capabilities: {\n            barcodeScanner: true,\n          },\n        },\n      },\n    },\n  });\n}",
+      "sourcePath": "examples/basic-usage/index.ts",
+      "isReadme": true,
+      "see": [],
+      "security": []
+    }
+  ],
+  "exampleCount": 1,
+  "findings": [
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function mapPermissionStatusToCameraPermissionStatus has no Paradox description.",
+      "sourcePath": "src/barcodeScanRuntime.ts",
+      "line": 34
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function normalizeExpoBarcodeScanResult has no Paradox description.",
+      "sourcePath": "src/barcodeScanRuntime.ts",
+      "line": 52
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function shouldIgnoreBarcodeScan has no Paradox description.",
+      "sourcePath": "src/barcodeScanRuntime.ts",
+      "line": 68
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function getExpoBundledMediaRegistrySource has no Paradox description.",
+      "sourcePath": "src/bundledMediaRegistrySource.ts",
+      "line": 6
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function createExpoBundledMediaResolver has no Paradox description.",
+      "sourcePath": "src/bundledMediaResolver.ts",
+      "line": 15
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function resolveExpoBundledMediaAsset has no Paradox description.",
+      "sourcePath": "src/bundledMediaResolver.ts",
+      "line": 21
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function createComponentRegistry has no Paradox description.",
+      "sourcePath": "src/componentRegistry.ts",
+      "line": 5
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function createExpoRuntimeRegistry has no Paradox description.",
+      "sourcePath": "src/createExpoRuntimeRegistry.tsx",
+      "line": 13
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function executeExpoRuntimeAction has no Paradox description.",
+      "sourcePath": "src/expoActionBridge.ts",
+      "line": 66
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function resolveExpoRuntimeRoutePath has no Paradox description.",
+      "sourcePath": "src/expoActionBridge.ts",
+      "line": 34
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function ExpoBarcodeScannerAdapter has no Paradox description.",
+      "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx",
+      "line": 16
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function ExpoRuntimeProviders has no Paradox description.",
+      "sourcePath": "src/ExpoRuntimeProviders.tsx",
+      "line": 13
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function ExpoZoraIconFontProvider has no Paradox description.",
+      "sourcePath": "src/ExpoZoraIconFontProvider.tsx",
+      "line": 7
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function resolveExpoRuntimeConfigPluginOutput has no Paradox description.",
+      "sourcePath": "src/generatedAppOutput.ts",
+      "line": 31
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function resolveExpoRuntimeDependencyMap has no Paradox description.",
+      "sourcePath": "src/generatedAppOutput.ts",
+      "line": 23
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function resolveExpoRuntimeGeneratedAppOutput has no Paradox description.",
+      "sourcePath": "src/generatedAppOutput.ts",
+      "line": 48
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function resolveExpoRuntimeNativeOutput has no Paradox description.",
+      "sourcePath": "src/generatedAppOutput.ts",
+      "line": 39
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function getExpoBarcodeScannerViewSource has no Paradox description.",
+      "sourcePath": "src/generatedSources.ts",
+      "line": 13
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function getExpoReaderSurfaceViewSource has no Paradox description.",
+      "sourcePath": "src/generatedSources.ts",
+      "line": 17
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function resolveExpoRuntimeLayoutIntegration has no Paradox description.",
+      "sourcePath": "src/layoutIntegrationPlanning.ts",
+      "line": 10
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function ExpoReaderSurfaceAdapter has no Paradox description.",
+      "sourcePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
+      "line": 16
+    },
+    {
+      "ruleId": "documentation.public-function.description",
+      "severity": "warning",
+      "message": "Public function resolveExpoRuntimePlan has no Paradox description.",
+      "sourcePath": "src/resolveExpoRuntimePlan.ts",
+      "line": 75
+    }
+  ],
+  "readmeConfig": {
+    "language": "ts",
+    "code": "import { defineParadoxConfig } from '@ankhorage/paradox';\n\nexport default defineParadoxConfig({\n  mode: 'write',\n\n  docs: {\n    title: 'EXPO-RUNTIME',\n  },\n\n  package: {\n    root: '.',\n    entrypoints: ['src/index.ts', 'src/platform.ts'],\n  },\n\n  output: {\n    dir: './paradox',\n  },\n});",
+    "sourcePath": "paradox.config.ts"
+  },
   "config": null,
   "entrypoints": [
     "src/index.ts",
@@ -749,9 +923,11 @@
   "exports": [
     {
       "name": "BARCODE_SCAN_DEDUPE_WINDOW_MS",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "value",
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
@@ -769,9 +945,11 @@
     },
     {
       "name": "BARCODE_SCANNER_TYPES",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "value",
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
@@ -789,9 +967,11 @@
     },
     {
       "name": "BarcodeScanRecord",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
@@ -831,9 +1011,11 @@
     },
     {
       "name": "ComponentRegistry",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/componentRegistry.ts",
       "sourceLocation": {
@@ -851,9 +1033,11 @@
     },
     {
       "name": "createComponentRegistry",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/componentRegistry.ts",
       "sourceLocation": {
@@ -887,9 +1071,11 @@
     },
     {
       "name": "createExpoBundledMediaResolver",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/bundledMediaResolver.ts",
       "sourceLocation": {
@@ -924,9 +1110,11 @@
     },
     {
       "name": "createExpoRuntimeRegistry",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/createExpoRuntimeRegistry.tsx",
       "sourceLocation": {
@@ -960,9 +1148,11 @@
     },
     {
       "name": "executeExpoRuntimeAction",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/expoActionBridge.ts",
       "sourceLocation": {
@@ -996,9 +1186,11 @@
     },
     {
       "name": "ExecuteExpoRuntimeActionArgs",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/expoActionBridge.ts",
       "sourceLocation": {
@@ -1077,9 +1269,11 @@
     },
     {
       "name": "EXPO_PLATFORM",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "value",
       "modulePath": "src/platform.ts",
       "sourceLocation": {
@@ -1097,9 +1291,11 @@
     },
     {
       "name": "ExpoBarcodeScannerAdapter",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/ExpoBarcodeScannerAdapter.tsx",
       "sourceLocation": {
@@ -1131,9 +1327,11 @@
     },
     {
       "name": "ExpoBarcodeScanResultLike",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
@@ -1166,9 +1364,11 @@
     },
     {
       "name": "ExpoBundledMediaRegistry",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/bundledMediaResolver.ts",
       "sourceLocation": {
@@ -1186,9 +1386,11 @@
     },
     {
       "name": "ExpoBundledMediaRegistrySourceEntry",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/bundledMediaRegistrySource.ts",
       "sourceLocation": {
@@ -1221,9 +1423,11 @@
     },
     {
       "name": "ExpoBundledMediaResolver",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/bundledMediaResolver.ts",
       "sourceLocation": {
@@ -1241,9 +1445,11 @@
     },
     {
       "name": "ExpoBundledMediaResolverArgs",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/bundledMediaResolver.ts",
       "sourceLocation": {
@@ -1269,9 +1475,11 @@
     },
     {
       "name": "ExpoBundledMediaValue",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/bundledMediaResolver.ts",
       "sourceLocation": {
@@ -1289,9 +1497,11 @@
     },
     {
       "name": "ExpoPlatform",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/platform.ts",
       "sourceLocation": {
@@ -1309,9 +1519,11 @@
     },
     {
       "name": "ExpoPlatformPackage",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/platform.ts",
       "sourceLocation": {
@@ -1344,9 +1556,11 @@
     },
     {
       "name": "ExpoReaderSurfaceAdapter",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
       "sourceLocation": {
@@ -1378,9 +1592,11 @@
     },
     {
       "name": "ExpoRuntimeActionHandlerArgs",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/expoActionBridge.ts",
       "sourceLocation": {
@@ -1406,9 +1622,11 @@
     },
     {
       "name": "ExpoRuntimeActionHandlers",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/expoActionBridge.ts",
       "sourceLocation": {
@@ -1426,9 +1644,11 @@
     },
     {
       "name": "ExpoRuntimeAdapterId",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/expoRuntimePlanningMetadata.ts",
       "sourceLocation": {
@@ -1446,9 +1666,11 @@
     },
     {
       "name": "ExpoRuntimeConfigPluginOutput",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
@@ -1466,9 +1688,11 @@
     },
     {
       "name": "ExpoRuntimeDependencyMap",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
@@ -1486,9 +1710,11 @@
     },
     {
       "name": "ExpoRuntimeGeneratedAppOutputPlan",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
@@ -1531,9 +1757,11 @@
     },
     {
       "name": "ExpoRuntimeLayoutIntegrationPlan",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/layoutIntegrationPlanning.ts",
       "sourceLocation": {
@@ -1580,9 +1808,11 @@
     },
     {
       "name": "ExpoRuntimeNativeOutputPlan",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
@@ -1617,9 +1847,11 @@
     },
     {
       "name": "ExpoRuntimePlan",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/resolveExpoRuntimePlan.ts",
       "sourceLocation": {
@@ -1710,9 +1942,11 @@
     },
     {
       "name": "ExpoRuntimeProviderId",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/expoRuntimePlanningMetadata.ts",
       "sourceLocation": {
@@ -1730,9 +1964,11 @@
     },
     {
       "name": "ExpoRuntimeProviders",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/ExpoRuntimeProviders.tsx",
       "sourceLocation": {
@@ -1766,9 +2002,11 @@
     },
     {
       "name": "ExpoRuntimeProvidersProps",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/ExpoRuntimeProviders.tsx",
       "sourceLocation": {
@@ -1801,9 +2039,11 @@
     },
     {
       "name": "ExpoRuntimeRouteResolution",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/expoActionBridge.ts",
       "sourceLocation": {
@@ -1836,9 +2076,11 @@
     },
     {
       "name": "ExpoRuntimeRouterLike",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/expoActionBridge.ts",
       "sourceLocation": {
@@ -1864,9 +2106,11 @@
     },
     {
       "name": "ExpoRuntimeThemeMode",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "unknown",
       "modulePath": "src/expoActionBridge.ts",
       "sourceLocation": {
@@ -1884,9 +2128,11 @@
     },
     {
       "name": "ExpoZoraIconFontProvider",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/ExpoZoraIconFontProvider.tsx",
       "sourceLocation": {
@@ -1920,9 +2166,11 @@
     },
     {
       "name": "ExpoZoraIconFontProviderProps",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "type",
       "modulePath": "src/ExpoZoraIconFontProvider.tsx",
       "sourceLocation": {
@@ -1948,9 +2196,11 @@
     },
     {
       "name": "getExpoBarcodeScannerViewSource",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/generatedSources.ts",
       "sourceLocation": {
@@ -1975,9 +2225,11 @@
     },
     {
       "name": "getExpoBundledMediaRegistrySource",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/bundledMediaRegistrySource.ts",
       "sourceLocation": {
@@ -2011,9 +2263,11 @@
     },
     {
       "name": "getExpoReaderSurfaceViewSource",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/generatedSources.ts",
       "sourceLocation": {
@@ -2038,9 +2292,11 @@
     },
     {
       "name": "mapPermissionStatusToCameraPermissionStatus",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
@@ -2078,9 +2334,11 @@
     },
     {
       "name": "normalizeExpoBarcodeScanResult",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
@@ -2114,9 +2372,11 @@
     },
     {
       "name": "resolveExpoBundledMediaAsset",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/bundledMediaResolver.ts",
       "sourceLocation": {
@@ -2156,9 +2416,11 @@
     },
     {
       "name": "resolveExpoRuntimeConfigPluginOutput",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
@@ -2193,9 +2455,11 @@
     },
     {
       "name": "resolveExpoRuntimeDependencyMap",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
@@ -2229,9 +2493,11 @@
     },
     {
       "name": "resolveExpoRuntimeGeneratedAppOutput",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
@@ -2266,9 +2532,11 @@
     },
     {
       "name": "resolveExpoRuntimeLayoutIntegration",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/layoutIntegrationPlanning.ts",
       "sourceLocation": {
@@ -2303,9 +2571,11 @@
     },
     {
       "name": "resolveExpoRuntimeNativeOutput",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/generatedAppOutput.ts",
       "sourceLocation": {
@@ -2340,9 +2610,11 @@
     },
     {
       "name": "resolveExpoRuntimePlan",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/resolveExpoRuntimePlan.ts",
       "sourceLocation": {
@@ -2382,9 +2654,11 @@
     },
     {
       "name": "resolveExpoRuntimeRoutePath",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/expoActionBridge.ts",
       "sourceLocation": {
@@ -2424,9 +2698,11 @@
     },
     {
       "name": "shouldIgnoreBarcodeScan",
+      "title": null,
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
@@ -2476,7 +2752,8 @@
       "name": "ExpoBarcodeScannerAdapter",
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "modulePath": "src/ExpoBarcodeScannerAdapter.tsx",
       "sourceLocation": {
         "filePath": "src/ExpoBarcodeScannerAdapter.tsx",
@@ -2601,7 +2878,8 @@
       "name": "ExpoReaderSurfaceAdapter",
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "modulePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
       "sourceLocation": {
         "filePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
@@ -2864,7 +3142,8 @@
       "name": "ExpoRuntimeProviders",
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "modulePath": "src/ExpoRuntimeProviders.tsx",
       "sourceLocation": {
         "filePath": "src/ExpoRuntimeProviders.tsx",
@@ -2893,7 +3172,8 @@
       "name": "ExpoZoraIconFontProvider",
       "description": null,
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "modulePath": "src/ExpoZoraIconFontProvider.tsx",
       "sourceLocation": {
         "filePath": "src/ExpoZoraIconFontProvider.tsx",
@@ -2917,6 +3197,8 @@
     {
       "name": "mapPermissionStatusToCameraPermissionStatus",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
         "line": 34,
@@ -2926,6 +3208,8 @@
     {
       "name": "normalizeExpoBarcodeScanResult",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
         "line": 52,
@@ -2935,6 +3219,8 @@
     {
       "name": "shouldIgnoreBarcodeScan",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
         "line": 68,
@@ -2944,6 +3230,8 @@
     {
       "name": "dispatchExpoBarcodeScan",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
         "line": 84,
@@ -2953,6 +3241,8 @@
     {
       "name": "getExpoBundledMediaRegistrySource",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/bundledMediaRegistrySource.ts",
         "line": 6,
@@ -2962,6 +3252,8 @@
     {
       "name": "normalizeEntries",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/bundledMediaRegistrySource.ts",
         "line": 25,
@@ -2971,6 +3263,8 @@
     {
       "name": "createExpoBundledMediaResolver",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/bundledMediaResolver.ts",
         "line": 15,
@@ -2980,6 +3274,8 @@
     {
       "name": "resolveExpoBundledMediaAsset",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/bundledMediaResolver.ts",
         "line": 21,
@@ -2989,6 +3285,8 @@
     {
       "name": "collectExpoRuntimeManifestRequirements",
       "description": "Collect canonical screen requirement-set membership into the deterministic planning maps.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/collectExpoRuntimeManifestRequirements.ts",
         "line": 21,
@@ -2998,6 +3296,8 @@
     {
       "name": "hasRequirement",
       "description": "Return whether a canonical serializable requirement set contains one enabled name.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/collectExpoRuntimeManifestRequirements.ts",
         "line": 50,
@@ -3007,6 +3307,8 @@
     {
       "name": "createComponentRegistry",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/componentRegistry.ts",
         "line": 5,
@@ -3016,6 +3318,8 @@
     {
       "name": "createExpoRuntimeRegistry",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/createExpoRuntimeRegistry.tsx",
         "line": 13,
@@ -3025,6 +3329,8 @@
     {
       "name": "ExpoBarcodeScannerView",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/createExpoRuntimeRegistry.tsx",
         "line": 17,
@@ -3034,6 +3340,8 @@
     {
       "name": "ExpoReaderSurface",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/createExpoRuntimeRegistry.tsx",
         "line": 21,
@@ -3043,6 +3351,8 @@
     {
       "name": "resolveExpoRuntimeRoutePath",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/expoActionBridge.ts",
         "line": 34,
@@ -3052,6 +3362,8 @@
     {
       "name": "isAction",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/expoActionBridge.ts",
         "line": 58,
@@ -3061,6 +3373,8 @@
     {
       "name": "isActionCallback",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/expoActionBridge.ts",
         "line": 62,
@@ -3070,6 +3384,8 @@
     {
       "name": "executeExpoRuntimeAction",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/expoActionBridge.ts",
         "line": 66,
@@ -3079,6 +3395,8 @@
     {
       "name": "ExpoBarcodeScannerAdapter",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/ExpoBarcodeScannerAdapter.tsx",
         "line": 16,
@@ -3088,6 +3406,8 @@
     {
       "name": "findCapabilityMetadata",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/expoRuntimePlanningMetadata.ts",
         "line": 163,
@@ -3097,6 +3417,8 @@
     {
       "name": "findConfigHintMetadata",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/expoRuntimePlanningMetadata.ts",
         "line": 170,
@@ -3106,6 +3428,8 @@
     {
       "name": "unknownPermissionDiagnostic",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/expoRuntimePlanningMetadata.ts",
         "line": 174,
@@ -3115,6 +3439,8 @@
     {
       "name": "unsupportedPermissionDiagnostic",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/expoRuntimePlanningMetadata.ts",
         "line": 183,
@@ -3124,6 +3450,8 @@
     {
       "name": "unknownCapabilityDiagnostic",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/expoRuntimePlanningMetadata.ts",
         "line": 196,
@@ -3133,6 +3461,8 @@
     {
       "name": "ExpoRuntimeProviders",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/ExpoRuntimeProviders.tsx",
         "line": 13,
@@ -3142,6 +3472,8 @@
     {
       "name": "ExpoZoraIconFontProvider",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/ExpoZoraIconFontProvider.tsx",
         "line": 7,
@@ -3151,6 +3483,8 @@
     {
       "name": "ExpoZoraIconFontProvider",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/ExpoZoraIconFontProvider.web.tsx",
         "line": 29,
@@ -3160,6 +3494,8 @@
     {
       "name": "resolveExpoRuntimeDependencyMap",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
         "line": 23,
@@ -3169,6 +3505,8 @@
     {
       "name": "resolveExpoRuntimeConfigPluginOutput",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
         "line": 31,
@@ -3178,6 +3516,8 @@
     {
       "name": "resolveExpoRuntimeNativeOutput",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
         "line": 39,
@@ -3187,6 +3527,8 @@
     {
       "name": "resolveExpoRuntimeGeneratedAppOutput",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppOutput.ts",
         "line": 48,
@@ -3196,6 +3538,8 @@
     {
       "name": "getExpoBarcodeScannerViewSource",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/generatedSources.ts",
         "line": 13,
@@ -3205,6 +3549,8 @@
     {
       "name": "getExpoReaderSurfaceViewSource",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/generatedSources.ts",
         "line": 17,
@@ -3214,6 +3560,8 @@
     {
       "name": "resolveExpoRuntimeLayoutIntegration",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/layoutIntegrationPlanning.ts",
         "line": 10,
@@ -3223,6 +3571,8 @@
     {
       "name": "createExpoMediaPickerAdapter",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/createExpoMediaPickerAdapter.ts",
         "line": 5,
@@ -3232,6 +3582,8 @@
     {
       "name": "normalizeDocumentPickerResult",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/documentPicker.ts",
         "line": 24,
@@ -3241,6 +3593,8 @@
     {
       "name": "pickDocumentMedia",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/documentPicker.ts",
         "line": 48,
@@ -3250,6 +3604,8 @@
     {
       "name": "inferMediaAssetKind",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/mediaKinds.ts",
         "line": 20,
@@ -3259,6 +3615,8 @@
     {
       "name": "isRequestedMediaKind",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/mediaKinds.ts",
         "line": 31,
@@ -3268,6 +3626,8 @@
     {
       "name": "resolveDocumentPickerMimeTypes",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/mediaKinds.ts",
         "line": 38,
@@ -3277,6 +3637,8 @@
     {
       "name": "resolvePhotoLibraryMediaTypes",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/photoLibraryPicker.ts",
         "line": 26,
@@ -3286,6 +3648,8 @@
     {
       "name": "normalizePhotoLibraryResult",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/photoLibraryPicker.ts",
         "line": 36,
@@ -3295,6 +3659,8 @@
     {
       "name": "pickPhotoLibraryMedia",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/photoLibraryPicker.ts",
         "line": 63,
@@ -3304,6 +3670,8 @@
     {
       "name": "resolvePhotoLibraryAssetKind",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/photoLibraryPicker.ts",
         "line": 84,
@@ -3313,6 +3681,8 @@
     {
       "name": "readSelectedMediaBytes",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/readSelectedBytes.ts",
         "line": 10,
@@ -3322,6 +3692,8 @@
     {
       "name": "isArrayBufferReadable",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/mediaPicker/readSelectedBytes.ts",
         "line": 24,
@@ -3331,6 +3703,8 @@
     {
       "name": "resolveExpoRuntimeNativeSchemeMap",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/nativeLinkingPlanning.ts",
         "line": 9,
@@ -3340,6 +3714,8 @@
     {
       "name": "resolveExpoOAuthBrowserRuntimeReadiness",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/oauthBrowserRuntime.ts",
         "line": 10,
@@ -3349,6 +3725,8 @@
     {
       "name": "resolveExpoOAuthBrowserRuntimeReadinessFromEnvironment",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/oauthBrowserRuntimeCore.ts",
         "line": 15,
@@ -3358,6 +3736,8 @@
     {
       "name": "resolveExpoOAuthBrowserResult",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/oauthBrowserTransport.ts",
         "line": 3,
@@ -3367,6 +3747,8 @@
     {
       "name": "resolveExpoOAuthBrowserException",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/oauthBrowserTransport.ts",
         "line": 23,
@@ -3376,6 +3758,8 @@
     {
       "name": "transportFailed",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/oauthBrowserTransport.ts",
         "line": 33,
@@ -3385,6 +3769,8 @@
     {
       "name": "isRecord",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/oauthBrowserTransport.ts",
         "line": 40,
@@ -3394,6 +3780,8 @@
     {
       "name": "definePackage",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/platform.ts",
         "line": 6,
@@ -3403,6 +3791,8 @@
     {
       "name": "createPublication",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/EpubReaderDriver.ts",
         "line": 177,
@@ -3412,6 +3802,8 @@
     {
       "name": "toManifestLink",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/EpubReaderDriver.ts",
         "line": 257,
@@ -3421,6 +3813,8 @@
     {
       "name": "resolvePreferences",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/EpubReaderDriver.ts",
         "line": 268,
@@ -3430,6 +3824,8 @@
     {
       "name": "parseInitialLocator",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/EpubReaderDriver.ts",
         "line": 279,
@@ -3439,6 +3835,8 @@
     {
       "name": "attachFrameLinkPolicy",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/EpubReaderDriver.ts",
         "line": 288,
@@ -3448,6 +3846,8 @@
     {
       "name": "navigate",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/EpubReaderDriver.ts",
         "line": 299,
@@ -3457,6 +3857,8 @@
     {
       "name": "shouldAnimateNavigation",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/EpubReaderDriver.ts",
         "line": 303,
@@ -3466,6 +3868,8 @@
     {
       "name": "noop",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/EpubReaderDriver.ts",
         "line": 307,
@@ -3475,6 +3879,8 @@
     {
       "name": "createPdfWorker",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/PdfReaderDriver.ts",
         "line": 188,
@@ -3484,6 +3890,8 @@
     {
       "name": "renderExternalLinks",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/PdfReaderDriver.ts",
         "line": 195,
@@ -3493,6 +3901,8 @@
     {
       "name": "isExternalPdfLink",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/PdfReaderDriver.ts",
         "line": 231,
@@ -3502,6 +3912,8 @@
     {
       "name": "resolveInitialPage",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/drivers/PdfReaderDriver.ts",
         "line": 249,
@@ -3511,6 +3923,8 @@
     {
       "name": "createEntryMap",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/EpubArchive.ts",
         "line": 69,
@@ -3520,6 +3934,8 @@
     {
       "name": "inferEpubMediaType",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/mediaTypes.ts",
         "line": 3,
@@ -3529,6 +3945,8 @@
     {
       "name": "parseEpubPackage",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/parseEpubPackage.ts",
         "line": 23,
@@ -3538,6 +3956,8 @@
     {
       "name": "parseNavigationDocument",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/parseEpubPackage.ts",
         "line": 111,
@@ -3547,6 +3967,8 @@
     {
       "name": "parseXml",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/parseEpubPackage.ts",
         "line": 134,
@@ -3556,6 +3978,8 @@
     {
       "name": "elementsByLocalName",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/parseEpubPackage.ts",
         "line": 142,
@@ -3565,6 +3989,8 @@
     {
       "name": "elementText",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/parseEpubPackage.ts",
         "line": 148,
@@ -3574,6 +4000,8 @@
     {
       "name": "normalizeArchivePath",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/path.ts",
         "line": 1,
@@ -3583,6 +4011,8 @@
     {
       "name": "resolveArchivePath",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/path.ts",
         "line": 15,
@@ -3592,6 +4022,8 @@
     {
       "name": "isExternalReference",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/path.ts",
         "line": 24,
@@ -3601,6 +4033,8 @@
     {
       "name": "sanitizeEpubDocument",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/sanitizeEpubDocument.ts",
         "line": 6,
@@ -3610,6 +4044,8 @@
     {
       "name": "sanitizeElementAttributes",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/sanitizeEpubDocument.ts",
         "line": 30,
@@ -3619,6 +4055,8 @@
     {
       "name": "rewriteDocumentResources",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/sanitizeEpubDocument.ts",
         "line": 54,
@@ -3628,6 +4066,8 @@
     {
       "name": "rewriteDocumentLinks",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/sanitizeEpubDocument.ts",
         "line": 70,
@@ -3637,6 +4077,8 @@
     {
       "name": "sanitizeEpubStylesheet",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/sanitizeEpubDocument.ts",
         "line": 83,
@@ -3646,6 +4088,8 @@
     {
       "name": "rewriteResourceAttribute",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/epub/sanitizeEpubDocument.ts",
         "line": 102,
@@ -3655,6 +4099,8 @@
     {
       "name": "ExpoReaderSurfaceAdapter",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
         "line": 16,
@@ -3664,6 +4110,8 @@
     {
       "name": "ReaderAdapterViewport",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
         "line": 50,
@@ -3673,6 +4121,8 @@
     {
       "name": "useReaderController",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
         "line": 78,
@@ -3682,6 +4132,8 @@
     {
       "name": "useReaderCommandState",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
         "line": 122,
@@ -3691,6 +4143,8 @@
     {
       "name": "useReaderAppearance",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
         "line": 136,
@@ -3700,6 +4154,8 @@
     {
       "name": "resolveReaderSourceUri",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
         "line": 146,
@@ -3709,6 +4165,8 @@
     {
       "name": "resolveLineHeight",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
         "line": 152,
@@ -3718,6 +4176,8 @@
     {
       "name": "loadReaderSourceAsync",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/loadReaderSourceAsync.ts",
         "line": 3,
@@ -3727,6 +4187,8 @@
     {
       "name": "validateSourceSize",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/loadReaderSourceAsync.ts",
         "line": 54,
@@ -3736,6 +4198,8 @@
     {
       "name": "resolveReaderKeyboardIntent",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/navigation/resolveReaderKeyboardIntent.ts",
         "line": 1,
@@ -3745,6 +4209,8 @@
     {
       "name": "resolveReaderNavigationIntent",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/navigation/resolveReaderNavigationIntent.ts",
         "line": 1,
@@ -3754,6 +4220,8 @@
     {
       "name": "ReaderViewport",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 23,
@@ -3763,6 +4231,8 @@
     {
       "name": "useReaderLifecycle",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 45,
@@ -3772,6 +4242,8 @@
     {
       "name": "useEmitReaderState",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 56,
@@ -3781,6 +4253,8 @@
     {
       "name": "useReaderDriverEffect",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 70,
@@ -3790,6 +4264,8 @@
     {
       "name": "mountReaderDriver",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 117,
@@ -3799,6 +4275,8 @@
     {
       "name": "initializeReaderDriver",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 143,
@@ -3808,6 +4286,8 @@
     {
       "name": "useReaderCommand",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 186,
@@ -3817,6 +4297,8 @@
     {
       "name": "useReaderInput",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 201,
@@ -3826,6 +4308,8 @@
     {
       "name": "handleSwipe",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 232,
@@ -3835,6 +4319,8 @@
     {
       "name": "handleKeyboard",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 254,
@@ -3844,6 +4330,8 @@
     {
       "name": "navigate",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 274,
@@ -3853,6 +4341,8 @@
     {
       "name": "toViewportState",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 286,
@@ -3862,6 +4352,8 @@
     {
       "name": "isInteractiveTarget",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 302,
@@ -3871,6 +4363,8 @@
     {
       "name": "normalizeReaderError",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 311,
@@ -3880,6 +4374,8 @@
     {
       "name": "validateEpubArchiveEntriesAsync",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/validateEpubArchiveEntriesAsync.ts",
         "line": 9,
@@ -3889,6 +4385,8 @@
     {
       "name": "validateDeclaredSizes",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/reader/validateEpubArchiveEntriesAsync.ts",
         "line": 64,
@@ -3898,6 +4396,8 @@
     {
       "name": "resolveExpoRuntimePlan",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 75,
@@ -3907,6 +4407,8 @@
     {
       "name": "createExpoRuntimePlanningState",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 95,
@@ -3916,6 +4418,8 @@
     {
       "name": "addImpliedPermissions",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 113,
@@ -3925,6 +4429,8 @@
     {
       "name": "planPermissions",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 129,
@@ -3934,6 +4440,8 @@
     {
       "name": "planPermission",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 135,
@@ -3943,6 +4451,8 @@
     {
       "name": "planCapabilities",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 159,
@@ -3952,6 +4462,8 @@
     {
       "name": "applyConfigHint",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 177,
@@ -3961,6 +4473,8 @@
     {
       "name": "addDependency",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 195,
@@ -3970,6 +4484,8 @@
     {
       "name": "addProvider",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 220,
@@ -3979,6 +4495,8 @@
     {
       "name": "addPlugin",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 235,
@@ -3988,6 +4506,8 @@
     {
       "name": "buildPlan",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 240,
@@ -3997,6 +4517,8 @@
     {
       "name": "findPermissionSupport",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 271,
@@ -4006,6 +4528,8 @@
     {
       "name": "findDependencyVersion",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 282,
@@ -4015,6 +4539,8 @@
     {
       "name": "isUnsupported",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/resolveExpoRuntimePlan.ts",
         "line": 289,
