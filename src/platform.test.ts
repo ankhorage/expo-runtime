@@ -37,6 +37,12 @@ describe('EXPO_PLATFORM', () => {
     expect(EXPO_PLATFORM.packages.linking.version).toBe('~57.0.11');
     expect(EXPO_PLATFORM.packages.metroRuntime.version).toBe('~57.0.16');
     expect(EXPO_PLATFORM.packages.constants.version).toBe('~57.0.19');
+    expect(EXPO_PLATFORM.packages.asset.version).toBe('~57.0.18');
+    expect(EXPO_PLATFORM.packages.authSession.version).toBe('~57.0.13');
+    expect(EXPO_PLATFORM.packages.imagePicker.version).toBe('~57.0.20');
+    expect(EXPO_PLATFORM.packages.location.version).toBe('~57.0.20');
+    expect(EXPO_PLATFORM.packages.notifications.version).toBe('~57.0.21');
+    expect(EXPO_PLATFORM.packages.updates.version).toBe('~57.0.23');
   });
 });
 
