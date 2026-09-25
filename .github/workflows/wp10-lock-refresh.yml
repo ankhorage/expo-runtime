@@ -1,38 +1,30 @@
 name: WP10 lock refresh
 
 on:
-  pull_request:
+  push:
+    branches:
+      - fix/178-expo-57-platform-patches
 
 permissions:
   contents: write
 
 jobs:
   refresh:
-    if: github.head_ref == 'fix/178-expo-57-platform-patches'
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout PR branch
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version-file: package.json
-
-      - name: Refresh lockfile
-        run: bun install
-
-      - name: Commit refreshed lockfile
+          bun-version: '1.4.2'
+      - run: bun install --lockfile-only
+      - name: Commit lockfile
         run: |
           if git diff --quiet -- bun.lock; then
-            echo "Lockfile already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add bun.lock
           git commit -m "chore(platform): refresh Expo 57 lockfile"
-          git push origin HEAD:${{ github.head_ref }}
+          git push
