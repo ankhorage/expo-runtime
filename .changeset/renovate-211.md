@@ -2,4 +2,4 @@
 '@ankhorage/expo-runtime': patch
 ---
 
-Update dependencies from Renovate pull request #211.
+Update React Native Vector Icons FontAwesome5.
