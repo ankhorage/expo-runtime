@@ -19,7 +19,7 @@
         "@react-native-vector-icons/ionicons": "^13.1.3",
         "@react-native-vector-icons/material-design-icons": "^13.1.3",
         "@readium/navigator": "2.8.2",
-        "@readium/shared": "2.4.0",
+        "@readium/shared": "2.5.1",
         "@types/bun": "^1.4.2",
         "@types/node": "^24.13.3",
         "@types/pngjs": "^6.0.5",
@@ -53,7 +53,7 @@
         "@react-native-vector-icons/ionicons": "^13.1.3",
         "@react-native-vector-icons/material-design-icons": "^13.1.3",
         "@readium/navigator": "2.8.2",
-        "@readium/shared": "2.4.0",
+        "@readium/shared": "2.5.1",
         "@zip.js/zip.js": "2.9.0",
         "expo": "57.0.25",
         "expo-camera": "~57.0.5",
@@ -567,7 +567,7 @@
 
     "@readium/navigator-html-injectables": ["@readium/navigator-html-injectables@2.6.3", "", { "dependencies": { "@readium/helpers": "1.0.0", "@readium/shared": "2.4.0" } }, "sha512-9txUqqQ2pJ6UJvnVFFrCsxCf9qujAi99sP6DeyCGBF3WIKVP2UGC63El35A8im68aDMbFOmeGLY+HXCOaxvviw=="],
 
-    "@readium/shared": ["@readium/shared@2.4.0", "", {}, "sha512-j3N2dqCuFja5ToksYr+G4uKg5vnzNVSLlZy9C071jSkQeRUSIIdREPYo5Gx/XOptkvPwip9O28oaG/JXCW4Z1g=="],
+    "@readium/shared": ["@readium/shared@2.5.1", "", { "dependencies": { "@readium/helpers": "1.1.0" } }, "sha512-qg/JRFhzcs7Uc4DPWlM0Wq1cfVeyoiT1gvP2JaINPG3uQvpuh3Cr9wFm2dt0jM4KzvrKo7kyoe7lpvTlczvh5w=="],
 
     "@rtsao/scc": ["@rtsao/scc@1.1.0", "", {}, "sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g=="],
 
@@ -1764,6 +1764,14 @@
     "@react-native-vector-icons/common/find-up": ["find-up@8.0.0", "", { "dependencies": { "locate-path": "^8.0.0", "unicorn-magic": "^0.3.0" } }, "sha512-JGG8pvDi2C+JxidYdIwQDyS/CgcrIdh18cvgxcBge3wSHRQOrooMD3GlFBcmMJAN9M42SAZjDp5zv1dglJjwww=="],
 
     "@react-native/codegen/hermes-parser": ["hermes-parser@0.36.0", "", { "dependencies": { "hermes-estree": "0.36.0" } }, "sha512-GdpwMmH5x6IpC1cijvcvYnlPB60Mh6kTSF/NFdYV/j56gYdi+0RIakYs+eqOV+bbO0SW7mgVVGSsTJxyPQfo3w=="],
+
+    "@readium/decorator/@readium/shared": ["@readium/shared@2.4.0", "", {}, "sha512-j3N2dqCuFja5ToksYr+G4uKg5vnzNVSLlZy9C071jSkQeRUSIIdREPYo5Gx/XOptkvPwip9O28oaG/JXCW4Z1g=="],
+
+    "@readium/navigator/@readium/shared": ["@readium/shared@2.4.0", "", {}, "sha512-j3N2dqCuFja5ToksYr+G4uKg5vnzNVSLlZy9C071jSkQeRUSIIdREPYo5Gx/XOptkvPwip9O28oaG/JXCW4Z1g=="],
+
+    "@readium/navigator-html-injectables/@readium/shared": ["@readium/shared@2.4.0", "", {}, "sha512-j3N2dqCuFja5ToksYr+G4uKg5vnzNVSLlZy9C071jSkQeRUSIIdREPYo5Gx/XOptkvPwip9O28oaG/JXCW4Z1g=="],
+
+    "@readium/shared/@readium/helpers": ["@readium/helpers@1.1.0", "", { "dependencies": { "user-agent-data-types": "^0.4.2" } }, "sha512-jerMfJn0ZXmJ1HwARzZybfJm+mFxDTYvKOV+HEuPBvj1OMNB46FW4pB5TC6hY61xla440hAAxnKxBJF2bFY51Q=="],
 
     "@ts-morph/common/minimatch": ["minimatch@10.2.5", "", { "dependencies": { "brace-expansion": "^5.0.5" } }, "sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg=="],
 
