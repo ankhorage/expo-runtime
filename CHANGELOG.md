@@ -1,5 +1,13 @@
 # @ankhorage/expo-runtime
 
+## 4.0.8
+
+### Patch Changes
+
+- bd73f1b: Update dependencies from Renovate pull request #210.
+- 5b68a70: Update dependencies from Renovate pull request #216.
+- 7e7e315: Update dependencies from Renovate pull request #217.
+
 ## 4.0.7
 
 ### Patch Changes
