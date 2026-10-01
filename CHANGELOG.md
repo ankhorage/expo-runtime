@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 4.0.15
+
+### Patch Changes
+
+- c7e90d5: Update Renovate-managed workflows.
+
 ## 4.0.14
 
 ### Patch Changes
