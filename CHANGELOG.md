@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 4.0.13
+
+### Patch Changes
+
+- cdb1de5: Update Renovate-managed workflows.
+
 ## 4.0.12
 
 ### Patch Changes
