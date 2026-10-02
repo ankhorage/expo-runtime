@@ -79,7 +79,7 @@ export const EXPO_PLATFORM = {
     secureStore: definePackage('expo-secure-store', '~57.0.4'),
     splashScreen: definePackage('expo-splash-screen', '~57.0.9'),
     statusBar: definePackage('expo-status-bar', '~57.0.1'),
-    updates: definePackage('expo-updates', '~57.0.23'),
+    updates: definePackage('expo-updates', '~57.0.24'),
     webBrowser: definePackage('expo-web-browser', '~57.0.3'),
   },
   platforms: {
