@@ -1,5 +1,12 @@
 # @ankhorage/expo-runtime
 
+## 4.0.40
+
+### Patch Changes
+
+- ef01f81: Update Renovate-managed workflows.
+- 804e739: Update dependencies: `@ankhorage/devtools`.
+
 ## 4.0.39
 
 ### Patch Changes
