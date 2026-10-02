@@ -2,8 +2,8 @@ import { type ReaderErrorEvent, ReaderSurface, type ReaderSurfaceProps } from '@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 
+import type { ReaderAppearance, ReaderCommand, ReaderViewportState } from '../types/reader';
 import ReaderViewport from './ReaderViewport';
-import type { ReaderAppearance, ReaderCommand, ReaderViewportState } from './types';
 
 const INITIAL_STATE: ReaderViewportState = {
   canGoNext: false,

@@ -1,5 +1,109 @@
 # @ankhorage/expo-runtime
 
+## 4.0.44
+
+### Patch Changes
+
+- 1179a54: Update dependencies: `@ankhorage/contracts`, `@ankhorage/devtools`, `@ankhorage/paradox`, `@ankhorage/permissions`, `@ankhorage/zora`, `@react-native-picker/picker`.
+
+## 4.0.43
+
+### Patch Changes
+
+- 22134ba: Update dependencies: `@ankhorage/devtools`.
+
+## 4.0.42
+
+### Patch Changes
+
+- df6952d: Update Renovate-managed workflows.
+
+## 4.0.41
+
+### Patch Changes
+
+- e3d9a7a: Update Renovate-managed workflows.
+
+## 4.0.40
+
+### Patch Changes
+
+- ef01f81: Update Renovate-managed workflows.
+- 804e739: Update dependencies: `@ankhorage/devtools`.
+
+## 4.0.39
+
+### Patch Changes
+
+- 9554295: Update dependencies: `@ankhorage/devtools`.
+
+## 4.0.38
+
+### Patch Changes
+
+- ea85e27: Update dependencies: `@ankhorage/devtools`.
+- 1b98941: Update Renovate-managed workflows.
+
+## 4.0.37
+
+### Patch Changes
+
+- b75b362: Update Renovate-managed workflows.
+
+## 4.0.36
+
+### Patch Changes
+
+- d21a4b5: Update dependencies: `@ankhorage/devtools`.
+
+## 4.0.35
+
+### Patch Changes
+
+- 9f3c966: Update Renovate-managed workflows.
+
+## 4.0.34
+
+### Patch Changes
+
+- 264bfa4: Update dependencies: `@ankhorage/devtools`.
+
+## 4.0.33
+
+### Patch Changes
+
+- 4b00786: Update dependencies: `@ankhorage/devtools`.
+
+## 4.0.32
+
+### Patch Changes
+
+- fe30002: Update Renovate-managed workflows.
+
+## 4.0.31
+
+### Patch Changes
+
+- 692e960: Update Renovate-managed workflows.
+
+## 4.0.30
+
+### Patch Changes
+
+- 99dccfc: Update dependencies: `@react-native-vector-icons/fontawesome5`, `@react-native-vector-icons/fontawesome6`, `@react-native-vector-icons/ionicons`, `@react-native-vector-icons/material-design-icons`, `@readium/navigator`, `@readium/shared`, `@zip.js/zip.js`, `expo-camera`, `expo-constants`, `expo-document-picker`, `expo`, `playwright-core`.
+
+## 4.0.29
+
+### Patch Changes
+
+- e67ac92: Update Renovate-managed workflows.
+
+## 4.0.28
+
+### Patch Changes
+
+- a4787cb: Update Renovate-managed workflows.
+
 ## 4.0.27
 
 ### Patch Changes

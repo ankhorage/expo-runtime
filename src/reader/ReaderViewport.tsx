@@ -2,20 +2,20 @@
 
 import React from 'react';
 
-import { EpubReaderDriver } from './drivers/EpubReaderDriver';
-import { PdfReaderDriver } from './drivers/PdfReaderDriver';
-import { loadReaderSourceAsync } from './loadReaderSourceAsync';
-import { resolveReaderKeyboardIntent } from './navigation/resolveReaderKeyboardIntent';
-import { resolveReaderNavigationIntent } from './navigation/resolveReaderNavigationIntent';
-import { ReaderDocumentError } from './ReaderDocumentError';
-import { LOADING_STATE, READER_STYLES } from './readerViewportPresentation';
 import type {
   ReaderDriver,
   ReaderDriverState,
   ReaderTouchStart,
   ReaderViewportProps,
   ReaderViewportState,
-} from './types';
+} from '../types/reader';
+import { EpubReaderDriver } from './drivers/EpubReaderDriver';
+import { PdfReaderDriver } from './drivers/PdfReaderDriver';
+import { ReaderDocumentError } from './errors/ReaderDocumentError';
+import { loadReaderSourceAsync } from './loadReaderSourceAsync';
+import { resolveReaderKeyboardIntent } from './navigation/resolveReaderKeyboardIntent';
+import { resolveReaderNavigationIntent } from './navigation/resolveReaderNavigationIntent';
+import { LOADING_STATE, READER_STYLES } from './readerViewportPresentation';
 
 type ReaderTrigger = NonNullable<ReaderViewportState['location']>['trigger'];
 type EmitReaderState = (state: ReaderDriverState, trigger: ReaderTrigger) => void;

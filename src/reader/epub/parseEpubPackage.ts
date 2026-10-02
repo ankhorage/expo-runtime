@@ -1,5 +1,5 @@
 /* eslint-disable max-lines-per-function, complexity -- Package parsing validates one transactional document graph. */
-import { ReaderDocumentError } from '../ReaderDocumentError';
+import { ReaderDocumentError } from '../errors/ReaderDocumentError';
 import type { EpubArchive } from './EpubArchive';
 import { resolveArchivePath } from './path';
 

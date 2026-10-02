@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v4.0.27",
+      "value": "v4.0.44",
       "color": "cb3837"
     },
     {
@@ -82,163 +82,158 @@
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function mapPermissionStatusToCameraPermissionStatus has no Paradox description.",
+      "message": "Exported function mapPermissionStatusToCameraPermissionStatus has no documentation description.",
       "sourcePath": "src/barcodeScanRuntime.ts",
       "line": 34
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function normalizeExpoBarcodeScanResult has no Paradox description.",
+      "message": "Exported function normalizeExpoBarcodeScanResult has no documentation description.",
       "sourcePath": "src/barcodeScanRuntime.ts",
       "line": 52
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function shouldIgnoreBarcodeScan has no Paradox description.",
+      "message": "Exported function shouldIgnoreBarcodeScan has no documentation description.",
       "sourcePath": "src/barcodeScanRuntime.ts",
       "line": 68
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function getExpoBundledMediaRegistrySource has no Paradox description.",
+      "message": "Exported function getExpoBundledMediaRegistrySource has no documentation description.",
       "sourcePath": "src/bundledMediaRegistrySource.ts",
       "line": 6
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function createExpoBundledMediaResolver has no Paradox description.",
+      "message": "Exported function createExpoBundledMediaResolver has no documentation description.",
       "sourcePath": "src/bundledMediaResolver.ts",
       "line": 15
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function resolveExpoBundledMediaAsset has no Paradox description.",
+      "message": "Exported function resolveExpoBundledMediaAsset has no documentation description.",
       "sourcePath": "src/bundledMediaResolver.ts",
       "line": 21
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function createComponentRegistry has no Paradox description.",
+      "message": "Exported function createComponentRegistry has no documentation description.",
       "sourcePath": "src/componentRegistry.ts",
       "line": 5
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function createExpoRuntimeRegistry has no Paradox description.",
+      "message": "Exported function createExpoRuntimeRegistry has no documentation description.",
       "sourcePath": "src/createExpoRuntimeRegistry.tsx",
       "line": 13
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function executeExpoRuntimeAction has no Paradox description.",
+      "message": "Exported function executeExpoRuntimeAction has no documentation description.",
       "sourcePath": "src/expoActionBridge.ts",
       "line": 66
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function resolveExpoRuntimeRoutePath has no Paradox description.",
+      "message": "Exported function resolveExpoRuntimeRoutePath has no documentation description.",
       "sourcePath": "src/expoActionBridge.ts",
       "line": 34
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function ExpoBarcodeScannerAdapter has no Paradox description.",
+      "message": "Exported function ExpoBarcodeScannerAdapter has no documentation description.",
       "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx",
       "line": 16
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function ExpoRuntimeProviders has no Paradox description.",
+      "message": "Exported function ExpoRuntimeProviders has no documentation description.",
       "sourcePath": "src/ExpoRuntimeProviders.tsx",
       "line": 13
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function ExpoZoraIconFontProvider has no Paradox description.",
+      "message": "Exported function ExpoZoraIconFontProvider has no documentation description.",
       "sourcePath": "src/ExpoZoraIconFontProvider.tsx",
       "line": 7
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function resolveExpoRuntimeConfigPluginOutput has no Paradox description.",
+      "message": "Exported function resolveExpoRuntimeConfigPluginOutput has no documentation description.",
       "sourcePath": "src/generatedAppOutput.ts",
       "line": 31
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function resolveExpoRuntimeDependencyMap has no Paradox description.",
+      "message": "Exported function resolveExpoRuntimeDependencyMap has no documentation description.",
       "sourcePath": "src/generatedAppOutput.ts",
       "line": 23
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function resolveExpoRuntimeGeneratedAppOutput has no Paradox description.",
+      "message": "Exported function resolveExpoRuntimeGeneratedAppOutput has no documentation description.",
       "sourcePath": "src/generatedAppOutput.ts",
       "line": 48
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function resolveExpoRuntimeNativeOutput has no Paradox description.",
+      "message": "Exported function resolveExpoRuntimeNativeOutput has no documentation description.",
       "sourcePath": "src/generatedAppOutput.ts",
       "line": 39
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function getExpoBarcodeScannerViewSource has no Paradox description.",
+      "message": "Exported function getExpoBarcodeScannerViewSource has no documentation description.",
       "sourcePath": "src/generatedSources.ts",
       "line": 13
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function getExpoReaderSurfaceViewSource has no Paradox description.",
+      "message": "Exported function getExpoReaderSurfaceViewSource has no documentation description.",
       "sourcePath": "src/generatedSources.ts",
       "line": 17
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function resolveExpoRuntimeLayoutIntegration has no Paradox description.",
+      "message": "Exported function resolveExpoRuntimeLayoutIntegration has no documentation description.",
       "sourcePath": "src/layoutIntegrationPlanning.ts",
       "line": 10
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function ExpoReaderSurfaceAdapter has no Paradox description.",
+      "message": "Exported function ExpoReaderSurfaceAdapter has no documentation description.",
       "sourcePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
       "line": 16
     },
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Public function resolveExpoRuntimePlan has no Paradox description.",
+      "message": "Exported function resolveExpoRuntimePlan has no documentation description.",
       "sourcePath": "src/resolveExpoRuntimePlan.ts",
       "line": 75
     }
   ],
-  "readmeConfig": {
-    "language": "ts",
-    "code": "import { defineParadoxConfig } from '@ankhorage/paradox';\n\nexport default defineParadoxConfig({\n  mode: 'write',\n\n  docs: {\n    title: 'EXPO-RUNTIME',\n  },\n\n  package: {\n    root: '.',\n    entrypoints: ['src/index.ts', 'src/platform.ts'],\n  },\n\n  output: {\n    dir: './paradox',\n  },\n});",
-    "sourcePath": "paradox.config.ts"
-  },
   "config": null,
   "entrypoints": [
     "src/index.ts",
@@ -705,7 +700,7 @@
         "src/reader/epub/mediaTypes.ts",
         "src/reader/epub/parseEpubPackage.ts",
         "src/reader/epub/sanitizeEpubDocument.ts",
-        "src/reader/types.ts"
+        "src/types/reader.ts"
       ],
       "exports": [
         "EpubReaderDriver"
@@ -715,8 +710,8 @@
       "path": "src/reader/drivers/PdfReaderDriver.ts",
       "isEntrypoint": false,
       "dependencies": [
-        "src/reader/ReaderDocumentError.ts",
-        "src/reader/types.ts"
+        "src/reader/errors/ReaderDocumentError.ts",
+        "src/types/reader.ts"
       ],
       "exports": [
         "PdfReaderDriver"
@@ -727,8 +722,8 @@
       "isEntrypoint": false,
       "dependencies": [
         "src/reader/epub/path.ts",
-        "src/reader/ReaderDocumentError.ts",
-        "src/reader/validateEpubArchiveEntriesAsync.ts"
+        "src/reader/epub/validateEpubArchiveEntriesAsync.ts",
+        "src/reader/errors/ReaderDocumentError.ts"
       ],
       "exports": [
         "EpubArchive"
@@ -759,7 +754,7 @@
       "dependencies": [
         "src/reader/epub/EpubArchive.ts",
         "src/reader/epub/path.ts",
-        "src/reader/ReaderDocumentError.ts"
+        "src/reader/errors/ReaderDocumentError.ts"
       ],
       "exports": [
         "ParsedEpubPackage",
@@ -788,11 +783,27 @@
       ]
     },
     {
+      "path": "src/reader/epub/validateEpubArchiveEntriesAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "validateEpubArchiveEntriesAsync"
+      ]
+    },
+    {
+      "path": "src/reader/errors/ReaderDocumentError.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ReaderDocumentError"
+      ]
+    },
+    {
       "path": "src/reader/ExpoReaderSurfaceAdapter.tsx",
       "isEntrypoint": false,
       "dependencies": [
         "src/reader/ReaderViewport.tsx",
-        "src/reader/types.ts"
+        "src/types/reader.ts"
       ],
       "exports": [
         "ExpoReaderSurfaceAdapter"
@@ -831,25 +842,17 @@
       ]
     },
     {
-      "path": "src/reader/ReaderDocumentError.ts",
-      "isEntrypoint": false,
-      "dependencies": [],
-      "exports": [
-        "ReaderDocumentError"
-      ]
-    },
-    {
       "path": "src/reader/ReaderViewport.tsx",
       "isEntrypoint": false,
       "dependencies": [
         "src/reader/drivers/EpubReaderDriver.ts",
         "src/reader/drivers/PdfReaderDriver.ts",
+        "src/reader/errors/ReaderDocumentError.ts",
         "src/reader/loadReaderSourceAsync.ts",
         "src/reader/navigation/resolveReaderKeyboardIntent.ts",
         "src/reader/navigation/resolveReaderNavigationIntent.ts",
-        "src/reader/ReaderDocumentError.ts",
         "src/reader/readerViewportPresentation.ts",
-        "src/reader/types.ts"
+        "src/types/reader.ts"
       ],
       "exports": [
         "default"
@@ -859,33 +862,11 @@
       "path": "src/reader/readerViewportPresentation.ts",
       "isEntrypoint": false,
       "dependencies": [
-        "src/reader/types.ts"
+        "src/types/reader.ts"
       ],
       "exports": [
         "LOADING_STATE",
         "READER_STYLES"
-      ]
-    },
-    {
-      "path": "src/reader/types.ts",
-      "isEntrypoint": false,
-      "dependencies": [],
-      "exports": [
-        "ReaderAppearance",
-        "ReaderCommand",
-        "ReaderDriver",
-        "ReaderDriverState",
-        "ReaderTouchStart",
-        "ReaderViewportProps",
-        "ReaderViewportState"
-      ]
-    },
-    {
-      "path": "src/reader/validateEpubArchiveEntriesAsync.ts",
-      "isEntrypoint": false,
-      "dependencies": [],
-      "exports": [
-        "validateEpubArchiveEntriesAsync"
       ]
     },
     {
@@ -917,6 +898,20 @@
         "ExpoRuntimePermissionRequirement",
         "ExpoRuntimePlanningContext",
         "ExpoRuntimePlanningState"
+      ]
+    },
+    {
+      "path": "src/types/reader.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ReaderAppearance",
+        "ReaderCommand",
+        "ReaderDriver",
+        "ReaderDriverState",
+        "ReaderTouchStart",
+        "ReaderViewportProps",
+        "ReaderViewportState"
       ]
     }
   ],
@@ -4097,6 +4092,28 @@
       }
     },
     {
+      "name": "validateEpubArchiveEntriesAsync",
+      "description": "Validate ZIP entry budgets and structure before EPUB extraction.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/reader/epub/validateEpubArchiveEntriesAsync.ts",
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateDeclaredSizes",
+      "description": "Reject malformed ZIP size metadata before arithmetic or extraction.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/reader/epub/validateEpubArchiveEntriesAsync.ts",
+        "line": 66,
+        "column": 1
+      }
+    },
+    {
       "name": "ExpoReaderSurfaceAdapter",
       "description": null,
       "see": [],
@@ -4368,28 +4385,6 @@
       "sourceLocation": {
         "filePath": "src/reader/ReaderViewport.tsx",
         "line": 311,
-        "column": 1
-      }
-    },
-    {
-      "name": "validateEpubArchiveEntriesAsync",
-      "description": null,
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/reader/validateEpubArchiveEntriesAsync.ts",
-        "line": 9,
-        "column": 1
-      }
-    },
-    {
-      "name": "validateDeclaredSizes",
-      "description": null,
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/reader/validateEpubArchiveEntriesAsync.ts",
-        "line": 64,
         "column": 1
       }
     },
@@ -4970,12 +4965,12 @@
       },
       {
         "fromPath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
-        "toPath": "src/reader/ReaderViewport.tsx",
+        "toPath": "src/types/reader.ts",
         "sourcePath": "src/reader/ExpoReaderSurfaceAdapter.tsx"
       },
       {
         "fromPath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
-        "toPath": "src/reader/types.ts",
+        "toPath": "src/reader/ReaderViewport.tsx",
         "sourcePath": "src/reader/ExpoReaderSurfaceAdapter.tsx"
       },
       {
@@ -4985,12 +4980,22 @@
       },
       {
         "fromPath": "src/reader/ReaderViewport.tsx",
+        "toPath": "src/types/reader.ts",
+        "sourcePath": "src/reader/ReaderViewport.tsx"
+      },
+      {
+        "fromPath": "src/reader/ReaderViewport.tsx",
         "toPath": "src/reader/drivers/EpubReaderDriver.ts",
         "sourcePath": "src/reader/ReaderViewport.tsx"
       },
       {
         "fromPath": "src/reader/ReaderViewport.tsx",
         "toPath": "src/reader/drivers/PdfReaderDriver.ts",
+        "sourcePath": "src/reader/ReaderViewport.tsx"
+      },
+      {
+        "fromPath": "src/reader/ReaderViewport.tsx",
+        "toPath": "src/reader/errors/ReaderDocumentError.ts",
         "sourcePath": "src/reader/ReaderViewport.tsx"
       },
       {
@@ -5010,28 +5015,23 @@
       },
       {
         "fromPath": "src/reader/ReaderViewport.tsx",
-        "toPath": "src/reader/ReaderDocumentError.ts",
-        "sourcePath": "src/reader/ReaderViewport.tsx"
-      },
-      {
-        "fromPath": "src/reader/ReaderViewport.tsx",
         "toPath": "src/reader/readerViewportPresentation.ts",
         "sourcePath": "src/reader/ReaderViewport.tsx"
       },
       {
-        "fromPath": "src/reader/ReaderViewport.tsx",
-        "toPath": "src/reader/types.ts",
-        "sourcePath": "src/reader/ReaderViewport.tsx"
-      },
-      {
         "fromPath": "src/reader/readerViewportPresentation.ts",
-        "toPath": "src/reader/types.ts",
+        "toPath": "src/types/reader.ts",
         "sourcePath": "src/reader/readerViewportPresentation.ts"
       },
       {
         "fromPath": "src/types/expoRuntimePlanning.ts",
         "toPath": "src/expoRuntimePlanningMetadata.ts",
         "sourcePath": "src/types/expoRuntimePlanning.ts"
+      },
+      {
+        "fromPath": "src/reader/drivers/EpubReaderDriver.ts",
+        "toPath": "src/types/reader.ts",
+        "sourcePath": "src/reader/drivers/EpubReaderDriver.ts"
       },
       {
         "fromPath": "src/reader/drivers/EpubReaderDriver.ts",
@@ -5059,33 +5059,28 @@
         "sourcePath": "src/reader/drivers/EpubReaderDriver.ts"
       },
       {
-        "fromPath": "src/reader/drivers/EpubReaderDriver.ts",
-        "toPath": "src/reader/types.ts",
-        "sourcePath": "src/reader/drivers/EpubReaderDriver.ts"
-      },
-      {
         "fromPath": "src/reader/drivers/PdfReaderDriver.ts",
-        "toPath": "src/reader/ReaderDocumentError.ts",
+        "toPath": "src/types/reader.ts",
         "sourcePath": "src/reader/drivers/PdfReaderDriver.ts"
       },
       {
         "fromPath": "src/reader/drivers/PdfReaderDriver.ts",
-        "toPath": "src/reader/types.ts",
+        "toPath": "src/reader/errors/ReaderDocumentError.ts",
         "sourcePath": "src/reader/drivers/PdfReaderDriver.ts"
       },
       {
         "fromPath": "src/reader/epub/EpubArchive.ts",
-        "toPath": "src/reader/ReaderDocumentError.ts",
-        "sourcePath": "src/reader/epub/EpubArchive.ts"
-      },
-      {
-        "fromPath": "src/reader/epub/EpubArchive.ts",
-        "toPath": "src/reader/validateEpubArchiveEntriesAsync.ts",
+        "toPath": "src/reader/errors/ReaderDocumentError.ts",
         "sourcePath": "src/reader/epub/EpubArchive.ts"
       },
       {
         "fromPath": "src/reader/epub/EpubArchive.ts",
         "toPath": "src/reader/epub/path.ts",
+        "sourcePath": "src/reader/epub/EpubArchive.ts"
+      },
+      {
+        "fromPath": "src/reader/epub/EpubArchive.ts",
+        "toPath": "src/reader/epub/validateEpubArchiveEntriesAsync.ts",
         "sourcePath": "src/reader/epub/EpubArchive.ts"
       },
       {
@@ -5095,7 +5090,7 @@
       },
       {
         "fromPath": "src/reader/epub/parseEpubPackage.ts",
-        "toPath": "src/reader/ReaderDocumentError.ts",
+        "toPath": "src/reader/errors/ReaderDocumentError.ts",
         "sourcePath": "src/reader/epub/parseEpubPackage.ts"
       },
       {
@@ -5860,12 +5855,6 @@
         "sourcePath": "src/reader/ReaderViewport.tsx"
       },
       {
-        "fromSymbol": "validateEpubArchiveEntriesAsync",
-        "toSymbol": "validateDeclaredSizes",
-        "callExpression": "validateDeclaredSizes",
-        "sourcePath": "src/reader/validateEpubArchiveEntriesAsync.ts"
-      },
-      {
         "fromSymbol": "create",
         "toSymbol": "open",
         "callExpression": "EpubArchive.open",
@@ -6308,6 +6297,12 @@
         "toSymbol": "resolveArchivePath",
         "callExpression": "resolveArchivePath",
         "sourcePath": "src/reader/epub/sanitizeEpubDocument.ts"
+      },
+      {
+        "fromSymbol": "validateEpubArchiveEntriesAsync",
+        "toSymbol": "validateDeclaredSizes",
+        "callExpression": "validateDeclaredSizes",
+        "sourcePath": "src/reader/epub/validateEpubArchiveEntriesAsync.ts"
       }
     ],
     "typeReferences": [
