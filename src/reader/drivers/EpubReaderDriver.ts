@@ -7,7 +7,7 @@ import { EpubArchiveFetcher } from '../epub/EpubArchiveFetcher';
 import { HTML_MEDIA_TYPES, inferEpubMediaType } from '../epub/mediaTypes';
 import { type ParsedEpubPackage, parseEpubPackage } from '../epub/parseEpubPackage';
 import { sanitizeEpubDocument, sanitizeEpubStylesheet } from '../epub/sanitizeEpubDocument';
-import type { ReaderAppearance, ReaderDriver, ReaderDriverState } from '../contracts/types';
+import type { ReaderAppearance, ReaderDriver, ReaderDriverState } from '../../types/reader';
 
 export class EpubReaderDriver implements ReaderDriver {
   readonly direction: 'ltr' | 'rtl';
