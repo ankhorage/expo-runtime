@@ -2,7 +2,7 @@
 
 `@ankhorage/expo-runtime/platform` is the single Ankhorage authority for the supported Expo platform baseline. Consumers should read `EXPO_PLATFORM` rather than copying Expo, React Native, navigation, animation, module, tooling, or native-platform versions into another table.
 
-The contract targets Expo SDK 57.0.18 on React Native 0.86.3. Expo is exact so a clean generated-app lockfile cannot drift to a later SDK patch with a different React Native compatibility baseline; this baseline also includes the Hermes V1 memory-regression fix. The contract records the Node 24 LTS and TypeScript 6 toolchain policy, New-Architecture-only support, Android 7/API 24 with SDK 36 and edge-to-edge layout, and iOS 16.4 with Xcode 26.4. tvOS is intentionally not advertised.
+The contract targets Expo SDK 57.0.26 on React Native 0.86.3. Expo is exact so a clean generated-app lockfile cannot drift to a later SDK patch with a different React Native compatibility baseline; this baseline also includes the Hermes V1 memory-regression fix. The contract records the Node 24 LTS and TypeScript 6 toolchain policy, New-Architecture-only support, Android 7/API 24 with SDK 36 and edge-to-edge layout, and iOS 16.4 with Xcode 26.4. tvOS is intentionally not advertised.
 
 `EXPO_PLATFORM.ui.iconProviders` is the canonical provider-to-package inventory for the five static React Native Vector Icons families used by Surface and ZORA. Generated applications use each package name both as a direct dependency and as its Expo config plugin so native builds register the static fonts.
 
