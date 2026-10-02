@@ -6,8 +6,8 @@ import {
   ZipReader,
 } from '@zip.js/zip.js';
 
-import { ReaderDocumentError } from '../ReaderDocumentError';
-import { validateEpubArchiveEntriesAsync } from '../validateEpubArchiveEntriesAsync';
+import { ReaderDocumentError } from '../contracts/ReaderDocumentError';
+import { validateEpubArchiveEntriesAsync } from './validateEpubArchiveEntriesAsync';
 import { normalizeArchivePath } from './path';
 
 export class EpubArchive {
