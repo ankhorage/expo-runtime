@@ -151,7 +151,7 @@
     "@ankhorage/permissions": "^0.2.5",
     "@ankhorage/zora": "^4.5.0",
     "@readium/navigator": "2.11.1",
-    "@readium/shared": "2.7.0",
+    "@readium/shared": "2.6.0",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
     "@react-native-vector-icons/fontawesome5": "^13.1.4",
     "@react-native-vector-icons/fontawesome6": "^13.1.4",
@@ -237,7 +237,7 @@
     "@ankhorage/permissions": "^0.2.5",
     "@ankhorage/zora": "^4.5.0",
     "@readium/navigator": "2.11.1",
-    "@readium/shared": "2.7.0",
+    "@readium/shared": "2.6.0",
     "@react-native-picker/picker": "2.11.4",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
     "@react-native-vector-icons/fontawesome5": "^13.1.4",
@@ -268,8 +268,5 @@
     "pngjs": "^7.0.0",
     "typescript": "~6.0.3"
   },
-  "packageManager": "bun@1.4.2",
-  "overrides": {
-    "@readium/shared": "$@readium/shared"
-  }
+  "packageManager": "bun@1.4.2"
 }
