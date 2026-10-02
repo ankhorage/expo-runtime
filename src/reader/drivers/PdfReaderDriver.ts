@@ -10,8 +10,8 @@ import {
   TextLayer,
 } from 'pdfjs-dist';
 
-import { ReaderDocumentError } from '../ReaderDocumentError';
-import type { ReaderDriver, ReaderDriverState } from '../types';
+import { ReaderDocumentError } from '../contracts/ReaderDocumentError';
+import type { ReaderDriver, ReaderDriverState } from '../contracts/types';
 
 export class PdfReaderDriver implements ReaderDriver {
   readonly direction = 'ltr' as const;
