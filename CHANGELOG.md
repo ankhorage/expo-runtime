@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 4.0.44
+
+### Patch Changes
+
+- 1179a54: Update dependencies: `@ankhorage/contracts`, `@ankhorage/devtools`, `@ankhorage/paradox`, `@ankhorage/permissions`, `@ankhorage/zora`, `@react-native-picker/picker`.
+
 ## 4.0.43
 
 ### Patch Changes
