@@ -8,12 +8,11 @@ import { runCommandAsync } from './packedAcceptance/runCommandAsync';
 import { writePackedRuntimeFixtureAsync } from './packedRuntimeAcceptance/writePackedRuntimeFixtureAsync';
 
 interface PackageIdentity {
+  readonly dependencies?: Readonly<Record<string, string>>;
   readonly name?: string;
+  readonly peerDependencies?: Readonly<Record<string, string>>;
   readonly version?: string;
 }
-
-const expectedZoraMajorVersion = 4;
-const expectedSurfaceMajorVersion = 3;
 const repositoryRoot = path.resolve(import.meta.dir, '..');
 const scratchRoot = await mkdtemp(path.join(tmpdir(), 'expo-runtime-packed-root-'));
 
@@ -55,35 +54,21 @@ async function assertInstalledGraphAsync(
   candidateName: string,
   candidateVersion: string,
 ): Promise<void> {
-  const packageVersions = await Promise.all(
-    [candidateName, '@ankhorage/zora', '@ankhorage/surface'].map(async (packageName) => {
-      const identity = await readJsonFileAsync<PackageIdentity>(
-        path.join(consumerRoot, 'node_modules', packageName, 'package.json'),
-      );
-      return [packageName, identity.version] as const;
-    }),
-  );
-  const versions = new Map(packageVersions);
-  if (versions.get(candidateName) !== candidateVersion) {
+  const candidateManifest = await readInstalledPackageAsync(consumerRoot, candidateName);
+  const zoraManifest = await readInstalledPackageAsync(consumerRoot, '@ankhorage/zora');
+  const surfaceManifest = await readInstalledPackageAsync(consumerRoot, '@ankhorage/surface');
+
+  if (candidateManifest.version !== candidateVersion) {
     throw new Error('Installed Expo Runtime does not match its packed candidate version.');
   }
-  if (
-    !isMajorVersion(versions.get('@ankhorage/zora'), expectedZoraMajorVersion) ||
-    !isMajorVersion(versions.get('@ankhorage/surface'), expectedSurfaceMajorVersion)
-  ) {
-    throw new Error(
-      `Packed root consumer did not resolve released ZORA ${expectedZoraMajorVersion} and Surface ${expectedSurfaceMajorVersion}.`,
-    );
-  }
-  const graph = await runCommandAsync('bun', ['pm', 'ls', '--all'], consumerRoot, {
-    capture: true,
-  });
-  if (
-    /@ankhorage\/zora@[23](?:\.|\s|$)/u.test(graph) ||
-    /@ankhorage\/surface@2(?:\.|\s|$)/u.test(graph)
-  ) {
-    throw new Error('Packed root consumer retained an unsupported ZORA or Surface dependency.');
-  }
+
+  const zoraRange = candidateManifest.peerDependencies?.['@ankhorage/zora'];
+  assertVersionMatchesCaretRange(zoraManifest.version, zoraRange, '@ankhorage/zora');
+
+  const surfaceRange =
+    zoraManifest.dependencies?.['@ankhorage/surface'] ??
+    zoraManifest.peerDependencies?.['@ankhorage/surface'];
+  assertVersionMatchesCaretRange(surfaceManifest.version, surfaceRange, '@ankhorage/surface');
   const packageJson = await readJsonFileAsync<{ dependencies?: Record<string, string> }>(
     path.join(consumerRoot, 'package.json'),
   );
@@ -95,8 +80,49 @@ async function assertInstalledGraphAsync(
   }
 }
 
-function isMajorVersion(version: string | undefined, expectedMajor: number): boolean {
-  return version?.startsWith(`${expectedMajor}.`) ?? false;
+async function readInstalledPackageAsync(
+  consumerRoot: string,
+  packageName: string,
+): Promise<PackageIdentity> {
+  return readJsonFileAsync<PackageIdentity>(
+    path.join(consumerRoot, 'node_modules', packageName, 'package.json'),
+  );
+}
+
+function assertVersionMatchesCaretRange(
+  version: string | undefined,
+  range: string | undefined,
+  packageName: string,
+): void {
+  const versionParts = parseVersion(version);
+  const rangeParts = parseCaretRange(range);
+  if (!versionParts || !rangeParts || !satisfiesCaret(versionParts, rangeParts)) {
+    throw new Error(
+      `Packed root consumer resolved ${packageName}@${version ?? 'missing'}, which does not satisfy ${range ?? 'missing'}.`,
+    );
+  }
+}
+
+function parseVersion(value: string | undefined): readonly [number, number, number] | undefined {
+  const match = /^(\d+)\.(\d+)\.(\d+)(?:[-+].*)?$/u.exec(value ?? '');
+  return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : undefined;
+}
+
+function parseCaretRange(value: string | undefined): readonly [number, number, number] | undefined {
+  const match = /^\^(\d+)\.(\d+)\.(\d+)$/u.exec(value ?? '');
+  return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : undefined;
+}
+
+function satisfiesCaret(
+  version: readonly [number, number, number],
+  minimum: readonly [number, number, number],
+): boolean {
+  const [major, minor, patch] = version;
+  const [minimumMajor, minimumMinor, minimumPatch] = minimum;
+  if (major !== minimumMajor) return false;
+  if (minimumMajor === 0 && minor !== minimumMinor) return false;
+  if (minor < minimumMinor) return false;
+  return minor > minimumMinor || patch >= minimumPatch;
 }
 
 async function exportPlatformAsync(
