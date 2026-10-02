@@ -2,7 +2,7 @@
 
 `@ankhorage/expo-runtime/platform` is the single Ankhorage authority for the supported Expo platform baseline. Consumers should read `EXPO_PLATFORM` rather than copying Expo, React Native, navigation, animation, module, tooling, or native-platform versions into another table.
 
-The contract targets Expo SDK 57.0.18 on React Native 0.86.3. Expo is exact so a clean generated-app lockfile cannot drift to a later SDK patch with a different React Native compatibility baseline; this baseline also includes the Hermes V1 memory-regression fix. The contract records the Node 24 LTS and TypeScript 6 toolchain policy, New-Architecture-only support, Android 7/API 24 with SDK 36 and edge-to-edge layout, and iOS 16.4 with Xcode 26.4. tvOS is intentionally not advertised.
+The contract targets Expo SDK 57.0.26 on React Native 0.86.3. Expo is exact so a clean generated-app lockfile cannot drift to a later SDK patch with a different React Native compatibility baseline; this baseline also includes the Hermes V1 memory-regression fix. The contract records the Node 24 LTS and TypeScript 6 toolchain policy, New-Architecture-only support, Android 7/API 24 with SDK 36 and edge-to-edge layout, and iOS 16.4 with Xcode 26.4. tvOS is intentionally not advertised.
 
 `EXPO_PLATFORM.ui.iconProviders` is the canonical provider-to-package inventory for the five static React Native Vector Icons families used by Surface and ZORA. Generated applications use each package name both as a direct dependency and as its Expo config plugin so native builds register the static fonts.
 
@@ -29,4 +29,4 @@ Generated layouts import `ExpoRuntimeProviders` from the focused `@ankhorage/exp
 
 All application/runtime peers are optional at package-install time so a Node planner can install the released package and import only `@ankhorage/expo-runtime/platform` without materializing the Expo UI graph. This does not make root runtime dependencies optional in use: importing the root entrypoint without Permissions, ZORA 3, Expo Camera, React, and React Native fails normal module resolution. Likewise, invoking a feature subpath without its capability package fails when that feature dynamically loads the missing package. Consumers must install the peers for every entrypoint and capability they use.
 
-`bun run validate:headless-platform` permanently proves the packed `./platform` boundary. `bun run validate:packed-runtime` separately proves that the real root runtime compiles and bundles with released ZORA 3, Surface 3, Expo 57, React 19.2.3, React Native 0.86.3, and React Native Web 0.21.
+`bun run validate:headless-platform` permanently proves the packed `./platform` boundary. `bun run validate:packed-runtime` separately proves that the real root runtime compiles and bundles with released ZORA 3, Surface 3, Expo 57, React 19.2.3, React Native 0.86.3, and React Native Web 0.21.3.

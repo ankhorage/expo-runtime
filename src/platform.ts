@@ -18,11 +18,11 @@ export const EXPO_PLATFORM = {
   sdk: 57,
   architecture: 'new-architecture-only',
   runtime: {
-    expo: definePackage('expo', '57.0.25'),
+    expo: definePackage('expo', '57.0.26'),
     react: definePackage('react', '19.2.3'),
     reactDom: definePackage('react-dom', '19.2.3'),
     reactNative: definePackage('react-native', '0.86.3'),
-    reactNativeWeb: definePackage('react-native-web', '~0.21.0'),
+    reactNativeWeb: definePackage('react-native-web', '~0.21.3'),
   },
   tooling: {
     node: {
@@ -35,7 +35,7 @@ export const EXPO_PLATFORM = {
     expoDoctor: definePackage('expo-doctor', '1.20.4'),
   },
   navigation: {
-    expoRouter: definePackage('expo-router', '~57.0.23'),
+    expoRouter: definePackage('expo-router', '~57.0.24'),
     screens: definePackage('react-native-screens', '~4.26.0'),
     safeArea: definePackage('react-native-safe-area-context', '~5.7.0'),
   },
@@ -47,13 +47,13 @@ export const EXPO_PLATFORM = {
   ui: {
     svg: definePackage('react-native-svg', '15.15.4'),
     iconProviders: {
-      Ionicons: definePackage('@react-native-vector-icons/ionicons', '^13.1.3'),
-      FontAwesome: definePackage('@react-native-vector-icons/fontawesome', '^13.1.3'),
-      FontAwesome5: definePackage('@react-native-vector-icons/fontawesome5', '^13.1.3'),
-      FontAwesome6: definePackage('@react-native-vector-icons/fontawesome6', '^13.1.3'),
+      Ionicons: definePackage('@react-native-vector-icons/ionicons', '^13.1.4'),
+      FontAwesome: definePackage('@react-native-vector-icons/fontawesome', '^13.1.4'),
+      FontAwesome5: definePackage('@react-native-vector-icons/fontawesome5', '^13.1.4'),
+      FontAwesome6: definePackage('@react-native-vector-icons/fontawesome6', '^13.1.4'),
       MaterialDesignIcons: definePackage(
         '@react-native-vector-icons/material-design-icons',
-        '^13.1.3',
+        '^13.1.4',
       ),
     },
   },
@@ -62,11 +62,11 @@ export const EXPO_PLATFORM = {
     asset: definePackage('expo-asset', '~57.0.18'),
     audio: definePackage('expo-audio', '~57.0.5'),
     authSession: definePackage('expo-auth-session', '~57.0.13'),
-    camera: definePackage('expo-camera', '~57.0.5'),
-    constants: definePackage('expo-constants', '~57.0.19'),
+    camera: definePackage('expo-camera', '~57.0.6'),
+    constants: definePackage('expo-constants', '~57.0.20'),
     crypto: definePackage('expo-crypto', '~57.0.3'),
     devClient: definePackage('expo-dev-client', '~57.0.19'),
-    documentPicker: definePackage('expo-document-picker', '~57.0.2'),
+    documentPicker: definePackage('expo-document-picker', '~57.0.3'),
     fileSystem: definePackage('expo-file-system', '~57.0.7'),
     font: definePackage('expo-font', '~57.0.4'),
     imagePicker: definePackage('expo-image-picker', '~57.0.20'),
@@ -79,7 +79,7 @@ export const EXPO_PLATFORM = {
     secureStore: definePackage('expo-secure-store', '~57.0.4'),
     splashScreen: definePackage('expo-splash-screen', '~57.0.9'),
     statusBar: definePackage('expo-status-bar', '~57.0.1'),
-    updates: definePackage('expo-updates', '~57.0.23'),
+    updates: definePackage('expo-updates', '~57.0.24'),
     webBrowser: definePackage('expo-web-browser', '~57.0.3'),
   },
   platforms: {
