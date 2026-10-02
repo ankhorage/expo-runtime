@@ -105,16 +105,12 @@ function assertVersionMatchesCaretRange(
 
 function parseVersion(value: string | undefined): readonly [number, number, number] | undefined {
   const match = /^(\d+)\.(\d+)\.(\d+)(?:[-+].*)?$/u.exec(value ?? '');
-  return match
-    ? [Number(match[1]), Number(match[2]), Number(match[3])]
-    : undefined;
+  return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : undefined;
 }
 
 function parseCaretRange(value: string | undefined): readonly [number, number, number] | undefined {
   const match = /^\^(\d+)\.(\d+)\.(\d+)$/u.exec(value ?? '');
-  return match
-    ? [Number(match[1]), Number(match[2]), Number(match[3])]
-    : undefined;
+  return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : undefined;
 }
 
 function satisfiesCaret(
