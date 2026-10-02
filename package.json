@@ -148,8 +148,8 @@
     "version-packages": "ankhorage-changeset version"
   },
   "peerDependencies": {
-    "@ankhorage/permissions": "^0.2.12",
-    "@ankhorage/zora": "^22.0.2",
+    "@ankhorage/permissions": "^0.2.63",
+    "@ankhorage/zora": "^22.0.72",
     "@readium/navigator": "2.11.1",
     "@readium/shared": "2.6.0",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
