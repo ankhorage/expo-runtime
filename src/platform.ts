@@ -48,7 +48,7 @@ export const EXPO_PLATFORM = {
     svg: definePackage('react-native-svg', '15.15.4'),
     iconProviders: {
       Ionicons: definePackage('@react-native-vector-icons/ionicons', '^13.1.4'),
-      FontAwesome: definePackage('@react-native-vector-icons/fontawesome', '^13.1.3'),
+      FontAwesome: definePackage('@react-native-vector-icons/fontawesome', '^13.1.4'),
       FontAwesome5: definePackage('@react-native-vector-icons/fontawesome5', '^13.1.4'),
       FontAwesome6: definePackage('@react-native-vector-icons/fontawesome6', '^13.1.4'),
       MaterialDesignIcons: definePackage(
