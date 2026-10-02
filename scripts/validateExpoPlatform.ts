@@ -195,8 +195,7 @@ function assertTildeMinorRange(
 ): void {
   const actual = dependencies[expected.name];
   const expectedRange = /^~(\d+)\.(\d+)\.\d+$/u.exec(expected.version);
-  const actualRange =
-    typeof actual === 'string' ? /^~(\d+)\.(\d+)\.\d+$/u.exec(actual) : null;
+  const actualRange = typeof actual === 'string' ? /^~(\d+)\.(\d+)\.\d+$/u.exec(actual) : null;
   if (expectedRange === null) {
     throw new Error(`EXPO_PLATFORM ${expected.name} must use a tilde minor range.`);
   }
