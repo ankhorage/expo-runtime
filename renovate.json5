@@ -3,8 +3,7 @@
   extends: ['github>ankhorage/renovate'],
   packageRules: [
     {
-      description:
-        'Keep Expo SDK 57 runtime and tooling versions under the explicit EXPO_PLATFORM compatibility contract.',
+      description: 'Keep Expo SDK 57 runtime and tooling versions under the explicit EXPO_PLATFORM compatibility contract.',
       matchPackageNames: [
         '@expo/metro-runtime',
         '@react-native-vector-icons/fontawesome',
@@ -53,8 +52,7 @@
       enabled: false,
     },
     {
-      description:
-        'Keep the Readium navigator/shared pair on an explicitly validated compatibility line.',
+      description: 'Keep the Readium navigator/shared pair on an explicitly validated compatibility line.',
       matchPackageNames: ['@readium/navigator', '@readium/shared'],
       enabled: false,
     },
