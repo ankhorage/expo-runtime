@@ -42,7 +42,7 @@ describe('EXPO_PLATFORM', () => {
     expect(EXPO_PLATFORM.packages.imagePicker.version).toBe('~57.0.20');
     expect(EXPO_PLATFORM.packages.location.version).toBe('~57.0.20');
     expect(EXPO_PLATFORM.packages.notifications.version).toBe('~57.0.21');
-    expect(EXPO_PLATFORM.packages.updates.version).toBe('~57.0.23');
+    expect(EXPO_PLATFORM.packages.updates.version).toBe('~57.0.24');
   });
 });
 
