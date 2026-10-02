@@ -19,7 +19,7 @@
         "@react-native-vector-icons/ionicons": "^13.1.4",
         "@react-native-vector-icons/material-design-icons": "^13.1.4",
         "@readium/navigator": "2.11.1",
-        "@readium/shared": "2.7.0",
+        "@readium/shared": "2.6.0",
         "@types/bun": "^1.4.2",
         "@types/node": "^24.13.3",
         "@types/pngjs": "^6.0.5",
@@ -53,7 +53,7 @@
         "@react-native-vector-icons/ionicons": "^13.1.4",
         "@react-native-vector-icons/material-design-icons": "^13.1.4",
         "@readium/navigator": "2.11.1",
-        "@readium/shared": "2.7.0",
+        "@readium/shared": "2.6.0",
         "@zip.js/zip.js": "2.22.0",
         "expo": "57.0.26",
         "expo-camera": "~57.0.6",
@@ -91,7 +91,7 @@
     },
   },
   "overrides": {
-    "@readium/shared": "2.7.0",
+    "@readium/shared": "2.6.0",
   },
   "packages": {
     "@ankhorage/apm": ["@ankhorage/apm@0.6.0", "", { "dependencies": { "@ankhorage/project-detector": "^0.1.0", "@ankhorage/utility": "^1.1.0", "jsonc-parser": "^3.3.1", "semver": "^7.8.5", "yaml": "^2.9.1" }, "peerDependencies": { "@ankhorage/ankh": "^0.8.13" }, "optionalPeers": ["@ankhorage/ankh"], "bin": { "apm": "dist/cli/runAsync.js" } }, "sha512-mqa04cbczVyqzks9qduqJxRuSn2hKMTRjq9/42CrWXZDb+nmTxxxY38OHKXSdwu9Tv0Y+zs6rGAferB/QY8Huw=="],
@@ -570,7 +570,7 @@
 
     "@readium/navigator-html-injectables": ["@readium/navigator-html-injectables@2.8.4", "", { "dependencies": { "@readium/helpers": "1.1.1", "@readium/shared": "2.6.0" } }, "sha512-DC/M5Si4yz8j8s5C6ReQOkq8pukvoCJjLfzi4tJScjF1dESxuwjBKEIAtK1jE8tWlJh/XhewBUCQcMm8yhkiEg=="],
 
-    "@readium/shared": ["@readium/shared@2.7.0", "", { "dependencies": { "@readium/helpers": "1.2.0" } }, "sha512-F/0SbfuAVh/9X+YJ0JnSa/P+wwSQjElaoxfeIlV3CgL4FrLsDwvIJEIN1BLYG1QbI0oUXY6HUBptCd+Gintkzg=="],
+    "@readium/shared": ["@readium/shared@2.6.0", "", { "dependencies": { "@readium/helpers": "1.1.1" } }, "sha512-9hYDK/IIVsmrJtofecw6y1awRITu6z9i4BO80iqIzGHNwba0izCgg8ylYEDcDvnKZNHu9Ho6BIZC1wKbxHyydw=="],
 
     "@rtsao/scc": ["@rtsao/scc@1.1.0", "", {}, "sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g=="],
 
