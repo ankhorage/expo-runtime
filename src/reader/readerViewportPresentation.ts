@@ -1,4 +1,4 @@
-import type { ReaderViewportState } from './types';
+import type { ReaderViewportState } from './contracts/types';
 
 export const LOADING_STATE: ReaderViewportState = {
   canGoNext: false,
