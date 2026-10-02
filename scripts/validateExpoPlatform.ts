@@ -159,13 +159,54 @@ async function validateRepositoryManifest(): Promise<void> {
   assertVersion(devDependencies, EXPO_PLATFORM.runtime.reactDom, 'devDependencies');
   assertVersion(devDependencies, EXPO_PLATFORM.runtime.reactNativeWeb, 'devDependencies');
   assertVersion(devDependencies, EXPO_PLATFORM.navigation.safeArea, 'devDependencies');
-  assertVersion(devDependencies, EXPO_PLATFORM.tooling.nodeTypes, 'devDependencies');
-  assertVersion(devDependencies, EXPO_PLATFORM.tooling.reactTypes, 'devDependencies');
+  assertCaretMajorRange(devDependencies, EXPO_PLATFORM.tooling.nodeTypes, 'devDependencies');
+  assertTildeMinorRange(devDependencies, EXPO_PLATFORM.tooling.reactTypes, 'devDependencies');
   assertVersion(devDependencies, EXPO_PLATFORM.tooling.typescript, 'devDependencies');
 
   if (engines.node !== EXPO_PLATFORM.tooling.node.version) {
     throw new Error(
       `package.json engines.node must be '${EXPO_PLATFORM.tooling.node.version}', received '${engines.node ?? 'missing'}'.`,
+    );
+  }
+}
+
+function assertCaretMajorRange(
+  dependencies: Readonly<Record<string, string>>,
+  expected: ExpoPlatformPackage,
+  field: string,
+): void {
+  const actual = dependencies[expected.name];
+  const expectedRange = /^\^(\d+)\.\d+\.\d+$/u.exec(expected.version);
+  const actualRange = typeof actual === 'string' ? /^\^(\d+)\.\d+\.\d+$/u.exec(actual) : null;
+  if (expectedRange === null) {
+    throw new Error(`EXPO_PLATFORM ${expected.name} must use a caret major range.`);
+  }
+  if (actualRange === null || actualRange[1] !== expectedRange[1]) {
+    throw new Error(
+      `package.json ${field}.${expected.name} must remain within '^${expectedRange[1]}.x', received '${actual ?? 'missing'}'.`,
+    );
+  }
+}
+
+function assertTildeMinorRange(
+  dependencies: Readonly<Record<string, string>>,
+  expected: ExpoPlatformPackage,
+  field: string,
+): void {
+  const actual = dependencies[expected.name];
+  const expectedRange = /^~(\d+)\.(\d+)\.\d+$/u.exec(expected.version);
+  const actualRange =
+    typeof actual === 'string' ? /^~(\d+)\.(\d+)\.\d+$/u.exec(actual) : null;
+  if (expectedRange === null) {
+    throw new Error(`EXPO_PLATFORM ${expected.name} must use a tilde minor range.`);
+  }
+  if (
+    actualRange === null ||
+    actualRange[1] !== expectedRange[1] ||
+    actualRange[2] !== expectedRange[2]
+  ) {
+    throw new Error(
+      `package.json ${field}.${expected.name} must remain within '~${expectedRange[1]}.${expectedRange[2]}.x', received '${actual ?? 'missing'}'.`,
     );
   }
 }
