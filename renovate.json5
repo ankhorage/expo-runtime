@@ -1,4 +1,22 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: ['github>ankhorage/renovate'],
+  packageRules: [
+    {
+      description: 'Keep coupled runtime baselines under Expo Runtime owner validation.',
+      matchDatasources: ['npm'],
+      matchPackageNames: [
+        'react',
+        'react-dom',
+        'react-native',
+        'react-native-web',
+        'react-native-safe-area-context',
+        '@types/react',
+        '@types/node',
+        '@readium/navigator',
+        '@readium/shared',
+      ],
+      enabled: false,
+    },
+  ],
 }
