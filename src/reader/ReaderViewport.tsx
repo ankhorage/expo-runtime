@@ -7,7 +7,7 @@ import { PdfReaderDriver } from './drivers/PdfReaderDriver';
 import { loadReaderSourceAsync } from './loadReaderSourceAsync';
 import { resolveReaderKeyboardIntent } from './navigation/resolveReaderKeyboardIntent';
 import { resolveReaderNavigationIntent } from './navigation/resolveReaderNavigationIntent';
-import { ReaderDocumentError } from './ReaderDocumentError';
+import { ReaderDocumentError } from './contracts/ReaderDocumentError';
 import { LOADING_STATE, READER_STYLES } from './readerViewportPresentation';
 import type {
   ReaderDriver,
@@ -15,7 +15,7 @@ import type {
   ReaderTouchStart,
   ReaderViewportProps,
   ReaderViewportState,
-} from './types';
+} from './contracts/types';
 
 type ReaderTrigger = NonNullable<ReaderViewportState['location']>['trigger'];
 type EmitReaderState = (state: ReaderDriverState, trigger: ReaderTrigger) => void;
