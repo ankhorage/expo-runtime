@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 4.0.33
+
+### Patch Changes
+
+- 4b00786: Update dependencies: `@ankhorage/devtools`.
+
 ## 4.0.32
 
 ### Patch Changes
