@@ -26,7 +26,7 @@
     "runtime"
   ],
   "dependencies": {
-    "@ankhorage/contracts": "^22.8.2"
+    "@ankhorage/contracts": "^22.8.96"
   },
   "files": [
     "dist",
@@ -148,8 +148,8 @@
     "version-packages": "ankhorage-changeset version"
   },
   "peerDependencies": {
-    "@ankhorage/permissions": "^0.2.5",
-    "@ankhorage/zora": "^4.5.0",
+    "@ankhorage/permissions": "^0.2.12",
+    "@ankhorage/zora": "^22.0.2",
     "@readium/navigator": "2.11.1",
     "@readium/shared": "2.6.0",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
@@ -232,10 +232,10 @@
     }
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^2.0.114",
-    "@ankhorage/paradox": "^0.2.6",
-    "@ankhorage/permissions": "^0.2.5",
-    "@ankhorage/zora": "^4.5.0",
+    "@ankhorage/devtools": "^2.1.1",
+    "@ankhorage/paradox": "^0.2.26",
+    "@ankhorage/permissions": "^0.2.63",
+    "@ankhorage/zora": "^22.0.72",
     "@readium/navigator": "2.11.1",
     "@readium/shared": "2.6.0",
     "@react-native-picker/picker": "2.11.4",
