@@ -6,6 +6,7 @@ const MAX_ENTRY_COUNT = 10_000;
 const MAX_ENTRY_UNCOMPRESSED_BYTES = 64 * 1024 * 1024;
 const MAX_TOTAL_UNCOMPRESSED_BYTES = 512 * 1024 * 1024;
 
+/*** Validate ZIP entry budgets and structure before EPUB extraction. */
 export async function validateEpubArchiveEntriesAsync(
   entries: readonly Entry[],
   signal?: AbortSignal,
@@ -61,6 +62,7 @@ export async function validateEpubArchiveEntriesAsync(
   }
 }
 
+/*** Reject malformed ZIP size metadata before arithmetic or extraction. */
 function validateDeclaredSizes(entry: Entry): void {
   if (
     !Number.isSafeInteger(entry.compressedSize) ||

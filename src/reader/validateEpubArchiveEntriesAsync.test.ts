@@ -9,7 +9,7 @@ import {
 } from '@zip.js/zip.js';
 import { describe, expect, test } from 'bun:test';
 
-import { validateEpubArchiveEntriesAsync } from './validateEpubArchiveEntriesAsync';
+import { validateEpubArchiveEntriesAsync } from './epub/validateEpubArchiveEntriesAsync';
 
 describe('validateEpubArchiveEntriesAsync archive budgets', () => {
   test('accepts a bounded archive and preflights every file without extracting it', async () => {
