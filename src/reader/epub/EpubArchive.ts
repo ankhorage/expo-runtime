@@ -7,8 +7,8 @@ import {
 } from '@zip.js/zip.js';
 
 import { ReaderDocumentError } from '../errors/ReaderDocumentError';
-import { validateEpubArchiveEntriesAsync } from './validateEpubArchiveEntriesAsync';
 import { normalizeArchivePath } from './path';
+import { validateEpubArchiveEntriesAsync } from './validateEpubArchiveEntriesAsync';
 
 export class EpubArchive {
   readonly #entries: Map<string, FileEntry>;
