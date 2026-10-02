@@ -3,7 +3,7 @@ import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 
 import ReaderViewport from './ReaderViewport';
-import type { ReaderAppearance, ReaderCommand, ReaderViewportState } from './types';
+import type { ReaderAppearance, ReaderCommand, ReaderViewportState } from './contracts/types';
 
 const INITIAL_STATE: ReaderViewportState = {
   canGoNext: false,
