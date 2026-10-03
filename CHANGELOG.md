@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 4.0.50
+
+### Patch Changes
+
+- 4374079: Update dependencies: `pdfjs-dist`.
+
 ## 4.0.49
 
 ### Patch Changes
