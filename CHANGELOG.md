@@ -1,5 +1,12 @@
 # @ankhorage/expo-runtime
 
+## 4.0.45
+
+### Patch Changes
+
+- b272bb1: Refresh the canonical Expo SDK 57 platform projection to the current compatible Expo, Router,
+  Constants, Camera, and Document Picker patch releases.
+
 ## 4.0.44
 
 ### Patch Changes

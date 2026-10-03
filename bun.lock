@@ -45,7 +45,7 @@
       },
       "peerDependencies": {
         "@ankhorage/permissions": "^0.2.63",
-        "@ankhorage/zora": "^22.0.72",
+        "@ankhorage/zora": "^22.0.74",
         "@react-native-vector-icons/fontawesome": "^13.1.4",
         "@react-native-vector-icons/fontawesome5": "^13.1.4",
         "@react-native-vector-icons/fontawesome6": "^13.1.4",
