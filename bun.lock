@@ -24,7 +24,7 @@
         "@types/pngjs": "^6.0.5",
         "@types/react": "~19.2.18",
         "@xmldom/xmldom": "0.9.12",
-        "@zip.js/zip.js": "2.22.1",
+        "@zip.js/zip.js": "2.23.0",
         "bwip-js": "^4.11.4",
         "expo": "57.0.26",
         "expo-camera": "~57.0.6",
@@ -53,7 +53,7 @@
         "@react-native-vector-icons/material-design-icons": "^13.1.4",
         "@readium/navigator": "2.11.1",
         "@readium/shared": "2.6.0",
-        "@zip.js/zip.js": "2.22.1",
+        "@zip.js/zip.js": "2.23.0",
         "expo": "57.0.26",
         "expo-camera": "~57.0.6",
         "expo-constants": "~57.0.20",
@@ -664,7 +664,7 @@
 
     "@xmldom/xmldom": ["@xmldom/xmldom@0.9.12", "", {}, "sha512-5AXjrcMClTryPe9LgZrygpB1lj7s0S9E0+W+AHaVKAVyHanafK86iPSvG5xHVSp/jC+VH1UXu0TAEmY279xH7A=="],
 
-    "@zip.js/zip.js": ["@zip.js/zip.js@2.22.1", "", {}, "sha512-Gyf7j0b7TaihoSZMogIoQGQXd3+HZo4HKmrA2wiNlJ07pGl9xPAYKgWaEB7s8n8IU+mKOtLXV/jLtnj/BUouBg=="],
+    "@zip.js/zip.js": ["@zip.js/zip.js@2.23.0", "", {}, "sha512-K5obAqfrO7zhycnCupM9aaoZ9kx0SA0kv7+Z2oOUsdpWquv4s/Z4zyD7AdTqxrK3pgPM+ozaUi8kdRQbCWaIrQ=="],
 
     "abort-controller": ["abort-controller@3.0.0", "", { "dependencies": { "event-target-shim": "^5.0.0" } }, "sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg=="],
 
