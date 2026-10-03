@@ -33,7 +33,7 @@
         "expo-file-system": "~57.0.7",
         "expo-font": "~57.0.4",
         "expo-image-picker": "~57.0.20",
-        "pdfjs-dist": "6.3.289",
+        "pdfjs-dist": "6.4.299",
         "playwright-core": "^1.63.0",
         "pngjs": "^7.0.0",
         "react": "19.2.3",
@@ -61,7 +61,7 @@
         "expo-file-system": "~57.0.7",
         "expo-font": "~57.0.4",
         "expo-image-picker": "~57.0.20",
-        "pdfjs-dist": "6.3.289",
+        "pdfjs-dist": "6.4.299",
         "react": "19.2.3",
         "react-native": "0.86.3",
       },
@@ -1410,7 +1410,7 @@
 
     "path-scurry": ["path-scurry@2.0.2", "", { "dependencies": { "lru-cache": "^11.0.0", "minipass": "^7.1.2" } }, "sha512-3O/iVVsJAPsOnpwWIeD+d6z/7PmqApyQePUtCndjatj/9I5LylHvt5qluFaBT3I5h3r1ejfR056c+FCv+NnNXg=="],
 
-    "pdfjs-dist": ["pdfjs-dist@6.3.289", "", { "optionalDependencies": { "@napi-rs/canvas": "^1.0.0" } }, "sha512-ZHjSVpDa3D6izMq8/04lvkhkATUmL9px6ChPaXc1k6nU2Mrhlg1/7F0bdUqCwUjw3NsPTfPZsMDUU6ZIcRaeQw=="],
+    "pdfjs-dist": ["pdfjs-dist@6.4.299", "", { "optionalDependencies": { "@napi-rs/canvas": "^1.0.10" } }, "sha512-AVl138zALtfaAPvADulE0PZThbYzCBS79nL4pOSL/6Sm/4AH5A21BD9VHt97OlCuzJuCpmeZtAtkinisF4Vb1g=="],
 
     "picocolors": ["picocolors@1.1.1", "", {}, "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="],
 
