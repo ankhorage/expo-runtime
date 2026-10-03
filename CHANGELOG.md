@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 4.0.49
+
+### Patch Changes
+
+- aa32158: Update dependencies: `@zip.js/zip.js`.
+
 ## 4.0.48
 
 ### Patch Changes
