@@ -7,7 +7,7 @@ import { packCandidateAsync } from './packedAcceptance/packCandidateAsync';
 import { runCommandAsync } from './packedAcceptance/runCommandAsync';
 
 const repositoryRoot = path.resolve(import.meta.dir, '..');
-const scratchRoot = await mkdtemp(path.join(tmpdir(), 'expo-runtime-action-bridge-'));
+const scratchRoot = await mkdtemp(path.join(tmpdir(), 'expo-runtime-capability-bridge-'));
 
 try {
   const candidateDirectory = path.join(scratchRoot, 'candidate');
@@ -22,7 +22,7 @@ try {
 
   await writeFixtureAsync(consumerRoot, candidate.name, candidate.path);
   await runCommandAsync('bun', ['install'], consumerRoot);
-  await runCommandAsync('bun', ['action-bridge-check.ts'], consumerRoot);
+  await runCommandAsync('bun', ['capability-bridge-check.ts'], consumerRoot);
   await assertPackedCandidateAsync({
     candidateFilename: candidate.filename,
     candidateName: candidate.name,
@@ -31,7 +31,7 @@ try {
   });
   await assertStandaloneGraphAsync(consumerRoot);
 
-  console.log('Packed Expo Runtime action bridge is independently consumable.');
+  console.log('Packed Expo Runtime capability bridge is independently consumable.');
 } finally {
   await rm(scratchRoot, { recursive: true, force: true });
 }
@@ -52,7 +52,7 @@ async function assertStandaloneGraphAsync(consumerRoot: string): Promise<void> {
   for (const packageName of prohibitedPackages) {
     const packagePath = path.join(consumerRoot, 'node_modules', packageName, 'package.json');
     if ((await Bun.file(packagePath).exists()) || graph.includes(`${packageName}@`)) {
-      throw new Error(`Action bridge consumer unexpectedly installed ${packageName}.`);
+      throw new Error(`Capability bridge consumer unexpectedly installed ${packageName}.`);
     }
   }
 }
@@ -63,7 +63,7 @@ async function writeFixtureAsync(
   candidatePath: string,
 ): Promise<void> {
   const packageJson = {
-    name: 'expo-runtime-action-bridge-acceptance',
+    name: 'expo-runtime-capability-bridge-acceptance',
     version: '0.0.0',
     private: true,
     type: 'module',
@@ -75,25 +75,31 @@ async function writeFixtureAsync(
     `${JSON.stringify(packageJson, null, 2)}\n`,
   );
   await Bun.write(
-    path.join(consumerRoot, 'action-bridge-check.ts'),
-    `import {
-  executeExpoRuntimeAction,
+    path.join(consumerRoot, 'capability-bridge-check.ts'),
+    `import { CAPABILITIES } from '@ankhorage/expo-runtime/capabilities';
+import type { Capability } from '@ankhorage/contracts/capabilities';
+import {
+  executeExpoRuntimeCapabilityAsync,
   resolveExpoRuntimeRoutePath,
-} from '@ankhorage/expo-runtime/action-bridge';
+} from '@ankhorage/expo-runtime/capability-bridge';
 
-const pushes: unknown[] = [];
-await executeExpoRuntimeAction({
-  action: { type: 'navigate', payload: { route: 'projects/[id]', params: { id: 42 } } },
-  router: { push: (target) => pushes.push(target) },
-  mode: 'light',
-  setMode: () => undefined,
+const messages: string[] = [];
+const capabilityCatalog: readonly Capability[] = CAPABILITIES;
+const expoAlertCapability = capabilityCatalog.find((capability) => capability.id === 'expo.alert');
+if (!expoAlertCapability) {
+  throw new Error('The Expo alert capability is missing from the canonical catalog.');
+}
+await executeExpoRuntimeCapabilityAsync({
+  capability: expoAlertCapability,
+  input: { message: 'Saved' },
+  alertImpl: (message) => messages.push(message),
 });
 const resolved = resolveExpoRuntimeRoutePath('/projects/[id]', { id: 42 });
-if (JSON.stringify(pushes) !== JSON.stringify([{ pathname: '/projects/42', params: {} }])) {
-  throw new Error('Action bridge navigation execution failed.');
+if (JSON.stringify(messages) !== JSON.stringify(['Saved'])) {
+  throw new Error('Capability bridge Expo alert execution failed.');
 }
 if (resolved.resolvedPath !== '/projects/42') {
-  throw new Error('Action bridge route resolution failed.');
+  throw new Error('Capability bridge route resolution failed.');
 }
 `,
   );

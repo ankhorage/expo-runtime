@@ -26,7 +26,7 @@
     "runtime"
   ],
   "dependencies": {
-    "@ankhorage/contracts": "^22.8.96"
+    "@ankhorage/contracts": "^24.1.0"
   },
   "files": [
     "dist",
@@ -44,12 +44,19 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./action-bridge": {
-      "react-native": "./src/actionBridge.ts",
-      "browser": "./src/actionBridge.ts",
-      "types": "./src/actionBridge.ts",
-      "import": "./dist/actionBridge.js",
-      "default": "./dist/actionBridge.js"
+    "./capabilities": {
+      "react-native": "./src/capabilities/index.ts",
+      "browser": "./src/capabilities/index.ts",
+      "types": "./src/capabilities/index.ts",
+      "import": "./dist/capabilities/index.js",
+      "default": "./dist/capabilities/index.js"
+    },
+    "./capability-bridge": {
+      "react-native": "./src/capabilityBridge.ts",
+      "browser": "./src/capabilityBridge.ts",
+      "types": "./src/capabilityBridge.ts",
+      "import": "./dist/capabilityBridge.js",
+      "default": "./dist/capabilityBridge.js"
     },
     "./planning": {
       "react-native": "./src/planning.ts",
@@ -126,6 +133,41 @@
   "publishConfig": {
     "access": "public"
   },
+  "ankh": {
+    "category": "runtime",
+    "provider": null,
+    "capabilities": [
+      {
+        "id": "expo.alert",
+        "owner": "@ankhorage/expo-runtime",
+        "access": [
+          "invoke"
+        ],
+        "binding": {
+          "kind": "action",
+          "bindableAs": [
+            "target"
+          ]
+        },
+        "label": "Show an Expo alert",
+        "description": "Display a platform alert through the Expo runtime.",
+        "input": {
+          "schema": {
+            "type": "object",
+            "required": [
+              "message"
+            ],
+            "properties": {
+              "message": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    ]
+  },
   "scripts": {
     "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.json",
     "changeset": "ankhorage-changeset",
@@ -158,9 +200,9 @@
     "@react-native-vector-icons/ionicons": "^13.1.4",
     "@react-native-vector-icons/material-design-icons": "^13.1.4",
     "@zip.js/zip.js": "2.23.0",
-    "expo": "57.0.26",
+    "expo": "57.0.27",
     "expo-camera": "~57.0.6",
-    "expo-constants": "~57.0.20",
+    "expo-constants": "~57.0.21",
     "expo-document-picker": "~57.0.3",
     "expo-file-system": "~57.0.7",
     "expo-font": "~57.0.4",
@@ -250,9 +292,9 @@
     "@xmldom/xmldom": "0.9.12",
     "@zip.js/zip.js": "2.23.0",
     "bwip-js": "^4.11.4",
-    "expo": "57.0.26",
+    "expo": "57.0.27",
     "expo-camera": "~57.0.6",
-    "expo-constants": "~57.0.20",
+    "expo-constants": "~57.0.21",
     "expo-document-picker": "~57.0.3",
     "expo-file-system": "~57.0.7",
     "expo-font": "~57.0.4",
