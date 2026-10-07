@@ -1,0 +1,17 @@
+sequenceDiagram
+  participant participant_alertImpl as alertImpl
+  participant participant_executeExpoAlert as executeExpoAlert
+  participant participant_executeExpoRuntimeCapabilityAsync as executeExpoRuntimeCapabilityAsync
+  participant participant_findCapabilityHandler as findCapabilityHandler
+  participant participant_isCapability as isCapability
+  participant participant_isExpoAlertInput as isExpoAlertInput
+  participant_executeExpoRuntimeCapabilityAsync->>participant_isCapability: isCapability()
+  participant_isCapability-->>participant_executeExpoRuntimeCapabilityAsync: return
+  participant_executeExpoRuntimeCapabilityAsync->>participant_executeExpoAlert: executeExpoAlert()
+  participant_executeExpoAlert->>participant_isExpoAlertInput: isExpoAlertInput()
+  participant_isExpoAlertInput-->>participant_executeExpoAlert: return
+  participant_executeExpoAlert->>participant_alertImpl: alertImpl()
+  participant_alertImpl-->>participant_executeExpoAlert: return
+  participant_executeExpoAlert-->>participant_executeExpoRuntimeCapabilityAsync: return
+  participant_executeExpoRuntimeCapabilityAsync->>participant_findCapabilityHandler: findCapabilityHandler()
+  participant_findCapabilityHandler-->>participant_executeExpoRuntimeCapabilityAsync: return

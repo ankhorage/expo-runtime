@@ -68,36 +68,34 @@ Source: `src/createExpoRuntimeRegistry.tsx:13:1`
   - baseRegistry: `ComponentRegistry`
   - returns: `ComponentRegistry`
 
-## executeExpoRuntimeAction
-
-Kind: `function`
-Module: `src/expoActionBridge.ts`
-Source: `src/expoActionBridge.ts:66:1`
-
-### Signatures
-
-- `(args: ExecuteExpoRuntimeActionArgs) => Promise<void>`
-  - args: `ExecuteExpoRuntimeActionArgs`
-  - returns: `Promise<void>`
-
-## ExecuteExpoRuntimeActionArgs
+## ExecuteExpoRuntimeCapabilityArgs
 
 Kind: `type`
-Module: `src/expoActionBridge.ts`
-Source: `src/expoActionBridge.ts:18:1`
+Module: `src/types/expoRuntimeCapability.ts`
+Source: `src/types/expoRuntimeCapability.ts:13:1`
 
 ### Members
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| action | property | `unknown` | yes |  |
-| actionHandlers | property | `ExpoRuntimeActionHandlers \| undefined` | no |  |
 | alertImpl | property | `((message: string) => void) \| undefined` | no |  |
-| consoleImpl | property | `Pick<Console, "log"> \| undefined` | no |  |
-| mode | property | `ExpoRuntimeThemeMode` | yes |  |
-| requestAnimationFrameImpl | property | `((callback: () => void) => number \| void) \| undefined` | no |  |
-| router | property | `ExpoRuntimeRouterLike` | yes |  |
-| setMode | property | `(mode: ExpoRuntimeThemeMode) => void` | yes |  |
+| capability | property | `unknown` | yes |  |
+| capabilityHandlers | property | `readonly ExpoRuntimeCapabilityHandler[] \| undefined` | no |  |
+| input | property | `unknown` | no |  |
+
+## executeExpoRuntimeCapabilityAsync
+
+Kind: `function`
+Module: `src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts`
+Source: `src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts:10:1`
+
+Execute an Expo-owned capability or delegate another canonical capability to its runtime handler.
+
+### Signatures
+
+- `(args: ExecuteExpoRuntimeCapabilityArgs) => Promise<void>`
+  - args: `ExecuteExpoRuntimeCapabilityArgs`
+  - returns: `Promise<void>`
 
 ## EXPO_PLATFORM
 
@@ -204,29 +202,37 @@ Source: `src/reader/ExpoReaderSurfaceAdapter.tsx:16:1`
   - props: `ReaderSurfaceProps`
   - returns: `React.JSX.Element`
 
-## ExpoRuntimeActionHandlerArgs
-
-Kind: `type`
-Module: `src/expoActionBridge.ts`
-Source: `src/expoActionBridge.ts:9:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| action | property | `Action` | yes |  |
-
-## ExpoRuntimeActionHandlers
-
-Kind: `unknown`
-Module: `src/expoActionBridge.ts`
-Source: `src/expoActionBridge.ts:13:1`
-
 ## ExpoRuntimeAdapterId
 
 Kind: `unknown`
 Module: `src/expoRuntimePlanningMetadata.ts`
 Source: `src/expoRuntimePlanningMetadata.ts:16:1`
+
+## ExpoRuntimeCapabilityHandler
+
+Kind: `type`
+Module: `src/types/expoRuntimeCapability.ts`
+Source: `src/types/expoRuntimeCapability.ts:8:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capabilityId | property | ``${string}.${string}`` | yes |  |
+| execute | property | `(args: ExpoRuntimeCapabilityHandlerArgs) => Promise<void> \| void` | yes |  |
+
+## ExpoRuntimeCapabilityHandlerArgs
+
+Kind: `type`
+Module: `src/types/expoRuntimeCapability.ts`
+Source: `src/types/expoRuntimeCapability.ts:3:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| capability | property | `Capability` | yes |  |
+| input | property | `unknown` | yes |  |
 
 ## ExpoRuntimeConfigPluginOutput
 
@@ -337,8 +343,8 @@ Source: `src/ExpoRuntimeProviders.tsx:8:1`
 ## ExpoRuntimeRouteResolution
 
 Kind: `type`
-Module: `src/expoActionBridge.ts`
-Source: `src/expoActionBridge.ts:29:1`
+Module: `src/types/expoRuntimeRoute.ts`
+Source: `src/types/expoRuntimeRoute.ts:1:1`
 
 ### Members
 
@@ -346,24 +352,6 @@ Source: `src/expoActionBridge.ts:29:1`
 | --- | --- | --- | --- | --- |
 | resolvedPath | property | `string` | yes |  |
 | unusedParams | property | `Record<string, string \| number>` | yes |  |
-
-## ExpoRuntimeRouterLike
-
-Kind: `type`
-Module: `src/expoActionBridge.ts`
-Source: `src/expoActionBridge.ts:5:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| push | property | `(args: { pathname: string; params: Record<string, number \| string>; }) => void` | yes |  |
-
-## ExpoRuntimeThemeMode
-
-Kind: `unknown`
-Module: `src/expoActionBridge.ts`
-Source: `src/expoActionBridge.ts:3:1`
 
 ## ExpoZoraIconFontProvider
 
@@ -537,8 +525,10 @@ Source: `src/resolveExpoRuntimePlan.ts:75:1`
 ## resolveExpoRuntimeRoutePath
 
 Kind: `function`
-Module: `src/expoActionBridge.ts`
-Source: `src/expoActionBridge.ts:34:1`
+Module: `src/features/navigation/resolveExpoRuntimeRoutePath.ts`
+Source: `src/features/navigation/resolveExpoRuntimeRoutePath.ts:4:1`
+
+Resolve Expo Router path parameters before passing the remaining values to the router.
 
 ### Signatures
 

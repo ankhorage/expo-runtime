@@ -3,7 +3,7 @@
 
 # EXPO-RUNTIME
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v4.0.50](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: warnings](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v5.0.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: warnings](././paradox/badges/docs.svg)
 
 Declarative runtime integration for Expo apps: maps app capabilities to permissions, packages, config plugins, providers, and adapters
 
@@ -55,7 +55,7 @@ export function createBasicExpoRuntimePlan() {
 - [Module relationships](././paradox/diagrams/module-relationships.mmd)
 - [Export graph](././paradox/diagrams/export-graph.mmd)
 - [createExpoRuntimeRegistry sequence](././paradox/diagrams/sequences/create-expo-runtime-registry.mmd)
-- [executeExpoRuntimeAction sequence](././paradox/diagrams/sequences/execute-expo-runtime-action.mmd)
+- [executeExpoRuntimeCapabilityAsync sequence](././paradox/diagrams/sequences/execute-expo-runtime-capability-async.mmd)
 - [ExpoBarcodeScannerAdapter sequence](././paradox/diagrams/sequences/expo-barcode-scanner-adapter.mmd)
 - [ExpoReaderSurfaceAdapter sequence](././paradox/diagrams/sequences/expo-reader-surface-adapter.mmd)
 - [ExpoZoraIconFontProvider sequence](././paradox/diagrams/sequences/expo-zora-icon-font-provider.mmd)

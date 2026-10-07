@@ -1,5 +1,12 @@
 # @ankhorage/expo-runtime
 
+## 5.0.0
+
+### Major Changes
+
+- c33533a: Replace the legacy action bridge with canonical capability execution, publish the `expo.alert`
+  capability catalog, and require the Contracts 24 capability baseline.
+
 ## 4.0.50
 
 ### Patch Changes

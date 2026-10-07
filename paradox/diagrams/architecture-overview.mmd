@@ -4,8 +4,6 @@ graph TD
   package__ankhorage_expo_runtime --> entrypoint_src_index_ts
   entrypoint_src_platform_ts["src/platform.ts"]
   package__ankhorage_expo_runtime --> entrypoint_src_platform_ts
-  module_src_actionBridge_ts["src/actionBridge.ts"]
-  package__ankhorage_expo_runtime -.-> module_src_actionBridge_ts
   module_src_barcodeScanner_ts["src/barcodeScanner.ts"]
   package__ankhorage_expo_runtime -.-> module_src_barcodeScanner_ts
   module_src_barcodeScanRuntime_ts["src/barcodeScanRuntime.ts"]
@@ -16,6 +14,10 @@ graph TD
   package__ankhorage_expo_runtime -.-> module_src_bundledMediaRegistrySource_ts
   module_src_bundledMediaResolver_ts["src/bundledMediaResolver.ts"]
   package__ankhorage_expo_runtime -.-> module_src_bundledMediaResolver_ts
+  module_src_capabilities_index_ts["src/capabilities/index.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_capabilities_index_ts
+  module_src_capabilityBridge_ts["src/capabilityBridge.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_capabilityBridge_ts
   module_src_collectExpoRuntimeManifestRequirements_ts["src/collectExpoRuntimeManifestRequirements.ts"]
   package__ankhorage_expo_runtime -.-> module_src_collectExpoRuntimeManifestRequirements_ts
   module_src_componentRegistry_ts["src/componentRegistry.ts"]
@@ -25,8 +27,6 @@ graph TD
   module_src_createExpoRuntimeRegistry_tsx --> module_src_componentRegistry_ts
   module_src_createExpoRuntimeRegistry_tsx --> module_src_ExpoBarcodeScannerAdapter_tsx
   module_src_createExpoRuntimeRegistry_tsx --> module_src_reader_ExpoReaderSurfaceAdapter_tsx
-  module_src_expoActionBridge_ts["src/expoActionBridge.ts"]
-  package__ankhorage_expo_runtime -.-> module_src_expoActionBridge_ts
   module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
   package__ankhorage_expo_runtime -.-> module_src_ExpoBarcodeScannerAdapter_tsx
   module_src_ExpoBarcodeScannerAdapter_tsx --> module_src_barcodeScanRuntime_ts
@@ -41,6 +41,12 @@ graph TD
   package__ankhorage_expo_runtime -.-> module_src_ExpoZoraIconFontProvider_tsx
   module_src_ExpoZoraIconFontProvider_web_tsx["src/ExpoZoraIconFontProvider.web.tsx"]
   package__ankhorage_expo_runtime -.-> module_src_ExpoZoraIconFontProvider_web_tsx
+  module_src_features_capabilities_executeExpoRuntimeCapabilityAsync_ts["src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_features_capabilities_executeExpoRuntimeCapabilityAsync_ts
+  module_src_features_capabilities_executeExpoRuntimeCapabilityAsync_ts --> module_src_types_expoRuntimeCapability_ts
+  module_src_features_navigation_resolveExpoRuntimeRoutePath_ts["src/features/navigation/resolveExpoRuntimeRoutePath.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_features_navigation_resolveExpoRuntimeRoutePath_ts
+  module_src_features_navigation_resolveExpoRuntimeRoutePath_ts --> module_src_types_expoRuntimeRoute_ts
   module_src_generatedAppOutput_ts["src/generatedAppOutput.ts"]
   package__ankhorage_expo_runtime -.-> module_src_generatedAppOutput_ts
   module_src_generatedAppOutput_ts --> module_src_layoutIntegrationPlanning_ts
@@ -154,8 +160,12 @@ graph TD
   module_src_resolveExpoRuntimePlan_ts --> module_src_collectExpoRuntimeManifestRequirements_ts
   module_src_resolveExpoRuntimePlan_ts --> module_src_expoRuntimePlanningMetadata_ts
   module_src_resolveExpoRuntimePlan_ts --> module_src_types_expoRuntimePlanning_ts
+  module_src_types_expoRuntimeCapability_ts["src/types/expoRuntimeCapability.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_types_expoRuntimeCapability_ts
   module_src_types_expoRuntimePlanning_ts["src/types/expoRuntimePlanning.ts"]
   package__ankhorage_expo_runtime -.-> module_src_types_expoRuntimePlanning_ts
   module_src_types_expoRuntimePlanning_ts --> module_src_expoRuntimePlanningMetadata_ts
+  module_src_types_expoRuntimeRoute_ts["src/types/expoRuntimeRoute.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_types_expoRuntimeRoute_ts
   module_src_types_reader_ts["src/types/reader.ts"]
   package__ankhorage_expo_runtime -.-> module_src_types_reader_ts

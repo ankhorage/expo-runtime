@@ -225,32 +225,85 @@
     "structuredRows": []
   },
   {
-    "name": "executeExpoRuntimeAction",
+    "name": "ExecuteExpoRuntimeCapabilityArgs",
     "title": null,
     "description": null,
     "isReadme": false,
     "see": [],
     "security": [],
-    "kind": "function",
-    "modulePath": "src/expoActionBridge.ts",
+    "kind": "type",
+    "modulePath": "src/types/expoRuntimeCapability.ts",
     "sourceLocation": {
-      "filePath": "src/expoActionBridge.ts",
-      "line": 66,
+      "filePath": "src/types/expoRuntimeCapability.ts",
+      "line": 13,
       "column": 1
     },
     "exportPaths": [
       "src/index.ts"
     ],
     "relatedSymbols": [
-      "ExecuteExpoRuntimeActionArgs"
+      "ExpoRuntimeCapabilityHandler"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "alertImpl",
+        "kind": "property",
+        "type": "((message: string) => void) | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "capability",
+        "kind": "property",
+        "type": "unknown",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "capabilityHandlers",
+        "kind": "property",
+        "type": "readonly ExpoRuntimeCapabilityHandler[] | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "input",
+        "kind": "property",
+        "type": "unknown",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "executeExpoRuntimeCapabilityAsync",
+    "title": null,
+    "description": "Execute an Expo-owned capability or delegate another canonical capability to its runtime handler.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
+    "sourceLocation": {
+      "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExecuteExpoRuntimeCapabilityArgs"
     ],
     "signatures": [
       {
-        "label": "(args: ExecuteExpoRuntimeActionArgs) => Promise<void>",
+        "label": "(args: ExecuteExpoRuntimeCapabilityArgs) => Promise<void>",
         "parameters": [
           {
             "name": "args",
-            "type": "ExecuteExpoRuntimeActionArgs",
+            "type": "ExecuteExpoRuntimeCapabilityArgs",
             "required": true,
             "description": null
           }
@@ -260,89 +313,6 @@
       }
     ],
     "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "ExecuteExpoRuntimeActionArgs",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/expoActionBridge.ts",
-    "sourceLocation": {
-      "filePath": "src/expoActionBridge.ts",
-      "line": 18,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [
-      "ExpoRuntimeActionHandlers",
-      "ExpoRuntimeRouterLike",
-      "ExpoRuntimeThemeMode"
-    ],
-    "signatures": [],
-    "members": [
-      {
-        "name": "action",
-        "kind": "property",
-        "type": "unknown",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "actionHandlers",
-        "kind": "property",
-        "type": "ExpoRuntimeActionHandlers | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "alertImpl",
-        "kind": "property",
-        "type": "((message: string) => void) | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "consoleImpl",
-        "kind": "property",
-        "type": "Pick<Console, \"log\"> | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "mode",
-        "kind": "property",
-        "type": "ExpoRuntimeThemeMode",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "requestAnimationFrameImpl",
-        "kind": "property",
-        "type": "((callback: () => void) => number | void) | undefined",
-        "required": false,
-        "description": null
-      },
-      {
-        "name": "router",
-        "kind": "property",
-        "type": "ExpoRuntimeRouterLike",
-        "required": true,
-        "description": null
-      },
-      {
-        "name": "setMode",
-        "kind": "property",
-        "type": "(mode: ExpoRuntimeThemeMode) => void",
-        "required": true,
-        "description": null
-      }
-    ],
     "structuredRows": []
   },
   {
@@ -669,58 +639,6 @@
     "structuredRows": []
   },
   {
-    "name": "ExpoRuntimeActionHandlerArgs",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/expoActionBridge.ts",
-    "sourceLocation": {
-      "filePath": "src/expoActionBridge.ts",
-      "line": 9,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "action",
-        "kind": "property",
-        "type": "Action",
-        "required": true,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "ExpoRuntimeActionHandlers",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "unknown",
-    "modulePath": "src/expoActionBridge.ts",
-    "sourceLocation": {
-      "filePath": "src/expoActionBridge.ts",
-      "line": 13,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "ExpoRuntimeAdapterId",
     "title": null,
     "description": null,
@@ -740,6 +658,82 @@
     "relatedSymbols": [],
     "signatures": [],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeCapabilityHandler",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/expoRuntimeCapability.ts",
+    "sourceLocation": {
+      "filePath": "src/types/expoRuntimeCapability.ts",
+      "line": 8,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeCapabilityHandlerArgs"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capabilityId",
+        "kind": "property",
+        "type": "`${string}.${string}`",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "execute",
+        "kind": "property",
+        "type": "(args: ExpoRuntimeCapabilityHandlerArgs) => Promise<void> | void",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeCapabilityHandlerArgs",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/expoRuntimeCapability.ts",
+    "sourceLocation": {
+      "filePath": "src/types/expoRuntimeCapability.ts",
+      "line": 3,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "capability",
+        "kind": "property",
+        "type": "Capability",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "input",
+        "kind": "property",
+        "type": "unknown",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {
@@ -1123,10 +1117,10 @@
     "see": [],
     "security": [],
     "kind": "type",
-    "modulePath": "src/expoActionBridge.ts",
+    "modulePath": "src/types/expoRuntimeRoute.ts",
     "sourceLocation": {
-      "filePath": "src/expoActionBridge.ts",
-      "line": 29,
+      "filePath": "src/types/expoRuntimeRoute.ts",
+      "line": 1,
       "column": 1
     },
     "exportPaths": [
@@ -1150,58 +1144,6 @@
         "description": null
       }
     ],
-    "structuredRows": []
-  },
-  {
-    "name": "ExpoRuntimeRouterLike",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "type",
-    "modulePath": "src/expoActionBridge.ts",
-    "sourceLocation": {
-      "filePath": "src/expoActionBridge.ts",
-      "line": 5,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [
-      {
-        "name": "push",
-        "kind": "property",
-        "type": "(args: { pathname: string; params: Record<string, number | string>; }) => void",
-        "required": true,
-        "description": null
-      }
-    ],
-    "structuredRows": []
-  },
-  {
-    "name": "ExpoRuntimeThemeMode",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "unknown",
-    "modulePath": "src/expoActionBridge.ts",
-    "sourceLocation": {
-      "filePath": "src/expoActionBridge.ts",
-      "line": 3,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [],
-    "members": [],
     "structuredRows": []
   },
   {
@@ -1733,15 +1675,15 @@
   {
     "name": "resolveExpoRuntimeRoutePath",
     "title": null,
-    "description": null,
+    "description": "Resolve Expo Router path parameters before passing the remaining values to the router.",
     "isReadme": false,
     "see": [],
     "security": [],
     "kind": "function",
-    "modulePath": "src/expoActionBridge.ts",
+    "modulePath": "src/features/navigation/resolveExpoRuntimeRoutePath.ts",
     "sourceLocation": {
-      "filePath": "src/expoActionBridge.ts",
-      "line": 34,
+      "filePath": "src/features/navigation/resolveExpoRuntimeRoutePath.ts",
+      "line": 4,
       "column": 1
     },
     "exportPaths": [
