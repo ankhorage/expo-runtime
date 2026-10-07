@@ -19,18 +19,18 @@ export {
   type ExpoBundledMediaValue,
   resolveExpoBundledMediaAsset,
 } from './bundledMediaResolver';
-export type { ComponentRegistry } from './componentRegistry';
-export { createComponentRegistry } from './componentRegistry';
-export { createExpoRuntimeRegistry } from './createExpoRuntimeRegistry';
-export { ExpoBarcodeScannerAdapter } from './ExpoBarcodeScannerAdapter';
 export {
-  executeExpoRuntimeCapability,
   type ExecuteExpoRuntimeCapabilityArgs,
+  executeExpoRuntimeCapabilityAsync,
   type ExpoRuntimeCapabilityHandler,
   type ExpoRuntimeCapabilityHandlerArgs,
   type ExpoRuntimeRouteResolution,
   resolveExpoRuntimeRoutePath,
-} from './expoCapabilityBridge';
+} from './capabilityBridge';
+export type { ComponentRegistry } from './componentRegistry';
+export { createComponentRegistry } from './componentRegistry';
+export { createExpoRuntimeRegistry } from './createExpoRuntimeRegistry';
+export { ExpoBarcodeScannerAdapter } from './ExpoBarcodeScannerAdapter';
 export { ExpoRuntimeProviders, type ExpoRuntimeProvidersProps } from './ExpoRuntimeProviders';
 export {
   ExpoZoraIconFontProvider,

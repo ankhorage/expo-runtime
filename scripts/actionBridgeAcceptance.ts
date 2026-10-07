@@ -77,14 +77,20 @@ async function writeFixtureAsync(
   await Bun.write(
     path.join(consumerRoot, 'capability-bridge-check.ts'),
     `import { CAPABILITIES } from '@ankhorage/expo-runtime/capabilities';
+import type { Capability } from '@ankhorage/contracts/capabilities';
 import {
-  executeExpoRuntimeCapability,
+  executeExpoRuntimeCapabilityAsync,
   resolveExpoRuntimeRoutePath,
 } from '@ankhorage/expo-runtime/capability-bridge';
 
 const messages: string[] = [];
-await executeExpoRuntimeCapability({
-  capability: CAPABILITIES[0],
+const capabilityCatalog: readonly Capability[] = CAPABILITIES;
+const expoAlertCapability = capabilityCatalog.find((capability) => capability.id === 'expo.alert');
+if (!expoAlertCapability) {
+  throw new Error('The Expo alert capability is missing from the canonical catalog.');
+}
+await executeExpoRuntimeCapabilityAsync({
+  capability: expoAlertCapability,
   input: { message: 'Saved' },
   alertImpl: (message) => messages.push(message),
 });

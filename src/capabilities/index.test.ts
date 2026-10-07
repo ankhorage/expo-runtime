@@ -12,6 +12,7 @@ describe('Expo Runtime capability catalog', () => {
   });
 
   test('matches the published package metadata catalog', () => {
+    expect(packageJson.ankh.provider).toBeNull();
     expect(packageJson.ankh.capabilities).toEqual(CAPABILITIES);
   });
 });
