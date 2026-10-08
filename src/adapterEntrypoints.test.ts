@@ -35,6 +35,9 @@ describe('capability-scoped adapter entrypoints', () => {
     expect(entrypoint).not.toContain('pdfjs-dist');
   });
 
+});
+
+describe('standalone reader capability isolation', () => {
   it('plans standalone Reader without camera, permissions or a custom Expo adapter', () => {
     const plan = resolveExpoRuntimePlan({
       screens: {
