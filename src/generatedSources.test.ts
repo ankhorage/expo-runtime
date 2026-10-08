@@ -8,5 +8,4 @@ describe('generated Expo runtime sources', () => {
       "export { ExpoBarcodeScannerAdapter as ExpoBarcodeScannerView } from '@ankhorage/expo-runtime/barcode-scanner';\n",
     );
   });
-
 });

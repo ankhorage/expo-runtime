@@ -110,7 +110,10 @@ describe('resolveExpoRuntimePlan ebook reader capability', () => {
     expect(plan.runtimeAdapters).toEqual([]);
     expect(plan.usesExpoRuntimeRegistry).toBe(false);
     expect(plan.dependencies.map(({ name, version }) => ({ name, version }))).toEqual([
-      { name: '@ankhorage/reader', version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@ankhorage/reader'] },
+      {
+        name: '@ankhorage/reader',
+        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@ankhorage/reader'],
+      },
     ]);
   });
 });
