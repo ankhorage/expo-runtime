@@ -34,7 +34,6 @@ describe('capability-scoped adapter entrypoints', () => {
     expect(entrypoint).not.toContain('@zip.js/zip.js');
     expect(entrypoint).not.toContain('pdfjs-dist');
   });
-
 });
 
 describe('standalone reader capability isolation', () => {
