@@ -60,7 +60,7 @@ Source: `src/bundledMediaResolver.ts:15:1`
 
 Kind: `function`
 Module: `src/createExpoRuntimeRegistry.tsx`
-Source: `src/createExpoRuntimeRegistry.tsx:13:1`
+Source: `src/createExpoRuntimeRegistry.tsx:11:1`
 
 ### Signatures
 
@@ -190,18 +190,6 @@ Source: `src/platform.ts:1:1`
 | name | property | `string` | yes |  |
 | version | property | `string` | yes |  |
 
-## ExpoReaderSurfaceAdapter
-
-Kind: `function`
-Module: `src/reader/ExpoReaderSurfaceAdapter.tsx`
-Source: `src/reader/ExpoReaderSurfaceAdapter.tsx:16:1`
-
-### Signatures
-
-- `(props: ReaderSurfaceProps) => React.JSX.Element`
-  - props: `ReaderSurfaceProps`
-  - returns: `React.JSX.Element`
-
 ## ExpoRuntimeAdapterId
 
 Kind: `unknown`
@@ -306,7 +294,7 @@ Source: `src/resolveExpoRuntimePlan.ts:48:1`
 | needsPermissionsProvider | property | `boolean` | yes |  |
 | permissions | property | `readonly ExpoRuntimePermissionRequirement[]` | yes |  |
 | providers | property | `readonly "permissions"[]` | yes |  |
-| runtimeAdapters | property | `readonly ExpoRuntimeAdapterId[]` | yes |  |
+| runtimeAdapters | property | `readonly "ExpoBarcodeScannerAdapter"[]` | yes |  |
 | usesExpoRuntimeRegistry | property | `boolean` | yes |  |
 
 ## ExpoRuntimeProviderId
@@ -381,7 +369,7 @@ Source: `src/ExpoZoraIconFontProvider.tsx:3:1`
 
 Kind: `function`
 Module: `src/generatedSources.ts`
-Source: `src/generatedSources.ts:13:1`
+Source: `src/generatedSources.ts:7:1`
 
 ### Signatures
 
@@ -398,17 +386,6 @@ Source: `src/bundledMediaRegistrySource.ts:6:1`
 
 - `(entries: readonly ExpoBundledMediaRegistrySourceEntry[]) => string`
   - entries: `readonly ExpoBundledMediaRegistrySourceEntry[]`
-  - returns: `string`
-
-## getExpoReaderSurfaceViewSource
-
-Kind: `function`
-Module: `src/generatedSources.ts`
-Source: `src/generatedSources.ts:17:1`
-
-### Signatures
-
-- `() => string`
   - returns: `string`
 
 ## mapPermissionStatusToCameraPermissionStatus

@@ -197,7 +197,7 @@
     "modulePath": "src/createExpoRuntimeRegistry.tsx",
     "sourceLocation": {
       "filePath": "src/createExpoRuntimeRegistry.tsx",
-      "line": 13,
+      "line": 11,
       "column": 1
     },
     "exportPaths": [
@@ -603,42 +603,6 @@
     "structuredRows": []
   },
   {
-    "name": "ExpoReaderSurfaceAdapter",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "function",
-    "modulePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
-    "sourceLocation": {
-      "filePath": "src/reader/ExpoReaderSurfaceAdapter.tsx",
-      "line": 16,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [
-      {
-        "label": "(props: ReaderSurfaceProps) => React.JSX.Element",
-        "parameters": [
-          {
-            "name": "props",
-            "type": "ReaderSurfaceProps",
-            "required": true,
-            "description": null
-          }
-        ],
-        "returnType": "React.JSX.Element",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
     "name": "ExpoRuntimeAdapterId",
     "title": null,
     "description": null,
@@ -935,7 +899,7 @@
       "src/index.ts"
     ],
     "relatedSymbols": [
-      "ExpoRuntimeAdapterId"
+      "ExpoBarcodeScannerAdapter"
     ],
     "signatures": [],
     "members": [
@@ -998,7 +962,7 @@
       {
         "name": "runtimeAdapters",
         "kind": "property",
-        "type": "readonly ExpoRuntimeAdapterId[]",
+        "type": "readonly \"ExpoBarcodeScannerAdapter\"[]",
         "required": true,
         "description": null
       },
@@ -1225,7 +1189,7 @@
     "modulePath": "src/generatedSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedSources.ts",
-      "line": 13,
+      "line": 7,
       "column": 1
     },
     "exportPaths": [
@@ -1274,35 +1238,6 @@
             "description": null
           }
         ],
-        "returnType": "string",
-        "returnDescription": null
-      }
-    ],
-    "members": [],
-    "structuredRows": []
-  },
-  {
-    "name": "getExpoReaderSurfaceViewSource",
-    "title": null,
-    "description": null,
-    "isReadme": false,
-    "see": [],
-    "security": [],
-    "kind": "function",
-    "modulePath": "src/generatedSources.ts",
-    "sourceLocation": {
-      "filePath": "src/generatedSources.ts",
-      "line": 17,
-      "column": 1
-    },
-    "exportPaths": [
-      "src/index.ts"
-    ],
-    "relatedSymbols": [],
-    "signatures": [
-      {
-        "label": "() => string",
-        "parameters": [],
         "returnType": "string",
         "returnDescription": null
       }
