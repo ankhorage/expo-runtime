@@ -46,15 +46,11 @@ export {
   resolveExpoRuntimeGeneratedAppOutput,
   resolveExpoRuntimeNativeOutput,
 } from './generatedAppOutput';
-export {
-  getExpoBarcodeScannerViewSource,
-  getExpoReaderSurfaceViewSource,
-} from './generatedSources';
+export { getExpoBarcodeScannerViewSource } from './generatedSources';
 export {
   type ExpoRuntimeLayoutIntegrationPlan,
   resolveExpoRuntimeLayoutIntegration,
 } from './layoutIntegrationPlanning';
-export { ExpoReaderSurfaceAdapter } from './reader/ExpoReaderSurfaceAdapter';
 export type {
   ExpoRuntimeAdapterId,
   ExpoRuntimePlan,
