@@ -1,1 +1,0 @@
-export { ExpoReaderSurfaceAdapter } from './ExpoReaderSurfaceAdapter';
