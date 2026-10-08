@@ -1,11 +1,13 @@
 import { describe, expect, it } from 'bun:test';
 
+import { resolveExpoRuntimePlan } from './resolveExpoRuntimePlan';
+
 interface PackageJson {
   readonly exports: Readonly<Record<string, Readonly<Record<string, string>>>>;
 }
 
 describe('capability-scoped adapter entrypoints', () => {
-  it('publishes focused provider, barcode scanner, and reader exports', async () => {
+  it('publishes focused provider and barcode scanner exports without a legacy reader alias', async () => {
     const packageJson = (await Bun.file(
       new URL('../package.json', import.meta.url),
     ).json()) as PackageJson;
@@ -20,11 +22,7 @@ describe('capability-scoped adapter entrypoints', () => {
       'react-native': './src/barcodeScanner.ts',
       types: './src/barcodeScanner.ts',
     });
-    expect(packageJson.exports['./reader']).toMatchObject({
-      import: './dist/reader/index.js',
-      'react-native': './src/reader/index.ts',
-      types: './src/reader/index.ts',
-    });
+    expect(packageJson.exports).not.toHaveProperty('./reader');
   });
 
   it('keeps document renderer ownership out of the providers entrypoint', async () => {
@@ -37,15 +35,24 @@ describe('capability-scoped adapter entrypoints', () => {
     expect(entrypoint).not.toContain('pdfjs-dist');
   });
 
-  it('keeps camera ownership out of the reader entrypoint', async () => {
-    const entrypoint = await Bun.file(new URL('./reader/index.ts', import.meta.url)).text();
-    const adapter = await Bun.file(
-      new URL('./reader/ExpoReaderSurfaceAdapter.tsx', import.meta.url),
-    ).text();
+  it('plans standalone Reader without camera, permissions or a custom Expo adapter', () => {
+    const plan = resolveExpoRuntimePlan({
+      screens: {
+        library: {
+          requires: {
+            capabilities: { ebookReader: true },
+          },
+        },
+      },
+    });
 
-    expect(entrypoint).toContain("from './ExpoReaderSurfaceAdapter'");
-    expect(`${entrypoint}\n${adapter}`).not.toContain('expo-camera');
-    expect(`${entrypoint}\n${adapter}`).not.toContain('@ankhorage/permissions');
+    expect(plan.dependencies.map(({ name }) => name)).toEqual(['@ankhorage/reader']);
+    expect(plan.permissions).toEqual([]);
+    expect(plan.impliedPermissions).toEqual([]);
+    expect(plan.providers).toEqual([]);
+    expect(plan.runtimeAdapters).toEqual([]);
+    expect(plan.usesExpoRuntimeRegistry).toBe(false);
+    expect(plan.nativeConfig.plugins).toEqual([]);
   });
 
   it('keeps document renderer ownership out of the scanner entrypoint', async () => {
