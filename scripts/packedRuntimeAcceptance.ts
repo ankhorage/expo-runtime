@@ -135,7 +135,6 @@ async function exportPlatformAsync(
     ['expo', 'export', '--platform', platform, '--output-dir', outputDirectory, '--clear'],
     consumerRoot,
   );
-
 }
 
 async function prebuildPlatformAsync(
