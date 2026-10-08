@@ -120,13 +120,6 @@
       "types": "./src/barcodeScanner.ts",
       "import": "./dist/barcodeScanner.js",
       "default": "./dist/barcodeScanner.js"
-    },
-    "./reader": {
-      "react-native": "./src/reader/index.ts",
-      "browser": "./src/reader/index.ts",
-      "types": "./src/reader/index.ts",
-      "import": "./dist/reader/index.js",
-      "default": "./dist/reader/index.js"
     }
   },
   "publishConfig": {
@@ -184,21 +177,17 @@
     "validate:expo-platform": "bun scripts/validateExpoPlatform.ts",
     "validate:headless-platform": "bun scripts/headlessPlatformAcceptance.ts",
     "validate:packed-runtime": "bun scripts/packedRuntimeAcceptance.ts",
-    "validate:reader-dom": "bun scripts/readerDomAcceptance.ts",
     "validate:web-barcode": "bun scripts/webBarcodeAcceptance.ts",
     "version-packages": "ankhorage-changeset version"
   },
   "peerDependencies": {
     "@ankhorage/permissions": "^0.2.63",
-    "@ankhorage/zora": "^22.0.74",
-    "@readium/navigator": "2.11.1",
-    "@readium/shared": "2.6.0",
+    "@ankhorage/zora": "^24.0.0",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
     "@react-native-vector-icons/fontawesome5": "^13.1.4",
     "@react-native-vector-icons/fontawesome6": "^13.1.4",
     "@react-native-vector-icons/ionicons": "^13.1.4",
     "@react-native-vector-icons/material-design-icons": "^13.1.4",
-    "@zip.js/zip.js": "2.23.0",
     "expo": "57.0.27",
     "expo-camera": "~57.0.6",
     "expo-constants": "~57.0.21",
@@ -206,7 +195,6 @@
     "expo-file-system": "~57.0.7",
     "expo-font": "~57.0.4",
     "expo-image-picker": "~57.0.20",
-    "pdfjs-dist": "6.4.299",
     "react": "19.2.3",
     "react-native": "0.86.3"
   },
@@ -215,12 +203,6 @@
       "optional": true
     },
     "@ankhorage/zora": {
-      "optional": true
-    },
-    "@readium/navigator": {
-      "optional": true
-    },
-    "@readium/shared": {
       "optional": true
     },
     "@react-native-vector-icons/fontawesome": {
@@ -236,9 +218,6 @@
       "optional": true
     },
     "@react-native-vector-icons/material-design-icons": {
-      "optional": true
-    },
-    "@zip.js/zip.js": {
       "optional": true
     },
     "expo": {
@@ -262,9 +241,6 @@
     "expo-image-picker": {
       "optional": true
     },
-    "pdfjs-dist": {
-      "optional": true
-    },
     "react": {
       "optional": true
     },
@@ -276,20 +252,16 @@
     "@ankhorage/devtools": "^2.2.2",
     "@ankhorage/paradox": "^0.2.27",
     "@ankhorage/permissions": "^0.2.63",
-    "@ankhorage/zora": "^22.0.74",
+    "@ankhorage/zora": "^24.0.0",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
     "@react-native-vector-icons/fontawesome5": "^13.1.4",
     "@react-native-vector-icons/fontawesome6": "^13.1.4",
     "@react-native-vector-icons/ionicons": "^13.1.4",
     "@react-native-vector-icons/material-design-icons": "^13.1.4",
-    "@readium/navigator": "2.11.1",
-    "@readium/shared": "2.6.0",
     "@types/bun": "^1.4.2",
     "@types/node": "^24.19.1",
     "@types/pngjs": "^6.0.5",
     "@types/react": "~19.2.18",
-    "@xmldom/xmldom": "0.9.12",
-    "@zip.js/zip.js": "2.23.0",
     "bwip-js": "^4.11.4",
     "expo": "57.0.27",
     "expo-camera": "~57.0.6",
@@ -298,7 +270,6 @@
     "expo-file-system": "~57.0.7",
     "expo-font": "~57.0.4",
     "expo-image-picker": "~57.0.20",
-    "pdfjs-dist": "6.4.299",
     "playwright-core": "^1.64.0",
     "pngjs": "^7.0.0",
     "react": "19.2.3",

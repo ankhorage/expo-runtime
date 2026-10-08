@@ -46,7 +46,8 @@ export async function runBrowserAcceptance(origin: string, videoPath: string): P
   }
 }
 
-export async function findChromeExecutable(): Promise<string> {
+/*** Resolve the Chrome binary for local barcode-acceptance scenarios. */
+async function findChromeExecutable(): Promise<string> {
   const candidates = [process.env.CHROME_PATH, ...CHROME_PATHS].filter(
     (path): path is string => path !== undefined,
   );

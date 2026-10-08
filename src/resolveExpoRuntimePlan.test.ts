@@ -98,7 +98,7 @@ describe('resolveExpoRuntimePlan barcode capability', () => {
 });
 
 describe('resolveExpoRuntimePlan ebook reader capability', () => {
-  test('selects the reader adapter and exact renderer packages without permissions', () => {
+  test('plans only the published standalone Reader without a custom Expo UI adapter', () => {
     const plan = resolveExpoRuntimePlan(
       withFirstScreenRequirements({ capabilities: { ebookReader: true } }),
     );
@@ -107,27 +107,12 @@ describe('resolveExpoRuntimePlan ebook reader capability', () => {
     expect(plan.impliedPermissions).toEqual([]);
     expect(plan.providers).toEqual([]);
     expect(plan.nativeConfig.plugins).toEqual([]);
-    expect(plan.runtimeAdapters).toEqual(['ExpoReaderSurfaceAdapter']);
+    expect(plan.runtimeAdapters).toEqual([]);
+    expect(plan.usesExpoRuntimeRegistry).toBe(false);
     expect(plan.dependencies.map(({ name, version }) => ({ name, version }))).toEqual([
       {
-        name: '@ankhorage/expo-runtime',
-        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@ankhorage/expo-runtime'],
-      },
-      {
-        name: '@readium/navigator',
-        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@readium/navigator'],
-      },
-      {
-        name: '@readium/shared',
-        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@readium/shared'],
-      },
-      {
-        name: '@zip.js/zip.js',
-        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@zip.js/zip.js'],
-      },
-      {
-        name: 'pdfjs-dist',
-        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['pdfjs-dist'],
+        name: '@ankhorage/reader',
+        version: GENERATED_RUNTIME_DEPENDENCY_VERSIONS['@ankhorage/reader'],
       },
     ]);
   });

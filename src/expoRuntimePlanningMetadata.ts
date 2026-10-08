@@ -13,7 +13,7 @@ export interface ExpoRuntimeConfigPlugin {
 }
 
 export type ExpoRuntimeProviderId = 'permissions';
-export type ExpoRuntimeAdapterId = 'ExpoBarcodeScannerAdapter' | 'ExpoReaderSurfaceAdapter';
+export type ExpoRuntimeAdapterId = 'ExpoBarcodeScannerAdapter';
 
 export interface ExpoRuntimeDiagnostic {
   readonly severity: 'error' | 'warning';
@@ -40,10 +40,7 @@ export interface ExpoRuntimeHintMetadata {
 const GENERATED_ANKHORAGE_DEPENDENCY_VERSIONS = {
   '@ankhorage/permissions': '^0.2.5',
   '@ankhorage/expo-runtime': '^3.0.0',
-  '@readium/navigator': '2.8.2',
-  '@readium/shared': '2.4.0',
-  '@zip.js/zip.js': '2.9.0',
-  'pdfjs-dist': '6.3.289',
+  '@ankhorage/reader': '^0.1.0',
 } as const satisfies Record<string, string>;
 
 const GENERATED_EXPO_DEPENDENCY_VERSIONS = Object.fromEntries(
@@ -153,8 +150,7 @@ export const EXPO_CAPABILITY_RUNTIME_REGISTRY = {
     ],
   },
   ebookReader: {
-    requiredPackages: ['@readium/navigator', '@readium/shared', '@zip.js/zip.js', 'pdfjs-dist'],
-    runtimeAdapters: ['ExpoReaderSurfaceAdapter'],
+    requiredPackages: ['@ankhorage/reader'],
   },
 } as const satisfies Readonly<
   Partial<Record<AnkhorageCapabilityName, ExpoRuntimeCapabilityMetadata>>
