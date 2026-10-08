@@ -13,7 +13,6 @@ test('exports the icon font boundary through its focused subpath', async () => {
     'browser',
     'react-native',
     'types',
-    'node',
     'import',
     'default',
   ]);
@@ -21,7 +20,6 @@ test('exports the icon font boundary through its focused subpath', async () => {
     browser: './src/ExpoZoraIconFontProvider.web.tsx',
     'react-native': './src/ExpoZoraIconFontProvider.tsx',
     types: './src/ExpoZoraIconFontProvider.tsx',
-    node: './src/ExpoZoraIconFontProvider.web.tsx',
     import: './dist/ExpoZoraIconFontProvider.js',
     default: './dist/ExpoZoraIconFontProvider.js',
   });
