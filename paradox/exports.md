@@ -87,7 +87,7 @@ Source: `src/types/expoRuntimeCapability.ts:13:1`
 
 Kind: `function`
 Module: `src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts`
-Source: `src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts:10:1`
+Source: `src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts:11:1`
 
 Execute an Expo-owned capability or delegate another canonical capability to its runtime handler.
 

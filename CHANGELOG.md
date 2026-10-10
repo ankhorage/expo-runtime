@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 6.0.1
+
+### Patch Changes
+
+- d70ff0c: Consume the standalone Capability validation toolkit and canonical declaration contract.
+
 ## 6.0.0
 
 ### Major Changes

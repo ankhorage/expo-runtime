@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v6.0.0",
+      "value": "v6.0.1",
       "color": "cb3837"
     },
     {
@@ -1007,7 +1007,7 @@
       "modulePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
       "sourceLocation": {
         "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
-        "line": 10,
+        "line": 11,
         "column": 1
       },
       "exportPaths": [
@@ -2859,7 +2859,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
-        "line": 10,
+        "line": 11,
         "column": 1
       }
     },
@@ -2870,7 +2870,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
-        "line": 25,
+        "line": 26,
         "column": 1
       }
     },
@@ -2881,7 +2881,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
-        "line": 33,
+        "line": 34,
         "column": 1
       }
     },
@@ -2892,7 +2892,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
-        "line": 42,
+        "line": 43,
         "column": 1
       }
     },
