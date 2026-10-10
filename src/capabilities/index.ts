@@ -1,4 +1,4 @@
-import type { Capability } from '@ankhorage/contracts/capabilities';
+import type { Capability } from '@ankhorage/contracts/capability';
 
 /*** Publish the portable capabilities that Expo Runtime owns and executes. */
 export const CAPABILITIES = [

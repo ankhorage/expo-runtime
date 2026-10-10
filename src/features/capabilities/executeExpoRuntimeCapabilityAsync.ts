@@ -1,4 +1,5 @@
-import { type Capability, isCapability } from '@ankhorage/contracts/capabilities';
+import { isCapability } from '@ankhorage/capability';
+import type { Capability } from '@ankhorage/contracts/capability';
 
 import type {
   ExecuteExpoRuntimeCapabilityArgs,
