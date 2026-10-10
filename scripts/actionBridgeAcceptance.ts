@@ -77,7 +77,7 @@ async function writeFixtureAsync(
   await Bun.write(
     path.join(consumerRoot, 'capability-bridge-check.ts'),
     `import { CAPABILITIES } from '@ankhorage/expo-runtime/capabilities';
-import type { Capability } from '@ankhorage/contracts/capabilities';
+import type { Capability } from '@ankhorage/contracts/capability';
 import {
   executeExpoRuntimeCapabilityAsync,
   resolveExpoRuntimeRoutePath,

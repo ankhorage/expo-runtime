@@ -26,7 +26,8 @@
     "runtime"
   ],
   "dependencies": {
-    "@ankhorage/contracts": "^24.1.0"
+    "@ankhorage/capability": "^0.2.1",
+    "@ankhorage/contracts": "^25.0.0"
   },
   "files": [
     "dist",
