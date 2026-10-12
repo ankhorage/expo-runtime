@@ -250,7 +250,7 @@
     }
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^2.3.13",
+    "@ankhorage/devtools": "^2.3.17",
     "@ankhorage/paradox": "^0.2.27",
     "@ankhorage/permissions": "^0.2.63",
     "@ankhorage/zora": "^24.0.0",
@@ -280,5 +280,5 @@
     "react-native-web": "~0.21.3",
     "typescript": "~6.0.3"
   },
-  "packageManager": "bun@1.4.3"
+  "packageManager": "bun@1.4.2"
 }
