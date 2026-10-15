@@ -271,7 +271,7 @@
     "expo-file-system": "~57.0.7",
     "expo-font": "~57.0.4",
     "expo-image-picker": "~57.0.20",
-    "playwright-core": "^1.64.0",
+    "playwright-core": "^1.64.1",
     "pngjs": "^7.0.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
