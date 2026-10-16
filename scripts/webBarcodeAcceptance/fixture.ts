@@ -63,9 +63,6 @@ async function writeManifest(
     '@ankhorage/permissions': requiredVersion(repositoryDependencies, '@ankhorage/permissions'),
     '@ankhorage/surface': requiredVersion(zoraDependencies, '@ankhorage/surface'),
     '@ankhorage/zora': requiredVersion(repositoryDependencies, '@ankhorage/zora'),
-    '@readium/navigator': requiredVersion(repositoryDependencies, '@readium/navigator'),
-    '@readium/shared': requiredVersion(repositoryDependencies, '@readium/shared'),
-    '@zip.js/zip.js': requiredVersion(repositoryDependencies, '@zip.js/zip.js'),
     ...iconProviderDependencies,
     [EXPO_PLATFORM.packages.metroRuntime.name]: EXPO_PLATFORM.packages.metroRuntime.version,
     [EXPO_PLATFORM.packages.camera.name]: EXPO_PLATFORM.packages.camera.version,
@@ -75,7 +72,6 @@ async function writeManifest(
     [EXPO_PLATFORM.runtime.reactDom.name]: EXPO_PLATFORM.runtime.reactDom.version,
     [EXPO_PLATFORM.runtime.reactNative.name]: EXPO_PLATFORM.runtime.reactNative.version,
     [EXPO_PLATFORM.runtime.reactNativeWeb.name]: EXPO_PLATFORM.runtime.reactNativeWeb.version,
-    'pdfjs-dist': requiredVersion(repositoryDependencies, 'pdfjs-dist'),
   };
   await writeJson(join(fixtureRoot, 'package.json'), {
     name: 'ankhorage-expo-web-barcode-acceptance',
