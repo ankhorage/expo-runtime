@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 6.0.2
+
+### Patch Changes
+
+- 533cb81: Refresh the canonical Expo SDK 57 platform baseline to Expo 57.0.30.
+
 ## 6.0.1
 
 ### Patch Changes
