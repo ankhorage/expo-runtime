@@ -22,6 +22,9 @@ export {
 export {
   type ExecuteExpoRuntimeCapabilityArgs,
   executeExpoRuntimeCapabilityAsync,
+  type ExpoRuntimeCapabilityDiagnostic,
+  type ExpoRuntimeCapabilityDiagnosticCode,
+  type ExpoRuntimeCapabilityExecutionResult,
   type ExpoRuntimeCapabilityHandler,
   type ExpoRuntimeCapabilityHandlerArgs,
   type ExpoRuntimeRouteResolution,

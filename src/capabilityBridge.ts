@@ -2,6 +2,9 @@ export { executeExpoRuntimeCapabilityAsync } from './features/capabilities/execu
 export { resolveExpoRuntimeRoutePath } from './features/navigation/resolveExpoRuntimeRoutePath';
 export type {
   ExecuteExpoRuntimeCapabilityArgs,
+  ExpoRuntimeCapabilityDiagnostic,
+  ExpoRuntimeCapabilityDiagnosticCode,
+  ExpoRuntimeCapabilityExecutionResult,
   ExpoRuntimeCapabilityHandler,
   ExpoRuntimeCapabilityHandlerArgs,
 } from './types/expoRuntimeCapability';
