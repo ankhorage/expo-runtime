@@ -10,6 +10,24 @@ export interface ExpoRuntimeCapabilityHandler {
   readonly execute: (args: ExpoRuntimeCapabilityHandlerArgs) => Promise<void> | void;
 }
 
+export type ExpoRuntimeCapabilityDiagnosticCode =
+  | 'invalid-capability-descriptor'
+  | 'invalid-expo-alert-input'
+  | 'missing-capability-handler'
+  | 'missing-expo-alert-handler';
+
+export interface ExpoRuntimeCapabilityDiagnostic {
+  readonly code: ExpoRuntimeCapabilityDiagnosticCode;
+  readonly message: string;
+}
+
+export type ExpoRuntimeCapabilityExecutionResult =
+  | { readonly ok: true }
+  | {
+      readonly ok: false;
+      readonly diagnostics: readonly ExpoRuntimeCapabilityDiagnostic[];
+    };
+
 export interface ExecuteExpoRuntimeCapabilityArgs {
   readonly capability: unknown;
   readonly input?: unknown;

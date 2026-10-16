@@ -89,13 +89,13 @@ const expoAlertCapability = capabilityCatalog.find((capability) => capability.id
 if (!expoAlertCapability) {
   throw new Error('The Expo alert capability is missing from the canonical catalog.');
 }
-await executeExpoRuntimeCapabilityAsync({
+const result = await executeExpoRuntimeCapabilityAsync({
   capability: expoAlertCapability,
   input: { message: 'Saved' },
   alertImpl: (message) => messages.push(message),
 });
 const resolved = resolveExpoRuntimeRoutePath('/projects/[id]', { id: 42 });
-if (JSON.stringify(messages) !== JSON.stringify(['Saved'])) {
+if (!result.ok || JSON.stringify(messages) !== JSON.stringify(['Saved'])) {
   throw new Error('Capability bridge Expo alert execution failed.');
 }
 if (resolved.resolvedPath !== '/projects/42') {
