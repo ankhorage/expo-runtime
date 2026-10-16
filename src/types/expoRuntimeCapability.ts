@@ -13,6 +13,7 @@ export interface ExpoRuntimeCapabilityHandler {
 export type ExpoRuntimeCapabilityDiagnosticCode =
   | 'invalid-capability-descriptor'
   | 'invalid-expo-alert-input'
+  | 'capability-handler-failed'
   | 'missing-capability-handler'
   | 'missing-expo-alert-handler';
 

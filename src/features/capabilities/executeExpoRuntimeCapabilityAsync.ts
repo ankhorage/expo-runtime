@@ -32,8 +32,24 @@ export async function executeExpoRuntimeCapabilityAsync(
       message: `No Expo Runtime capability handler is configured for '${capability.id}'.`,
     });
   }
-  await handler({ capability, input });
-  return { ok: true };
+  return executeForeignCapabilityHandlerAsync(handler, capability, input);
+}
+
+/*** Execute a foreign capability handler and translate its failure into the bridge result contract. */
+async function executeForeignCapabilityHandlerAsync(
+  handler: (args: ExpoRuntimeCapabilityHandlerArgs) => Promise<void> | void,
+  capability: Capability,
+  input: unknown,
+): Promise<ExpoRuntimeCapabilityExecutionResult> {
+  try {
+    await handler({ capability, input });
+    return { ok: true };
+  } catch (error) {
+    return rejectCapabilityExecution({
+      code: 'capability-handler-failed',
+      message: `The handler for '${capability.id}' failed: ${getFailureMessage(error)}`,
+    });
+  }
 }
 
 /*** Find the configured executor for one canonical capability without dynamic record access. */
@@ -84,4 +100,9 @@ function rejectCapabilityExecution(
   diagnostic: ExpoRuntimeCapabilityDiagnostic,
 ): ExpoRuntimeCapabilityExecutionResult {
   return { ok: false, diagnostics: [diagnostic] };
+}
+
+/*** Convert any foreign handler failure into a diagnostic-safe message. */
+function getFailureMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
 }

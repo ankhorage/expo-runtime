@@ -49,6 +49,40 @@ describe('expoCapabilityBridge Expo-owned capabilities', () => {
     expect(messages).toEqual([]);
   });
 });
+describe('expoCapabilityBridge rejected Expo-owned capabilities', () => {
+  test('rejects a valid Expo alert invocation when no alert host is configured', async () => {
+    const result = await executeExpoRuntimeCapabilityAsync({
+      capability: findCapabilityById('expo.alert'),
+      input: { message: 'Saved' },
+    });
+
+    expect(result).toEqual({
+      ok: false,
+      diagnostics: [
+        {
+          code: 'missing-expo-alert-handler',
+          message: "No Expo alert host callback is configured for 'expo.alert'.",
+        },
+      ],
+    });
+  });
+
+  test('rejects an invalid capability descriptor', async () => {
+    const result = await executeExpoRuntimeCapabilityAsync({
+      capability: { id: 'expo.alert' },
+    });
+
+    expect(result).toEqual({
+      ok: false,
+      diagnostics: [
+        {
+          code: 'invalid-capability-descriptor',
+          message: 'The capability descriptor is invalid.',
+        },
+      ],
+    });
+  });
+});
 
 describe('expoCapabilityBridge foreign capabilities', () => {
   test('delegates foreign canonical capabilities to their configured runtime handler', async () => {
@@ -94,6 +128,41 @@ describe('expoCapabilityBridge foreign capabilities', () => {
         },
       ],
     });
+  });
+});
+describe('expoCapabilityBridge failed foreign capability handlers', () => {
+  test('rejects synchronous and asynchronous foreign handler failures', async () => {
+    const capability = {
+      id: 'navigator.navigate',
+      owner: '@ankhorage/navigator',
+      access: ['invoke'],
+      binding: { kind: 'action', bindableAs: ['target'] },
+    } as const;
+    const failures = [
+      () => {
+        throw new Error('synchronous failure');
+      },
+      () => Promise.reject(new Error('asynchronous failure')),
+    ];
+
+    for (const execute of failures) {
+      const result = await executeExpoRuntimeCapabilityAsync({
+        capability,
+        capabilityHandlers: [{ capabilityId: 'navigator.navigate', execute }],
+      });
+
+      expect(result).toEqual({
+        ok: false,
+        diagnostics: [
+          {
+            code: 'capability-handler-failed',
+            message: `The handler for 'navigator.navigate' failed: ${
+              execute === failures[0] ? 'synchronous failure' : 'asynchronous failure'
+            }`,
+          },
+        ],
+      });
+    }
   });
 });
 
