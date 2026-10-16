@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 6.0.3
+
+### Patch Changes
+
+- 7b0e21d: Return structured execution results and actionable rejection diagnostics from the Expo Runtime capability bridge.
+
 ## 6.0.2
 
 ### Patch Changes

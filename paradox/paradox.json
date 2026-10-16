@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v6.0.2",
+      "value": "v6.0.3",
       "color": "cb3837"
     },
     {
@@ -287,6 +287,9 @@
       "exports": [
         "ExecuteExpoRuntimeCapabilityArgs",
         "executeExpoRuntimeCapabilityAsync",
+        "ExpoRuntimeCapabilityDiagnostic",
+        "ExpoRuntimeCapabilityDiagnosticCode",
+        "ExpoRuntimeCapabilityExecutionResult",
         "ExpoRuntimeCapabilityHandler",
         "ExpoRuntimeCapabilityHandlerArgs",
         "ExpoRuntimeRouteResolution",
@@ -453,6 +456,9 @@
         "ExpoBundledMediaResolverArgs",
         "ExpoBundledMediaValue",
         "ExpoRuntimeAdapterId",
+        "ExpoRuntimeCapabilityDiagnostic",
+        "ExpoRuntimeCapabilityDiagnosticCode",
+        "ExpoRuntimeCapabilityExecutionResult",
         "ExpoRuntimeCapabilityHandler",
         "ExpoRuntimeCapabilityHandlerArgs",
         "ExpoRuntimeConfigPluginOutput",
@@ -690,6 +696,9 @@
       "dependencies": [],
       "exports": [
         "ExecuteExpoRuntimeCapabilityArgs",
+        "ExpoRuntimeCapabilityDiagnostic",
+        "ExpoRuntimeCapabilityDiagnosticCode",
+        "ExpoRuntimeCapabilityExecutionResult",
         "ExpoRuntimeCapabilityHandler",
         "ExpoRuntimeCapabilityHandlerArgs"
       ]
@@ -954,7 +963,7 @@
       "modulePath": "src/types/expoRuntimeCapability.ts",
       "sourceLocation": {
         "filePath": "src/types/expoRuntimeCapability.ts",
-        "line": 13,
+        "line": 32,
         "column": 1
       },
       "exportPaths": [
@@ -1007,18 +1016,19 @@
       "modulePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
       "sourceLocation": {
         "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
-        "line": 11,
+        "line": 13,
         "column": 1
       },
       "exportPaths": [
         "src/index.ts"
       ],
       "relatedSymbols": [
-        "ExecuteExpoRuntimeCapabilityArgs"
+        "ExecuteExpoRuntimeCapabilityArgs",
+        "ExpoRuntimeCapabilityExecutionResult"
       ],
       "signatures": [
         {
-          "label": "(args: ExecuteExpoRuntimeCapabilityArgs) => Promise<void>",
+          "label": "(args: ExecuteExpoRuntimeCapabilityArgs) => Promise<ExpoRuntimeCapabilityExecutionResult>",
           "parameters": [
             {
               "name": "args",
@@ -1027,7 +1037,7 @@
               "description": null
             }
           ],
-          "returnType": "Promise<void>",
+          "returnType": "Promise<ExpoRuntimeCapabilityExecutionResult>",
           "returnDescription": null
         }
       ],
@@ -1333,6 +1343,89 @@
       "sourceLocation": {
         "filePath": "src/expoRuntimePlanningMetadata.ts",
         "line": 16,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoRuntimeCapabilityDiagnostic",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/expoRuntimeCapability.ts",
+      "sourceLocation": {
+        "filePath": "src/types/expoRuntimeCapability.ts",
+        "line": 20,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ExpoRuntimeCapabilityDiagnosticCode"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "code",
+          "kind": "property",
+          "type": "ExpoRuntimeCapabilityDiagnosticCode",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "message",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoRuntimeCapabilityDiagnosticCode",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/expoRuntimeCapability.ts",
+      "sourceLocation": {
+        "filePath": "src/types/expoRuntimeCapability.ts",
+        "line": 13,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoRuntimeCapabilityExecutionResult",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/expoRuntimeCapability.ts",
+      "sourceLocation": {
+        "filePath": "src/types/expoRuntimeCapability.ts",
+        "line": 25,
         "column": 1
       },
       "exportPaths": [
@@ -2859,7 +2952,18 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
-        "line": 11,
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "executeForeignCapabilityHandlerAsync",
+      "description": "Execute a foreign capability handler and translate its failure into the bridge result contract.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
+        "line": 39,
         "column": 1
       }
     },
@@ -2870,7 +2974,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
-        "line": 26,
+        "line": 56,
         "column": 1
       }
     },
@@ -2881,7 +2985,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
-        "line": 34,
+        "line": 64,
         "column": 1
       }
     },
@@ -2892,7 +2996,29 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
-        "line": 43,
+        "line": 85,
+        "column": 1
+      }
+    },
+    {
+      "name": "rejectCapabilityExecution",
+      "description": "Report a rejected capability invocation with a diagnostic that a runtime owner can surface.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
+        "line": 99,
+        "column": 1
+      }
+    },
+    {
+      "name": "getFailureMessage",
+      "description": "Convert any foreign handler failure into a diagnostic-safe message.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
+        "line": 106,
         "column": 1
       }
     },
@@ -4171,6 +4297,12 @@
       },
       {
         "fromSymbol": "executeExpoRuntimeCapabilityAsync",
+        "toSymbol": "rejectCapabilityExecution",
+        "callExpression": "rejectCapabilityExecution",
+        "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
+      },
+      {
+        "fromSymbol": "executeExpoRuntimeCapabilityAsync",
         "toSymbol": "executeExpoAlert",
         "callExpression": "executeExpoAlert",
         "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
@@ -4182,9 +4314,39 @@
         "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
       },
       {
+        "fromSymbol": "executeExpoRuntimeCapabilityAsync",
+        "toSymbol": "executeForeignCapabilityHandlerAsync",
+        "callExpression": "executeForeignCapabilityHandlerAsync",
+        "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
+      },
+      {
+        "fromSymbol": "executeForeignCapabilityHandlerAsync",
+        "toSymbol": "handler",
+        "callExpression": "handler",
+        "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
+      },
+      {
+        "fromSymbol": "executeForeignCapabilityHandlerAsync",
+        "toSymbol": "rejectCapabilityExecution",
+        "callExpression": "rejectCapabilityExecution",
+        "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
+      },
+      {
+        "fromSymbol": "executeForeignCapabilityHandlerAsync",
+        "toSymbol": "getFailureMessage",
+        "callExpression": "getFailureMessage",
+        "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
+      },
+      {
         "fromSymbol": "executeExpoAlert",
         "toSymbol": "isExpoAlertInput",
         "callExpression": "isExpoAlertInput",
+        "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
+      },
+      {
+        "fromSymbol": "executeExpoAlert",
+        "toSymbol": "rejectCapabilityExecution",
+        "callExpression": "rejectCapabilityExecution",
         "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
       },
       {
@@ -4280,6 +4442,16 @@
         "fromSymbol": "executeExpoRuntimeCapabilityAsync",
         "toType": "ExecuteExpoRuntimeCapabilityArgs",
         "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
+      },
+      {
+        "fromSymbol": "executeExpoRuntimeCapabilityAsync",
+        "toType": "ExpoRuntimeCapabilityExecutionResult",
+        "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
+      },
+      {
+        "fromSymbol": "ExpoRuntimeCapabilityDiagnostic",
+        "toType": "ExpoRuntimeCapabilityDiagnosticCode",
+        "sourcePath": "src/types/expoRuntimeCapability.ts"
       },
       {
         "fromSymbol": "ExpoRuntimeCapabilityHandler",

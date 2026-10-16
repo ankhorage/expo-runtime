@@ -72,7 +72,7 @@ Source: `src/createExpoRuntimeRegistry.tsx:11:1`
 
 Kind: `type`
 Module: `src/types/expoRuntimeCapability.ts`
-Source: `src/types/expoRuntimeCapability.ts:13:1`
+Source: `src/types/expoRuntimeCapability.ts:32:1`
 
 ### Members
 
@@ -87,15 +87,15 @@ Source: `src/types/expoRuntimeCapability.ts:13:1`
 
 Kind: `function`
 Module: `src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts`
-Source: `src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts:11:1`
+Source: `src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts:13:1`
 
 Execute an Expo-owned capability or delegate another canonical capability to its runtime handler.
 
 ### Signatures
 
-- `(args: ExecuteExpoRuntimeCapabilityArgs) => Promise<void>`
+- `(args: ExecuteExpoRuntimeCapabilityArgs) => Promise<ExpoRuntimeCapabilityExecutionResult>`
   - args: `ExecuteExpoRuntimeCapabilityArgs`
-  - returns: `Promise<void>`
+  - returns: `Promise<ExpoRuntimeCapabilityExecutionResult>`
 
 ## EXPO_PLATFORM
 
@@ -195,6 +195,31 @@ Source: `src/platform.ts:1:1`
 Kind: `unknown`
 Module: `src/expoRuntimePlanningMetadata.ts`
 Source: `src/expoRuntimePlanningMetadata.ts:16:1`
+
+## ExpoRuntimeCapabilityDiagnostic
+
+Kind: `type`
+Module: `src/types/expoRuntimeCapability.ts`
+Source: `src/types/expoRuntimeCapability.ts:20:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `ExpoRuntimeCapabilityDiagnosticCode` | yes |  |
+| message | property | `string` | yes |  |
+
+## ExpoRuntimeCapabilityDiagnosticCode
+
+Kind: `unknown`
+Module: `src/types/expoRuntimeCapability.ts`
+Source: `src/types/expoRuntimeCapability.ts:13:1`
+
+## ExpoRuntimeCapabilityExecutionResult
+
+Kind: `unknown`
+Module: `src/types/expoRuntimeCapability.ts`
+Source: `src/types/expoRuntimeCapability.ts:25:1`
 
 ## ExpoRuntimeCapabilityHandler
 

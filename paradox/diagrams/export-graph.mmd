@@ -62,6 +62,7 @@ graph LR
   export_executeExpoRuntimeCapabilityAsync["executeExpoRuntimeCapabilityAsync"]
   module_src_features_capabilities_executeExpoRuntimeCapabilityAsync_ts --> export_executeExpoRuntimeCapabilityAsync
   export_executeExpoRuntimeCapabilityAsync -.-> export_ExecuteExpoRuntimeCapabilityArgs
+  export_executeExpoRuntimeCapabilityAsync -.-> export_ExpoRuntimeCapabilityExecutionResult
   export_EXPO_PLATFORM["EXPO_PLATFORM"]
   module_src_platform_ts --> export_EXPO_PLATFORM
   export_ExpoBarcodeScannerAdapter["ExpoBarcodeScannerAdapter"]
@@ -84,6 +85,13 @@ graph LR
   module_src_platform_ts --> export_ExpoPlatformPackage
   export_ExpoRuntimeAdapterId["ExpoRuntimeAdapterId"]
   module_src_expoRuntimePlanningMetadata_ts --> export_ExpoRuntimeAdapterId
+  export_ExpoRuntimeCapabilityDiagnostic["ExpoRuntimeCapabilityDiagnostic"]
+  module_src_types_expoRuntimeCapability_ts --> export_ExpoRuntimeCapabilityDiagnostic
+  export_ExpoRuntimeCapabilityDiagnostic -.-> export_ExpoRuntimeCapabilityDiagnosticCode
+  export_ExpoRuntimeCapabilityDiagnosticCode["ExpoRuntimeCapabilityDiagnosticCode"]
+  module_src_types_expoRuntimeCapability_ts --> export_ExpoRuntimeCapabilityDiagnosticCode
+  export_ExpoRuntimeCapabilityExecutionResult["ExpoRuntimeCapabilityExecutionResult"]
+  module_src_types_expoRuntimeCapability_ts --> export_ExpoRuntimeCapabilityExecutionResult
   export_ExpoRuntimeCapabilityHandler["ExpoRuntimeCapabilityHandler"]
   module_src_types_expoRuntimeCapability_ts --> export_ExpoRuntimeCapabilityHandler
   export_ExpoRuntimeCapabilityHandler -.-> export_ExpoRuntimeCapabilityHandlerArgs

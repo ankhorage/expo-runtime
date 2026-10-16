@@ -235,7 +235,7 @@
     "modulePath": "src/types/expoRuntimeCapability.ts",
     "sourceLocation": {
       "filePath": "src/types/expoRuntimeCapability.ts",
-      "line": 13,
+      "line": 32,
       "column": 1
     },
     "exportPaths": [
@@ -288,18 +288,19 @@
     "modulePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
     "sourceLocation": {
       "filePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
-      "line": 11,
+      "line": 13,
       "column": 1
     },
     "exportPaths": [
       "src/index.ts"
     ],
     "relatedSymbols": [
-      "ExecuteExpoRuntimeCapabilityArgs"
+      "ExecuteExpoRuntimeCapabilityArgs",
+      "ExpoRuntimeCapabilityExecutionResult"
     ],
     "signatures": [
       {
-        "label": "(args: ExecuteExpoRuntimeCapabilityArgs) => Promise<void>",
+        "label": "(args: ExecuteExpoRuntimeCapabilityArgs) => Promise<ExpoRuntimeCapabilityExecutionResult>",
         "parameters": [
           {
             "name": "args",
@@ -308,7 +309,7 @@
             "description": null
           }
         ],
-        "returnType": "Promise<void>",
+        "returnType": "Promise<ExpoRuntimeCapabilityExecutionResult>",
         "returnDescription": null
       }
     ],
@@ -614,6 +615,89 @@
     "sourceLocation": {
       "filePath": "src/expoRuntimePlanningMetadata.ts",
       "line": 16,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeCapabilityDiagnostic",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/expoRuntimeCapability.ts",
+    "sourceLocation": {
+      "filePath": "src/types/expoRuntimeCapability.ts",
+      "line": 20,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeCapabilityDiagnosticCode"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "ExpoRuntimeCapabilityDiagnosticCode",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeCapabilityDiagnosticCode",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/expoRuntimeCapability.ts",
+    "sourceLocation": {
+      "filePath": "src/types/expoRuntimeCapability.ts",
+      "line": 13,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeCapabilityExecutionResult",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/expoRuntimeCapability.ts",
+    "sourceLocation": {
+      "filePath": "src/types/expoRuntimeCapability.ts",
+      "line": 25,
       "column": 1
     },
     "exportPaths": [
