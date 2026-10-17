@@ -177,7 +177,7 @@ function App() {
           <ExpoBarcodeScannerAdapter
             permissionStatus="unknown"
             onBarcodeScanned={(result) => {
-              window.__ankhorageScans.push(result);
+              window.__ankhorageScans.push({ value: result.data, type: result.type });
             }}
           />
         </PermissionsProvider>
