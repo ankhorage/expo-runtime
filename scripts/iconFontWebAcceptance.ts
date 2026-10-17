@@ -2,7 +2,7 @@ import { access, mkdir, mkdtemp, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
-import { chromium } from 'playwright-core';
+import { chromium, type Page } from 'playwright-core';
 
 import { packCandidateAsync } from './packedAcceptance/packCandidateAsync';
 import { runCommandAsync } from './packedAcceptance/runCommandAsync';
@@ -62,6 +62,7 @@ async function assertStaticMarkupAsync(outputDirectory: string): Promise<void> {
 async function assertHydrationAsync(outputDirectory: string): Promise<void> {
   const executablePath = await findChromeExecutableAsync();
   const server = startStaticServer(outputDirectory);
+  console.log(`Launching Chromium for packed icon-font hydration acceptance: ${executablePath}`);
   const browser = await chromium.launch({ executablePath, headless: true });
   const hydrationFailures: string[] = [];
   try {
@@ -76,14 +77,30 @@ async function assertHydrationAsync(outputDirectory: string): Promise<void> {
         hydrationFailures.push(error.message);
       }
     });
-    await page.goto(server.url.origin, { waitUntil: 'networkidle' });
-    await page.getByText('Icon font runtime ready', { exact: true }).waitFor();
-    if (hydrationFailures.length > 0) {
-      throw new Error(`React hydration failed: ${hydrationFailures.join('\n')}`);
-    }
+    await page.goto(server.url.origin, { waitUntil: 'domcontentloaded' });
+    await assertIconFontConsumerAsync(page, 'initial hydration');
+    await page.evaluate(async () => document.fonts.ready);
+    await assertIconFontConsumerAsync(page, 'post-font-load hydration');
+    assertNoHydrationFailures(hydrationFailures);
   } finally {
     await browser.close();
     await server.stop(true);
+  }
+}
+
+/*** Assert that the icon-font consumer remains mounted through a browser render phase. */
+async function assertIconFontConsumerAsync(page: Page, phase: string): Promise<void> {
+  await page.getByText('Icon font runtime ready', { exact: true }).waitFor();
+  const consumerCount = await page.getByTestId('icon-font-consumer').count();
+  if (consumerCount !== 1) {
+    throw new Error(`Icon-font consumer was not mounted during ${phase}.`);
+  }
+}
+
+/*** Report every observed React hydration failure after both browser phases complete. */
+function assertNoHydrationFailures(hydrationFailures: readonly string[]): void {
+  if (hydrationFailures.length > 0) {
+    throw new Error(`React hydration failed: ${hydrationFailures.join('\n')}`);
   }
 }
 

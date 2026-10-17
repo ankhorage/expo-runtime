@@ -178,7 +178,7 @@
     "validate:expo-platform": "bun scripts/validateExpoPlatform.ts",
     "validate:headless-platform": "bun scripts/headlessPlatformAcceptance.ts",
     "validate:icon-fonts-web": "bun scripts/iconFontWebAcceptance.ts",
-    "validate:packed-runtime": "bun scripts/packedRuntimeAcceptance.ts",
+    "validate:packed-runtime": "bun scripts/packedRuntimeAcceptance.ts && bun scripts/iconFontWebAcceptance.ts",
     "validate:web-barcode": "bun scripts/webBarcodeAcceptance.ts",
     "version-packages": "ankhorage-changeset version"
   },
