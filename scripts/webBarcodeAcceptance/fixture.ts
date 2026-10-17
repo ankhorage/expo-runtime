@@ -154,7 +154,6 @@ import { createFakePermissionClient } from '@ankhorage/permissions/testing';
 import { ExpoBarcodeScannerAdapter } from '@ankhorage/expo-runtime';
 import { ResponsiveProvider } from '@ankhorage/surface';
 import { ZoraProvider } from '@ankhorage/zora';
-import { CameraView } from 'expo-camera';
 import { registerRootComponent } from 'expo';
 import React from 'react';
 
@@ -177,12 +176,9 @@ function App() {
         <PermissionsProvider client={permissionClient}>
           <ExpoBarcodeScannerAdapter
             permissionStatus="unknown"
-          />
-          <CameraView
             onBarcodeScanned={(result) => {
               window.__ankhorageScans.push({ value: result.data, type: result.type });
             }}
-            style={{ height: 1, width: 1 }}
           />
         </PermissionsProvider>
       </ZoraProvider>
