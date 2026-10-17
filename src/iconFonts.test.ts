@@ -1,4 +1,5 @@
 import { expect, test } from 'bun:test';
+import React from 'react';
 
 import { ExpoZoraIconFontProvider } from './ExpoZoraIconFontProvider';
 
@@ -24,4 +25,15 @@ test('exports the icon font boundary through its focused subpath', async () => {
     default: './dist/ExpoZoraIconFontProvider.js',
   });
   expect(ExpoZoraIconFontProvider).toBeFunction();
+});
+
+test('keeps the native provider as a transparent child boundary', () => {
+  const child = React.createElement('native-child');
+  const element = ExpoZoraIconFontProvider({ children: child });
+
+  expect(React.isValidElement(element)).toBe(true);
+  if (!React.isValidElement(element)) {
+    throw new Error('expected a React element');
+  }
+  expect(element.props.children).toBe(child);
 });

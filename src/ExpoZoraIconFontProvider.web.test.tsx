@@ -9,6 +9,22 @@ void mock.module('expo-font', () => ({ useFonts }));
 
 const { ExpoZoraIconFontProvider } = await import('./ExpoZoraIconFontProvider.web');
 
+function assertProviderChildren(child: React.ReactNode): void {
+  const element = ExpoZoraIconFontProvider({ children: child });
+
+  expect(React.isValidElement(element)).toBe(true);
+  if (!React.isValidElement(element)) {
+    throw new Error('expected a React element');
+  }
+  expect(element.props.children).toBe(child);
+}
+
+function renderProviderStructure(): React.ReactNode {
+  return ExpoZoraIconFontProvider({
+    children: React.createElement('main', { 'data-testid': 'icon-font-consumer' }, 'Ready'),
+  });
+}
+
 describe('ExpoZoraIconFontProvider Web', () => {
   afterAll(() => {
     mock.restore();
@@ -16,7 +32,7 @@ describe('ExpoZoraIconFontProvider Web', () => {
 
   test('loads every font face used by the ZORA icon providers before rendering', () => {
     const child = React.createElement('child');
-    const element = ExpoZoraIconFontProvider({ children: child });
+    assertProviderChildren(child);
 
     expect(useFonts).toHaveBeenCalledTimes(1);
     const fonts = useFonts.mock.calls[0]?.[0] ?? {};
@@ -33,17 +49,25 @@ describe('ExpoZoraIconFontProvider Web', () => {
       ['Ionicons', 'Ionicons.ttf'],
       ['MaterialDesignIcons', 'MaterialDesignIcons.ttf'],
     ]);
-    expect(React.isValidElement(element)).toBe(true);
-    if (!React.isValidElement(element)) {
-      throw new Error('expected a React element');
-    }
-    expect(element.props.children).toBe(child);
   });
 
-  test('holds the app boundary while fonts are loading', () => {
+  test('keeps children mounted while fonts are loading', () => {
     useFonts.mockImplementationOnce(() => [false, null]);
 
-    expect(ExpoZoraIconFontProvider({ children: React.createElement('child') })).toBeNull();
+    const child = React.createElement('child');
+    assertProviderChildren(child);
+  });
+
+  test('keeps the server, initial client, and loaded render structures equal', () => {
+    useFonts.mockImplementationOnce(() => [false, null]);
+    const serverStructure = renderProviderStructure();
+    useFonts.mockImplementationOnce(() => [false, null]);
+    const initialClientStructure = renderProviderStructure();
+    useFonts.mockImplementationOnce(() => [true, null]);
+    const loadedClientStructure = renderProviderStructure();
+
+    expect(serverStructure).toEqual(initialClientStructure);
+    expect(loadedClientStructure).toEqual(serverStructure);
   });
 
   test('surfaces font-loading failures', () => {
