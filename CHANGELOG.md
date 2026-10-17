@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.0.1
+
+### Patch Changes
+
+- 3e25084: Keep icon-font provider children mounted while web fonts load so static Expo web exports hydrate safely.
+
 ## 7.0.0
 
 ### Major Changes
