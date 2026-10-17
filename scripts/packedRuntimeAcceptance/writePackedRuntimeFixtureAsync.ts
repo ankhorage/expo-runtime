@@ -10,11 +10,16 @@ interface PackageManifest {
   readonly peerDependencies?: Readonly<Record<string, string>>;
 }
 
+export interface PackedRuntimeFixtureOptions {
+  readonly includeIconFontProvider?: boolean;
+}
+
 export async function writePackedRuntimeFixtureAsync(
   consumerRoot: string,
   repositoryRoot: string,
   candidateName: string,
   candidatePath: string,
+  options: PackedRuntimeFixtureOptions = {},
 ): Promise<void> {
   await mkdir(path.join(consumerRoot, 'src/app'), { recursive: true });
   const repositoryManifest = await readJsonFileAsync<PackageManifest>(
@@ -37,7 +42,7 @@ export async function writePackedRuntimeFixtureAsync(
       zoraPeers,
     ),
     writeConfigAsync(consumerRoot),
-    writeSourceAsync(consumerRoot),
+    writeSourceAsync(consumerRoot, options),
   ]);
 }
 
@@ -47,6 +52,7 @@ async function writeConfigAsync(consumerRoot: string): Promise<void> {
       name: 'Expo Runtime Packed Acceptance',
       slug: 'expo-runtime-packed-acceptance',
       scheme: 'expo-runtime-packed-acceptance',
+      web: { output: 'static' },
       experiments: { reactCompiler: true },
       android: { package: 'com.ankhorage.exporuntimeacceptance' },
       ios: { bundleIdentifier: 'com.ankhorage.exporuntimeacceptance' },
@@ -131,16 +137,28 @@ async function writePackageAsync(
   );
 }
 
-async function writeSourceAsync(consumerRoot: string): Promise<void> {
+async function writeSourceAsync(
+  consumerRoot: string,
+  options: PackedRuntimeFixtureOptions,
+): Promise<void> {
+  const iconFontImport = options.includeIconFontProvider
+    ? "import { ExpoZoraIconFontProvider } from '@ankhorage/expo-runtime/icon-fonts';\n"
+    : '';
+  const providerOpening = options.includeIconFontProvider ? '    <ExpoZoraIconFontProvider>\n' : '';
+  const providerClosing = options.includeIconFontProvider
+    ? '    </ExpoZoraIconFontProvider>\n'
+    : '';
   await Bun.write(
     path.join(consumerRoot, 'src/app/_layout.tsx'),
     `import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';
+${iconFontImport}
 import { ResponsiveProvider } from '@ankhorage/surface';
 import { ZoraProvider } from '@ankhorage/zora';
 import { Slot } from 'expo-router';
 
 export default function RootLayout() {
   return (
+${providerOpening}
     <ResponsiveProvider>
       <ZoraProvider>
         <ExpoRuntimeProviders providers={['permissions']}>
@@ -148,6 +166,7 @@ export default function RootLayout() {
         </ExpoRuntimeProviders>
       </ZoraProvider>
     </ResponsiveProvider>
+${providerClosing}
   );
 }
 `,
@@ -161,6 +180,7 @@ import { View } from 'react-native';
 export default function Index() {
   return (
     <View style={{ flex: 1 }}>
+      <View testID="icon-font-consumer">Icon font runtime ready</View>
       <ExpoBarcodeScannerAdapter permissionStatus="unknown" />
       <Reader format="pdf" source={null} />
     </View>

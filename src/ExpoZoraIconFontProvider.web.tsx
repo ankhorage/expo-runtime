@@ -27,14 +27,10 @@ export interface ExpoZoraIconFontProviderProps {
 }
 
 export function ExpoZoraIconFontProvider(props: ExpoZoraIconFontProviderProps) {
-  const [loaded, error] = useFonts(ZORA_ICON_FONTS);
+  const [, error] = useFonts(ZORA_ICON_FONTS);
 
   if (error) {
     throw error;
-  }
-
-  if (!loaded) {
-    return null;
   }
 
   return <>{props.children}</>;
