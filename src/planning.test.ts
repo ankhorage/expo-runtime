@@ -7,7 +7,7 @@ describe('planning entrypoint', () => {
     expect(typeof resolveExpoRuntimePlan).toBe('function');
   });
 
-  test('plans the released headless Permissions owner version', () => {
+  test('plans the released Permissions 0.3 owner version', () => {
     const plan = resolveExpoRuntimePlan({
       screens: {
         camera: {
@@ -19,7 +19,7 @@ describe('planning entrypoint', () => {
     });
     expect(plan.dependencies).toContainEqual({
       name: '@ankhorage/permissions',
-      version: '^0.2.5',
+      version: '^0.3.6',
       reasons: ['permission:camera'],
     });
   });
