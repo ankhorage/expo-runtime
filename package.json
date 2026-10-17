@@ -183,7 +183,7 @@
   },
   "peerDependencies": {
     "@ankhorage/permissions": "^0.2.63",
-    "@ankhorage/zora": "^24.0.0",
+    "@ankhorage/zora": "^25.8.3",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
     "@react-native-vector-icons/fontawesome5": "^13.1.4",
     "@react-native-vector-icons/fontawesome6": "^13.1.4",
@@ -253,7 +253,7 @@
     "@ankhorage/devtools": "^2.3.18",
     "@ankhorage/paradox": "^0.2.27",
     "@ankhorage/permissions": "^0.2.63",
-    "@ankhorage/zora": "^24.0.0",
+    "@ankhorage/zora": "^25.8.3",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
     "@react-native-vector-icons/fontawesome5": "^13.1.4",
     "@react-native-vector-icons/fontawesome6": "^13.1.4",

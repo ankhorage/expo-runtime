@@ -1,11 +1,6 @@
 export {
-  BARCODE_SCAN_DEDUPE_WINDOW_MS,
   BARCODE_SCANNER_TYPES,
-  type BarcodeScanRecord,
-  type ExpoBarcodeScanResultLike,
   mapPermissionStatusToCameraPermissionStatus,
-  normalizeExpoBarcodeScanResult,
-  shouldIgnoreBarcodeScan,
 } from './barcodeScanRuntime';
 export {
   type ExpoBundledMediaRegistrySourceEntry,
@@ -33,7 +28,10 @@ export {
 export type { ComponentRegistry } from './componentRegistry';
 export { createComponentRegistry } from './componentRegistry';
 export { createExpoRuntimeRegistry } from './createExpoRuntimeRegistry';
-export { ExpoBarcodeScannerAdapter } from './ExpoBarcodeScannerAdapter';
+export {
+  ExpoBarcodeScannerAdapter,
+  type ExpoBarcodeScannerAdapterProps,
+} from './ExpoBarcodeScannerAdapter';
 export { ExpoRuntimeProviders, type ExpoRuntimeProvidersProps } from './ExpoRuntimeProviders';
 export {
   ExpoZoraIconFontProvider,

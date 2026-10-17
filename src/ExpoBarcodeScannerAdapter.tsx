@@ -1,23 +1,25 @@
 import { Permission, usePermission } from '@ankhorage/permissions';
 import { BarcodeScannerView, type BarcodeScannerViewProps } from '@ankhorage/zora';
-import { type BarcodeScanningResult, type BarcodeType, CameraView } from 'expo-camera';
+import { type BarcodeType, CameraView, type CameraViewProps } from 'expo-camera';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
 import {
   BARCODE_SCANNER_TYPES,
-  type BarcodeScanRecord,
-  dispatchExpoBarcodeScan,
   mapPermissionStatusToCameraPermissionStatus,
 } from './barcodeScanRuntime';
 
 const CAMERA_BARCODE_TYPES: BarcodeType[] = [...BARCODE_SCANNER_TYPES];
 
-export function ExpoBarcodeScannerAdapter(props: BarcodeScannerViewProps) {
+export interface ExpoBarcodeScannerAdapterProps extends BarcodeScannerViewProps {
+  readonly onBarcodeScanned?: CameraViewProps['onBarcodeScanned'];
+}
+
+/*** Renders the ZORA scanner surface with Expo Camera and its native scan callback. */
+export function ExpoBarcodeScannerAdapter(props: ExpoBarcodeScannerAdapterProps) {
   const { onBarcodeScanned, onRequestPermission, ...viewProps } = props;
   const cameraPermission = usePermission(Permission.Camera);
   const [isRequestingPermission, setIsRequestingPermission] = React.useState(false);
-  const lastScanRef = React.useRef<BarcodeScanRecord | null>(null);
 
   const permissionStatus = mapPermissionStatusToCameraPermissionStatus(
     cameraPermission.status,
@@ -34,26 +36,11 @@ export function ExpoBarcodeScannerAdapter(props: BarcodeScannerViewProps) {
     }
   }, [cameraPermission, onRequestPermission]);
 
-  const handleBarcodeScanned = React.useCallback(
-    (result: BarcodeScanningResult) => {
-      void dispatchExpoBarcodeScan(
-        result,
-        lastScanRef.current,
-        Date.now(),
-        onBarcodeScanned,
-        (record) => {
-          lastScanRef.current = record;
-        },
-      );
-    },
-    [onBarcodeScanned],
-  );
-
   const camera =
     permissionStatus === 'granted' ? (
       <CameraView
         barcodeScannerSettings={{ barcodeTypes: CAMERA_BARCODE_TYPES }}
-        onBarcodeScanned={handleBarcodeScanned}
+        onBarcodeScanned={onBarcodeScanned}
         style={styles.camera}
       />
     ) : undefined;
