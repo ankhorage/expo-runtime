@@ -2,7 +2,9 @@
 
 ## ExpoBarcodeScannerAdapter
 
-Source: `src/ExpoBarcodeScannerAdapter.tsx:16:1`
+Source: `src/ExpoBarcodeScannerAdapter.tsx:19:1`
+
+Renders the ZORA scanner surface with Expo Camera and its native scan callback.
 
 Export paths: `src/index.ts`
 
@@ -17,7 +19,7 @@ Export paths: `src/index.ts`
 | inverted | `boolean \| undefined` | no | — |  |
 | manualEntryLabel | `React.ReactNode \| undefined` | no | — |  |
 | mode | `ZoraThemeMode \| undefined` | no | — |  |
-| onBarcodeScanned | `(result: BarcodeScanResult) => void \| Promise<void> \| undefined` | no | — |  |
+| onBarcodeScanned | `CameraViewProps['onBarcodeScanned'] \| undefined` | no | — |  |
 | onManualEntry | `() => void \| Promise<void> \| undefined` | no | — |  |
 | onRequestPermission | `() => void \| Promise<void> \| undefined` | no | — |  |
 | overlayDescription | `React.ReactNode \| undefined` | no | — |  |

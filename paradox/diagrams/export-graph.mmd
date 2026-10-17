@@ -38,12 +38,8 @@ graph LR
   module_src_types_expoRuntimeCapability_ts["src/types/expoRuntimeCapability.ts"]
   module_src_types_expoRuntimePlanning_ts["src/types/expoRuntimePlanning.ts"]
   module_src_types_expoRuntimeRoute_ts["src/types/expoRuntimeRoute.ts"]
-  export_BARCODE_SCAN_DEDUPE_WINDOW_MS["BARCODE_SCAN_DEDUPE_WINDOW_MS"]
-  module_src_barcodeScanRuntime_ts --> export_BARCODE_SCAN_DEDUPE_WINDOW_MS
   export_BARCODE_SCANNER_TYPES["BARCODE_SCANNER_TYPES"]
   module_src_barcodeScanRuntime_ts --> export_BARCODE_SCANNER_TYPES
-  export_BarcodeScanRecord["BarcodeScanRecord"]
-  module_src_barcodeScanRuntime_ts --> export_BarcodeScanRecord
   export_ComponentRegistry["ComponentRegistry"]
   module_src_componentRegistry_ts --> export_ComponentRegistry
   export_createComponentRegistry["createComponentRegistry"]
@@ -67,8 +63,9 @@ graph LR
   module_src_platform_ts --> export_EXPO_PLATFORM
   export_ExpoBarcodeScannerAdapter["ExpoBarcodeScannerAdapter"]
   module_src_ExpoBarcodeScannerAdapter_tsx --> export_ExpoBarcodeScannerAdapter
-  export_ExpoBarcodeScanResultLike["ExpoBarcodeScanResultLike"]
-  module_src_barcodeScanRuntime_ts --> export_ExpoBarcodeScanResultLike
+  export_ExpoBarcodeScannerAdapter -.-> export_ExpoBarcodeScannerAdapterProps
+  export_ExpoBarcodeScannerAdapterProps["ExpoBarcodeScannerAdapterProps"]
+  module_src_ExpoBarcodeScannerAdapter_tsx --> export_ExpoBarcodeScannerAdapterProps
   export_ExpoBundledMediaRegistry["ExpoBundledMediaRegistry"]
   module_src_bundledMediaResolver_ts --> export_ExpoBundledMediaRegistry
   export_ExpoBundledMediaRegistrySourceEntry["ExpoBundledMediaRegistrySourceEntry"]
@@ -134,9 +131,6 @@ graph LR
   export_getExpoBundledMediaRegistrySource -.-> export_ExpoBundledMediaRegistrySourceEntry
   export_mapPermissionStatusToCameraPermissionStatus["mapPermissionStatusToCameraPermissionStatus"]
   module_src_barcodeScanRuntime_ts --> export_mapPermissionStatusToCameraPermissionStatus
-  export_normalizeExpoBarcodeScanResult["normalizeExpoBarcodeScanResult"]
-  module_src_barcodeScanRuntime_ts --> export_normalizeExpoBarcodeScanResult
-  export_normalizeExpoBarcodeScanResult -.-> export_ExpoBarcodeScanResultLike
   export_resolveExpoBundledMediaAsset["resolveExpoBundledMediaAsset"]
   module_src_bundledMediaResolver_ts --> export_resolveExpoBundledMediaAsset
   export_resolveExpoBundledMediaAsset -.-> export_ExpoBundledMediaValue
@@ -165,6 +159,3 @@ graph LR
   export_resolveExpoRuntimeRoutePath["resolveExpoRuntimeRoutePath"]
   module_src_features_navigation_resolveExpoRuntimeRoutePath_ts --> export_resolveExpoRuntimeRoutePath
   export_resolveExpoRuntimeRoutePath -.-> export_ExpoRuntimeRouteResolution
-  export_shouldIgnoreBarcodeScan["shouldIgnoreBarcodeScan"]
-  module_src_barcodeScanRuntime_ts --> export_shouldIgnoreBarcodeScan
-  export_shouldIgnoreBarcodeScan -.-> export_BarcodeScanRecord

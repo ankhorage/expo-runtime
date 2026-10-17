@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.0.0
+
+### Major Changes
+
+- a930f62: Align the barcode scanner adapter with ZORA 25 and forward scan callbacks directly to Expo Camera.
+
 ## 6.0.3
 
 ### Patch Changes

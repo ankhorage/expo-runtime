@@ -1,30 +1,10 @@
 # Public API
 
-## BARCODE_SCAN_DEDUPE_WINDOW_MS
-
-Kind: `value`
-Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:5:14`
-
 ## BARCODE_SCANNER_TYPES
 
 Kind: `value`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:7:14`
-
-## BarcodeScanRecord
-
-Kind: `type`
-Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:23:1`
-
-### Members
-
-| Name | Kind | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| timestamp | property | `number` | yes |  |
-| type | property | `string \| undefined` | no |  |
-| value | property | `string` | yes |  |
+Source: `src/barcodeScanRuntime.ts:5:14`
 
 ## ComponentRegistry
 
@@ -107,26 +87,45 @@ Source: `src/platform.ts:17:14`
 
 Kind: `function`
 Module: `src/ExpoBarcodeScannerAdapter.tsx`
-Source: `src/ExpoBarcodeScannerAdapter.tsx:16:1`
+Source: `src/ExpoBarcodeScannerAdapter.tsx:19:1`
+
+Renders the ZORA scanner surface with Expo Camera and its native scan callback.
 
 ### Signatures
 
-- `(props: BarcodeScannerViewProps) => React.JSX.Element`
-  - props: `BarcodeScannerViewProps`
+- `(props: ExpoBarcodeScannerAdapterProps) => React.JSX.Element`
+  - props: `ExpoBarcodeScannerAdapterProps`
   - returns: `React.JSX.Element`
 
-## ExpoBarcodeScanResultLike
+## ExpoBarcodeScannerAdapterProps
 
 Kind: `type`
-Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:27:1`
+Module: `src/ExpoBarcodeScannerAdapter.tsx`
+Source: `src/ExpoBarcodeScannerAdapter.tsx:14:1`
 
 ### Members
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| data | property | `string` | yes |  |
-| type | property | `string \| undefined` | no |  |
+| camera | property | `React.ReactNode` | no |  |
+| children | property | `React.ReactNode` | no |  |
+| cornerLabel | property | `React.ReactNode` | no |  |
+| deniedPermissionLabel | property | `React.ReactNode` | no |  |
+| description | property | `React.ReactNode` | no |  |
+| interactionPolicy | property | `InteractionPolicy \| undefined` | no |  |
+| inverted | property | `boolean \| undefined` | no |  |
+| manualEntryLabel | property | `React.ReactNode` | no |  |
+| mode | property | `ZoraThemeMode \| undefined` | no |  |
+| onBarcodeScanned | property | `((scanningResult: import("expo-camera").BarcodeScanningResult) => void) \| undefined` | no |  |
+| onManualEntry | property | `(() => void \| Promise<void>) \| undefined` | no |  |
+| onRequestPermission | property | `(() => void \| Promise<void>) \| undefined` | no |  |
+| overlayDescription | property | `React.ReactNode` | no |  |
+| overlayTitle | property | `React.ReactNode` | no |  |
+| permissionStatus | property | `CameraPermissionStatus` | yes |  |
+| requestPermissionLabel | property | `React.ReactNode` | no |  |
+| testID | property | `string \| undefined` | no |  |
+| themeId | property | `string \| undefined` | no |  |
+| title | property | `React.ReactNode` | no |  |
 
 ## ExpoBundledMediaRegistry
 
@@ -417,7 +416,9 @@ Source: `src/bundledMediaRegistrySource.ts:6:1`
 
 Kind: `function`
 Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:34:1`
+Source: `src/barcodeScanRuntime.ts:22:1`
+
+Maps the Permissions owner status to ZORA's documented camera UI status.
 
 ### Signatures
 
@@ -425,18 +426,6 @@ Source: `src/barcodeScanRuntime.ts:34:1`
   - isRequestingPermission: `boolean`
   - status: `PermissionStatus`
   - returns: `CameraPermissionStatus`
-
-## normalizeExpoBarcodeScanResult
-
-Kind: `function`
-Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:52:1`
-
-### Signatures
-
-- `(result: ExpoBarcodeScanResultLike) => BarcodeScanResult | null`
-  - result: `ExpoBarcodeScanResultLike`
-  - returns: `BarcodeScanResult | null`
 
 ## resolveExpoBundledMediaAsset
 
@@ -538,17 +527,3 @@ Resolve Expo Router path parameters before passing the remaining values to the r
   - params: `Record<string, string | number> | undefined` (optional)
   - pathname: `string`
   - returns: `ExpoRuntimeRouteResolution`
-
-## shouldIgnoreBarcodeScan
-
-Kind: `function`
-Module: `src/barcodeScanRuntime.ts`
-Source: `src/barcodeScanRuntime.ts:68:1`
-
-### Signatures
-
-- `(previous: BarcodeScanRecord | null, next: BarcodeScanResult, now: number) => boolean`
-  - next: `BarcodeScanResult`
-  - now: `number`
-  - previous: `BarcodeScanRecord | null`
-  - returns: `boolean`

@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v6.0.3",
+      "value": "v7.0.0",
       "color": "cb3837"
     },
     {
@@ -82,27 +82,6 @@
     {
       "ruleId": "documentation.public-function.description",
       "severity": "warning",
-      "message": "Exported function mapPermissionStatusToCameraPermissionStatus has no documentation description.",
-      "sourcePath": "src/barcodeScanRuntime.ts",
-      "line": 34
-    },
-    {
-      "ruleId": "documentation.public-function.description",
-      "severity": "warning",
-      "message": "Exported function normalizeExpoBarcodeScanResult has no documentation description.",
-      "sourcePath": "src/barcodeScanRuntime.ts",
-      "line": 52
-    },
-    {
-      "ruleId": "documentation.public-function.description",
-      "severity": "warning",
-      "message": "Exported function shouldIgnoreBarcodeScan has no documentation description.",
-      "sourcePath": "src/barcodeScanRuntime.ts",
-      "line": 68
-    },
-    {
-      "ruleId": "documentation.public-function.description",
-      "severity": "warning",
       "message": "Exported function getExpoBundledMediaRegistrySource has no documentation description.",
       "sourcePath": "src/bundledMediaRegistrySource.ts",
       "line": 6
@@ -134,13 +113,6 @@
       "message": "Exported function createExpoRuntimeRegistry has no documentation description.",
       "sourcePath": "src/createExpoRuntimeRegistry.tsx",
       "line": 11
-    },
-    {
-      "ruleId": "documentation.public-function.description",
-      "severity": "warning",
-      "message": "Exported function ExpoBarcodeScannerAdapter has no documentation description.",
-      "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx",
-      "line": 16
     },
     {
       "ruleId": "documentation.public-function.description",
@@ -225,14 +197,8 @@
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
-        "BARCODE_SCAN_DEDUPE_WINDOW_MS",
         "BARCODE_SCANNER_TYPES",
-        "BarcodeScanRecord",
-        "dispatchExpoBarcodeScan",
-        "ExpoBarcodeScanResultLike",
-        "mapPermissionStatusToCameraPermissionStatus",
-        "normalizeExpoBarcodeScanResult",
-        "shouldIgnoreBarcodeScan"
+        "mapPermissionStatusToCameraPermissionStatus"
       ]
     },
     {
@@ -331,7 +297,8 @@
         "src/barcodeScanRuntime.ts"
       ],
       "exports": [
-        "ExpoBarcodeScannerAdapter"
+        "ExpoBarcodeScannerAdapter",
+        "ExpoBarcodeScannerAdapterProps"
       ]
     },
     {
@@ -439,9 +406,7 @@
       "isEntrypoint": true,
       "dependencies": [],
       "exports": [
-        "BARCODE_SCAN_DEDUPE_WINDOW_MS",
         "BARCODE_SCANNER_TYPES",
-        "BarcodeScanRecord",
         "ComponentRegistry",
         "createComponentRegistry",
         "createExpoBundledMediaResolver",
@@ -449,7 +414,7 @@
         "ExecuteExpoRuntimeCapabilityArgs",
         "executeExpoRuntimeCapabilityAsync",
         "ExpoBarcodeScannerAdapter",
-        "ExpoBarcodeScanResultLike",
+        "ExpoBarcodeScannerAdapterProps",
         "ExpoBundledMediaRegistry",
         "ExpoBundledMediaRegistrySourceEntry",
         "ExpoBundledMediaResolver",
@@ -476,7 +441,6 @@
         "getExpoBarcodeScannerViewSource",
         "getExpoBundledMediaRegistrySource",
         "mapPermissionStatusToCameraPermissionStatus",
-        "normalizeExpoBarcodeScanResult",
         "resolveExpoBundledMediaAsset",
         "resolveExpoRuntimeConfigPluginOutput",
         "resolveExpoRuntimeDependencyMap",
@@ -484,8 +448,7 @@
         "resolveExpoRuntimeLayoutIntegration",
         "resolveExpoRuntimeNativeOutput",
         "resolveExpoRuntimePlan",
-        "resolveExpoRuntimeRoutePath",
-        "shouldIgnoreBarcodeScan"
+        "resolveExpoRuntimeRoutePath"
       ]
     },
     {
@@ -728,7 +691,7 @@
   ],
   "exports": [
     {
-      "name": "BARCODE_SCAN_DEDUPE_WINDOW_MS",
+      "name": "BARCODE_SCANNER_TYPES",
       "title": null,
       "description": null,
       "isReadme": false,
@@ -747,72 +710,6 @@
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "BARCODE_SCANNER_TYPES",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "value",
-      "modulePath": "src/barcodeScanRuntime.ts",
-      "sourceLocation": {
-        "filePath": "src/barcodeScanRuntime.ts",
-        "line": 7,
-        "column": 14
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "BarcodeScanRecord",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "type",
-      "modulePath": "src/barcodeScanRuntime.ts",
-      "sourceLocation": {
-        "filePath": "src/barcodeScanRuntime.ts",
-        "line": 23,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [],
-      "signatures": [],
-      "members": [
-        {
-          "name": "timestamp",
-          "kind": "property",
-          "type": "number",
-          "required": true,
-          "description": null
-        },
-        {
-          "name": "type",
-          "kind": "property",
-          "type": "string | undefined",
-          "required": false,
-          "description": null
-        },
-        {
-          "name": "value",
-          "kind": "property",
-          "type": "string",
-          "required": true,
-          "description": null
-        }
-      ],
       "structuredRows": []
     },
     {
@@ -1069,7 +966,7 @@
     {
       "name": "ExpoBarcodeScannerAdapter",
       "title": null,
-      "description": null,
+      "description": "Renders the ZORA scanner surface with Expo Camera and its native scan callback.",
       "isReadme": false,
       "see": [],
       "security": [],
@@ -1077,20 +974,22 @@
       "modulePath": "src/ExpoBarcodeScannerAdapter.tsx",
       "sourceLocation": {
         "filePath": "src/ExpoBarcodeScannerAdapter.tsx",
-        "line": 16,
+        "line": 19,
         "column": 1
       },
       "exportPaths": [
         "src/index.ts"
       ],
-      "relatedSymbols": [],
+      "relatedSymbols": [
+        "ExpoBarcodeScannerAdapterProps"
+      ],
       "signatures": [
         {
-          "label": "(props: BarcodeScannerViewProps) => React.JSX.Element",
+          "label": "(props: ExpoBarcodeScannerAdapterProps) => React.JSX.Element",
           "parameters": [
             {
               "name": "props",
-              "type": "BarcodeScannerViewProps",
+              "type": "ExpoBarcodeScannerAdapterProps",
               "required": true,
               "description": null
             }
@@ -1103,17 +1002,17 @@
       "structuredRows": []
     },
     {
-      "name": "ExpoBarcodeScanResultLike",
+      "name": "ExpoBarcodeScannerAdapterProps",
       "title": null,
       "description": null,
       "isReadme": false,
       "see": [],
       "security": [],
       "kind": "type",
-      "modulePath": "src/barcodeScanRuntime.ts",
+      "modulePath": "src/ExpoBarcodeScannerAdapter.tsx",
       "sourceLocation": {
-        "filePath": "src/barcodeScanRuntime.ts",
-        "line": 27,
+        "filePath": "src/ExpoBarcodeScannerAdapter.tsx",
+        "line": 14,
         "column": 1
       },
       "exportPaths": [
@@ -1123,16 +1022,135 @@
       "signatures": [],
       "members": [
         {
-          "name": "data",
+          "name": "camera",
           "kind": "property",
-          "type": "string",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "children",
+          "kind": "property",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "cornerLabel",
+          "kind": "property",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "deniedPermissionLabel",
+          "kind": "property",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "interactionPolicy",
+          "kind": "property",
+          "type": "InteractionPolicy | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "inverted",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "manualEntryLabel",
+          "kind": "property",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "mode",
+          "kind": "property",
+          "type": "ZoraThemeMode | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "onBarcodeScanned",
+          "kind": "property",
+          "type": "((scanningResult: import(\"expo-camera\").BarcodeScanningResult) => void) | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "onManualEntry",
+          "kind": "property",
+          "type": "(() => void | Promise<void>) | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "onRequestPermission",
+          "kind": "property",
+          "type": "(() => void | Promise<void>) | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "overlayDescription",
+          "kind": "property",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "overlayTitle",
+          "kind": "property",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "permissionStatus",
+          "kind": "property",
+          "type": "CameraPermissionStatus",
           "required": true,
           "description": null
         },
         {
-          "name": "type",
+          "name": "requestPermissionLabel",
+          "kind": "property",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "testID",
           "kind": "property",
           "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "themeId",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "title",
+          "kind": "property",
+          "type": "React.ReactNode",
           "required": false,
           "description": null
         }
@@ -2060,7 +2078,7 @@
     {
       "name": "mapPermissionStatusToCameraPermissionStatus",
       "title": null,
-      "description": null,
+      "description": "Maps the Permissions owner status to ZORA's documented camera UI status.",
       "isReadme": false,
       "see": [],
       "security": [],
@@ -2068,7 +2086,7 @@
       "modulePath": "src/barcodeScanRuntime.ts",
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
-        "line": 34,
+        "line": 22,
         "column": 1
       },
       "exportPaths": [
@@ -2093,44 +2111,6 @@
             }
           ],
           "returnType": "CameraPermissionStatus",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
-      "structuredRows": []
-    },
-    {
-      "name": "normalizeExpoBarcodeScanResult",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "function",
-      "modulePath": "src/barcodeScanRuntime.ts",
-      "sourceLocation": {
-        "filePath": "src/barcodeScanRuntime.ts",
-        "line": 52,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "ExpoBarcodeScanResultLike"
-      ],
-      "signatures": [
-        {
-          "label": "(result: ExpoBarcodeScanResultLike) => BarcodeScanResult | null",
-          "parameters": [
-            {
-              "name": "result",
-              "type": "ExpoBarcodeScanResultLike",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "BarcodeScanResult | null",
           "returnDescription": null
         }
       ],
@@ -2462,69 +2442,19 @@
       ],
       "members": [],
       "structuredRows": []
-    },
-    {
-      "name": "shouldIgnoreBarcodeScan",
-      "title": null,
-      "description": null,
-      "isReadme": false,
-      "see": [],
-      "security": [],
-      "kind": "function",
-      "modulePath": "src/barcodeScanRuntime.ts",
-      "sourceLocation": {
-        "filePath": "src/barcodeScanRuntime.ts",
-        "line": 68,
-        "column": 1
-      },
-      "exportPaths": [
-        "src/index.ts"
-      ],
-      "relatedSymbols": [
-        "BarcodeScanRecord"
-      ],
-      "signatures": [
-        {
-          "label": "(previous: BarcodeScanRecord | null, next: BarcodeScanResult, now: number) => boolean",
-          "parameters": [
-            {
-              "name": "next",
-              "type": "BarcodeScanResult",
-              "required": true,
-              "description": null
-            },
-            {
-              "name": "now",
-              "type": "number",
-              "required": true,
-              "description": null
-            },
-            {
-              "name": "previous",
-              "type": "BarcodeScanRecord | null",
-              "required": true,
-              "description": null
-            }
-          ],
-          "returnType": "boolean",
-          "returnDescription": null
-        }
-      ],
-      "members": [],
-      "structuredRows": []
     }
   ],
   "components": [
     {
       "name": "ExpoBarcodeScannerAdapter",
-      "description": null,
+      "description": "Renders the ZORA scanner surface with Expo Camera and its native scan callback.",
       "isReadme": false,
       "see": [],
       "security": [],
       "modulePath": "src/ExpoBarcodeScannerAdapter.tsx",
       "sourceLocation": {
         "filePath": "src/ExpoBarcodeScannerAdapter.tsx",
-        "line": 16,
+        "line": 19,
         "column": 1
       },
       "exportPaths": [
@@ -2587,7 +2517,7 @@
         },
         {
           "name": "onBarcodeScanned",
-          "type": "(result: BarcodeScanResult) => void | Promise<void> | undefined",
+          "type": "CameraViewProps['onBarcodeScanned'] | undefined",
           "required": false,
           "description": null
         },
@@ -2705,45 +2635,12 @@
   "sourceFunctions": [
     {
       "name": "mapPermissionStatusToCameraPermissionStatus",
-      "description": null,
+      "description": "Maps the Permissions owner status to ZORA's documented camera UI status.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/barcodeScanRuntime.ts",
-        "line": 34,
-        "column": 1
-      }
-    },
-    {
-      "name": "normalizeExpoBarcodeScanResult",
-      "description": null,
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/barcodeScanRuntime.ts",
-        "line": 52,
-        "column": 1
-      }
-    },
-    {
-      "name": "shouldIgnoreBarcodeScan",
-      "description": null,
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/barcodeScanRuntime.ts",
-        "line": 68,
-        "column": 1
-      }
-    },
-    {
-      "name": "dispatchExpoBarcodeScan",
-      "description": null,
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/barcodeScanRuntime.ts",
-        "line": 84,
+        "line": 22,
         "column": 1
       }
     },
@@ -2848,12 +2745,12 @@
     },
     {
       "name": "ExpoBarcodeScannerAdapter",
-      "description": null,
+      "description": "Renders the ZORA scanner surface with Expo Camera and its native scan callback.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/ExpoBarcodeScannerAdapter.tsx",
-        "line": 16,
+        "line": 19,
         "column": 1
       }
     },
@@ -3523,7 +3420,7 @@
       "name": "ExpoBarcodeScannerAdapter",
       "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx",
       "symbolName": "ExpoBarcodeScannerAdapter",
-      "description": null,
+      "description": "Renders the ZORA scanner surface with Expo Camera and its native scan callback.",
       "isReadme": false
     },
     {
@@ -3563,15 +3460,7 @@
       "name": "mapPermissionStatusToCameraPermissionStatus",
       "sourcePath": "src/barcodeScanRuntime.ts",
       "symbolName": "mapPermissionStatusToCameraPermissionStatus",
-      "description": null,
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "normalizeExpoBarcodeScanResult",
-      "sourcePath": "src/barcodeScanRuntime.ts",
-      "symbolName": "normalizeExpoBarcodeScanResult",
-      "description": null,
+      "description": "Maps the Permissions owner status to ZORA's documented camera UI status.",
       "isReadme": false
     },
     {
@@ -3636,14 +3525,6 @@
       "sourcePath": "src/features/navigation/resolveExpoRuntimeRoutePath.ts",
       "symbolName": "resolveExpoRuntimeRoutePath",
       "description": "Resolve Expo Router path parameters before passing the remaining values to the router.",
-      "isReadme": false
-    },
-    {
-      "kind": "export",
-      "name": "shouldIgnoreBarcodeScan",
-      "sourcePath": "src/barcodeScanRuntime.ts",
-      "symbolName": "shouldIgnoreBarcodeScan",
-      "description": null,
       "isReadme": false
     }
   ],
@@ -3912,30 +3793,6 @@
     ],
     "calls": [
       {
-        "fromSymbol": "dispatchExpoBarcodeScan",
-        "toSymbol": "normalizeExpoBarcodeScanResult",
-        "callExpression": "normalizeExpoBarcodeScanResult",
-        "sourcePath": "src/barcodeScanRuntime.ts"
-      },
-      {
-        "fromSymbol": "dispatchExpoBarcodeScan",
-        "toSymbol": "shouldIgnoreBarcodeScan",
-        "callExpression": "shouldIgnoreBarcodeScan",
-        "sourcePath": "src/barcodeScanRuntime.ts"
-      },
-      {
-        "fromSymbol": "dispatchExpoBarcodeScan",
-        "toSymbol": "onAccepted",
-        "callExpression": "onAccepted",
-        "sourcePath": "src/barcodeScanRuntime.ts"
-      },
-      {
-        "fromSymbol": "dispatchExpoBarcodeScan",
-        "toSymbol": "onBarcodeScanned",
-        "callExpression": "onBarcodeScanned",
-        "sourcePath": "src/barcodeScanRuntime.ts"
-      },
-      {
         "fromSymbol": "getExpoBundledMediaRegistrySource",
         "toSymbol": "normalizeEntries",
         "callExpression": "normalizeEntries",
@@ -3981,12 +3838,6 @@
         "fromSymbol": "src/ExpoBarcodeScannerAdapter.tsx",
         "toSymbol": "onRequestPermission",
         "callExpression": "onRequestPermission",
-        "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
-      },
-      {
-        "fromSymbol": "src/ExpoBarcodeScannerAdapter.tsx",
-        "toSymbol": "dispatchExpoBarcodeScan",
-        "callExpression": "dispatchExpoBarcodeScan",
         "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
       },
       {
@@ -4374,26 +4225,6 @@
         "sourcePath": "src/barcodeScanRuntime.ts"
       },
       {
-        "fromSymbol": "normalizeExpoBarcodeScanResult",
-        "toType": "BarcodeScanResult",
-        "sourcePath": "src/barcodeScanRuntime.ts"
-      },
-      {
-        "fromSymbol": "normalizeExpoBarcodeScanResult",
-        "toType": "ExpoBarcodeScanResultLike",
-        "sourcePath": "src/barcodeScanRuntime.ts"
-      },
-      {
-        "fromSymbol": "shouldIgnoreBarcodeScan",
-        "toType": "BarcodeScanRecord",
-        "sourcePath": "src/barcodeScanRuntime.ts"
-      },
-      {
-        "fromSymbol": "shouldIgnoreBarcodeScan",
-        "toType": "BarcodeScanResult",
-        "sourcePath": "src/barcodeScanRuntime.ts"
-      },
-      {
         "fromSymbol": "getExpoBundledMediaRegistrySource",
         "toType": "ExpoBundledMediaRegistrySourceEntry",
         "sourcePath": "src/bundledMediaRegistrySource.ts"
@@ -4480,12 +4311,42 @@
       },
       {
         "fromSymbol": "ExpoBarcodeScannerAdapter",
-        "toType": "BarcodeScannerViewProps",
+        "toType": "ExpoBarcodeScannerAdapterProps",
         "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
       },
       {
         "fromSymbol": "ExpoBarcodeScannerAdapter",
         "toType": "React",
+        "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
+      },
+      {
+        "fromSymbol": "ExpoBarcodeScannerAdapterProps",
+        "toType": "BarcodeScanningResult",
+        "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
+      },
+      {
+        "fromSymbol": "ExpoBarcodeScannerAdapterProps",
+        "toType": "CameraPermissionStatus",
+        "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
+      },
+      {
+        "fromSymbol": "ExpoBarcodeScannerAdapterProps",
+        "toType": "InteractionPolicy",
+        "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
+      },
+      {
+        "fromSymbol": "ExpoBarcodeScannerAdapterProps",
+        "toType": "React",
+        "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
+      },
+      {
+        "fromSymbol": "ExpoBarcodeScannerAdapterProps",
+        "toType": "ReactNode",
+        "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
+      },
+      {
+        "fromSymbol": "ExpoBarcodeScannerAdapterProps",
+        "toType": "ZoraThemeMode",
         "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
       },
       {
@@ -4648,7 +4509,7 @@
       {
         "fromComponent": "ExpoBarcodeScannerAdapter",
         "toComponent": "CameraView",
-        "jsxElement": "<CameraView\n        barcodeScannerSettings={{ barcodeTypes: CAMERA_BARCODE_TYPES }}\n        onBarcodeScanned={handleBarcodeScanned}\n        style={styles.camera}\n      />",
+        "jsxElement": "<CameraView\n        barcodeScannerSettings={{ barcodeTypes: CAMERA_BARCODE_TYPES }}\n        onBarcodeScanned={onBarcodeScanned}\n        style={styles.camera}\n      />",
         "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
       },
       {
