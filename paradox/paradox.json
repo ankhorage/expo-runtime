@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.0.1",
+      "value": "v7.0.2",
       "color": "cb3837"
     },
     {
@@ -2656,13 +2656,24 @@
       }
     },
     {
+      "name": "toExpoBundledMediaRegistrySourceLiteral",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/bundledMediaRegistrySource.ts",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
       "name": "normalizeEntries",
       "description": null,
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/bundledMediaRegistrySource.ts",
-        "line": 25,
+        "line": 33,
         "column": 1
       }
     },
@@ -3796,6 +3807,12 @@
         "fromSymbol": "getExpoBundledMediaRegistrySource",
         "toSymbol": "normalizeEntries",
         "callExpression": "normalizeEntries",
+        "sourcePath": "src/bundledMediaRegistrySource.ts"
+      },
+      {
+        "fromSymbol": "src/bundledMediaRegistrySource.ts",
+        "toSymbol": "toExpoBundledMediaRegistrySourceLiteral",
+        "callExpression": "toExpoBundledMediaRegistrySourceLiteral",
         "sourcePath": "src/bundledMediaRegistrySource.ts"
       },
       {
