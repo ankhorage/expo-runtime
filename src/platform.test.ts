@@ -32,15 +32,15 @@ describe('EXPO_PLATFORM', () => {
     expect(EXPO_PLATFORM.tooling.expoDoctor.name).toBe('expo-doctor');
     expect(EXPO_PLATFORM.tooling.reactTypes.name).toBe('@types/react');
     expect(EXPO_PLATFORM.animation.worklets.name).toBe('react-native-worklets');
-    expect(EXPO_PLATFORM.runtime.expo.version).toBe('57.0.30');
-    expect(EXPO_PLATFORM.navigation.expoRouter.version).toBe('~57.0.28');
+    expect(EXPO_PLATFORM.runtime.expo.version).toBe('57.0.31');
+    expect(EXPO_PLATFORM.navigation.expoRouter.version).toBe('~57.0.29');
     expect(EXPO_PLATFORM.packages.linking.version).toBe('~57.0.13');
     expect(EXPO_PLATFORM.packages.metroRuntime.version).toBe('~57.0.17');
     expect(EXPO_PLATFORM.packages.constants.version).toBe('~57.0.22');
     expect(EXPO_PLATFORM.packages.asset.version).toBe('~57.0.20');
     expect(EXPO_PLATFORM.packages.authSession.version).toBe('~57.0.16');
     expect(EXPO_PLATFORM.packages.imagePicker.version).toBe('~57.0.20');
-    expect(EXPO_PLATFORM.packages.location.version).toBe('~57.0.21');
+    expect(EXPO_PLATFORM.packages.location.version).toBe('~57.0.22');
     expect(EXPO_PLATFORM.packages.notifications.version).toBe('~57.0.23');
     expect(EXPO_PLATFORM.packages.updates.version).toBe('~57.0.26');
   });

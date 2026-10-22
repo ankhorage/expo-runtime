@@ -18,7 +18,7 @@ export const EXPO_PLATFORM = {
   sdk: 57,
   architecture: 'new-architecture-only',
   runtime: {
-    expo: definePackage('expo', '57.0.30'),
+    expo: definePackage('expo', '57.0.31'),
     react: definePackage('react', '19.2.3'),
     reactDom: definePackage('react-dom', '19.2.3'),
     reactNative: definePackage('react-native', '0.86.3'),
@@ -35,7 +35,7 @@ export const EXPO_PLATFORM = {
     expoDoctor: definePackage('expo-doctor', '1.20.4'),
   },
   navigation: {
-    expoRouter: definePackage('expo-router', '~57.0.28'),
+    expoRouter: definePackage('expo-router', '~57.0.29'),
     screens: definePackage('react-native-screens', '~4.26.0'),
     safeArea: definePackage('react-native-safe-area-context', '~5.7.0'),
   },
@@ -73,7 +73,7 @@ export const EXPO_PLATFORM = {
     linearGradient: definePackage('expo-linear-gradient', '~57.0.2'),
     linking: definePackage('expo-linking', '~57.0.13'),
     localization: definePackage('expo-localization', '~57.0.2'),
-    location: definePackage('expo-location', '~57.0.21'),
+    location: definePackage('expo-location', '~57.0.22'),
     mediaLibrary: definePackage('expo-media-library', '~57.0.5'),
     notifications: definePackage('expo-notifications', '~57.0.23'),
     secureStore: definePackage('expo-secure-store', '~57.0.4'),

@@ -8,18 +8,26 @@ export function getExpoBundledMediaRegistrySource(
 ): string {
   const normalized = normalizeEntries(entries);
   const rows = normalized.map(
-    (entry) => `  ${JSON.stringify(entry.path)}: require(${JSON.stringify(entry.requirePath)}),`,
+    (entry) =>
+      `  ${toExpoBundledMediaRegistrySourceLiteral(entry.path)}: require(${toExpoBundledMediaRegistrySourceLiteral(entry.requirePath)}),`,
   );
+  const registry =
+    normalized.length === 0
+      ? ['export const bundledMediaRegistry: ExpoBundledMediaRegistry = {};']
+      : ['export const bundledMediaRegistry: ExpoBundledMediaRegistry = {', ...rows, '};'];
   return [
     "import type { ExpoBundledMediaRegistry } from '@ankhorage/expo-runtime/bundled-media';",
     '',
     'declare const require: (path: string) => ExpoBundledMediaRegistry[string];',
     '',
-    'export const bundledMediaRegistry: ExpoBundledMediaRegistry = {',
-    ...rows,
-    '};',
+    ...registry,
     '',
   ].join('\n');
+}
+
+function toExpoBundledMediaRegistrySourceLiteral(value: string): string {
+  if (/[\\'\n\r\t\b\f]/u.test(value)) return JSON.stringify(value);
+  return `'${value}'`;
 }
 
 function normalizeEntries(
