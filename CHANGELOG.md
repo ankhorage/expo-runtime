@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.0.3
+
+### Patch Changes
+
+- f283312: Refresh the canonical Expo SDK 57 compatibility policy for generated consumers.
+
 ## 7.0.2
 
 ### Patch Changes
