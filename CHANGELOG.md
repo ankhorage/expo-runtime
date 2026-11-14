@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.0.4
+
+### Patch Changes
+
+- b2ecf88: Align the Expo SDK 57 platform contract and bundled native package ranges with the current compatible patches.
+
 ## 7.0.3
 
 ### Patch Changes
