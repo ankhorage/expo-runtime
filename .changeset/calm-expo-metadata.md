@@ -1,5 +1,5 @@
 ---
-"@ankhorage/expo-runtime": patch
+'@ankhorage/expo-runtime': patch
 ---
 
 Add canonical repository metadata for organization-wide inventory.
