@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "kind": "adapter",
+  "title": "Ankhorage Expo Runtime",
+  "summary": "Provides declarative Expo runtime integration that maps application capabilities to permissions, packages, config plugins, providers, and adapters.",
+  "purpose": "Enable independently authored applications to realize declared capabilities in Expo environments without coupling portable application definitions to Expo implementation code.",
+  "domain": "Expo application runtime integration",
+  "responsibilities": [
+    "Map supported application capabilities to Expo permissions, packages, config plugins, providers, and adapters.",
+    "Publish runtime APIs for capability bridging, planning, platform access, media, OAuth browser handling, barcode scanning, bundled media, and icon fonts.",
+    "Provide React Native and browser-compatible package entrypoints for supported Expo runtime integrations."
+  ],
+  "boundaries": [
+    "Does not define the portable cross-repository contracts consumed by runtime integrations.",
+    "Does not own application-specific screens, business workflows, or deployment operations.",
+    "Does not implement providers outside the declared Expo integration surface."
+  ],
+  "audience": [
+    "Application authors integrating declared capabilities with Expo.",
+    "Maintainers of Expo adapters and runtime integrations."
+  ],
+  "useCases": [
+    "Plan Expo dependencies and permissions from declared application capabilities.",
+    "Integrate supported media, OAuth browser, barcode scanning, icon-font, and platform runtime behavior.",
+    "Bridge application capability invocations to Expo-backed implementations."
+  ],
+  "architecture": {
+    "role": "Framework-specific runtime integration package translating declared application capabilities into Expo-compatible behavior.",
+    "invariants": [
+      "Portable application contracts remain independent of Expo implementation details.",
+      "Framework and platform entrypoints are explicit package subpaths.",
+      "Optional Expo integrations remain isolated behind declared capability and provider boundaries."
+    ]
+  },
+  "constraints": {
+    "limitations": [
+      "Requires compatible Expo, React, React Native, and optional peer packages for the selected integration.",
+      "Only the explicitly published runtime entrypoints and supported capabilities are provided."
+    ]
+  }
+}
