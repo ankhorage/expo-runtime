@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.0.5
+
+### Patch Changes
+
+- df7afba: Add canonical repository metadata for organization-wide inventory.
+
 ## 7.0.4
 
 ### Patch Changes
