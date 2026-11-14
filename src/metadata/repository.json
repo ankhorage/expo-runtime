@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "kind": "runtime",
+  "kind": "adapter",
   "title": "Ankhorage Expo Runtime",
   "summary": "Provides declarative Expo runtime integration that maps application capabilities to permissions, packages, config plugins, providers, and adapters.",
   "purpose": "Enable independently authored applications to realize declared capabilities in Expo environments without coupling portable application definitions to Expo implementation code.",
