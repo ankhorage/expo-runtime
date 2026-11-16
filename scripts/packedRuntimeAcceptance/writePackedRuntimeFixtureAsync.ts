@@ -109,6 +109,7 @@ async function writePackageAsync(
     [EXPO_PLATFORM.packages.constants.name]: EXPO_PLATFORM.packages.constants.version,
     [EXPO_PLATFORM.packages.linking.name]: EXPO_PLATFORM.packages.linking.version,
     [EXPO_PLATFORM.packages.metroRuntime.name]: EXPO_PLATFORM.packages.metroRuntime.version,
+    [EXPO_PLATFORM.packages.notifications.name]: EXPO_PLATFORM.packages.notifications.version,
     [EXPO_PLATFORM.navigation.expoRouter.name]: EXPO_PLATFORM.navigation.expoRouter.version,
     [EXPO_PLATFORM.navigation.safeArea.name]: EXPO_PLATFORM.navigation.safeArea.version,
     [EXPO_PLATFORM.runtime.expo.name]: EXPO_PLATFORM.runtime.expo.version,
@@ -131,10 +132,7 @@ async function writePackageAsync(
       [EXPO_PLATFORM.tooling.typescript.name]: EXPO_PLATFORM.tooling.typescript.version,
     },
   };
-  await Bun.write(
-    path.join(consumerRoot, 'package.json'),
-    `${JSON.stringify(packageJson, null, 2)}\n`,
-  );
+  await writePackageManifestAsync(consumerRoot, packageJson);
 }
 
 async function writeSourceAsync(
@@ -156,19 +154,20 @@ async function writeRootLayoutAsync(
   const iconFontImport = options.includeIconFontProvider
     ? "import { ExpoZoraIconFontProvider } from '@ankhorage/expo-runtime/icon-fonts';\n"
     : '';
-  const providerOpening = options.includeIconFontProvider ? '    <ExpoZoraIconFontProvider>\n' : '';
-  const providerClosing = options.includeIconFontProvider
-    ? '    </ExpoZoraIconFontProvider>\n'
-    : '';
+  const [providerOpening, providerClosing] = options.includeIconFontProvider
+    ? ['    <ExpoZoraIconFontProvider>\n', '    </ExpoZoraIconFontProvider>\n']
+    : ['', ''];
   await Bun.write(
     path.join(consumerRoot, 'src/app/_layout.tsx'),
-    `import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';
+    `${getApprovalRouteImportSource()}import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';
 ${iconFontImport}
 import { ResponsiveProvider } from '@ankhorage/surface';
 import { ZoraProvider } from '@ankhorage/zora';
 import { Slot } from 'expo-router';
 
 export default function RootLayout() {
+${getApprovalRouteValueSource()}
+
   return (
 ${providerOpening}
     <ResponsiveProvider>
@@ -181,6 +180,7 @@ ${providerOpening}
 ${providerClosing}
   );
 }
+
 `,
   );
 }
@@ -224,6 +224,22 @@ if (
 }
 `,
   );
+}
+
+async function writePackageManifestAsync(consumerRoot: string, value: object): Promise<void> {
+  await Bun.write(path.join(consumerRoot, 'package.json'), `${JSON.stringify(value, null, 2)}\n`);
+}
+
+function getApprovalRouteImportSource(): string {
+  return "import { getFlowApprovalRoutePath } from '@ankhorage/expo-runtime/approval-notifications';\n";
+}
+
+function getApprovalRouteValueSource(): string {
+  return `  const approvalPath = getFlowApprovalRoutePath({
+    approvalId: 'packed-approval',
+    flow: { id: 'packed-flow', version: 1 },
+    runId: 'packed-run',
+  });`;
 }
 
 function resolvePackedPeerDependencies(): Record<string, string> {
