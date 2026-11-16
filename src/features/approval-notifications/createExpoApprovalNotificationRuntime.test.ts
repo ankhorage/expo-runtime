@@ -32,6 +32,43 @@ describe('createExpoApprovalNotificationRuntime', () => {
   });
 });
 
+describe('createExpoApprovalNotificationRuntime lifecycle', () => {
+  afterEach(() => {
+    mock.restore();
+  });
+
+  test('does not attach native listeners when disposal wins an asynchronous startup race', async () => {
+    const calls: string[] = [];
+    const initialUrl = createDeferred<string | null>();
+    void mock.module('expo-linking', () => ({
+      addEventListener: () => ({ remove: () => calls.push('remove-linking') }),
+      getInitialURL: () => initialUrl.promise,
+    }));
+    void mock.module('expo-notifications', () => ({
+      addNotificationResponseReceivedListener: () => ({
+        remove: () => calls.push('remove-notification'),
+      }),
+      clearLastNotificationResponse: () => calls.push('clear-response'),
+      getLastNotificationResponse: () => null,
+      requestPermissionsAsync: () => Promise.resolve({ granted: false }),
+    }));
+
+    const { createExpoApprovalNotificationRuntime } =
+      await import('./createExpoApprovalNotificationRuntime');
+    const runtime = createExpoApprovalNotificationRuntime({
+      navigateAsync: () => calls.push('navigate'),
+      onUnavailableAsync: () => calls.push('unavailable'),
+    });
+
+    const start = runtime.startAsync();
+    runtime.dispose();
+    initialUrl.resolve(null);
+    await start;
+
+    expect(calls).toEqual([]);
+  });
+});
+
 function configureExpoModules(calls: string[]): void {
   void mock.module('expo-linking', () => ({
     addEventListener: () => ({ remove: () => calls.push('remove-linking') }),
@@ -63,4 +100,12 @@ function createNotificationResponse() {
       },
     },
   };
+}
+
+function createDeferred<T>(): { promise: Promise<T>; resolve: (value: T) => void } {
+  let resolve: (value: T) => void = () => undefined;
+  const promise = new Promise<T>((resolvePromise) => {
+    resolve = resolvePromise;
+  });
+  return { promise, resolve };
 }

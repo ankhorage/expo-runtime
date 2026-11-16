@@ -142,6 +142,7 @@ async function writeSourceAsync(
   await Promise.all([
     writeRootLayoutAsync(consumerRoot, options),
     writeIndexAsync(consumerRoot),
+    writeApprovalRouteDeliveryAsync(consumerRoot),
     writeAuthoringRouteDeliveryAsync(consumerRoot),
   ]);
 }
@@ -159,15 +160,13 @@ async function writeRootLayoutAsync(
     : ['', ''];
   await Bun.write(
     path.join(consumerRoot, 'src/app/_layout.tsx'),
-    `${getApprovalRouteImportSource()}import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';
+    `import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';
 ${iconFontImport}
 import { ResponsiveProvider } from '@ankhorage/surface';
 import { ZoraProvider } from '@ankhorage/zora';
 import { Slot } from 'expo-router';
 
 export default function RootLayout() {
-${getApprovalRouteValueSource()}
-
   return (
 ${providerOpening}
     <ResponsiveProvider>
@@ -181,6 +180,25 @@ ${providerClosing}
   );
 }
 
+`,
+  );
+}
+
+/*** Assert the packed approval-notifications subpath returns the canonical token-free route. */
+async function writeApprovalRouteDeliveryAsync(consumerRoot: string): Promise<void> {
+  await Bun.write(
+    path.join(consumerRoot, 'src/approvalRouteDelivery.ts'),
+    `import { getFlowApprovalRoutePath } from '@ankhorage/expo-runtime/approval-notifications';
+
+const route = getFlowApprovalRoutePath({
+  approvalId: 'packed-approval',
+  flow: { id: 'packed-flow', version: 1 },
+  runId: 'packed-run',
+});
+
+if (route !== 'flows/packed-flow/versions/1/runs/packed-run/approvals/packed-approval') {
+  throw new Error('Packed Expo Runtime did not preserve the token-free approval route.');
+}
 `,
   );
 }
@@ -228,18 +246,6 @@ if (
 
 async function writePackageManifestAsync(consumerRoot: string, value: object): Promise<void> {
   await Bun.write(path.join(consumerRoot, 'package.json'), `${JSON.stringify(value, null, 2)}\n`);
-}
-
-function getApprovalRouteImportSource(): string {
-  return "import { getFlowApprovalRoutePath } from '@ankhorage/expo-runtime/approval-notifications';\n";
-}
-
-function getApprovalRouteValueSource(): string {
-  return `  const approvalPath = getFlowApprovalRoutePath({
-    approvalId: 'packed-approval',
-    flow: { id: 'packed-flow', version: 1 },
-    runId: 'packed-run',
-  });`;
 }
 
 function resolvePackedPeerDependencies(): Record<string, string> {
