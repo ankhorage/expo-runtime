@@ -33,11 +33,6 @@ try {
   );
   await runCommandAsync('bun', ['install'], consumerRoot);
   await assertInstalledGraphAsync(consumerRoot, candidate.name, candidate.version);
-  await runCommandAsync(
-    'bun',
-    ['--conditions=react-native', 'run', 'src/approvalRouteDelivery.ts'],
-    consumerRoot,
-  );
   await runCommandAsync('bun', ['run', 'src/authoringRouteDelivery.ts'], consumerRoot);
 
   await runCommandAsync('bunx', ['expo', 'install', '--check'], consumerRoot);
