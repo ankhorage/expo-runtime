@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.0.5",
+      "value": "v7.1.0",
       "color": "cb3837"
     },
     {
@@ -366,6 +366,15 @@
       ]
     },
     {
+      "path": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ExpoAuthoringRoutePlanning",
+        "getExpoAuthoringRoutePlanning"
+      ]
+    },
+    {
       "path": "src/features/navigation/resolveExpoRuntimeRoutePath.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -413,6 +422,7 @@
         "createExpoRuntimeRegistry",
         "ExecuteExpoRuntimeCapabilityArgs",
         "executeExpoRuntimeCapabilityAsync",
+        "ExpoAuthoringRoutePlanning",
         "ExpoBarcodeScannerAdapter",
         "ExpoBarcodeScannerAdapterProps",
         "ExpoBundledMediaRegistry",
@@ -438,6 +448,7 @@
         "ExpoRuntimeRouteResolution",
         "ExpoZoraIconFontProvider",
         "ExpoZoraIconFontProviderProps",
+        "getExpoAuthoringRoutePlanning",
         "getExpoBarcodeScannerViewSource",
         "getExpoBundledMediaRegistrySource",
         "mapPermissionStatusToCameraPermissionStatus",
@@ -604,6 +615,7 @@
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
+        "ExpoAuthoringRoutePlanning",
         "ExpoRuntimeAdapterId",
         "ExpoRuntimeConfigPluginOutput",
         "ExpoRuntimeDependencyMap",
@@ -616,6 +628,7 @@
         "ExpoRuntimePlanningManifest",
         "ExpoRuntimePlanningScreen",
         "ExpoRuntimeProviderId",
+        "getExpoAuthoringRoutePlanning",
         "getExpoBarcodeScannerViewSource",
         "resolveExpoRuntimeConfigPluginOutput",
         "resolveExpoRuntimeDependencyMap",
@@ -961,6 +974,43 @@
       "relatedSymbols": [],
       "signatures": [],
       "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoAuthoringRoutePlanning",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+        "line": 6,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "route",
+          "kind": "property",
+          "type": "AuthoringRouteDeliveryDefinition",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "status",
+          "kind": "property",
+          "type": "\"requires-host-composition\" | \"unresolved\"",
+          "required": true,
+          "description": null
+        }
+      ],
       "structuredRows": []
     },
     {
@@ -2009,6 +2059,37 @@
       "structuredRows": []
     },
     {
+      "name": "getExpoAuthoringRoutePlanning",
+      "title": null,
+      "description": "Describe Authoring routes without generating an Expo Router module before host composition exists.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+        "line": 12,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ExpoAuthoringRoutePlanning"
+      ],
+      "signatures": [
+        {
+          "label": "() => readonly ExpoAuthoringRoutePlanning[]",
+          "parameters": [],
+          "returnType": "readonly ExpoAuthoringRoutePlanning[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "getExpoBarcodeScannerViewSource",
       "title": null,
       "description": null,
@@ -2931,6 +3012,28 @@
       }
     },
     {
+      "name": "getExpoAuthoringRoutePlanning",
+      "description": "Describe Authoring routes without generating an Expo Router module before host composition exists.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+        "line": 12,
+        "column": 1
+      }
+    },
+    {
+      "name": "createExpoAuthoringRoutePlanning",
+      "description": "Preserve Authoring owner boundaries in Expo planning rather than treating portable screens as routes.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+        "line": 17,
+        "column": 1
+      }
+    },
+    {
       "name": "resolveExpoRuntimeRoutePath",
       "description": "Resolve Expo Router path parameters before passing the remaining values to the router.",
       "see": [],
@@ -3452,6 +3555,14 @@
     },
     {
       "kind": "export",
+      "name": "getExpoAuthoringRoutePlanning",
+      "sourcePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+      "symbolName": "getExpoAuthoringRoutePlanning",
+      "description": "Describe Authoring routes without generating an Expo Router module before host composition exists.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "getExpoBarcodeScannerViewSource",
       "sourcePath": "src/generatedSources.ts",
       "symbolName": "getExpoBarcodeScannerViewSource",
@@ -3653,6 +3764,11 @@
       },
       {
         "fromPath": "src/index.ts",
+        "toPath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
         "toPath": "src/generatedAppOutput.ts",
         "sourcePath": "src/index.ts"
       },
@@ -3680,6 +3796,11 @@
         "fromPath": "src/oauthBrowserRuntime.ts",
         "toPath": "src/oauthBrowserRuntimeCore.ts",
         "sourcePath": "src/oauthBrowserRuntime.ts"
+      },
+      {
+        "fromPath": "src/planning.ts",
+        "toPath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+        "sourcePath": "src/planning.ts"
       },
       {
         "fromPath": "src/planning.ts",
@@ -4405,6 +4526,16 @@
         "fromSymbol": "ExpoZoraIconFontProviderProps",
         "toType": "ReactNode",
         "sourcePath": "src/ExpoZoraIconFontProvider.tsx"
+      },
+      {
+        "fromSymbol": "ExpoAuthoringRoutePlanning",
+        "toType": "AuthoringRouteDeliveryDefinition",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts"
+      },
+      {
+        "fromSymbol": "getExpoAuthoringRoutePlanning",
+        "toType": "ExpoAuthoringRoutePlanning",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts"
       },
       {
         "fromSymbol": "ExpoRuntimeGeneratedAppOutputPlan",

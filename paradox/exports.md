@@ -83,6 +83,19 @@ Kind: `value`
 Module: `src/platform.ts`
 Source: `src/platform.ts:17:14`
 
+## ExpoAuthoringRoutePlanning
+
+Kind: `type`
+Module: `src/features/navigation/getExpoAuthoringRoutePlanning.ts`
+Source: `src/features/navigation/getExpoAuthoringRoutePlanning.ts:6:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| route | property | `AuthoringRouteDeliveryDefinition` | yes |  |
+| status | property | `"requires-host-composition" \| "unresolved"` | yes |  |
+
 ## ExpoBarcodeScannerAdapter
 
 Kind: `function`
@@ -388,6 +401,19 @@ Source: `src/ExpoZoraIconFontProvider.tsx:3:1`
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | children | property | `React.ReactNode` | yes |  |
+
+## getExpoAuthoringRoutePlanning
+
+Kind: `function`
+Module: `src/features/navigation/getExpoAuthoringRoutePlanning.ts`
+Source: `src/features/navigation/getExpoAuthoringRoutePlanning.ts:12:1`
+
+Describe Authoring routes without generating an Expo Router module before host composition exists.
+
+### Signatures
+
+- `() => readonly ExpoAuthoringRoutePlanning[]`
+  - returns: `readonly ExpoAuthoringRoutePlanning[]`
 
 ## getExpoBarcodeScannerViewSource
 

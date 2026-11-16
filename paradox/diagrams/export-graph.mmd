@@ -15,6 +15,7 @@ graph LR
   module_src_ExpoZoraIconFontProvider_tsx["src/ExpoZoraIconFontProvider.tsx"]
   module_src_ExpoZoraIconFontProvider_web_tsx["src/ExpoZoraIconFontProvider.web.tsx"]
   module_src_features_capabilities_executeExpoRuntimeCapabilityAsync_ts["src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"]
+  module_src_features_navigation_getExpoAuthoringRoutePlanning_ts["src/features/navigation/getExpoAuthoringRoutePlanning.ts"]
   module_src_features_navigation_resolveExpoRuntimeRoutePath_ts["src/features/navigation/resolveExpoRuntimeRoutePath.ts"]
   module_src_generatedAppOutput_ts["src/generatedAppOutput.ts"]
   module_src_generatedSources_ts["src/generatedSources.ts"]
@@ -61,6 +62,8 @@ graph LR
   export_executeExpoRuntimeCapabilityAsync -.-> export_ExpoRuntimeCapabilityExecutionResult
   export_EXPO_PLATFORM["EXPO_PLATFORM"]
   module_src_platform_ts --> export_EXPO_PLATFORM
+  export_ExpoAuthoringRoutePlanning["ExpoAuthoringRoutePlanning"]
+  module_src_features_navigation_getExpoAuthoringRoutePlanning_ts --> export_ExpoAuthoringRoutePlanning
   export_ExpoBarcodeScannerAdapter["ExpoBarcodeScannerAdapter"]
   module_src_ExpoBarcodeScannerAdapter_tsx --> export_ExpoBarcodeScannerAdapter
   export_ExpoBarcodeScannerAdapter -.-> export_ExpoBarcodeScannerAdapterProps
@@ -124,6 +127,9 @@ graph LR
   export_ExpoZoraIconFontProvider -.-> export_ExpoZoraIconFontProviderProps
   export_ExpoZoraIconFontProviderProps["ExpoZoraIconFontProviderProps"]
   module_src_ExpoZoraIconFontProvider_tsx --> export_ExpoZoraIconFontProviderProps
+  export_getExpoAuthoringRoutePlanning["getExpoAuthoringRoutePlanning"]
+  module_src_features_navigation_getExpoAuthoringRoutePlanning_ts --> export_getExpoAuthoringRoutePlanning
+  export_getExpoAuthoringRoutePlanning -.-> export_ExpoAuthoringRoutePlanning
   export_getExpoBarcodeScannerViewSource["getExpoBarcodeScannerViewSource"]
   module_src_generatedSources_ts --> export_getExpoBarcodeScannerViewSource
   export_getExpoBundledMediaRegistrySource["getExpoBundledMediaRegistrySource"]

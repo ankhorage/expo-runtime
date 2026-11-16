@@ -273,6 +273,43 @@
     "structuredRows": []
   },
   {
+    "name": "ExpoAuthoringRoutePlanning",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+    "sourceLocation": {
+      "filePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "route",
+        "kind": "property",
+        "type": "AuthoringRouteDeliveryDefinition",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "\"requires-host-composition\" | \"unresolved\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ExpoBarcodeScannerAdapter",
     "title": null,
     "description": "Renders the ZORA scanner surface with Expo Camera and its native scan callback.",
@@ -1315,6 +1352,37 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "getExpoAuthoringRoutePlanning",
+    "title": null,
+    "description": "Describe Authoring routes without generating an Expo Router module before host composition exists.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+    "sourceLocation": {
+      "filePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoAuthoringRoutePlanning"
+    ],
+    "signatures": [
+      {
+        "label": "() => readonly ExpoAuthoringRoutePlanning[]",
+        "parameters": [],
+        "returnType": "readonly ExpoAuthoringRoutePlanning[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
     "structuredRows": []
   },
   {

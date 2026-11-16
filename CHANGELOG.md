@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.1.0
+
+### Minor Changes
+
+- 2ff98f0: Expose Authoring route planning without claiming Expo Router host composition is runnable.
+
 ## 7.0.5
 
 ### Patch Changes
