@@ -27,7 +27,8 @@
   ],
   "dependencies": {
     "@ankhorage/capability": "^0.2.1",
-    "@ankhorage/contracts": "^25.0.0"
+    "@ankhorage/contracts": "^26.0.0",
+    "@ankhorage/studio-authoring": "^0.4.0"
   },
   "files": [
     "dist",

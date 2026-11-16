@@ -141,6 +141,18 @@ async function writeSourceAsync(
   consumerRoot: string,
   options: PackedRuntimeFixtureOptions,
 ): Promise<void> {
+  await Promise.all([
+    writeRootLayoutAsync(consumerRoot, options),
+    writeIndexAsync(consumerRoot),
+    writeAuthoringRouteDeliveryAsync(consumerRoot),
+  ]);
+}
+
+/*** Write the generated app layout used by packed Runtime acceptance. */
+async function writeRootLayoutAsync(
+  consumerRoot: string,
+  options: PackedRuntimeFixtureOptions,
+): Promise<void> {
   const iconFontImport = options.includeIconFontProvider
     ? "import { ExpoZoraIconFontProvider } from '@ankhorage/expo-runtime/icon-fonts';\n"
     : '';
@@ -171,6 +183,10 @@ ${providerClosing}
 }
 `,
   );
+}
+
+/*** Write the generated Runtime consumer's default screen. */
+async function writeIndexAsync(consumerRoot: string): Promise<void> {
   await Bun.write(
     path.join(consumerRoot, 'src/app/index.tsx'),
     `import { ExpoBarcodeScannerAdapter } from '@ankhorage/expo-runtime';
@@ -185,6 +201,26 @@ export default function Index() {
       <Reader format="pdf" source={null} />
     </View>
   );
+}
+`,
+  );
+}
+
+/*** Assert fail-closed Authoring route planning through the packed Runtime public API. */
+async function writeAuthoringRouteDeliveryAsync(consumerRoot: string): Promise<void> {
+  await Bun.write(
+    path.join(consumerRoot, 'src/authoringRouteDelivery.ts'),
+    `import { getExpoAuthoringRoutePlanning } from '@ankhorage/expo-runtime/planning';
+
+const routes = getExpoAuthoringRoutePlanning();
+
+if (
+  routes.length !== 13 ||
+  routes.find(({ route }) => route.id === 'screens')?.status !== 'requires-host-composition' ||
+  routes.filter(({ status }) => status === 'unresolved').length !== 12 ||
+  routes.some((route) => 'routeFilePath' in route || 'source' in route)
+) {
+  throw new Error('Packed Expo Runtime did not preserve fail-closed Authoring route planning.');
 }
 `,
   );
