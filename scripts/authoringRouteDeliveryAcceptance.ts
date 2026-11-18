@@ -20,6 +20,7 @@ try {
   await writeConsumerAsync(consumerRoot, candidate.name, candidate.path);
   await runCommandAsync('bun', ['install'], consumerRoot);
   await runCommandAsync('bun', ['run', 'authoringRouteDelivery.ts'], consumerRoot);
+  await runCommandAsync('bunx', ['tsc', '--noEmit', '-p', 'tsconfig.json'], consumerRoot);
   console.log('Packed Authoring route delivery acceptance passed.');
 } finally {
   await rm(scratchRoot, { recursive: true, force: true });
@@ -31,28 +32,55 @@ async function writeConsumerAsync(
   candidateName: string,
   candidatePath: string,
 ): Promise<void> {
-  await mkdir(consumerRoot, { recursive: true });
+  await mkdir(path.join(consumerRoot, 'app', 'ankh'), { recursive: true });
+  await mkdir(path.join(consumerRoot, 'authoring'), { recursive: true });
   await Promise.all([
-    Bun.write(
-      path.join(consumerRoot, 'package.json'),
-      `${JSON.stringify(
-        {
-          name: 'expo-runtime-authoring-route-delivery-acceptance',
-          version: '0.0.0',
-          private: true,
-          type: 'module',
-          dependencies: {
-            [candidateName]: `file:${candidatePath}`,
-            '@ankhorage/studio-authoring': '0.4.0',
-          },
+    writePackageAsync(consumerRoot, candidateName, candidatePath),
+    writeRouteDeliveryScriptAsync(consumerRoot),
+    writeScreensHostAsync(consumerRoot),
+    writeTypeScriptConfigAsync(consumerRoot),
+  ]);
+}
+
+/*** Declare the packed Runtime candidate and published route owners used by the isolated consumer. */
+function writePackageAsync(
+  consumerRoot: string,
+  candidateName: string,
+  candidatePath: string,
+): Promise<number> {
+  return Bun.write(
+    path.join(consumerRoot, 'package.json'),
+    `${JSON.stringify(
+      {
+        name: 'expo-runtime-authoring-route-delivery-acceptance',
+        version: '0.0.0',
+        private: true,
+        type: 'module',
+        dependencies: {
+          [candidateName]: `file:${candidatePath}`,
+          '@ankhorage/studio-authoring': '0.4.0',
+          '@ankhorage/zora': '^27.2.0',
+          react: '19.2.3',
+          'react-native': '0.86.3',
         },
-        null,
-        2,
-      )}\n`,
-    ),
-    Bun.write(
-      path.join(consumerRoot, 'authoringRouteDelivery.ts'),
-      `import { getExpoAuthoringRouteFiles } from '@ankhorage/expo-runtime/route-delivery';
+        devDependencies: {
+          typescript: '~6.0.3',
+        },
+      },
+      null,
+      2,
+    )}\n`,
+  );
+}
+
+/*** Materialize the packed public route output inside the fresh consumer application. */
+function writeRouteDeliveryScriptAsync(consumerRoot: string): Promise<number> {
+  return Bun.write(
+    path.join(consumerRoot, 'authoringRouteDelivery.ts'),
+    `import { mkdir } from 'node:fs/promises';
+import path from 'node:path';
+
+import { getExpoAuthoringRouteFiles } from '@ankhorage/expo-runtime/route-delivery';
 import { AUTHORING_ANKH_ROUTE_DELIVERIES } from '@ankhorage/studio-authoring';
 
 const files = getExpoAuthoringRouteFiles(AUTHORING_ANKH_ROUTE_DELIVERIES, {
@@ -70,7 +98,46 @@ if (
 ) {
   throw new Error('Packed Runtime did not deliver only the published Authoring screen route.');
 }
+
+const [file] = files;
+if (!file) throw new Error('Packed Runtime did not produce the Authoring route file.');
+await mkdir(path.join(import.meta.dir, 'app', 'ankh'), { recursive: true });
+await Bun.write(path.join(import.meta.dir, 'app', file.relativePath), file.source);
 `,
-    ),
-  ]);
+  );
+}
+
+/*** Supply the explicit host-owned props port required by the published screen owner. */
+function writeScreensHostAsync(consumerRoot: string): Promise<number> {
+  return Bun.write(
+    path.join(consumerRoot, 'authoring', 'screensHost.ts'),
+    `import type { ScreensAuthoringScreenProps } from '@ankhorage/studio-authoring/screens';
+
+export function getScreensAuthoringScreenProps(): ScreensAuthoringScreenProps {
+  return { screens: [] };
+}
+`,
+  );
+}
+
+/*** Configure the consumer compiler to resolve the generated Expo Router route and host port. */
+function writeTypeScriptConfigAsync(consumerRoot: string): Promise<number> {
+  return Bun.write(
+    path.join(consumerRoot, 'tsconfig.json'),
+    `${JSON.stringify(
+      {
+        compilerOptions: {
+          jsx: 'react-jsx',
+          module: 'ESNext',
+          moduleResolution: 'bundler',
+          noEmit: true,
+          skipLibCheck: true,
+          strict: true,
+        },
+        include: ['app/**/*.tsx', 'authoring/**/*.ts'],
+      },
+      null,
+      2,
+    )}\n`,
+  );
 }

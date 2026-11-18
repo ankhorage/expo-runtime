@@ -13,7 +13,7 @@
         "@ankhorage/devtools": "^2.3.47",
         "@ankhorage/paradox": "^0.2.27",
         "@ankhorage/permissions": "^0.2.63",
-        "@ankhorage/zora": "^25.8.3",
+        "@ankhorage/zora": "^25.8.3 || ^27.2.0",
         "@react-native-vector-icons/fontawesome": "^13.1.4",
         "@react-native-vector-icons/fontawesome5": "^13.1.4",
         "@react-native-vector-icons/fontawesome6": "^13.1.4",
@@ -42,7 +42,7 @@
       },
       "peerDependencies": {
         "@ankhorage/permissions": "^0.2.63",
-        "@ankhorage/zora": "^25.8.3",
+        "@ankhorage/zora": "^25.8.3 || ^27.2.0",
         "@react-native-vector-icons/fontawesome": "^13.1.4",
         "@react-native-vector-icons/fontawesome5": "^13.1.4",
         "@react-native-vector-icons/fontawesome6": "^13.1.4",
