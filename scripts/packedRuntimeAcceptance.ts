@@ -96,12 +96,22 @@ function assertVersionMatchesCaretRange(
   packageName: string,
 ): void {
   const versionParts = parseVersion(version);
-  const rangeParts = parseCaretRange(range);
-  if (!versionParts || !rangeParts || !satisfiesCaret(versionParts, rangeParts)) {
+  const rangeParts = parseCaretRanges(range);
+  if (!versionParts || !rangeParts.some((minimum) => satisfiesCaret(versionParts, minimum))) {
     throw new Error(
       `Packed root consumer resolved ${packageName}@${version ?? 'missing'}, which does not satisfy ${range ?? 'missing'}.`,
     );
   }
+}
+
+/*** Parse the explicit caret alternatives supported by a published peer dependency contract. */
+function parseCaretRanges(
+  value: string | undefined,
+): readonly (readonly [number, number, number])[] {
+  return (value ?? '')
+    .split(' || ')
+    .map(parseCaretRange)
+    .filter((range): range is readonly [number, number, number] => range !== undefined);
 }
 
 function parseVersion(value: string | undefined): readonly [number, number, number] | undefined {
