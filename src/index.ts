@@ -62,3 +62,9 @@ export type {
   ExpoRuntimeProviderId,
 } from './resolveExpoRuntimePlan';
 export { resolveExpoRuntimePlan } from './resolveExpoRuntimePlan';
+export {
+  type ExpoAuthoringRouteFile,
+  type ExpoAuthoringRouteHostPort,
+  type ExpoAuthoringRouteHostPorts,
+  getExpoAuthoringRouteFiles,
+} from './routeDelivery';
