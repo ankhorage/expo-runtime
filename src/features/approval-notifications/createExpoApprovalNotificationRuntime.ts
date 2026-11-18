@@ -16,6 +16,7 @@ export function createExpoApprovalNotificationRuntime(
   options: ExpoApprovalNotificationRuntimeOptions,
 ): ExpoApprovalNotificationRuntime {
   const state: ApprovalNotificationRuntimeState = {
+    handlingEventKeys: new Set(),
     lifecycleVersion: 0,
     started: false,
   };
@@ -46,7 +47,7 @@ async function startRuntimeAsync(
     await resumeLastNotificationAsync(options, state, startVersion);
     if (isCurrentStart(startVersion, state)) attachListeners(options, state, startVersion);
   } catch (error) {
-    state.started = false;
+    if (isCurrentStart(startVersion, state)) state.started = false;
     throw error;
   }
 }
@@ -101,7 +102,7 @@ function isCurrentStart(version: number, state: ApprovalNotificationRuntimeState
 }
 
 interface ApprovalNotificationRuntimeState {
-  handlingEventVersion?: number;
+  readonly handlingEventKeys: Set<string>;
   lifecycleVersion: number;
   linkingSubscription?: { remove: () => void };
   notificationSubscription?: { remove: () => void };
@@ -133,14 +134,15 @@ async function handleEventRouteAsync(
   startVersion: number,
   isCurrent: () => boolean,
 ): Promise<void> {
-  if (!isCurrent() || state.handlingEventVersion === startVersion) return;
-  state.handlingEventVersion = startVersion;
+  const eventKey = getEventKey(route, startVersion);
+  if (!isCurrent() || state.handlingEventKeys.has(eventKey)) return;
+  state.handlingEventKeys.add(eventKey);
   try {
     await handleRouteAsync(route, options, isCurrent);
   } catch {
     // Expo callback errors have no awaiting caller and must not become unhandled rejections.
   } finally {
-    if (state.handlingEventVersion === startVersion) state.handlingEventVersion = undefined;
+    state.handlingEventKeys.delete(eventKey);
   }
 }
 
@@ -152,15 +154,21 @@ async function handleEventUrlAsync(
   startVersion: number,
   isCurrent: () => boolean,
 ): Promise<void> {
-  if (!isCurrent() || state.handlingEventVersion === startVersion) return;
-  state.handlingEventVersion = startVersion;
-  try {
-    await handleUrlAsync(url, options, isCurrent);
-  } catch {
-    // Expo callback errors have no awaiting caller and must not become unhandled rejections.
-  } finally {
-    if (state.handlingEventVersion === startVersion) state.handlingEventVersion = undefined;
+  const route = resolveFlowApprovalRoute(url);
+  if (route !== undefined) {
+    await handleEventRouteAsync(route, options, state, startVersion, isCurrent);
   }
+}
+
+/*** Keys concurrent event work to one immutable approval reference in one runtime lifecycle. */
+function getEventKey(route: FlowApprovalRoute, startVersion: number): string {
+  return JSON.stringify([
+    startVersion,
+    route.flow.id,
+    route.flow.version,
+    route.runId,
+    route.approvalId,
+  ]);
 }
 
 /*** Contains asynchronous listener work so malformed or offline events do not escape Expo callbacks. */
