@@ -4,8 +4,10 @@ import type { ExpoApprovalNotificationRuntimeOptions, FlowApprovalRoute } from '
 export async function handleFlowApprovalRouteAsync(
   route: FlowApprovalRoute,
   options: ExpoApprovalNotificationRuntimeOptions,
+  isCurrent: () => boolean = () => true,
 ): Promise<void> {
   const availability = await resolveAvailabilityAsync(route, options);
+  if (!isCurrent()) return;
   if (availability === 'available') {
     await options.navigateAsync(route);
     return;
@@ -19,12 +21,12 @@ async function resolveAvailabilityAsync(
   options: ExpoApprovalNotificationRuntimeOptions,
 ): Promise<FlowApprovalAvailability> {
   try {
-    return (await options.resolveAvailabilityAsync?.(route)) ?? 'available';
+    return await options.resolveAvailabilityAsync(route);
   } catch {
     return 'offline';
   }
 }
 
 type FlowApprovalAvailability = Awaited<
-  ReturnType<NonNullable<ExpoApprovalNotificationRuntimeOptions['resolveAvailabilityAsync']>>
+  ReturnType<ExpoApprovalNotificationRuntimeOptions['resolveAvailabilityAsync']>
 >;

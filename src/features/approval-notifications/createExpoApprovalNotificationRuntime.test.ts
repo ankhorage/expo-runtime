@@ -32,7 +32,7 @@ describe('createExpoApprovalNotificationRuntime', () => {
   });
 });
 
-describe('createExpoApprovalNotificationRuntime lifecycle', () => {
+describe('createExpoApprovalNotificationRuntime startup lifecycle', () => {
   afterEach(() => {
     mock.restore();
   });
@@ -58,6 +58,7 @@ describe('createExpoApprovalNotificationRuntime lifecycle', () => {
     const runtime = createExpoApprovalNotificationRuntime({
       navigateAsync: () => calls.push('navigate'),
       onUnavailableAsync: () => calls.push('unavailable'),
+      resolveAvailabilityAsync: () => Promise.resolve('available'),
     });
 
     const start = runtime.startAsync();
@@ -66,6 +67,58 @@ describe('createExpoApprovalNotificationRuntime lifecycle', () => {
     await start;
 
     expect(calls).toEqual([]);
+  });
+});
+
+describe('createExpoApprovalNotificationRuntime event lifecycle', () => {
+  afterEach(() => {
+    mock.restore();
+  });
+
+  test('does not navigate when disposal wins a pending notification availability lookup', async () => {
+    const calls: string[] = [];
+    const availability = createDeferred<'available'>();
+    const notify = configureEventModules(calls);
+    const { createExpoApprovalNotificationRuntime } =
+      await import('./createExpoApprovalNotificationRuntime');
+    const runtime = createExpoApprovalNotificationRuntime({
+      navigateAsync: () => calls.push('navigate'),
+      onUnavailableAsync: () => calls.push('unavailable'),
+      resolveAvailabilityAsync: () => availability.promise,
+    });
+
+    await runtime.startAsync();
+    notify();
+    await Promise.resolve();
+    runtime.dispose();
+    availability.resolve('available');
+    await Promise.resolve();
+    await Promise.resolve();
+
+    expect(calls).toEqual(['remove-notification', 'remove-linking']);
+  });
+
+  test('ignores a duplicate notification tap while the first lookup is pending', async () => {
+    const calls: string[] = [];
+    const availability = createDeferred<'available'>();
+    const notify = configureEventModules(calls);
+    const { createExpoApprovalNotificationRuntime } =
+      await import('./createExpoApprovalNotificationRuntime');
+    const runtime = createExpoApprovalNotificationRuntime({
+      navigateAsync: () => calls.push('navigate'),
+      onUnavailableAsync: () => calls.push('unavailable'),
+      resolveAvailabilityAsync: () => availability.promise,
+    });
+
+    await runtime.startAsync();
+    notify();
+    notify();
+    availability.resolve('available');
+    await Promise.resolve();
+    await Promise.resolve();
+
+    expect(calls).toEqual(['navigate']);
+    runtime.dispose();
   });
 });
 
@@ -82,6 +135,27 @@ function configureExpoModules(calls: string[]): void {
     getLastNotificationResponse: () => createNotificationResponse(),
     requestPermissionsAsync: () => Promise.resolve({ granted: false }),
   }));
+}
+
+function configureEventModules(calls: string[]): () => void {
+  let onNotificationResponse:
+    ((response: ReturnType<typeof createNotificationResponse>) => void) | undefined;
+  void mock.module('expo-linking', () => ({
+    addEventListener: () => ({ remove: () => calls.push('remove-linking') }),
+    getInitialURL: () => Promise.resolve(null),
+  }));
+  void mock.module('expo-notifications', () => ({
+    addNotificationResponseReceivedListener: (
+      listener: (response: ReturnType<typeof createNotificationResponse>) => void,
+    ) => {
+      onNotificationResponse = listener;
+      return { remove: () => calls.push('remove-notification') };
+    },
+    clearLastNotificationResponse: () => calls.push('clear-response'),
+    getLastNotificationResponse: () => null,
+    requestPermissionsAsync: () => Promise.resolve({ granted: false }),
+  }));
+  return () => onNotificationResponse?.(createNotificationResponse());
 }
 
 function createNotificationResponse() {

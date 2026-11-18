@@ -39,7 +39,9 @@ async function startRuntimeAsync(
   try {
     const initialUrl = await Linking.getInitialURL();
     if (!isCurrentStart(startVersion, state)) return;
-    if (initialUrl !== null) await handleUrlAsync(initialUrl, options);
+    if (initialUrl !== null) {
+      await handleUrlAsync(initialUrl, options, () => isCurrentStart(startVersion, state));
+    }
     if (!isCurrentStart(startVersion, state)) return;
     await resumeLastNotificationAsync(options, state, startVersion);
     if (isCurrentStart(startVersion, state)) attachListeners(options, state, startVersion);
@@ -59,7 +61,7 @@ async function resumeLastNotificationAsync(
     Notifications.getLastNotificationResponse()?.notification.request.content.data,
   );
   if (route === undefined) return;
-  await handleRouteAsync(route, options);
+  await handleRouteAsync(route, options, () => isCurrentStart(startVersion, state));
   if (isCurrentStart(startVersion, state)) Notifications.clearLastNotificationResponse();
 }
 
@@ -73,11 +75,13 @@ function attachListeners(
   state.notificationSubscription ??= Notifications.addNotificationResponseReceivedListener(
     (response) => {
       const route = parseFlowApprovalNotificationData(response.notification.request.content.data);
-      if (route !== undefined) void handleEventRouteAsync(route, options, isCurrent);
+      if (route !== undefined) {
+        void handleEventRouteAsync(route, options, state, startVersion, isCurrent);
+      }
     },
   );
   state.linkingSubscription ??= Linking.addEventListener('url', ({ url }) => {
-    void handleEventUrlAsync(url, options, isCurrent);
+    void handleEventUrlAsync(url, options, state, startVersion, isCurrent);
   });
 }
 
@@ -97,6 +101,7 @@ function isCurrentStart(version: number, state: ApprovalNotificationRuntimeState
 }
 
 interface ApprovalNotificationRuntimeState {
+  handlingEventVersion?: number;
   lifecycleVersion: number;
   linkingSubscription?: { remove: () => void };
   notificationSubscription?: { remove: () => void };
@@ -114,22 +119,28 @@ function toPermissionResult(value: {
 async function handleUrlAsync(
   url: string,
   options: ExpoApprovalNotificationRuntimeOptions,
+  isCurrent: () => boolean = () => true,
 ): Promise<void> {
   const route = resolveFlowApprovalRoute(url);
-  if (route !== undefined) await handleRouteAsync(route, options);
+  if (route !== undefined) await handleRouteAsync(route, options, isCurrent);
 }
 
 /*** Contains untrusted notification-event failures at Expo's callback boundary. */
 async function handleEventRouteAsync(
   route: FlowApprovalRoute,
   options: ExpoApprovalNotificationRuntimeOptions,
+  state: ApprovalNotificationRuntimeState,
+  startVersion: number,
   isCurrent: () => boolean,
 ): Promise<void> {
-  if (!isCurrent()) return;
+  if (!isCurrent() || state.handlingEventVersion === startVersion) return;
+  state.handlingEventVersion = startVersion;
   try {
-    await handleRouteAsync(route, options);
+    await handleRouteAsync(route, options, isCurrent);
   } catch {
     // Expo callback errors have no awaiting caller and must not become unhandled rejections.
+  } finally {
+    if (state.handlingEventVersion === startVersion) state.handlingEventVersion = undefined;
   }
 }
 
@@ -137,13 +148,18 @@ async function handleEventRouteAsync(
 async function handleEventUrlAsync(
   url: string,
   options: ExpoApprovalNotificationRuntimeOptions,
+  state: ApprovalNotificationRuntimeState,
+  startVersion: number,
   isCurrent: () => boolean,
 ): Promise<void> {
-  if (!isCurrent()) return;
+  if (!isCurrent() || state.handlingEventVersion === startVersion) return;
+  state.handlingEventVersion = startVersion;
   try {
-    await handleUrlAsync(url, options);
+    await handleUrlAsync(url, options, isCurrent);
   } catch {
     // Expo callback errors have no awaiting caller and must not become unhandled rejections.
+  } finally {
+    if (state.handlingEventVersion === startVersion) state.handlingEventVersion = undefined;
   }
 }
 
@@ -151,6 +167,7 @@ async function handleEventUrlAsync(
 async function handleRouteAsync(
   route: FlowApprovalRoute,
   options: ExpoApprovalNotificationRuntimeOptions,
+  isCurrent: () => boolean = () => true,
 ): Promise<void> {
-  await handleFlowApprovalRouteAsync(route, options);
+  await handleFlowApprovalRouteAsync(route, options, isCurrent);
 }

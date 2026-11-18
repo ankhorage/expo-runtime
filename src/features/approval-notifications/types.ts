@@ -21,7 +21,7 @@ export interface ExpoApprovalNotificationRuntimeOptions {
     route: FlowApprovalRoute,
     availability: Exclude<FlowApprovalAvailability, 'available'>,
   ) => Promise<void> | void;
-  readonly resolveAvailabilityAsync?: (
+  readonly resolveAvailabilityAsync: (
     route: FlowApprovalRoute,
   ) => Promise<FlowApprovalAvailability>;
 }

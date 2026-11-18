@@ -31,6 +31,7 @@ describe('createExpoApprovalNotificationRuntime web fallback', () => {
     const runtime = createExpoApprovalNotificationRuntime({
       navigateAsync: (route) => events.push(`navigate:${route.approvalId}`),
       onUnavailableAsync: (_, availability) => events.push(`unavailable:${availability}`),
+      resolveAvailabilityAsync: () => Promise.resolve('available'),
     });
 
     await runtime.startAsync();
@@ -60,6 +61,7 @@ describe('createExpoApprovalNotificationRuntime web lifecycle', () => {
     const runtime = createExpoApprovalNotificationRuntime({
       navigateAsync: () => navigation.promise,
       onUnavailableAsync: () => events.push('unavailable'),
+      resolveAvailabilityAsync: () => Promise.resolve('available'),
     });
     const start = runtime.startAsync();
     await Promise.resolve();

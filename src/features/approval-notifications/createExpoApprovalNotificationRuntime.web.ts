@@ -16,7 +16,9 @@ export function createExpoApprovalNotificationRuntime(
     if (!isCurrentStart(startVersion, lifecycleVersion, started)) return;
     const route = resolveFlowApprovalRoute(window.location.href);
     if (route === undefined) return;
-    await handleFlowApprovalRouteAsync(route, options);
+    await handleFlowApprovalRouteAsync(route, options, () =>
+      isCurrentStart(startVersion, lifecycleVersion, started),
+    );
   };
   const handlePopstate = () =>
     void handleLocationChangeAsync(lifecycleVersion).catch(ignoreEventFailure);
