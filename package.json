@@ -67,6 +67,13 @@
       "import": "./dist/planning.js",
       "default": "./dist/planning.js"
     },
+    "./route-delivery": {
+      "react-native": "./src/routeDelivery.ts",
+      "browser": "./src/routeDelivery.ts",
+      "types": "./src/routeDelivery.ts",
+      "import": "./dist/routeDelivery.js",
+      "default": "./dist/routeDelivery.js"
+    },
     "./platform": {
       "react-native": "./src/platform.ts",
       "browser": "./src/platform.ts",
@@ -176,6 +183,7 @@
     "test": "bun test src",
     "typecheck": "bun x tsc --noEmit -p tsconfig.json && bun x tsc --noEmit -p tsconfig.scripts.json",
     "validate:action-bridge": "bun scripts/actionBridgeAcceptance.ts",
+    "validate:authoring-route-delivery": "bun scripts/authoringRouteDeliveryAcceptance.ts",
     "validate:expo-platform": "bun scripts/validateExpoPlatform.ts",
     "validate:headless-platform": "bun scripts/headlessPlatformAcceptance.ts",
     "validate:icon-fonts-web": "bun scripts/iconFontWebAcceptance.ts",
@@ -185,7 +193,7 @@
   },
   "peerDependencies": {
     "@ankhorage/permissions": "^0.2.63",
-    "@ankhorage/zora": "^25.8.3",
+    "@ankhorage/zora": "^25.8.3 || ^27.2.0",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
     "@react-native-vector-icons/fontawesome5": "^13.1.4",
     "@react-native-vector-icons/fontawesome6": "^13.1.4",
@@ -255,7 +263,7 @@
     "@ankhorage/devtools": "^2.3.47",
     "@ankhorage/paradox": "^0.2.27",
     "@ankhorage/permissions": "^0.2.63",
-    "@ankhorage/zora": "^25.8.3",
+    "@ankhorage/zora": "^25.8.3 || ^27.2.0",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
     "@react-native-vector-icons/fontawesome5": "^13.1.4",
     "@react-native-vector-icons/fontawesome6": "^13.1.4",
