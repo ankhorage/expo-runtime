@@ -6,7 +6,38 @@
 
 Package: `@ankhorage/expo-runtime`
 
-Declarative runtime integration for Expo apps: maps app capabilities to permissions, packages, config plugins, providers, and adapters
+Title: Ankhorage Expo Runtime
+
+Provides declarative Expo runtime integration that maps application capabilities to permissions, packages, config plugins, providers, and adapters.
+
+Purpose: Enable independently authored applications to realize declared capabilities in Expo environments without coupling portable application definitions to Expo implementation code.
+
+Audience:
+
+- Application authors integrating declared capabilities with Expo.
+- Maintainers of Expo adapters and runtime integrations.
+
+## Scope and boundaries
+
+Responsibilities:
+
+- Map supported application capabilities to Expo permissions, packages, config plugins, providers, and adapters.
+- Publish runtime APIs for capability bridging, planning, platform access, media, OAuth browser handling, barcode scanning, bundled media, and icon fonts.
+- Provide React Native and browser-compatible package entrypoints for supported Expo runtime integrations.
+
+Boundaries:
+
+- Does not define the portable cross-repository contracts consumed by runtime integrations.
+- Does not own application-specific screens, business workflows, or deployment operations.
+- Does not implement providers outside the declared Expo integration surface.
+
+Architecture role: Framework-specific runtime integration package translating declared application capabilities into Expo-compatible behavior.
+
+Architectural invariants:
+
+- Portable application contracts remain independent of Expo implementation details.
+- Framework and platform entrypoints are explicit package subpaths.
+- Optional Expo integrations remain isolated behind declared capability and provider boundaries.
 
 ## Current architecture only
 
@@ -64,6 +95,26 @@ Paradox `/*** ... */` comments in `src` and leading `@usage` comments in real
 `examples/<example>/...` source files, plus any repository-owned manual documentation outside the
 generated output. The managed release workflow runs `bun run docs` after the package version bump
 and commits the regenerated artifacts in the release commit.
+
+## GitHub task lifecycle and workspace cleanup
+
+- **Start.** Treat each issue implementation, PR implementation, review, and change request (CR)
+  as an independent task. Fetch the current remote default branch and read the applicable issue,
+  PR, HEAD, review feedback, and CI state. Use a fresh, uniquely named task checkout or worktree.
+  Concurrent tasks must have distinct writable checkout, temporary, build, and cache paths.
+- **CRs.** Fetch and check out the current remote PR branch in the new workspace. Preserve PR
+  history and scope. Push corrections to the existing PR branch.
+- **Delivery.** Run applicable checks. Commit and push all intended changes, then verify that
+  GitHub has the intended commit on the correct remote branch. Report the exact HEAD, checks, CI,
+  findings, and blockers. Report acceptance that was not run as unverified. Read-only reviews hand
+  off their findings without creating a commit. Merge requires explicit authorization.
+- **Cleanup.** After handoff, resolve every candidate path and remove only task-owned directories
+  whose resolved paths are strictly under the resolved system path for `/tmp` (`/private/tmp` on
+  macOS). Refuse candidates that resolve outside that boundary, including through a symlink. Use
+  Git-aware removal for worktrees. Preserve workspaces outside the boundary, shared directories,
+  other tasks' directories, uncommitted changes, and unpushed commits. If blocked, persist
+  recoverable work first and document what must be retained. Report whether cleanup succeeded, was
+  skipped, or was blocked.
 
 ## Pull requests
 
