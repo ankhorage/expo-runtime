@@ -25,6 +25,20 @@ describe('capability-scoped adapter entrypoints', () => {
     expect(packageJson.exports).not.toHaveProperty('./reader');
   });
 
+  it('keeps optional scanner, provider, icon-font, and planning exports out of the root entrypoint', async () => {
+    const rootEntrypoint = await Bun.file(new URL('./index.ts', import.meta.url)).text();
+    const scannerEntrypoint = await Bun.file(
+      new URL('./barcodeScanner.ts', import.meta.url),
+    ).text();
+
+    expect(rootEntrypoint).not.toContain("from './ExpoBarcodeScannerAdapter'");
+    expect(rootEntrypoint).not.toContain("from './ExpoRuntimeProviders'");
+    expect(rootEntrypoint).not.toContain("from './ExpoZoraIconFontProvider'");
+    expect(rootEntrypoint).not.toContain("from './resolveExpoRuntimePlan'");
+    expect(scannerEntrypoint).toContain("from './ExpoBarcodeScannerAdapter'");
+    expect(scannerEntrypoint).toContain("from './createExpoRuntimeRegistry'");
+  });
+
   it('keeps document renderer ownership out of the providers entrypoint', async () => {
     const entrypoint = await Bun.file(
       new URL('./ExpoRuntimeProviders.tsx', import.meta.url),

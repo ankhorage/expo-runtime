@@ -196,7 +196,7 @@ async function writeRootLayoutAsync(
     : '';
   await Bun.write(
     path.join(consumerRoot, 'src/app/_layout.tsx'),
-    `import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime';
+    `import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime/providers';
 ${iconFontImport}
 import { ResponsiveProvider } from '@ankhorage/surface';
 import { ZoraProvider } from '@ankhorage/zora';
@@ -223,7 +223,7 @@ ${providerClosing}
 async function writeIndexAsync(consumerRoot: string): Promise<void> {
   await Bun.write(
     path.join(consumerRoot, 'src/app/index.tsx'),
-    `import { ExpoBarcodeScannerAdapter } from '@ankhorage/expo-runtime';
+    `import { ExpoBarcodeScannerAdapter } from '@ankhorage/expo-runtime/barcode-scanner';
 import { Reader } from '@ankhorage/zora';
 import { View } from 'react-native';
 
