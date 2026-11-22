@@ -7,7 +7,7 @@ interface PackageJson {
 }
 
 describe('capability-scoped adapter entrypoints', () => {
-  it('publishes focused provider and barcode scanner exports without a legacy reader alias', async () => {
+  it('publishes focused provider, scanner, and approval-notification exports without a legacy reader alias', async () => {
     const packageJson = (await Bun.file(
       new URL('../package.json', import.meta.url),
     ).json()) as PackageJson;
@@ -21,6 +21,12 @@ describe('capability-scoped adapter entrypoints', () => {
       import: './dist/barcodeScanner.js',
       'react-native': './src/barcodeScanner.ts',
       types: './src/barcodeScanner.ts',
+    });
+    expect(packageJson.exports['./approval-notifications']).toMatchObject({
+      browser: './src/approvalNotifications.web.ts',
+      import: './dist/approvalNotifications.js',
+      'react-native': './src/approvalNotifications.ts',
+      types: './src/approvalNotifications.ts',
     });
     expect(packageJson.exports).not.toHaveProperty('./reader');
   });
