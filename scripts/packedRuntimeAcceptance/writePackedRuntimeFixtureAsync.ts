@@ -206,21 +206,27 @@ export default function Index() {
   );
 }
 
-/*** Assert fail-closed Authoring route planning through the packed Runtime public API. */
+/*** Assert packed Runtime route delivery composes only the published Authoring screen through an explicit host port. */
 async function writeAuthoringRouteDeliveryAsync(consumerRoot: string): Promise<void> {
   await Bun.write(
     path.join(consumerRoot, 'src/authoringRouteDelivery.ts'),
-    `import { getExpoAuthoringRoutePlanning } from '@ankhorage/expo-runtime/planning';
+    `import { getExpoAuthoringRouteFiles } from '@ankhorage/expo-runtime/route-delivery';
+import { AUTHORING_ANKH_ROUTE_DELIVERIES } from '@ankhorage/studio-authoring';
 
-const routes = getExpoAuthoringRoutePlanning();
+const files = getExpoAuthoringRouteFiles(AUTHORING_ANKH_ROUTE_DELIVERIES, {
+  screens: {
+    moduleSpecifier: '../../authoring/screensHost',
+    getPropsExportName: 'getScreensAuthoringScreenProps',
+  },
+});
 
 if (
-  routes.length !== 13 ||
-  routes.find(({ route }) => route.id === 'screens')?.status !== 'requires-host-composition' ||
-  routes.filter(({ status }) => status === 'unresolved').length !== 12 ||
-  routes.some((route) => 'routeFilePath' in route || 'source' in route)
+  files.length !== 1 ||
+  files[0]?.relativePath !== 'ankh/screens.tsx' ||
+  !files[0]?.source.includes("@ankhorage/studio-authoring/screens") ||
+  !files[0]?.source.includes('getScreensAuthoringScreenProps')
 ) {
-  throw new Error('Packed Expo Runtime did not preserve fail-closed Authoring route planning.');
+  throw new Error('Packed Expo Runtime did not deliver the published Authoring screen route.');
 }
 `,
   );
