@@ -3,6 +3,7 @@ import path from 'node:path';
 
 import { EXPO_PLATFORM } from '../../src/platform';
 import { readJsonFileAsync } from '../packedAcceptance/readJsonFileAsync';
+import { writeGeneratedAppSourcesConsumptionAsync } from './writeGeneratedAppSourcesConsumptionAsync';
 
 interface PackageManifest {
   readonly dependencies?: Readonly<Record<string, string>>;
@@ -77,7 +78,12 @@ async function writeConfigAsync(consumerRoot: string): Promise<void> {
     `${JSON.stringify(
       {
         extends: 'expo/tsconfig.base',
-        compilerOptions: { strict: true, noUncheckedIndexedAccess: true },
+        compilerOptions: {
+          strict: true,
+          noUncheckedIndexedAccess: true,
+          resolveJsonModule: true,
+          types: ['bun', 'node'],
+        },
         include: ['src/**/*.ts', 'src/**/*.tsx'],
       },
       null,
@@ -95,14 +101,46 @@ async function writePackageAsync(
   zoraManifest: PackageManifest,
   zoraPeers: Readonly<Record<string, string>>,
 ): Promise<void> {
-  const dependencies = {
+  const packageJson = {
+    name: 'expo-runtime-packed-root-acceptance',
+    version: '0.0.0',
+    private: true,
+    type: 'module',
+    main: 'expo-router/entry',
+    engines: { node: EXPO_PLATFORM.tooling.node.version },
+    dependencies: createPackedRuntimeDependencies(
+      candidateName,
+      candidatePath,
+      runtimePeers,
+      zoraManifest,
+      zoraPeers,
+    ),
+    devDependencies: createPackedRuntimeDevDependencies(runtimeDevDependencies),
+  };
+  await Bun.write(
+    path.join(consumerRoot, 'package.json'),
+    `${JSON.stringify(packageJson, null, 2)}\n`,
+  );
+}
+
+/*** Resolve the published package graph that lets the packed Runtime consumer run without sibling sources. */
+function createPackedRuntimeDependencies(
+  candidateName: string,
+  candidatePath: string,
+  runtimePeers: Readonly<Record<string, string>>,
+  zoraManifest: PackageManifest,
+  zoraPeers: Readonly<Record<string, string>>,
+): Record<string, string> {
+  return {
     ...zoraPeers,
     ...Object.fromEntries(
       Object.values(EXPO_PLATFORM.ui.iconProviders).map(({ name, version }) => [name, version]),
     ),
     [candidateName]: `file:${candidatePath}`,
     '@ankhorage/permissions': requireVersion(runtimePeers, '@ankhorage/permissions'),
+    '@ankhorage/navigator': '3.5.22',
     '@ankhorage/surface': requireVersion(zoraManifest.dependencies ?? {}, '@ankhorage/surface'),
+    '@ankhorage/templates': '12.6.60',
     '@ankhorage/zora': requireVersion(runtimePeers, '@ankhorage/zora'),
     ...resolvePackedPeerDependencies(),
     [EXPO_PLATFORM.packages.camera.name]: EXPO_PLATFORM.packages.camera.version,
@@ -117,24 +155,19 @@ async function writePackageAsync(
     [EXPO_PLATFORM.runtime.reactNative.name]: EXPO_PLATFORM.runtime.reactNative.version,
     [EXPO_PLATFORM.runtime.reactNativeWeb.name]: EXPO_PLATFORM.runtime.reactNativeWeb.version,
   };
-  const packageJson = {
-    name: 'expo-runtime-packed-root-acceptance',
-    version: '0.0.0',
-    private: true,
-    type: 'module',
-    main: 'expo-router/entry',
-    engines: { node: EXPO_PLATFORM.tooling.node.version },
-    dependencies,
-    devDependencies: {
-      '@types/react': requireVersion(runtimeDevDependencies, '@types/react'),
-      [EXPO_PLATFORM.tooling.expoDoctor.name]: EXPO_PLATFORM.tooling.expoDoctor.version,
-      [EXPO_PLATFORM.tooling.typescript.name]: EXPO_PLATFORM.tooling.typescript.version,
-    },
+}
+
+/*** Resolve the tooling declarations required to typecheck the consumer-owned generation script. */
+function createPackedRuntimeDevDependencies(
+  runtimeDevDependencies: Readonly<Record<string, string>>,
+): Record<string, string> {
+  return {
+    '@types/bun': requireVersion(runtimeDevDependencies, '@types/bun'),
+    '@types/node': requireVersion(runtimeDevDependencies, '@types/node'),
+    '@types/react': requireVersion(runtimeDevDependencies, '@types/react'),
+    [EXPO_PLATFORM.tooling.expoDoctor.name]: EXPO_PLATFORM.tooling.expoDoctor.version,
+    [EXPO_PLATFORM.tooling.typescript.name]: EXPO_PLATFORM.tooling.typescript.version,
   };
-  await Bun.write(
-    path.join(consumerRoot, 'package.json'),
-    `${JSON.stringify(packageJson, null, 2)}\n`,
-  );
 }
 
 async function writeSourceAsync(
@@ -147,53 +180,6 @@ async function writeSourceAsync(
     writeAuthoringRouteDeliveryAsync(consumerRoot),
     writeGeneratedAppSourcesConsumptionAsync(consumerRoot),
   ]);
-}
-
-/*** Assert a packed consumer can obtain the Runtime-owned Navigator bindings without a Studio import. */
-async function writeGeneratedAppSourcesConsumptionAsync(consumerRoot: string): Promise<void> {
-  await Bun.write(
-    path.join(consumerRoot, 'src/generatedAppSources.ts'),
-    `import type { AppManifest } from '@ankhorage/contracts';
-import { resolveExpoRuntimeGeneratedAppSources } from '@ankhorage/expo-runtime/generated-app';
-
-const manifest: AppManifest = {
-  activeThemeId: 'default',
-  infra: {},
-  metadata: {
-    category: 'utilities_tools',
-    name: 'Packed consumer',
-    slug: 'packed-consumer',
-    themeId: 'default',
-    version: '1.0.0',
-  },
-  navigator: { routes: [{ name: 'home', screenId: 'home' }], type: 'stack' },
-  screens: {
-    home: { id: 'home', name: 'Home', root: { id: 'home-root', type: 'Screen' } },
-  },
-  settings: { localization: { defaultLocale: 'en', locales: ['en'] } },
-  themes: {
-    default: {
-      dark: { harmony: 'analogous', primaryColor: '#000000' },
-      id: 'default',
-      light: { harmony: 'analogous', primaryColor: '#ffffff' },
-      name: 'Default',
-    },
-  },
-};
-const output = resolveExpoRuntimeGeneratedAppSources(manifest, undefined, {
-  manifestModuleSpecifier: '../ankh.config.json',
-  screenModuleSpecifier: '@/generated/runtimeManifestScreens',
-});
-
-if (
-  output.diagnostics.length !== 0 ||
-  output.files[0]?.relativePath !== 'src/generated/runtimeManifestScreens.tsx' ||
-  output.navigatorBindings.screens.home?.exportName !== 'ManifestScreen0'
-) {
-  throw new Error('Packed Expo Runtime did not expose generated manifest screen bindings.');
-}
-`,
-  );
 }
 
 /*** Write the generated app layout used by packed Runtime acceptance. */

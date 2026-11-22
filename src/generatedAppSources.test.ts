@@ -80,7 +80,17 @@ function createManifest(options: { readonly navigatorScreenId?: string } = {}): 
   const navigatorScreenId = options.navigatorScreenId ?? 'home';
   return {
     activeThemeId: 'default',
-    infra: {},
+    infra: {
+      environments: {
+        local: {
+          deployment: {
+            compute: { provider: 'local' },
+            runtime: { provider: 'minikube' },
+          },
+        },
+      },
+      modules: {},
+    },
     metadata: {
       category: 'utilities_tools',
       name: 'Generated app',
