@@ -145,7 +145,55 @@ async function writeSourceAsync(
     writeRootLayoutAsync(consumerRoot, options),
     writeIndexAsync(consumerRoot),
     writeAuthoringRouteDeliveryAsync(consumerRoot),
+    writeGeneratedAppSourcesConsumptionAsync(consumerRoot),
   ]);
+}
+
+/*** Assert a packed consumer can obtain the Runtime-owned Navigator bindings without a Studio import. */
+async function writeGeneratedAppSourcesConsumptionAsync(consumerRoot: string): Promise<void> {
+  await Bun.write(
+    path.join(consumerRoot, 'src/generatedAppSources.ts'),
+    `import type { AppManifest } from '@ankhorage/contracts';
+import { resolveExpoRuntimeGeneratedAppSources } from '@ankhorage/expo-runtime/generated-app';
+
+const manifest: AppManifest = {
+  activeThemeId: 'default',
+  infra: {},
+  metadata: {
+    category: 'utilities_tools',
+    name: 'Packed consumer',
+    slug: 'packed-consumer',
+    themeId: 'default',
+    version: '1.0.0',
+  },
+  navigator: { routes: [{ name: 'home', screenId: 'home' }], type: 'stack' },
+  screens: {
+    home: { id: 'home', name: 'Home', root: { id: 'home-root', type: 'Screen' } },
+  },
+  settings: { localization: { defaultLocale: 'en', locales: ['en'] } },
+  themes: {
+    default: {
+      dark: { harmony: 'analogous', primaryColor: '#000000' },
+      id: 'default',
+      light: { harmony: 'analogous', primaryColor: '#ffffff' },
+      name: 'Default',
+    },
+  },
+};
+const output = resolveExpoRuntimeGeneratedAppSources(manifest, undefined, {
+  manifestModuleSpecifier: '../ankh.config.json',
+  screenModuleSpecifier: '@/generated/runtimeManifestScreens',
+});
+
+if (
+  output.diagnostics.length !== 0 ||
+  output.files[0]?.relativePath !== 'src/generated/runtimeManifestScreens.tsx' ||
+  output.navigatorBindings.screens.home?.exportName !== 'ManifestScreen0'
+) {
+  throw new Error('Packed Expo Runtime did not expose generated manifest screen bindings.');
+}
+`,
+  );
 }
 
 /*** Write the generated app layout used by packed Runtime acceptance. */

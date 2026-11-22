@@ -74,6 +74,13 @@
       "import": "./dist/routeDelivery.js",
       "default": "./dist/routeDelivery.js"
     },
+    "./generated-app": {
+      "react-native": "./src/generatedAppSources.ts",
+      "browser": "./src/generatedAppSources.ts",
+      "types": "./src/generatedAppSources.ts",
+      "import": "./dist/generatedAppSources.js",
+      "default": "./dist/generatedAppSources.js"
+    },
     "./platform": {
       "react-native": "./src/platform.ts",
       "browser": "./src/platform.ts",
