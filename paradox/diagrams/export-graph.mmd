@@ -15,6 +15,7 @@ graph LR
   module_src_ExpoZoraIconFontProvider_tsx["src/ExpoZoraIconFontProvider.tsx"]
   module_src_ExpoZoraIconFontProvider_web_tsx["src/ExpoZoraIconFontProvider.web.tsx"]
   module_src_features_capabilities_executeExpoRuntimeCapabilityAsync_ts["src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"]
+  module_src_features_navigation_getExpoAuthoringRouteFiles_ts["src/features/navigation/getExpoAuthoringRouteFiles.ts"]
   module_src_features_navigation_getExpoAuthoringRoutePlanning_ts["src/features/navigation/getExpoAuthoringRoutePlanning.ts"]
   module_src_features_navigation_resolveExpoRuntimeRoutePath_ts["src/features/navigation/resolveExpoRuntimeRoutePath.ts"]
   module_src_generatedAppOutput_ts["src/generatedAppOutput.ts"]
@@ -36,6 +37,8 @@ graph LR
   module_src_planning_ts["src/planning.ts"]
   module_src_platform_ts["src/platform.ts"]
   module_src_resolveExpoRuntimePlan_ts["src/resolveExpoRuntimePlan.ts"]
+  module_src_routeDelivery_ts["src/routeDelivery.ts"]
+  module_src_types_expoAuthoringRouteDelivery_ts["src/types/expoAuthoringRouteDelivery.ts"]
   module_src_types_expoRuntimeCapability_ts["src/types/expoRuntimeCapability.ts"]
   module_src_types_expoRuntimePlanning_ts["src/types/expoRuntimePlanning.ts"]
   module_src_types_expoRuntimeRoute_ts["src/types/expoRuntimeRoute.ts"]
@@ -62,6 +65,12 @@ graph LR
   export_executeExpoRuntimeCapabilityAsync -.-> export_ExpoRuntimeCapabilityExecutionResult
   export_EXPO_PLATFORM["EXPO_PLATFORM"]
   module_src_platform_ts --> export_EXPO_PLATFORM
+  export_ExpoAuthoringRouteFile["ExpoAuthoringRouteFile"]
+  module_src_types_expoAuthoringRouteDelivery_ts --> export_ExpoAuthoringRouteFile
+  export_ExpoAuthoringRouteHostPort["ExpoAuthoringRouteHostPort"]
+  module_src_types_expoAuthoringRouteDelivery_ts --> export_ExpoAuthoringRouteHostPort
+  export_ExpoAuthoringRouteHostPorts["ExpoAuthoringRouteHostPorts"]
+  module_src_types_expoAuthoringRouteDelivery_ts --> export_ExpoAuthoringRouteHostPorts
   export_ExpoAuthoringRoutePlanning["ExpoAuthoringRoutePlanning"]
   module_src_features_navigation_getExpoAuthoringRoutePlanning_ts --> export_ExpoAuthoringRoutePlanning
   export_ExpoBarcodeScannerAdapter["ExpoBarcodeScannerAdapter"]
@@ -127,6 +136,10 @@ graph LR
   export_ExpoZoraIconFontProvider -.-> export_ExpoZoraIconFontProviderProps
   export_ExpoZoraIconFontProviderProps["ExpoZoraIconFontProviderProps"]
   module_src_ExpoZoraIconFontProvider_tsx --> export_ExpoZoraIconFontProviderProps
+  export_getExpoAuthoringRouteFiles["getExpoAuthoringRouteFiles"]
+  module_src_features_navigation_getExpoAuthoringRouteFiles_ts --> export_getExpoAuthoringRouteFiles
+  export_getExpoAuthoringRouteFiles -.-> export_ExpoAuthoringRouteFile
+  export_getExpoAuthoringRouteFiles -.-> export_ExpoAuthoringRouteHostPort
   export_getExpoAuthoringRoutePlanning["getExpoAuthoringRoutePlanning"]
   module_src_features_navigation_getExpoAuthoringRoutePlanning_ts --> export_getExpoAuthoringRoutePlanning
   export_getExpoAuthoringRoutePlanning -.-> export_ExpoAuthoringRoutePlanning

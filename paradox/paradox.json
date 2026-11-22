@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.1.0",
+      "value": "v7.2.0",
       "color": "cb3837"
     },
     {
@@ -50,8 +50,8 @@
     {
       "id": "tests",
       "label": "tests",
-      "value": "checked",
-      "color": "0a7f3f"
+      "value": "configured",
+      "color": "6f42c1"
     },
     {
       "id": "docs",
@@ -366,6 +366,16 @@
       ]
     },
     {
+      "path": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/expoAuthoringRouteDelivery.ts"
+      ],
+      "exports": [
+        "getExpoAuthoringRouteFiles"
+      ]
+    },
+    {
       "path": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -422,6 +432,9 @@
         "createExpoRuntimeRegistry",
         "ExecuteExpoRuntimeCapabilityArgs",
         "executeExpoRuntimeCapabilityAsync",
+        "ExpoAuthoringRouteFile",
+        "ExpoAuthoringRouteHostPort",
+        "ExpoAuthoringRouteHostPorts",
         "ExpoAuthoringRoutePlanning",
         "ExpoBarcodeScannerAdapter",
         "ExpoBarcodeScannerAdapterProps",
@@ -448,6 +461,7 @@
         "ExpoRuntimeRouteResolution",
         "ExpoZoraIconFontProvider",
         "ExpoZoraIconFontProviderProps",
+        "getExpoAuthoringRouteFiles",
         "getExpoAuthoringRoutePlanning",
         "getExpoBarcodeScannerViewSource",
         "getExpoBundledMediaRegistrySource",
@@ -664,6 +678,27 @@
         "ExpoRuntimePlanningScreen",
         "ExpoRuntimeProviderId",
         "resolveExpoRuntimePlan"
+      ]
+    },
+    {
+      "path": "src/routeDelivery.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ExpoAuthoringRouteFile",
+        "ExpoAuthoringRouteHostPort",
+        "ExpoAuthoringRouteHostPorts",
+        "getExpoAuthoringRouteFiles"
+      ]
+    },
+    {
+      "path": "src/types/expoAuthoringRouteDelivery.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ExpoAuthoringRouteFile",
+        "ExpoAuthoringRouteHostPort",
+        "ExpoAuthoringRouteHostPorts"
       ]
     },
     {
@@ -970,6 +1005,109 @@
       },
       "exportPaths": [
         "src/platform.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoAuthoringRouteFile",
+      "title": null,
+      "description": "Record one deterministic Expo Router file without performing filesystem I/O.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/expoAuthoringRouteDelivery.ts",
+      "sourceLocation": {
+        "filePath": "src/types/expoAuthoringRouteDelivery.ts",
+        "line": 15,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "relativePath",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "route",
+          "kind": "property",
+          "type": "AuthoringRouteDeliveryDefinition",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "source",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoAuthoringRouteHostPort",
+      "title": null,
+      "description": "Describe the host-owned props factory that composes one portable Authoring screen.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/expoAuthoringRouteDelivery.ts",
+      "sourceLocation": {
+        "filePath": "src/types/expoAuthoringRouteDelivery.ts",
+        "line": 4,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "getPropsExportName",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "moduleSpecifier",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoAuthoringRouteHostPorts",
+      "title": null,
+      "description": "Supply every host composition port needed by the available Authoring screen routes.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/expoAuthoringRouteDelivery.ts",
+      "sourceLocation": {
+        "filePath": "src/types/expoAuthoringRouteDelivery.ts",
+        "line": 10,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
       ],
       "relatedSymbols": [],
       "signatures": [],
@@ -2059,6 +2197,51 @@
       "structuredRows": []
     },
     {
+      "name": "getExpoAuthoringRouteFiles",
+      "title": null,
+      "description": "Translate available portable Authoring screens into deterministic, host-composed Expo Router files.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 13,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ExpoAuthoringRouteFile",
+        "ExpoAuthoringRouteHostPort"
+      ],
+      "signatures": [
+        {
+          "label": "(routes: readonly AuthoringRouteDeliveryDefinition[], hostPorts: Readonly<Partial<Record<import(\"@ankhorage/studio-authoring\").AnkhRouteId, ExpoAuthoringRouteHostPort>>>) => readonly ExpoAuthoringRouteFile[]",
+          "parameters": [
+            {
+              "name": "hostPorts",
+              "type": "Readonly<Partial<Record<import(\"@ankhorage/studio-authoring\").AnkhRouteId, ExpoAuthoringRouteHostPort>>>",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "routes",
+              "type": "readonly AuthoringRouteDeliveryDefinition[]",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly ExpoAuthoringRouteFile[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "getExpoAuthoringRoutePlanning",
       "title": null,
       "description": "Describe Authoring routes without generating an Expo Router module before host composition exists.",
@@ -3012,6 +3195,127 @@
       }
     },
     {
+      "name": "getExpoAuthoringRouteFiles",
+      "description": "Translate available portable Authoring screens into deterministic, host-composed Expo Router files.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAvailableAuthoringRoute",
+      "description": "Limit delivery to routes whose owner has published a concrete screen module.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 23,
+        "column": 1
+      }
+    },
+    {
+      "name": "requireHostPort",
+      "description": "Refuse to synthesize a route when its host has not explicitly accepted its composition boundary.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 30,
+        "column": 1
+      }
+    },
+    {
+      "name": "createExpoAuthoringRouteFile",
+      "description": "Render one Expo Router file from one published portable screen and one declared host props factory.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 42,
+        "column": 1
+      }
+    },
+    {
+      "name": "assertSafeSourceIdentifiers",
+      "description": "Refuse values that would turn a published route or host port into arbitrary generated source.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 65,
+        "column": 1
+      }
+    },
+    {
+      "name": "getExpoRouterRelativePath",
+      "description": "Convert a published pathname template to a confined Expo Router-relative TSX path.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 78,
+        "column": 1
+      }
+    },
+    {
+      "name": "getExpoRouterSegment",
+      "description": "Validate one path segment before translating a declared parameter to Expo Router syntax.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 89,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSafeRouteIdentifier",
+      "description": "Accept only non-empty route identifiers that cannot escape the generated app directory.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 104,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSafeRouteParameterName",
+      "description": "Accept the published camel-case parameter names while retaining single-segment route safety.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 109,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSafeJavaScriptIdentifier",
+      "description": "Accept a JavaScript identifier only when it can be inserted into generated import and JSX syntax.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 114,
+        "column": 1
+      }
+    },
+    {
+      "name": "getRouteComponentName",
+      "description": "Derive a stable default-export component name from the generated route filename.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "line": 119,
+        "column": 1
+      }
+    },
+    {
       "name": "getExpoAuthoringRoutePlanning",
       "description": "Describe Authoring routes without generating an Expo Router module before host composition exists.",
       "see": [],
@@ -3555,6 +3859,14 @@
     },
     {
       "kind": "export",
+      "name": "getExpoAuthoringRouteFiles",
+      "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+      "symbolName": "getExpoAuthoringRouteFiles",
+      "description": "Translate available portable Authoring screens into deterministic, host-composed Expo Router files.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "getExpoAuthoringRoutePlanning",
       "sourcePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
       "symbolName": "getExpoAuthoringRoutePlanning",
@@ -3788,6 +4100,11 @@
         "sourcePath": "src/index.ts"
       },
       {
+        "fromPath": "src/index.ts",
+        "toPath": "src/routeDelivery.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
         "fromPath": "src/layoutIntegrationPlanning.ts",
         "toPath": "src/resolveExpoRuntimePlan.ts",
         "sourcePath": "src/layoutIntegrationPlanning.ts"
@@ -3841,6 +4158,16 @@
         "fromPath": "src/resolveExpoRuntimePlan.ts",
         "toPath": "src/types/expoRuntimePlanning.ts",
         "sourcePath": "src/resolveExpoRuntimePlan.ts"
+      },
+      {
+        "fromPath": "src/routeDelivery.ts",
+        "toPath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "sourcePath": "src/routeDelivery.ts"
+      },
+      {
+        "fromPath": "src/routeDelivery.ts",
+        "toPath": "src/types/expoAuthoringRouteDelivery.ts",
+        "sourcePath": "src/routeDelivery.ts"
       },
       {
         "fromPath": "src/bundledMedia/index.ts",
@@ -3916,6 +4243,11 @@
         "fromPath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts",
         "toPath": "src/types/expoRuntimeCapability.ts",
         "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
+      },
+      {
+        "fromPath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "toPath": "src/types/expoAuthoringRouteDelivery.ts",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
       },
       {
         "fromPath": "src/features/navigation/resolveExpoRuntimeRoutePath.ts",
@@ -4345,6 +4677,60 @@
         "sourcePath": "src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"
       },
       {
+        "fromSymbol": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "toSymbol": "createExpoAuthoringRouteFile",
+        "callExpression": "createExpoAuthoringRouteFile",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "toSymbol": "requireHostPort",
+        "callExpression": "requireHostPort",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "createExpoAuthoringRouteFile",
+        "toSymbol": "getExpoRouterRelativePath",
+        "callExpression": "getExpoRouterRelativePath",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "createExpoAuthoringRouteFile",
+        "toSymbol": "assertSafeSourceIdentifiers",
+        "callExpression": "assertSafeSourceIdentifiers",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "createExpoAuthoringRouteFile",
+        "toSymbol": "getRouteComponentName",
+        "callExpression": "getRouteComponentName",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "assertSafeSourceIdentifiers",
+        "toSymbol": "isSafeJavaScriptIdentifier",
+        "callExpression": "isSafeJavaScriptIdentifier",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+        "toSymbol": "getExpoRouterSegment",
+        "callExpression": "getExpoRouterSegment",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "getExpoRouterSegment",
+        "toSymbol": "isSafeRouteParameterName",
+        "callExpression": "isSafeRouteParameterName",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "getExpoRouterSegment",
+        "toSymbol": "isSafeRouteIdentifier",
+        "callExpression": "isSafeRouteIdentifier",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
         "fromSymbol": "src/features/navigation/resolveExpoRuntimeRoutePath.ts",
         "toSymbol": "resolveRouteParameter",
         "callExpression": "resolveRouteParameter",
@@ -4651,6 +5037,41 @@
         "fromSymbol": "resolveExpoRuntimePlan",
         "toType": "ResolveExpoRuntimePlanOptions",
         "sourcePath": "src/resolveExpoRuntimePlan.ts"
+      },
+      {
+        "fromSymbol": "ExpoAuthoringRouteFile",
+        "toType": "AuthoringRouteDeliveryDefinition",
+        "sourcePath": "src/types/expoAuthoringRouteDelivery.ts"
+      },
+      {
+        "fromSymbol": "getExpoAuthoringRouteFiles",
+        "toType": "AnkhRouteId",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "getExpoAuthoringRouteFiles",
+        "toType": "AuthoringRouteDeliveryDefinition",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "getExpoAuthoringRouteFiles",
+        "toType": "ExpoAuthoringRouteFile",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "getExpoAuthoringRouteFiles",
+        "toType": "ExpoAuthoringRouteHostPort",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "getExpoAuthoringRouteFiles",
+        "toType": "Partial",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
+      },
+      {
+        "fromSymbol": "getExpoAuthoringRouteFiles",
+        "toType": "Readonly",
+        "sourcePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts"
       }
     ],
     "componentComposition": [

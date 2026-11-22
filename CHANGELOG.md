@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.2.0
+
+### Minor Changes
+
+- 3a2aec5: Expose deterministic Expo Router files for published Authoring screen routes with explicit host composition ports.
+
 ## 7.1.0
 
 ### Minor Changes

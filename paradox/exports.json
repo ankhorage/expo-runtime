@@ -273,6 +273,109 @@
     "structuredRows": []
   },
   {
+    "name": "ExpoAuthoringRouteFile",
+    "title": null,
+    "description": "Record one deterministic Expo Router file without performing filesystem I/O.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/expoAuthoringRouteDelivery.ts",
+    "sourceLocation": {
+      "filePath": "src/types/expoAuthoringRouteDelivery.ts",
+      "line": 15,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "relativePath",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "route",
+        "kind": "property",
+        "type": "AuthoringRouteDeliveryDefinition",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoAuthoringRouteHostPort",
+    "title": null,
+    "description": "Describe the host-owned props factory that composes one portable Authoring screen.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/expoAuthoringRouteDelivery.ts",
+    "sourceLocation": {
+      "filePath": "src/types/expoAuthoringRouteDelivery.ts",
+      "line": 4,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "getPropsExportName",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "moduleSpecifier",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoAuthoringRouteHostPorts",
+    "title": null,
+    "description": "Supply every host composition port needed by the available Authoring screen routes.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/expoAuthoringRouteDelivery.ts",
+    "sourceLocation": {
+      "filePath": "src/types/expoAuthoringRouteDelivery.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "ExpoAuthoringRoutePlanning",
     "title": null,
     "description": null,
@@ -1352,6 +1455,51 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "getExpoAuthoringRouteFiles",
+    "title": null,
+    "description": "Translate available portable Authoring screens into deterministic, host-composed Expo Router files.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+    "sourceLocation": {
+      "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+      "line": 13,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoAuthoringRouteFile",
+      "ExpoAuthoringRouteHostPort"
+    ],
+    "signatures": [
+      {
+        "label": "(routes: readonly AuthoringRouteDeliveryDefinition[], hostPorts: Readonly<Partial<Record<import(\"@ankhorage/studio-authoring\").AnkhRouteId, ExpoAuthoringRouteHostPort>>>) => readonly ExpoAuthoringRouteFile[]",
+        "parameters": [
+          {
+            "name": "hostPorts",
+            "type": "Readonly<Partial<Record<import(\"@ankhorage/studio-authoring\").AnkhRouteId, ExpoAuthoringRouteHostPort>>>",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "routes",
+            "type": "readonly AuthoringRouteDeliveryDefinition[]",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "readonly ExpoAuthoringRouteFile[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
     "structuredRows": []
   },
   {

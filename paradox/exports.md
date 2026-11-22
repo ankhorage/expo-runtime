@@ -83,6 +83,45 @@ Kind: `value`
 Module: `src/platform.ts`
 Source: `src/platform.ts:17:14`
 
+## ExpoAuthoringRouteFile
+
+Kind: `type`
+Module: `src/types/expoAuthoringRouteDelivery.ts`
+Source: `src/types/expoAuthoringRouteDelivery.ts:15:1`
+
+Record one deterministic Expo Router file without performing filesystem I/O.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| relativePath | property | `string` | yes |  |
+| route | property | `AuthoringRouteDeliveryDefinition` | yes |  |
+| source | property | `string` | yes |  |
+
+## ExpoAuthoringRouteHostPort
+
+Kind: `type`
+Module: `src/types/expoAuthoringRouteDelivery.ts`
+Source: `src/types/expoAuthoringRouteDelivery.ts:4:1`
+
+Describe the host-owned props factory that composes one portable Authoring screen.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| getPropsExportName | property | `string` | yes |  |
+| moduleSpecifier | property | `string` | yes |  |
+
+## ExpoAuthoringRouteHostPorts
+
+Kind: `unknown`
+Module: `src/types/expoAuthoringRouteDelivery.ts`
+Source: `src/types/expoAuthoringRouteDelivery.ts:10:1`
+
+Supply every host composition port needed by the available Authoring screen routes.
+
 ## ExpoAuthoringRoutePlanning
 
 Kind: `type`
@@ -401,6 +440,21 @@ Source: `src/ExpoZoraIconFontProvider.tsx:3:1`
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | children | property | `React.ReactNode` | yes |  |
+
+## getExpoAuthoringRouteFiles
+
+Kind: `function`
+Module: `src/features/navigation/getExpoAuthoringRouteFiles.ts`
+Source: `src/features/navigation/getExpoAuthoringRouteFiles.ts:13:1`
+
+Translate available portable Authoring screens into deterministic, host-composed Expo Router files.
+
+### Signatures
+
+- `(routes: readonly AuthoringRouteDeliveryDefinition[], hostPorts: Readonly<Partial<Record<import("@ankhorage/studio-authoring").AnkhRouteId, ExpoAuthoringRouteHostPort>>>) => readonly ExpoAuthoringRouteFile[]`
+  - hostPorts: `Readonly<Partial<Record<import("@ankhorage/studio-authoring").AnkhRouteId, ExpoAuthoringRouteHostPort>>>`
+  - routes: `readonly AuthoringRouteDeliveryDefinition[]`
+  - returns: `readonly ExpoAuthoringRouteFile[]`
 
 ## getExpoAuthoringRoutePlanning
 
