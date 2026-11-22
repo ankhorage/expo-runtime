@@ -51,6 +51,13 @@ export {
   resolveExpoRuntimeGeneratedAppOutput,
   resolveExpoRuntimeNativeOutput,
 } from './generatedAppOutput';
+export {
+  type ExpoRuntimeGeneratedAppSourceDiagnostic,
+  type ExpoRuntimeGeneratedAppSourceFile,
+  type ExpoRuntimeGeneratedAppSources,
+  resolveExpoRuntimeGeneratedAppSources,
+  type ResolveExpoRuntimeGeneratedAppSourcesOptions,
+} from './generatedAppSources';
 export { getExpoBarcodeScannerViewSource } from './generatedSources';
 export {
   type ExpoRuntimeLayoutIntegrationPlan,
