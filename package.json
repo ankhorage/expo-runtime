@@ -60,6 +60,13 @@
       "import": "./dist/capabilityBridge.js",
       "default": "./dist/capabilityBridge.js"
     },
+    "./expo-router": {
+      "react-native": "./src/expoRouterBridge.ts",
+      "browser": "./src/expoRouterBridge.ts",
+      "types": "./src/expoRouterBridge.ts",
+      "import": "./dist/expoRouterBridge.js",
+      "default": "./dist/expoRouterBridge.js"
+    },
     "./planning": {
       "react-native": "./src/planning.ts",
       "browser": "./src/planning.ts",
