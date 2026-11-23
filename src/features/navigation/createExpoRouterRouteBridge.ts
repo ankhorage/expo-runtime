@@ -11,6 +11,7 @@ import type { ExpoRuntimeCapabilityHandler } from '../../types/expoRuntimeCapabi
 export function createExpoRouterRouteBridge(host: ExpoRouterHostPort): ExpoRouterRouteBridge {
   const listeners = new Set<() => void>();
   let unsubscribe: (() => void) | undefined;
+  let cachedSnapshot: ExpoRouterRouteSnapshot | undefined;
   const notify = () => listeners.forEach((listener) => listener());
   const subscribe = (listener: () => void) => {
     listeners.add(listener);
@@ -24,11 +25,17 @@ export function createExpoRouterRouteBridge(host: ExpoRouterHostPort): ExpoRoute
   };
   const navigate = (input: unknown) => host.navigate(resolveNavigationTarget(input));
   const back = () => host.back();
+  const getSnapshot = () => {
+    const nextSnapshot = normalizeSnapshot(host.getRouteSnapshot());
+    if (cachedSnapshot && hasSameRouteState(cachedSnapshot, nextSnapshot)) return cachedSnapshot;
+    cachedSnapshot = nextSnapshot;
+    return nextSnapshot;
+  };
 
   return {
     back,
     capabilityHandlers: createCapabilityHandlers(navigate),
-    getSnapshot: () => normalizeSnapshot(host.getRouteSnapshot()),
+    getSnapshot,
     navigate,
     subscribe,
   };
@@ -61,6 +68,42 @@ function normalizeSnapshot(snapshot: ExpoRouterRouteSnapshot): ExpoRouterRouteSn
     params: sanitizeParams(snapshot.params),
     pathname: snapshot.pathname,
   };
+}
+
+/*** Reuse the external-store snapshot while the host router reports the same route state. */
+function hasSameRouteState(
+  previous: ExpoRouterRouteSnapshot,
+  next: ExpoRouterRouteSnapshot,
+): boolean {
+  return (
+    previous.canGoBack === next.canGoBack &&
+    previous.pathname === next.pathname &&
+    hasSameParams(previous.params, next.params)
+  );
+}
+
+/*** Compare the serializable Expo Router parameter values without retaining host-owned objects. */
+function hasSameParams(previous: ExpoRouterRouteParams, next: ExpoRouterRouteParams): boolean {
+  const previousEntries = Object.entries(previous);
+  const nextEntries = Object.entries(next);
+  return (
+    previousEntries.length === nextEntries.length &&
+    previousEntries.every(([key, value]) => hasSameParamValue(value, next[key]))
+  );
+}
+
+/*** Compare one documented Expo Router parameter value. */
+function hasSameParamValue(
+  previous: string | readonly string[],
+  next: string | readonly string[] | undefined,
+): boolean {
+  if (typeof previous === 'string' || typeof next === 'string') return previous === next;
+  return (
+    Array.isArray(previous) &&
+    Array.isArray(next) &&
+    previous.length === next.length &&
+    previous.every((value, index) => value === next[index])
+  );
 }
 
 /*** Reject non-router values rather than leaking non-serializable values into Runtime bindings. */
