@@ -88,7 +88,10 @@ function hasSameParams(previous: ExpoRouterRouteParams, next: ExpoRouterRoutePar
   const nextEntries = Object.entries(next);
   return (
     previousEntries.length === nextEntries.length &&
-    previousEntries.every(([key, value]) => hasSameParamValue(value, next[key]))
+    previousEntries.every(([key, value]) => {
+      const nextEntry = nextEntries.find(([nextKey]) => nextKey === key);
+      return nextEntry !== undefined && hasSameParamValue(value, nextEntry[1]);
+    })
   );
 }
 
@@ -102,7 +105,7 @@ function hasSameParamValue(
     Array.isArray(previous) &&
     Array.isArray(next) &&
     previous.length === next.length &&
-    previous.every((value, index) => value === next[index])
+    previous.every((value, index) => value === next.at(index))
   );
 }
 

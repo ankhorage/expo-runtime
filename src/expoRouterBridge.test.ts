@@ -1,6 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
-import { createExpoRouterRouteBridge, type ExpoRouterRouteSnapshot } from './expoRouterBridge';
+import {
+  createExpoRouterRouteBridge,
+  type ExpoRouterHostPort,
+  type ExpoRouterNavigationTarget,
+  type ExpoRouterRouteSnapshot,
+} from './expoRouterBridge';
 
 describe('createExpoRouterRouteBridge', () => {
   test('returns the same snapshot reference while the host route state is unchanged', () => {
@@ -97,6 +102,38 @@ describe('createExpoRouterRouteBridge', () => {
 });
 
 function createHostFixture() {
+  const state = createHostFixtureState();
+  const host: ExpoRouterHostPort = {
+    back: () => {
+      state.incrementBack();
+      state.setRoute({ canGoBack: false, params: {}, pathname: '/' });
+    },
+    getRouteSnapshot: state.getRouteSnapshot,
+    navigate: (target) => {
+      state.addNavigation(target);
+      state.setRoute({ canGoBack: true, params: target.params, pathname: target.pathname });
+    },
+    subscribe: state.subscribe,
+  };
+  return {
+    get backCount() {
+      return state.getBackCount();
+    },
+    get navigations() {
+      return state.getNavigations();
+    },
+    get subscribeCount() {
+      return state.getSubscribeCount();
+    },
+    get unsubscribeCount() {
+      return state.getUnsubscribeCount();
+    },
+    host,
+    setRoute: state.setRoute,
+  };
+}
+
+function createHostFixtureState() {
   let subscribeCount = 0;
   let unsubscribeCount = 0;
   let backCount = 0;
@@ -105,44 +142,30 @@ function createHostFixture() {
     params: { id: '42', tag: ['one', 'two'] },
     pathname: '/projects/42',
   };
-  const navigations: unknown[] = [];
+  const navigations: ExpoRouterNavigationTarget[] = [];
   const listeners = new Set<() => void>();
   const setRoute = (nextRoute: ExpoRouterRouteSnapshot) => {
     route = nextRoute;
     listeners.forEach((listener) => listener());
   };
   return {
-    get backCount() {
-      return backCount;
-    },
-    get navigations() {
-      return navigations;
-    },
-    get subscribeCount() {
-      return subscribeCount;
-    },
-    get unsubscribeCount() {
-      return unsubscribeCount;
+    addNavigation: (target: ExpoRouterNavigationTarget) => navigations.push(target),
+    getBackCount: () => backCount,
+    getNavigations: () => navigations,
+    getRouteSnapshot: () => ({ ...route, params: { ...route.params } }),
+    getSubscribeCount: () => subscribeCount,
+    getUnsubscribeCount: () => unsubscribeCount,
+    incrementBack: () => {
+      backCount += 1;
     },
     setRoute,
-    host: {
-      back: () => {
-        backCount += 1;
-        setRoute({ canGoBack: false, params: {}, pathname: '/' });
-      },
-      getRouteSnapshot: () => ({ ...route, params: { ...route.params } }),
-      navigate: (target) => {
-        navigations.push(target);
-        setRoute({ canGoBack: true, params: target.params, pathname: target.pathname });
-      },
-      subscribe: (listener) => {
-        subscribeCount += 1;
-        listeners.add(listener);
-        return () => {
-          unsubscribeCount += 1;
-          listeners.delete(listener);
-        };
-      },
+    subscribe: (listener: () => void) => {
+      subscribeCount += 1;
+      listeners.add(listener);
+      return () => {
+        unsubscribeCount += 1;
+        listeners.delete(listener);
+      };
     },
   };
 }
