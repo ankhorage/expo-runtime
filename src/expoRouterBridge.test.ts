@@ -7,7 +7,7 @@ import {
   type ExpoRouterRouteSnapshot,
 } from './expoRouterBridge';
 
-describe('createExpoRouterRouteBridge', () => {
+describe('createExpoRouterRouteBridge snapshots', () => {
   test('returns the same snapshot reference while the host route state is unchanged', () => {
     const fixture = createHostFixture();
     const bridge = createExpoRouterRouteBridge(fixture.host);
@@ -37,7 +37,9 @@ describe('createExpoRouterRouteBridge', () => {
     expect(bridge.getSnapshot()).toBe(notifications[0]);
     stop();
   });
+});
 
+describe('createExpoRouterRouteBridge subscriptions', () => {
   test('observes one host router subscription and cleans it up after the final listener', () => {
     const fixture = createHostFixture();
     const bridge = createExpoRouterRouteBridge(fixture.host);
@@ -55,7 +57,9 @@ describe('createExpoRouterRouteBridge', () => {
     fixture.setRoute({ canGoBack: false, params: {}, pathname: '/' });
     expect(firstCalls).toEqual([]);
   });
+});
 
+describe('createExpoRouterRouteBridge host integration', () => {
   test('reads current route state from the host without retaining a duplicate route store', () => {
     const fixture = createHostFixture();
     const bridge = createExpoRouterRouteBridge(fixture.host);
