@@ -63,11 +63,11 @@ function resolveNavigationTarget(input: unknown): ExpoRouterNavigationTarget {
 
 /*** Retain only Expo Router's serializable string search and path parameters. */
 function normalizeSnapshot(snapshot: ExpoRouterRouteSnapshot): ExpoRouterRouteSnapshot {
-  return {
+  return Object.freeze({
     canGoBack: snapshot.canGoBack,
     params: sanitizeParams(snapshot.params),
     pathname: snapshot.pathname,
-  };
+  });
 }
 
 /*** Reuse the external-store snapshot while the host router reports the same route state. */
@@ -111,17 +111,21 @@ function hasSameParamValue(
 
 /*** Reject non-router values rather than leaking non-serializable values into Runtime bindings. */
 function sanitizeParams(value: unknown): ExpoRouterRouteParams {
-  if (value === undefined) return {};
+  if (value === undefined) return Object.freeze({});
   if (!isRecord(value)) throw new Error('Expo Router params must be a serializable object.');
-  return Object.fromEntries(
-    Object.entries(value).map(([key, parameter]) => [key, sanitizeParameter(key, parameter)]),
+  return Object.freeze(
+    Object.fromEntries(
+      Object.entries(value).map(([key, parameter]) => [key, sanitizeParameter(key, parameter)]),
+    ),
   );
 }
 
 /*** Accept the documented Expo Router parameter value shapes only. */
 function sanitizeParameter(key: string, value: unknown): string | readonly string[] {
   if (typeof value === 'string') return value;
-  if (Array.isArray(value) && value.every((entry) => typeof entry === 'string')) return [...value];
+  if (Array.isArray(value) && value.every((entry) => typeof entry === 'string')) {
+    return Object.freeze([...value]);
+  }
   throw new Error(`Expo Router param '${key}' must be a string or string array.`);
 }
 

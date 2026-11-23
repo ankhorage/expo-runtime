@@ -37,6 +37,16 @@ describe('createExpoRouterRouteBridge snapshots', () => {
     expect(bridge.getSnapshot()).toBe(notifications[0]);
     stop();
   });
+
+  test('does not expose mutable snapshot or parameter state', () => {
+    const fixture = createHostFixture();
+    const bridge = createExpoRouterRouteBridge(fixture.host);
+    const snapshot = bridge.getSnapshot();
+
+    expect(Object.isFrozen(snapshot)).toBe(true);
+    expect(Object.isFrozen(snapshot.params)).toBe(true);
+    expect(Object.isFrozen(snapshot.params.tag)).toBe(true);
+  });
 });
 
 describe('createExpoRouterRouteBridge subscriptions', () => {
