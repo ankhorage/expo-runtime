@@ -1071,6 +1071,164 @@
     "structuredRows": []
   },
   {
+    "name": "ExpoRuntimeGeneratedAppSourceDiagnostic",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppSources.ts",
+      "line": 19,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "\"invalid-manifest-module-specifier\" | \"missing-manifest-screen\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "screenId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "severity",
+        "kind": "property",
+        "type": "\"error\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeGeneratedAppSourceFile",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppSources.ts",
+      "line": 14,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "relativePath",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeGeneratedAppSources",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppSources.ts",
+      "line": 26,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeGeneratedAppSourceDiagnostic",
+      "ExpoRuntimeGeneratedAppSourceFile",
+      "ExpoRuntimeLayoutIntegrationPlan",
+      "ExpoRuntimeNativeOutputPlan"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "dependencies",
+        "kind": "property",
+        "type": "Readonly<Record<string, string>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "diagnostics",
+        "kind": "property",
+        "type": "readonly ExpoRuntimeGeneratedAppSourceDiagnostic[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "files",
+        "kind": "property",
+        "type": "readonly ExpoRuntimeGeneratedAppSourceFile[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "layoutIntegration",
+        "kind": "property",
+        "type": "ExpoRuntimeLayoutIntegrationPlan",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "native",
+        "kind": "property",
+        "type": "ExpoRuntimeNativeOutputPlan",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "navigatorBindings",
+        "kind": "property",
+        "type": "NavigatorGenerationBindings",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ExpoRuntimeLayoutIntegrationPlan",
     "title": null,
     "description": null,
@@ -1800,6 +1958,95 @@
       }
     ],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveExpoRuntimeGeneratedAppSources",
+    "title": null,
+    "description": "Emit the Runtime-owned, filesystem-independent source module and Navigator screen bindings for one manifest.\n\nThe caller owns manifest materialization and file writes. This boundary intentionally emits no Authoring\nroutes: unresolved `/ankh` routes remain the responsibility of their published owner.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/generatedAppSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppSources.ts",
+      "line": 45,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeGeneratedAppSources",
+      "ExpoRuntimePlan",
+      "ResolveExpoRuntimeGeneratedAppSourcesOptions"
+    ],
+    "signatures": [
+      {
+        "label": "(manifest: AppManifest, runtimePlan: ExpoRuntimePlan | undefined, options: ResolveExpoRuntimeGeneratedAppSourcesOptions) => ExpoRuntimeGeneratedAppSources",
+        "parameters": [
+          {
+            "name": "manifest",
+            "type": "AppManifest",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "options",
+            "type": "ResolveExpoRuntimeGeneratedAppSourcesOptions",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "runtimePlan",
+            "type": "ExpoRuntimePlan | undefined",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ExpoRuntimeGeneratedAppSources",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ResolveExpoRuntimeGeneratedAppSourcesOptions",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppSources.ts",
+      "line": 32,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "manifestModuleSpecifier",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "screenModuleSpecifier",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {

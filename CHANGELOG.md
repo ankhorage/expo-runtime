@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.3.0
+
+### Minor Changes
+
+- 3caab93: Expose deterministic generated Runtime manifest-screen sources and Navigator bindings for standalone Expo app materializers.
+
 ## 7.2.0
 
 ### Minor Changes

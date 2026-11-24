@@ -324,6 +324,51 @@ Source: `src/generatedAppOutput.ts:17:1`
 | layoutIntegration | property | `ExpoRuntimeLayoutIntegrationPlan` | yes |  |
 | native | property | `ExpoRuntimeNativeOutputPlan` | yes |  |
 
+## ExpoRuntimeGeneratedAppSourceDiagnostic
+
+Kind: `type`
+Module: `src/generatedAppSources.ts`
+Source: `src/generatedAppSources.ts:19:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `"invalid-manifest-module-specifier" \| "missing-manifest-screen"` | yes |  |
+| message | property | `string` | yes |  |
+| screenId | property | `string \| undefined` | no |  |
+| severity | property | `"error"` | yes |  |
+
+## ExpoRuntimeGeneratedAppSourceFile
+
+Kind: `type`
+Module: `src/generatedAppSources.ts`
+Source: `src/generatedAppSources.ts:14:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| relativePath | property | `string` | yes |  |
+| source | property | `string` | yes |  |
+
+## ExpoRuntimeGeneratedAppSources
+
+Kind: `type`
+Module: `src/generatedAppSources.ts`
+Source: `src/generatedAppSources.ts:26:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| dependencies | property | `Readonly<Record<string, string>>` | yes |  |
+| diagnostics | property | `readonly ExpoRuntimeGeneratedAppSourceDiagnostic[]` | yes |  |
+| files | property | `readonly ExpoRuntimeGeneratedAppSourceFile[]` | yes |  |
+| layoutIntegration | property | `ExpoRuntimeLayoutIntegrationPlan` | yes |  |
+| native | property | `ExpoRuntimeNativeOutputPlan` | yes |  |
+| navigatorBindings | property | `NavigatorGenerationBindings` | yes |  |
+
 ## ExpoRuntimeLayoutIntegrationPlan
 
 Kind: `type`
@@ -555,6 +600,38 @@ Source: `src/generatedAppOutput.ts:48:1`
 - `(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppOutputPlan`
   - runtimePlan: `ExpoRuntimePlan | undefined`
   - returns: `ExpoRuntimeGeneratedAppOutputPlan`
+
+## resolveExpoRuntimeGeneratedAppSources
+
+Kind: `function`
+Module: `src/generatedAppSources.ts`
+Source: `src/generatedAppSources.ts:45:1`
+
+Emit the Runtime-owned, filesystem-independent source module and Navigator screen bindings for one manifest.
+
+The caller owns manifest materialization and file writes. This boundary intentionally emits no Authoring
+routes: unresolved `/ankh` routes remain the responsibility of their published owner.
+
+### Signatures
+
+- `(manifest: AppManifest, runtimePlan: ExpoRuntimePlan | undefined, options: ResolveExpoRuntimeGeneratedAppSourcesOptions) => ExpoRuntimeGeneratedAppSources`
+  - manifest: `AppManifest`
+  - options: `ResolveExpoRuntimeGeneratedAppSourcesOptions`
+  - runtimePlan: `ExpoRuntimePlan | undefined`
+  - returns: `ExpoRuntimeGeneratedAppSources`
+
+## ResolveExpoRuntimeGeneratedAppSourcesOptions
+
+Kind: `type`
+Module: `src/generatedAppSources.ts`
+Source: `src/generatedAppSources.ts:32:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| manifestModuleSpecifier | property | `string` | yes |  |
+| screenModuleSpecifier | property | `string` | yes |  |
 
 ## resolveExpoRuntimeLayoutIntegration
 
