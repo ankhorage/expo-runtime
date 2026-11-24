@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.3.0",
+      "value": "v7.4.0",
       "color": "cb3837"
     },
     {
@@ -413,6 +413,19 @@
       ]
     },
     {
+      "path": "src/generatedAppScaffold.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/generatedAppOutput.ts",
+        "src/resolveExpoRuntimePlan.ts"
+      ],
+      "exports": [
+        "ExpoRuntimeGeneratedAppScaffold",
+        "ExpoRuntimeGeneratedAppScaffoldFile",
+        "resolveExpoRuntimeGeneratedAppScaffold"
+      ]
+    },
+    {
       "path": "src/generatedAppSources.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -467,6 +480,8 @@
         "ExpoRuntimeConfigPluginOutput",
         "ExpoRuntimeDependencyMap",
         "ExpoRuntimeGeneratedAppOutputPlan",
+        "ExpoRuntimeGeneratedAppScaffold",
+        "ExpoRuntimeGeneratedAppScaffoldFile",
         "ExpoRuntimeGeneratedAppSourceDiagnostic",
         "ExpoRuntimeGeneratedAppSourceFile",
         "ExpoRuntimeGeneratedAppSources",
@@ -488,6 +503,7 @@
         "resolveExpoRuntimeConfigPluginOutput",
         "resolveExpoRuntimeDependencyMap",
         "resolveExpoRuntimeGeneratedAppOutput",
+        "resolveExpoRuntimeGeneratedAppScaffold",
         "resolveExpoRuntimeGeneratedAppSources",
         "ResolveExpoRuntimeGeneratedAppSourcesOptions",
         "resolveExpoRuntimeLayoutIntegration",
@@ -1830,6 +1846,75 @@
       "structuredRows": []
     },
     {
+      "name": "ExpoRuntimeGeneratedAppScaffold",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/generatedAppScaffold.ts",
+      "sourceLocation": {
+        "filePath": "src/generatedAppScaffold.ts",
+        "line": 9,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ExpoRuntimeGeneratedAppScaffoldFile"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "files",
+          "kind": "property",
+          "type": "readonly ExpoRuntimeGeneratedAppScaffoldFile[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ExpoRuntimeGeneratedAppScaffoldFile",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/generatedAppScaffold.ts",
+      "sourceLocation": {
+        "filePath": "src/generatedAppScaffold.ts",
+        "line": 4,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "relativePath",
+          "kind": "property",
+          "type": "\"package.json\" | \"app.config.ts\" | \"src/generated/runtimeShell.tsx\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "source",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "ExpoRuntimeGeneratedAppSourceDiagnostic",
       "title": null,
       "description": null,
@@ -2713,6 +2798,45 @@
             }
           ],
           "returnType": "ExpoRuntimeGeneratedAppOutputPlan",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "resolveExpoRuntimeGeneratedAppScaffold",
+      "title": null,
+      "description": "Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/generatedAppScaffold.ts",
+      "sourceLocation": {
+        "filePath": "src/generatedAppScaffold.ts",
+        "line": 14,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ExpoRuntimeGeneratedAppScaffold",
+        "ExpoRuntimePlan"
+      ],
+      "signatures": [
+        {
+          "label": "(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppScaffold",
+          "parameters": [
+            {
+              "name": "runtimePlan",
+              "type": "ExpoRuntimePlan | undefined",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "ExpoRuntimeGeneratedAppScaffold",
           "returnDescription": null
         }
       ],
@@ -3671,6 +3795,39 @@
       }
     },
     {
+      "name": "resolveExpoRuntimeGeneratedAppScaffold",
+      "description": "Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/generatedAppScaffold.ts",
+        "line": 14,
+        "column": 1
+      }
+    },
+    {
+      "name": "createExpoConfigSource",
+      "description": "Render the native Expo configuration fragment from Runtime's resolved plugin and permission plan.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/generatedAppScaffold.ts",
+        "line": 38,
+        "column": 1
+      }
+    },
+    {
+      "name": "createRuntimeShellSource",
+      "description": "Render the canonical Runtime provider shell while leaving application composition to the caller.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/generatedAppScaffold.ts",
+        "line": 50,
+        "column": 1
+      }
+    },
+    {
       "name": "resolveExpoRuntimeGeneratedAppSources",
       "description": "Emit the Runtime-owned, filesystem-independent source module and Navigator screen bindings for one manifest.\n\nThe caller owns manifest materialization and file writes. This boundary intentionally emits no Authoring\nroutes: unresolved `/ankh` routes remain the responsibility of their published owner.",
       "see": [],
@@ -4286,6 +4443,14 @@
     },
     {
       "kind": "export",
+      "name": "resolveExpoRuntimeGeneratedAppScaffold",
+      "sourcePath": "src/generatedAppScaffold.ts",
+      "symbolName": "resolveExpoRuntimeGeneratedAppScaffold",
+      "description": "Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "resolveExpoRuntimeGeneratedAppSources",
       "sourcePath": "src/generatedAppSources.ts",
       "symbolName": "resolveExpoRuntimeGeneratedAppSources",
@@ -4393,6 +4558,16 @@
         "sourcePath": "src/generatedAppOutput.ts"
       },
       {
+        "fromPath": "src/generatedAppScaffold.ts",
+        "toPath": "src/generatedAppOutput.ts",
+        "sourcePath": "src/generatedAppScaffold.ts"
+      },
+      {
+        "fromPath": "src/generatedAppScaffold.ts",
+        "toPath": "src/resolveExpoRuntimePlan.ts",
+        "sourcePath": "src/generatedAppScaffold.ts"
+      },
+      {
         "fromPath": "src/generatedAppSources.ts",
         "toPath": "src/generatedAppOutput.ts",
         "sourcePath": "src/generatedAppSources.ts"
@@ -4455,6 +4630,11 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/generatedAppOutput.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/generatedAppScaffold.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -4723,6 +4903,24 @@
         "toSymbol": "resolveExpoRuntimeNativeOutput",
         "callExpression": "resolveExpoRuntimeNativeOutput",
         "sourcePath": "src/generatedAppOutput.ts"
+      },
+      {
+        "fromSymbol": "resolveExpoRuntimeGeneratedAppScaffold",
+        "toSymbol": "resolveExpoRuntimeGeneratedAppOutput",
+        "callExpression": "resolveExpoRuntimeGeneratedAppOutput",
+        "sourcePath": "src/generatedAppScaffold.ts"
+      },
+      {
+        "fromSymbol": "resolveExpoRuntimeGeneratedAppScaffold",
+        "toSymbol": "createExpoConfigSource",
+        "callExpression": "createExpoConfigSource",
+        "sourcePath": "src/generatedAppScaffold.ts"
+      },
+      {
+        "fromSymbol": "resolveExpoRuntimeGeneratedAppScaffold",
+        "toSymbol": "createRuntimeShellSource",
+        "callExpression": "createRuntimeShellSource",
+        "sourcePath": "src/generatedAppScaffold.ts"
       },
       {
         "fromSymbol": "resolveExpoRuntimeGeneratedAppSources",
@@ -5426,6 +5624,21 @@
         "fromSymbol": "resolveExpoRuntimeNativeOutput",
         "toType": "ExpoRuntimePlan",
         "sourcePath": "src/generatedAppOutput.ts"
+      },
+      {
+        "fromSymbol": "ExpoRuntimeGeneratedAppScaffold",
+        "toType": "ExpoRuntimeGeneratedAppScaffoldFile",
+        "sourcePath": "src/generatedAppScaffold.ts"
+      },
+      {
+        "fromSymbol": "resolveExpoRuntimeGeneratedAppScaffold",
+        "toType": "ExpoRuntimeGeneratedAppScaffold",
+        "sourcePath": "src/generatedAppScaffold.ts"
+      },
+      {
+        "fromSymbol": "resolveExpoRuntimeGeneratedAppScaffold",
+        "toType": "ExpoRuntimePlan",
+        "sourcePath": "src/generatedAppScaffold.ts"
       },
       {
         "fromSymbol": "ExpoRuntimeGeneratedAppSources",

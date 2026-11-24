@@ -1071,6 +1071,75 @@
     "structuredRows": []
   },
   {
+    "name": "ExpoRuntimeGeneratedAppScaffold",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppScaffold.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppScaffold.ts",
+      "line": 9,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeGeneratedAppScaffoldFile"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "files",
+        "kind": "property",
+        "type": "readonly ExpoRuntimeGeneratedAppScaffoldFile[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeGeneratedAppScaffoldFile",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppScaffold.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppScaffold.ts",
+      "line": 4,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "relativePath",
+        "kind": "property",
+        "type": "\"package.json\" | \"app.config.ts\" | \"src/generated/runtimeShell.tsx\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ExpoRuntimeGeneratedAppSourceDiagnostic",
     "title": null,
     "description": null,
@@ -1954,6 +2023,45 @@
           }
         ],
         "returnType": "ExpoRuntimeGeneratedAppOutputPlan",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveExpoRuntimeGeneratedAppScaffold",
+    "title": null,
+    "description": "Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/generatedAppScaffold.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppScaffold.ts",
+      "line": 14,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeGeneratedAppScaffold",
+      "ExpoRuntimePlan"
+    ],
+    "signatures": [
+      {
+        "label": "(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppScaffold",
+        "parameters": [
+          {
+            "name": "runtimePlan",
+            "type": "ExpoRuntimePlan | undefined",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ExpoRuntimeGeneratedAppScaffold",
         "returnDescription": null
       }
     ],

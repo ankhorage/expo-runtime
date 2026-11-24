@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.4.0
+
+### Minor Changes
+
+- 9293c42: Expose a deterministic, filesystem-independent generated Expo app scaffold plan.
+
 ## 7.3.0
 
 ### Minor Changes

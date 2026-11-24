@@ -324,6 +324,31 @@ Source: `src/generatedAppOutput.ts:17:1`
 | layoutIntegration | property | `ExpoRuntimeLayoutIntegrationPlan` | yes |  |
 | native | property | `ExpoRuntimeNativeOutputPlan` | yes |  |
 
+## ExpoRuntimeGeneratedAppScaffold
+
+Kind: `type`
+Module: `src/generatedAppScaffold.ts`
+Source: `src/generatedAppScaffold.ts:9:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| files | property | `readonly ExpoRuntimeGeneratedAppScaffoldFile[]` | yes |  |
+
+## ExpoRuntimeGeneratedAppScaffoldFile
+
+Kind: `type`
+Module: `src/generatedAppScaffold.ts`
+Source: `src/generatedAppScaffold.ts:4:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| relativePath | property | `"package.json" \| "app.config.ts" \| "src/generated/runtimeShell.tsx"` | yes |  |
+| source | property | `string` | yes |  |
+
 ## ExpoRuntimeGeneratedAppSourceDiagnostic
 
 Kind: `type`
@@ -600,6 +625,20 @@ Source: `src/generatedAppOutput.ts:48:1`
 - `(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppOutputPlan`
   - runtimePlan: `ExpoRuntimePlan | undefined`
   - returns: `ExpoRuntimeGeneratedAppOutputPlan`
+
+## resolveExpoRuntimeGeneratedAppScaffold
+
+Kind: `function`
+Module: `src/generatedAppScaffold.ts`
+Source: `src/generatedAppScaffold.ts:14:1`
+
+Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.
+
+### Signatures
+
+- `(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppScaffold`
+  - runtimePlan: `ExpoRuntimePlan | undefined`
+  - returns: `ExpoRuntimeGeneratedAppScaffold`
 
 ## resolveExpoRuntimeGeneratedAppSources
 

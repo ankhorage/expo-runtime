@@ -19,6 +19,7 @@ graph LR
   module_src_features_navigation_getExpoAuthoringRoutePlanning_ts["src/features/navigation/getExpoAuthoringRoutePlanning.ts"]
   module_src_features_navigation_resolveExpoRuntimeRoutePath_ts["src/features/navigation/resolveExpoRuntimeRoutePath.ts"]
   module_src_generatedAppOutput_ts["src/generatedAppOutput.ts"]
+  module_src_generatedAppScaffold_ts["src/generatedAppScaffold.ts"]
   module_src_generatedAppSources_ts["src/generatedAppSources.ts"]
   module_src_generatedSources_ts["src/generatedSources.ts"]
   module_src_index_ts["src/index.ts"]
@@ -54,6 +55,8 @@ graph LR
   module_src_features_navigation_resolveExpoRuntimeRoutePath_ts --> module_src_types_expoRuntimeRoute_ts
   module_src_generatedAppOutput_ts --> module_src_layoutIntegrationPlanning_ts
   module_src_generatedAppOutput_ts --> module_src_resolveExpoRuntimePlan_ts
+  module_src_generatedAppScaffold_ts --> module_src_generatedAppOutput_ts
+  module_src_generatedAppScaffold_ts --> module_src_resolveExpoRuntimePlan_ts
   module_src_generatedAppSources_ts --> module_src_generatedAppOutput_ts
   module_src_generatedAppSources_ts --> module_src_resolveExpoRuntimePlan_ts
   module_src_layoutIntegrationPlanning_ts --> module_src_resolveExpoRuntimePlan_ts
