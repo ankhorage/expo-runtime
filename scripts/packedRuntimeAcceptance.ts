@@ -34,6 +34,7 @@ try {
   await runCommandAsync('bun', ['install'], consumerRoot);
   await assertInstalledGraphAsync(consumerRoot, candidate.name, candidate.version);
   await assertGeneratedAppNodeEsmImportAsync(consumerRoot);
+  await assertPublishedTypesNodeNextAsync(consumerRoot);
   await runCommandAsync('bun', ['run', 'src/authoringRouteDelivery.ts'], consumerRoot);
 
   await runCommandAsync('bunx', ['expo', 'install', '--check'], consumerRoot);
@@ -62,6 +63,37 @@ async function assertGeneratedAppNodeEsmImportAsync(consumerRoot: string): Promi
     ],
     consumerRoot,
   );
+}
+
+/*** Prove that TypeScript NodeNext resolves only the packed declarations for generated-app APIs. */
+async function assertPublishedTypesNodeNextAsync(consumerRoot: string): Promise<void> {
+  await Bun.write(
+    path.join(consumerRoot, 'tsconfig.nodenext.json'),
+    `${JSON.stringify({
+      compilerOptions: {
+        module: 'NodeNext',
+        moduleResolution: 'NodeNext',
+        noEmit: true,
+        skipLibCheck: true,
+      },
+      include: ['src/publishedTypes.ts'],
+    })}\n`,
+  );
+  await Bun.write(
+    path.join(consumerRoot, 'src/publishedTypes.ts'),
+    `import {
+  resolveExpoRuntimeGeneratedAppScaffold,
+  resolveExpoRuntimePlan,
+} from '@ankhorage/expo-runtime';
+import { resolveExpoRuntimeGeneratedAppScaffold as resolveGeneratedApp } from '@ankhorage/expo-runtime/generated-app';
+
+const manifest = { screens: {} };
+resolveExpoRuntimePlan(manifest);
+resolveExpoRuntimeGeneratedAppScaffold({ metadata: { name: 'Types proof', slug: 'types-proof', version: '1.0.0', category: 'developer_tools', themeId: 'default' } }, undefined);
+resolveGeneratedApp({ metadata: { name: 'Types proof', slug: 'types-proof', version: '1.0.0', category: 'developer_tools', themeId: 'default' } }, undefined);
+`,
+  );
+  await runCommandAsync('bunx', ['tsc', '--project', 'tsconfig.nodenext.json'], consumerRoot);
 }
 
 async function assertInstalledGraphAsync(
