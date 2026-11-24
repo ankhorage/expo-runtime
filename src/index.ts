@@ -52,6 +52,11 @@ export {
   resolveExpoRuntimeNativeOutput,
 } from './generatedAppOutput';
 export {
+  type ExpoRuntimeGeneratedAppScaffold,
+  type ExpoRuntimeGeneratedAppScaffoldFile,
+  resolveExpoRuntimeGeneratedAppScaffold,
+} from './generatedAppScaffold';
+export {
   type ExpoRuntimeGeneratedAppSourceDiagnostic,
   type ExpoRuntimeGeneratedAppSourceFile,
   type ExpoRuntimeGeneratedAppSources,
