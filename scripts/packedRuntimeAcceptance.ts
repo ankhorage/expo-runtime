@@ -33,6 +33,7 @@ try {
   );
   await runCommandAsync('bun', ['install'], consumerRoot);
   await assertInstalledGraphAsync(consumerRoot, candidate.name, candidate.version);
+  await assertGeneratedAppNodeEsmImportAsync(consumerRoot);
   await runCommandAsync('bun', ['run', 'src/authoringRouteDelivery.ts'], consumerRoot);
 
   await runCommandAsync('bunx', ['expo', 'install', '--check'], consumerRoot);
@@ -48,6 +49,19 @@ try {
   console.log('Packed Expo Runtime root acceptance passed.');
 } finally {
   await rm(scratchRoot, { recursive: true, force: true });
+}
+
+/*** Prove that a packed consumer can load the public generated-app API using Node's native ESM resolver. */
+async function assertGeneratedAppNodeEsmImportAsync(consumerRoot: string): Promise<void> {
+  await runCommandAsync(
+    'node',
+    [
+      '--input-type=module',
+      '--eval',
+      "import { resolveExpoRuntimeGeneratedAppScaffold } from '@ankhorage/expo-runtime/generated-app'; const output = resolveExpoRuntimeGeneratedAppScaffold({ metadata: { name: 'Packed proof', slug: 'packed-proof', version: '1.0.0' } }, undefined); if (!output.files.some((file) => file.relativePath === 'package.json')) throw new Error('Generated app scaffold is unavailable.');",
+    ],
+    consumerRoot,
+  );
 }
 
 async function assertInstalledGraphAsync(

@@ -75,11 +75,11 @@
       "default": "./dist/routeDelivery.js"
     },
     "./generated-app": {
-      "react-native": "./src/generatedAppSources.ts",
-      "browser": "./src/generatedAppSources.ts",
-      "types": "./src/generatedAppSources.ts",
-      "import": "./dist/generatedAppSources.js",
-      "default": "./dist/generatedAppSources.js"
+      "react-native": "./src/generatedApp.ts",
+      "browser": "./src/generatedApp.ts",
+      "types": "./src/generatedApp.ts",
+      "import": "./dist/generatedApp.js",
+      "default": "./dist/generatedApp.js"
     },
     "./platform": {
       "react-native": "./src/platform.ts",
@@ -177,7 +177,7 @@
     ]
   },
   "scripts": {
-    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.json",
+    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.json && bun build src/generatedApp.ts --outdir dist --target node --format esm --external '@ankhorage/*' --silent >&2",
     "changeset": "ankhorage-changeset",
     "changeset:status": "ankhorage-changeset status --since=origin/main",
     "docs": "paradox",
