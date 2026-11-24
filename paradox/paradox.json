@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.4.1",
+      "value": "v7.4.2",
       "color": "cb3837"
     },
     {
@@ -392,6 +392,21 @@
       ],
       "exports": [
         "resolveExpoRuntimeRoutePath"
+      ]
+    },
+    {
+      "path": "src/generatedApp.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ExpoRuntimeGeneratedAppScaffold",
+        "ExpoRuntimeGeneratedAppScaffoldFile",
+        "ExpoRuntimeGeneratedAppSourceDiagnostic",
+        "ExpoRuntimeGeneratedAppSourceFile",
+        "ExpoRuntimeGeneratedAppSources",
+        "resolveExpoRuntimeGeneratedAppScaffold",
+        "resolveExpoRuntimeGeneratedAppSources",
+        "ResolveExpoRuntimeGeneratedAppSourcesOptions"
       ]
     },
     {
@@ -4564,6 +4579,16 @@
         "fromPath": "src/ExpoRuntimeProviders.tsx",
         "toPath": "src/resolveExpoRuntimePlan.ts",
         "sourcePath": "src/ExpoRuntimeProviders.tsx"
+      },
+      {
+        "fromPath": "src/generatedApp.ts",
+        "toPath": "src/generatedAppScaffold.ts",
+        "sourcePath": "src/generatedApp.ts"
+      },
+      {
+        "fromPath": "src/generatedApp.ts",
+        "toPath": "src/generatedAppSources.ts",
+        "sourcePath": "src/generatedApp.ts"
       },
       {
         "fromPath": "src/generatedAppOutput.ts",

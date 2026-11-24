@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.4.2
+
+### Patch Changes
+
+- c62677b: Make the published generated-app subpath Node ESM importable.
+
 ## 7.4.1
 
 ### Patch Changes
