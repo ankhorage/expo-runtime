@@ -328,7 +328,7 @@ Source: `src/generatedAppOutput.ts:17:1`
 
 Kind: `type`
 Module: `src/generatedAppScaffold.ts`
-Source: `src/generatedAppScaffold.ts:9:1`
+Source: `src/generatedAppScaffold.ts:12:1`
 
 ### Members
 
@@ -340,7 +340,7 @@ Source: `src/generatedAppScaffold.ts:9:1`
 
 Kind: `type`
 Module: `src/generatedAppScaffold.ts`
-Source: `src/generatedAppScaffold.ts:4:1`
+Source: `src/generatedAppScaffold.ts:7:1`
 
 ### Members
 
@@ -630,13 +630,14 @@ Source: `src/generatedAppOutput.ts:48:1`
 
 Kind: `function`
 Module: `src/generatedAppScaffold.ts`
-Source: `src/generatedAppScaffold.ts:14:1`
+Source: `src/generatedAppScaffold.ts:17:1`
 
 Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.
 
 ### Signatures
 
-- `(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppScaffold`
+- `(manifest: Pick<AppManifest, "metadata">, runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppScaffold`
+  - manifest: `Pick<AppManifest, "metadata">`
   - runtimePlan: `ExpoRuntimePlan | undefined`
   - returns: `ExpoRuntimeGeneratedAppScaffold`
 

@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.4.1
+
+### Patch Changes
+
+- f4f0936: Make generated Expo app scaffolds independently installable and derive their application identity from the manifest.
+
 ## 7.4.0
 
 ### Minor Changes

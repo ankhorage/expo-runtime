@@ -209,7 +209,7 @@
   </li><li>
     <button class="nav-button" type="button" data-target="src/generatedAppScaffold.ts">
       src/generatedAppScaffold.ts
-      <small>3 functions</small>
+      <small>4 functions</small>
     </button>
   </li><li>
     <button class="nav-button" type="button" data-target="src/generatedAppSources.ts">
@@ -494,10 +494,10 @@ implied camera permission, Expo Camera dependency, permissions provider, and bar
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/layoutIntegrationPlanning.ts</code>, <code>src/resolveExpoRuntimePlan.ts</code></p>
     <p><strong>Exports:</strong> <code>ExpoRuntimeConfigPluginOutput</code>, <code>ExpoRuntimeDependencyMap</code>, <code>ExpoRuntimeGeneratedAppOutputPlan</code>, <code>ExpoRuntimeNativeOutputPlan</code>, <code>resolveExpoRuntimeConfigPluginOutput</code>, <code>resolveExpoRuntimeDependencyMap</code>, <code>resolveExpoRuntimeGeneratedAppOutput</code>, <code>resolveExpoRuntimeNativeOutput</code></p>
-  </article><article class="item" data-search="src/generatedAppScaffold.ts src/generatedAppOutput.ts src/resolveExpoRuntimePlan.ts ExpoRuntimeGeneratedAppScaffold ExpoRuntimeGeneratedAppScaffoldFile resolveExpoRuntimeGeneratedAppScaffold">
+  </article><article class="item" data-search="src/generatedAppScaffold.ts src/generatedAppOutput.ts src/platform.ts src/resolveExpoRuntimePlan.ts ExpoRuntimeGeneratedAppScaffold ExpoRuntimeGeneratedAppScaffoldFile resolveExpoRuntimeGeneratedAppScaffold">
     <h3>src/generatedAppScaffold.ts</h3>
     <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/generatedAppOutput.ts</code>, <code>src/resolveExpoRuntimePlan.ts</code></p>
+    <p><strong>Dependencies:</strong> <code>src/generatedAppOutput.ts</code>, <code>src/platform.ts</code>, <code>src/resolveExpoRuntimePlan.ts</code></p>
     <p><strong>Exports:</strong> <code>ExpoRuntimeGeneratedAppScaffold</code>, <code>ExpoRuntimeGeneratedAppScaffoldFile</code>, <code>resolveExpoRuntimeGeneratedAppScaffold</code></p>
   </article><article class="item" data-search="src/generatedAppSources.ts src/generatedAppOutput.ts src/resolveExpoRuntimePlan.ts ExpoRuntimeGeneratedAppSourceDiagnostic ExpoRuntimeGeneratedAppSourceFile ExpoRuntimeGeneratedAppSources resolveExpoRuntimeGeneratedAppSources ResolveExpoRuntimeGeneratedAppSourcesOptions">
     <h3>src/generatedAppSources.ts</h3>
@@ -1522,7 +1522,7 @@ implied camera permission, Expo Camera dependency, permissions provider, and bar
               <article class="item" id="symbol-exporuntimegeneratedappscaffold" data-search="ExpoRuntimeGeneratedAppScaffold  type src/generatedAppScaffold.ts  ExpoRuntimeGeneratedAppScaffoldFile">
     <h4>ExpoRuntimeGeneratedAppScaffold</h4>
     
-    <p class="muted">type • <code>src/generatedAppScaffold.ts:9:1</code></p>
+    <p class="muted">type • <code>src/generatedAppScaffold.ts:12:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -1543,7 +1543,7 @@ implied camera permission, Expo Camera dependency, permissions provider, and bar
   </article><article class="item" id="symbol-exporuntimegeneratedappscaffoldfile" data-search="ExpoRuntimeGeneratedAppScaffoldFile  type src/generatedAppScaffold.ts ">
     <h4>ExpoRuntimeGeneratedAppScaffoldFile</h4>
     
-    <p class="muted">type • <code>src/generatedAppScaffold.ts:4:1</code></p>
+    <p class="muted">type • <code>src/generatedAppScaffold.ts:7:1</code></p>
     
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -1567,21 +1567,26 @@ implied camera permission, Expo Camera dependency, permissions provider, and bar
           </tr>
     </tbody>
   </table>
-  </article><article class="item" id="symbol-resolveexporuntimegeneratedappscaffold" data-search="resolveExpoRuntimeGeneratedAppScaffold  function src/generatedAppScaffold.ts Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk. ExpoRuntimeGeneratedAppScaffold ExpoRuntimePlan (runtimePlan: ExpoRuntimePlan | undefined) =&gt; ExpoRuntimeGeneratedAppScaffold">
+  </article><article class="item" id="symbol-resolveexporuntimegeneratedappscaffold" data-search="resolveExpoRuntimeGeneratedAppScaffold  function src/generatedAppScaffold.ts Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk. ExpoRuntimeGeneratedAppScaffold ExpoRuntimePlan (manifest: Pick&lt;AppManifest, &quot;metadata&quot;&gt;, runtimePlan: ExpoRuntimePlan | undefined) =&gt; ExpoRuntimeGeneratedAppScaffold">
     <h4>resolveExpoRuntimeGeneratedAppScaffold</h4>
     
-    <p class="muted">function • <code>src/generatedAppScaffold.ts:14:1</code></p>
+    <p class="muted">function • <code>src/generatedAppScaffold.ts:17:1</code></p>
     <p>Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.</p>
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
     <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">ExpoRuntimeGeneratedAppScaffold</li><li class="chip">ExpoRuntimePlan</li></ul></div>
     <div>
         <h5>Signature</h5>
-        <pre>(runtimePlan: ExpoRuntimePlan | undefined) =&gt; ExpoRuntimeGeneratedAppScaffold</pre>
+        <pre>(manifest: Pick&lt;AppManifest, &quot;metadata&quot;&gt;, runtimePlan: ExpoRuntimePlan | undefined) =&gt; ExpoRuntimeGeneratedAppScaffold</pre>
         <table>
                 <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
                 <tbody>
                   <tr>
+                        <td><code>manifest</code></td>
+                        <td><code>Pick&lt;AppManifest, &quot;metadata&quot;&gt;</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr><tr>
                         <td><code>runtimePlan</code></td>
                         <td><code>ExpoRuntimePlan | undefined</code></td>
                         <td>yes</td>
@@ -2492,6 +2497,7 @@ routes: unresolved `/ankh` routes remain the responsibility of their published o
   module_src_generatedAppScaffold_ts[&quot;src/generatedAppScaffold.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_generatedAppScaffold_ts
   module_src_generatedAppScaffold_ts --&gt; module_src_generatedAppOutput_ts
+  module_src_generatedAppScaffold_ts --&gt; module_src_platform_ts
   module_src_generatedAppScaffold_ts --&gt; module_src_resolveExpoRuntimePlan_ts
   module_src_generatedAppSources_ts[&quot;src/generatedAppSources.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_generatedAppSources_ts
@@ -2619,6 +2625,7 @@ routes: unresolved `/ankh` routes remain the responsibility of their published o
   module_src_generatedAppScaffold_ts[&quot;src/generatedAppScaffold.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_generatedAppScaffold_ts
   module_src_generatedAppScaffold_ts --&gt; module_src_generatedAppOutput_ts
+  module_src_generatedAppScaffold_ts --&gt; module_src_platform_ts
   module_src_generatedAppScaffold_ts --&gt; module_src_resolveExpoRuntimePlan_ts
   module_src_generatedAppSources_ts[&quot;src/generatedAppSources.ts&quot;]
   package__ankhorage_expo_runtime -.-&gt; module_src_generatedAppSources_ts
@@ -2746,6 +2753,7 @@ routes: unresolved `/ankh` routes remain the responsibility of their published o
   module_src_generatedAppOutput_ts --&gt; module_src_layoutIntegrationPlanning_ts
   module_src_generatedAppOutput_ts --&gt; module_src_resolveExpoRuntimePlan_ts
   module_src_generatedAppScaffold_ts --&gt; module_src_generatedAppOutput_ts
+  module_src_generatedAppScaffold_ts --&gt; module_src_platform_ts
   module_src_generatedAppScaffold_ts --&gt; module_src_resolveExpoRuntimePlan_ts
   module_src_generatedAppSources_ts --&gt; module_src_generatedAppOutput_ts
   module_src_generatedAppSources_ts --&gt; module_src_resolveExpoRuntimePlan_ts
@@ -2825,6 +2833,7 @@ routes: unresolved `/ankh` routes remain the responsibility of their published o
   module_src_generatedAppOutput_ts --&gt; module_src_layoutIntegrationPlanning_ts
   module_src_generatedAppOutput_ts --&gt; module_src_resolveExpoRuntimePlan_ts
   module_src_generatedAppScaffold_ts --&gt; module_src_generatedAppOutput_ts
+  module_src_generatedAppScaffold_ts --&gt; module_src_platform_ts
   module_src_generatedAppScaffold_ts --&gt; module_src_resolveExpoRuntimePlan_ts
   module_src_generatedAppSources_ts --&gt; module_src_generatedAppOutput_ts
   module_src_generatedAppSources_ts --&gt; module_src_resolveExpoRuntimePlan_ts
@@ -3383,60 +3392,6 @@ routes: unresolved `/ankh` routes remain the responsibility of their published o
   participant_resolveExpoRuntimeNativeOutput--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppOutput: return
 </pre>
     </details>
-  </article><article class="item" data-search="resolveExpoRuntimeGeneratedAppScaffold sequence diagrams/sequences/resolve-expo-runtime-generated-app-scaffold.mmd">
-    <h3>resolveExpoRuntimeGeneratedAppScaffold sequence</h3>
-    <p class="muted"><code>diagrams/sequences/resolve-expo-runtime-generated-app-scaffold.mmd</code></p>
-    <div class="mermaid">sequenceDiagram
-  participant participant_createExpoConfigSource as createExpoConfigSource
-  participant participant_createRuntimeShellSource as createRuntimeShellSource
-  participant participant_resolveExpoRuntimeConfigPluginOutput as resolveExpoRuntimeConfigPluginOutput
-  participant participant_resolveExpoRuntimeDependencyMap as resolveExpoRuntimeDependencyMap
-  participant participant_resolveExpoRuntimeGeneratedAppOutput as resolveExpoRuntimeGeneratedAppOutput
-  participant participant_resolveExpoRuntimeGeneratedAppScaffold as resolveExpoRuntimeGeneratedAppScaffold
-  participant participant_resolveExpoRuntimeLayoutIntegration as resolveExpoRuntimeLayoutIntegration
-  participant participant_resolveExpoRuntimeNativeOutput as resolveExpoRuntimeNativeOutput
-  participant_resolveExpoRuntimeGeneratedAppScaffold-&gt;&gt;participant_resolveExpoRuntimeGeneratedAppOutput: resolveExpoRuntimeGeneratedAppOutput()
-  participant_resolveExpoRuntimeGeneratedAppOutput-&gt;&gt;participant_resolveExpoRuntimeDependencyMap: resolveExpoRuntimeDependencyMap()
-  participant_resolveExpoRuntimeDependencyMap--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppOutput: return
-  participant_resolveExpoRuntimeGeneratedAppOutput-&gt;&gt;participant_resolveExpoRuntimeLayoutIntegration: resolveExpoRuntimeLayoutIntegration()
-  participant_resolveExpoRuntimeLayoutIntegration--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppOutput: return
-  participant_resolveExpoRuntimeGeneratedAppOutput-&gt;&gt;participant_resolveExpoRuntimeNativeOutput: resolveExpoRuntimeNativeOutput()
-  participant_resolveExpoRuntimeNativeOutput-&gt;&gt;participant_resolveExpoRuntimeConfigPluginOutput: resolveExpoRuntimeConfigPluginOutput()
-  participant_resolveExpoRuntimeConfigPluginOutput--&gt;&gt;participant_resolveExpoRuntimeNativeOutput: return
-  participant_resolveExpoRuntimeNativeOutput--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppOutput: return
-  participant_resolveExpoRuntimeGeneratedAppOutput--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppScaffold: return
-  participant_resolveExpoRuntimeGeneratedAppScaffold-&gt;&gt;participant_createExpoConfigSource: createExpoConfigSource()
-  participant_createExpoConfigSource--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppScaffold: return
-  participant_resolveExpoRuntimeGeneratedAppScaffold-&gt;&gt;participant_createRuntimeShellSource: createRuntimeShellSource()
-  participant_createRuntimeShellSource--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppScaffold: return
-</div>
-    <details>
-      <summary>View Mermaid source</summary>
-      <pre>sequenceDiagram
-  participant participant_createExpoConfigSource as createExpoConfigSource
-  participant participant_createRuntimeShellSource as createRuntimeShellSource
-  participant participant_resolveExpoRuntimeConfigPluginOutput as resolveExpoRuntimeConfigPluginOutput
-  participant participant_resolveExpoRuntimeDependencyMap as resolveExpoRuntimeDependencyMap
-  participant participant_resolveExpoRuntimeGeneratedAppOutput as resolveExpoRuntimeGeneratedAppOutput
-  participant participant_resolveExpoRuntimeGeneratedAppScaffold as resolveExpoRuntimeGeneratedAppScaffold
-  participant participant_resolveExpoRuntimeLayoutIntegration as resolveExpoRuntimeLayoutIntegration
-  participant participant_resolveExpoRuntimeNativeOutput as resolveExpoRuntimeNativeOutput
-  participant_resolveExpoRuntimeGeneratedAppScaffold-&gt;&gt;participant_resolveExpoRuntimeGeneratedAppOutput: resolveExpoRuntimeGeneratedAppOutput()
-  participant_resolveExpoRuntimeGeneratedAppOutput-&gt;&gt;participant_resolveExpoRuntimeDependencyMap: resolveExpoRuntimeDependencyMap()
-  participant_resolveExpoRuntimeDependencyMap--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppOutput: return
-  participant_resolveExpoRuntimeGeneratedAppOutput-&gt;&gt;participant_resolveExpoRuntimeLayoutIntegration: resolveExpoRuntimeLayoutIntegration()
-  participant_resolveExpoRuntimeLayoutIntegration--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppOutput: return
-  participant_resolveExpoRuntimeGeneratedAppOutput-&gt;&gt;participant_resolveExpoRuntimeNativeOutput: resolveExpoRuntimeNativeOutput()
-  participant_resolveExpoRuntimeNativeOutput-&gt;&gt;participant_resolveExpoRuntimeConfigPluginOutput: resolveExpoRuntimeConfigPluginOutput()
-  participant_resolveExpoRuntimeConfigPluginOutput--&gt;&gt;participant_resolveExpoRuntimeNativeOutput: return
-  participant_resolveExpoRuntimeNativeOutput--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppOutput: return
-  participant_resolveExpoRuntimeGeneratedAppOutput--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppScaffold: return
-  participant_resolveExpoRuntimeGeneratedAppScaffold-&gt;&gt;participant_createExpoConfigSource: createExpoConfigSource()
-  participant_createExpoConfigSource--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppScaffold: return
-  participant_resolveExpoRuntimeGeneratedAppScaffold-&gt;&gt;participant_createRuntimeShellSource: createRuntimeShellSource()
-  participant_createRuntimeShellSource--&gt;&gt;participant_resolveExpoRuntimeGeneratedAppScaffold: return
-</pre>
-    </details>
   </article><article class="item" data-search="resolveExpoRuntimeNativeOutput sequence diagrams/sequences/resolve-expo-runtime-native-output.mmd">
     <h3>resolveExpoRuntimeNativeOutput sequence</h3>
     <p class="muted"><code>diagrams/sequences/resolve-expo-runtime-native-output.mmd</code></p>
@@ -3773,17 +3728,22 @@ routes: unresolved `/ankh` routes remain the responsibility of their published o
       <h2>src/generatedAppScaffold.ts</h2>
       <article class="item" data-search="resolveExpoRuntimeGeneratedAppScaffold src/generatedAppScaffold.ts Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.">
     <h3>resolveExpoRuntimeGeneratedAppScaffold</h3>
-    <p class="muted"><code>src/generatedAppScaffold.ts:14:1</code></p>
+    <p class="muted"><code>src/generatedAppScaffold.ts:17:1</code></p>
     <p>Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.</p>
+    
+  </article><article class="item" data-search="createPackageSource src/generatedAppScaffold.ts Render the independently installable Expo Router package boundary for one generated application.">
+    <h3>createPackageSource</h3>
+    <p class="muted"><code>src/generatedAppScaffold.ts:42:1</code></p>
+    <p>Render the independently installable Expo Router package boundary for one generated application.</p>
     
   </article><article class="item" data-search="createExpoConfigSource src/generatedAppScaffold.ts Render the native Expo configuration fragment from Runtime&#39;s resolved plugin and permission plan.">
     <h3>createExpoConfigSource</h3>
-    <p class="muted"><code>src/generatedAppScaffold.ts:38:1</code></p>
+    <p class="muted"><code>src/generatedAppScaffold.ts:73:1</code></p>
     <p>Render the native Expo configuration fragment from Runtime&#39;s resolved plugin and permission plan.</p>
     
   </article><article class="item" data-search="createRuntimeShellSource src/generatedAppScaffold.ts Render the canonical Runtime provider shell while leaving application composition to the caller.">
     <h3>createRuntimeShellSource</h3>
-    <p class="muted"><code>src/generatedAppScaffold.ts:50:1</code></p>
+    <p class="muted"><code>src/generatedAppScaffold.ts:89:1</code></p>
     <p>Render the canonical Runtime provider shell while leaving application composition to the caller.</p>
     
   </article>

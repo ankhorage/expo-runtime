@@ -1081,7 +1081,7 @@
     "modulePath": "src/generatedAppScaffold.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppScaffold.ts",
-      "line": 9,
+      "line": 12,
       "column": 1
     },
     "exportPaths": [
@@ -1113,7 +1113,7 @@
     "modulePath": "src/generatedAppScaffold.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppScaffold.ts",
-      "line": 4,
+      "line": 7,
       "column": 1
     },
     "exportPaths": [
@@ -2040,7 +2040,7 @@
     "modulePath": "src/generatedAppScaffold.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppScaffold.ts",
-      "line": 14,
+      "line": 17,
       "column": 1
     },
     "exportPaths": [
@@ -2052,8 +2052,14 @@
     ],
     "signatures": [
       {
-        "label": "(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppScaffold",
+        "label": "(manifest: Pick<AppManifest, \"metadata\">, runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppScaffold",
         "parameters": [
+          {
+            "name": "manifest",
+            "type": "Pick<AppManifest, \"metadata\">",
+            "required": true,
+            "description": null
+          },
           {
             "name": "runtimePlan",
             "type": "ExpoRuntimePlan | undefined",

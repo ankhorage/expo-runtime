@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.4.0",
+      "value": "v7.4.1",
       "color": "cb3837"
     },
     {
@@ -417,6 +417,7 @@
       "isEntrypoint": false,
       "dependencies": [
         "src/generatedAppOutput.ts",
+        "src/platform.ts",
         "src/resolveExpoRuntimePlan.ts"
       ],
       "exports": [
@@ -1856,7 +1857,7 @@
       "modulePath": "src/generatedAppScaffold.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 9,
+        "line": 12,
         "column": 1
       },
       "exportPaths": [
@@ -1888,7 +1889,7 @@
       "modulePath": "src/generatedAppScaffold.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 4,
+        "line": 7,
         "column": 1
       },
       "exportPaths": [
@@ -2815,7 +2816,7 @@
       "modulePath": "src/generatedAppScaffold.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 14,
+        "line": 17,
         "column": 1
       },
       "exportPaths": [
@@ -2827,8 +2828,14 @@
       ],
       "signatures": [
         {
-          "label": "(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppScaffold",
+          "label": "(manifest: Pick<AppManifest, \"metadata\">, runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppScaffold",
           "parameters": [
+            {
+              "name": "manifest",
+              "type": "Pick<AppManifest, \"metadata\">",
+              "required": true,
+              "description": null
+            },
             {
               "name": "runtimePlan",
               "type": "ExpoRuntimePlan | undefined",
@@ -3801,7 +3808,18 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 14,
+        "line": 17,
+        "column": 1
+      }
+    },
+    {
+      "name": "createPackageSource",
+      "description": "Render the independently installable Expo Router package boundary for one generated application.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/generatedAppScaffold.ts",
+        "line": 42,
         "column": 1
       }
     },
@@ -3812,7 +3830,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 38,
+        "line": 73,
         "column": 1
       }
     },
@@ -3823,7 +3841,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 50,
+        "line": 89,
         "column": 1
       }
     },
@@ -4564,6 +4582,11 @@
       },
       {
         "fromPath": "src/generatedAppScaffold.ts",
+        "toPath": "src/platform.ts",
+        "sourcePath": "src/generatedAppScaffold.ts"
+      },
+      {
+        "fromPath": "src/generatedAppScaffold.ts",
         "toPath": "src/resolveExpoRuntimePlan.ts",
         "sourcePath": "src/generatedAppScaffold.ts"
       },
@@ -4908,6 +4931,12 @@
         "fromSymbol": "resolveExpoRuntimeGeneratedAppScaffold",
         "toSymbol": "resolveExpoRuntimeGeneratedAppOutput",
         "callExpression": "resolveExpoRuntimeGeneratedAppOutput",
+        "sourcePath": "src/generatedAppScaffold.ts"
+      },
+      {
+        "fromSymbol": "resolveExpoRuntimeGeneratedAppScaffold",
+        "toSymbol": "createPackageSource",
+        "callExpression": "createPackageSource",
         "sourcePath": "src/generatedAppScaffold.ts"
       },
       {
@@ -5632,12 +5661,22 @@
       },
       {
         "fromSymbol": "resolveExpoRuntimeGeneratedAppScaffold",
+        "toType": "AppManifest",
+        "sourcePath": "src/generatedAppScaffold.ts"
+      },
+      {
+        "fromSymbol": "resolveExpoRuntimeGeneratedAppScaffold",
         "toType": "ExpoRuntimeGeneratedAppScaffold",
         "sourcePath": "src/generatedAppScaffold.ts"
       },
       {
         "fromSymbol": "resolveExpoRuntimeGeneratedAppScaffold",
         "toType": "ExpoRuntimePlan",
+        "sourcePath": "src/generatedAppScaffold.ts"
+      },
+      {
+        "fromSymbol": "resolveExpoRuntimeGeneratedAppScaffold",
+        "toType": "Pick",
         "sourcePath": "src/generatedAppScaffold.ts"
       },
       {
