@@ -1,5 +1,41 @@
 # @ankhorage/expo-runtime
 
+## 7.4.3
+
+### Patch Changes
+
+- b92473a: Publish NodeNext-compatible declarations for the generated app APIs.
+
+## 7.4.2
+
+### Patch Changes
+
+- c62677b: Make the published generated-app subpath Node ESM importable.
+
+## 7.4.1
+
+### Patch Changes
+
+- f4f0936: Make generated Expo app scaffolds independently installable and derive their application identity from the manifest.
+
+## 7.4.0
+
+### Minor Changes
+
+- 9293c42: Expose a deterministic, filesystem-independent generated Expo app scaffold plan.
+
+## 7.3.0
+
+### Minor Changes
+
+- 3caab93: Expose deterministic generated Runtime manifest-screen sources and Navigator bindings for standalone Expo app materializers.
+
+## 7.2.0
+
+### Minor Changes
+
+- 3a2aec5: Expose deterministic Expo Router files for published Authoring screen routes with explicit host composition ports.
+
 ## 7.1.0
 
 ### Minor Changes

@@ -43,15 +43,29 @@ graph TD
   module_src_features_capabilities_executeExpoRuntimeCapabilityAsync_ts["src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"]
   package__ankhorage_expo_runtime -.-> module_src_features_capabilities_executeExpoRuntimeCapabilityAsync_ts
   module_src_features_capabilities_executeExpoRuntimeCapabilityAsync_ts --> module_src_types_expoRuntimeCapability_ts
+  module_src_features_navigation_getExpoAuthoringRouteFiles_ts["src/features/navigation/getExpoAuthoringRouteFiles.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_features_navigation_getExpoAuthoringRouteFiles_ts
+  module_src_features_navigation_getExpoAuthoringRouteFiles_ts --> module_src_types_expoAuthoringRouteDelivery_ts
   module_src_features_navigation_getExpoAuthoringRoutePlanning_ts["src/features/navigation/getExpoAuthoringRoutePlanning.ts"]
   package__ankhorage_expo_runtime -.-> module_src_features_navigation_getExpoAuthoringRoutePlanning_ts
   module_src_features_navigation_resolveExpoRuntimeRoutePath_ts["src/features/navigation/resolveExpoRuntimeRoutePath.ts"]
   package__ankhorage_expo_runtime -.-> module_src_features_navigation_resolveExpoRuntimeRoutePath_ts
   module_src_features_navigation_resolveExpoRuntimeRoutePath_ts --> module_src_types_expoRuntimeRoute_ts
+  module_src_generatedApp_ts["src/generatedApp.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_generatedApp_ts
   module_src_generatedAppOutput_ts["src/generatedAppOutput.ts"]
   package__ankhorage_expo_runtime -.-> module_src_generatedAppOutput_ts
   module_src_generatedAppOutput_ts --> module_src_layoutIntegrationPlanning_ts
   module_src_generatedAppOutput_ts --> module_src_resolveExpoRuntimePlan_ts
+  module_src_generatedAppScaffold_ts["src/generatedAppScaffold.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_generatedAppScaffold_ts
+  module_src_generatedAppScaffold_ts --> module_src_generatedAppOutput_ts
+  module_src_generatedAppScaffold_ts --> module_src_platform_ts
+  module_src_generatedAppScaffold_ts --> module_src_resolveExpoRuntimePlan_ts
+  module_src_generatedAppSources_ts["src/generatedAppSources.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_generatedAppSources_ts
+  module_src_generatedAppSources_ts --> module_src_generatedAppOutput_ts
+  module_src_generatedAppSources_ts --> module_src_resolveExpoRuntimePlan_ts
   module_src_generatedSources_ts["src/generatedSources.ts"]
   package__ankhorage_expo_runtime -.-> module_src_generatedSources_ts
   module_src_index_ts["src/index.ts"]
@@ -100,6 +114,10 @@ graph TD
   module_src_resolveExpoRuntimePlan_ts --> module_src_collectExpoRuntimeManifestRequirements_ts
   module_src_resolveExpoRuntimePlan_ts --> module_src_expoRuntimePlanningMetadata_ts
   module_src_resolveExpoRuntimePlan_ts --> module_src_types_expoRuntimePlanning_ts
+  module_src_routeDelivery_ts["src/routeDelivery.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_routeDelivery_ts
+  module_src_types_expoAuthoringRouteDelivery_ts["src/types/expoAuthoringRouteDelivery.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_types_expoAuthoringRouteDelivery_ts
   module_src_types_expoRuntimeCapability_ts["src/types/expoRuntimeCapability.ts"]
   package__ankhorage_expo_runtime -.-> module_src_types_expoRuntimeCapability_ts
   module_src_types_expoRuntimePlanning_ts["src/types/expoRuntimePlanning.ts"]

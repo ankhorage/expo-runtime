@@ -83,6 +83,45 @@ Kind: `value`
 Module: `src/platform.ts`
 Source: `src/platform.ts:17:14`
 
+## ExpoAuthoringRouteFile
+
+Kind: `type`
+Module: `src/types/expoAuthoringRouteDelivery.ts`
+Source: `src/types/expoAuthoringRouteDelivery.ts:15:1`
+
+Record one deterministic Expo Router file without performing filesystem I/O.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| relativePath | property | `string` | yes |  |
+| route | property | `AuthoringRouteDeliveryDefinition` | yes |  |
+| source | property | `string` | yes |  |
+
+## ExpoAuthoringRouteHostPort
+
+Kind: `type`
+Module: `src/types/expoAuthoringRouteDelivery.ts`
+Source: `src/types/expoAuthoringRouteDelivery.ts:4:1`
+
+Describe the host-owned props factory that composes one portable Authoring screen.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| getPropsExportName | property | `string` | yes |  |
+| moduleSpecifier | property | `string` | yes |  |
+
+## ExpoAuthoringRouteHostPorts
+
+Kind: `unknown`
+Module: `src/types/expoAuthoringRouteDelivery.ts`
+Source: `src/types/expoAuthoringRouteDelivery.ts:10:1`
+
+Supply every host composition port needed by the available Authoring screen routes.
+
 ## ExpoAuthoringRoutePlanning
 
 Kind: `type`
@@ -285,6 +324,76 @@ Source: `src/generatedAppOutput.ts:17:1`
 | layoutIntegration | property | `ExpoRuntimeLayoutIntegrationPlan` | yes |  |
 | native | property | `ExpoRuntimeNativeOutputPlan` | yes |  |
 
+## ExpoRuntimeGeneratedAppScaffold
+
+Kind: `type`
+Module: `src/generatedAppScaffold.ts`
+Source: `src/generatedAppScaffold.ts:12:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| files | property | `readonly ExpoRuntimeGeneratedAppScaffoldFile[]` | yes |  |
+
+## ExpoRuntimeGeneratedAppScaffoldFile
+
+Kind: `type`
+Module: `src/generatedAppScaffold.ts`
+Source: `src/generatedAppScaffold.ts:7:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| relativePath | property | `"package.json" \| "app.config.ts" \| "src/generated/runtimeShell.tsx"` | yes |  |
+| source | property | `string` | yes |  |
+
+## ExpoRuntimeGeneratedAppSourceDiagnostic
+
+Kind: `type`
+Module: `src/generatedAppSources.ts`
+Source: `src/generatedAppSources.ts:19:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| code | property | `"invalid-manifest-module-specifier" \| "missing-manifest-screen"` | yes |  |
+| message | property | `string` | yes |  |
+| screenId | property | `string \| undefined` | no |  |
+| severity | property | `"error"` | yes |  |
+
+## ExpoRuntimeGeneratedAppSourceFile
+
+Kind: `type`
+Module: `src/generatedAppSources.ts`
+Source: `src/generatedAppSources.ts:14:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| relativePath | property | `string` | yes |  |
+| source | property | `string` | yes |  |
+
+## ExpoRuntimeGeneratedAppSources
+
+Kind: `type`
+Module: `src/generatedAppSources.ts`
+Source: `src/generatedAppSources.ts:26:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| dependencies | property | `Readonly<Record<string, string>>` | yes |  |
+| diagnostics | property | `readonly ExpoRuntimeGeneratedAppSourceDiagnostic[]` | yes |  |
+| files | property | `readonly ExpoRuntimeGeneratedAppSourceFile[]` | yes |  |
+| layoutIntegration | property | `ExpoRuntimeLayoutIntegrationPlan` | yes |  |
+| native | property | `ExpoRuntimeNativeOutputPlan` | yes |  |
+| navigatorBindings | property | `NavigatorGenerationBindings` | yes |  |
+
 ## ExpoRuntimeLayoutIntegrationPlan
 
 Kind: `type`
@@ -402,6 +511,21 @@ Source: `src/ExpoZoraIconFontProvider.tsx:3:1`
 | --- | --- | --- | --- | --- |
 | children | property | `React.ReactNode` | yes |  |
 
+## getExpoAuthoringRouteFiles
+
+Kind: `function`
+Module: `src/features/navigation/getExpoAuthoringRouteFiles.ts`
+Source: `src/features/navigation/getExpoAuthoringRouteFiles.ts:13:1`
+
+Translate available portable Authoring screens into deterministic, host-composed Expo Router files.
+
+### Signatures
+
+- `(routes: readonly AuthoringRouteDeliveryDefinition[], hostPorts: Readonly<Partial<Record<import("@ankhorage/studio-authoring").AnkhRouteId, ExpoAuthoringRouteHostPort>>>) => readonly ExpoAuthoringRouteFile[]`
+  - hostPorts: `Readonly<Partial<Record<import("@ankhorage/studio-authoring").AnkhRouteId, ExpoAuthoringRouteHostPort>>>`
+  - routes: `readonly AuthoringRouteDeliveryDefinition[]`
+  - returns: `readonly ExpoAuthoringRouteFile[]`
+
 ## getExpoAuthoringRoutePlanning
 
 Kind: `function`
@@ -501,6 +625,53 @@ Source: `src/generatedAppOutput.ts:48:1`
 - `(runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppOutputPlan`
   - runtimePlan: `ExpoRuntimePlan | undefined`
   - returns: `ExpoRuntimeGeneratedAppOutputPlan`
+
+## resolveExpoRuntimeGeneratedAppScaffold
+
+Kind: `function`
+Module: `src/generatedAppScaffold.ts`
+Source: `src/generatedAppScaffold.ts:17:1`
+
+Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.
+
+### Signatures
+
+- `(manifest: Pick<AppManifest, "metadata">, runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppScaffold`
+  - manifest: `Pick<AppManifest, "metadata">`
+  - runtimePlan: `ExpoRuntimePlan | undefined`
+  - returns: `ExpoRuntimeGeneratedAppScaffold`
+
+## resolveExpoRuntimeGeneratedAppSources
+
+Kind: `function`
+Module: `src/generatedAppSources.ts`
+Source: `src/generatedAppSources.ts:45:1`
+
+Emit the Runtime-owned, filesystem-independent source module and Navigator screen bindings for one manifest.
+
+The caller owns manifest materialization and file writes. This boundary intentionally emits no Authoring
+routes: unresolved `/ankh` routes remain the responsibility of their published owner.
+
+### Signatures
+
+- `(manifest: AppManifest, runtimePlan: ExpoRuntimePlan | undefined, options: ResolveExpoRuntimeGeneratedAppSourcesOptions) => ExpoRuntimeGeneratedAppSources`
+  - manifest: `AppManifest`
+  - options: `ResolveExpoRuntimeGeneratedAppSourcesOptions`
+  - runtimePlan: `ExpoRuntimePlan | undefined`
+  - returns: `ExpoRuntimeGeneratedAppSources`
+
+## ResolveExpoRuntimeGeneratedAppSourcesOptions
+
+Kind: `type`
+Module: `src/generatedAppSources.ts`
+Source: `src/generatedAppSources.ts:32:1`
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| manifestModuleSpecifier | property | `string` | yes |  |
+| screenModuleSpecifier | property | `string` | yes |  |
 
 ## resolveExpoRuntimeLayoutIntegration
 

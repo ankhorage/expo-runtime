@@ -15,9 +15,13 @@ graph LR
   module_src_ExpoZoraIconFontProvider_tsx["src/ExpoZoraIconFontProvider.tsx"]
   module_src_ExpoZoraIconFontProvider_web_tsx["src/ExpoZoraIconFontProvider.web.tsx"]
   module_src_features_capabilities_executeExpoRuntimeCapabilityAsync_ts["src/features/capabilities/executeExpoRuntimeCapabilityAsync.ts"]
+  module_src_features_navigation_getExpoAuthoringRouteFiles_ts["src/features/navigation/getExpoAuthoringRouteFiles.ts"]
   module_src_features_navigation_getExpoAuthoringRoutePlanning_ts["src/features/navigation/getExpoAuthoringRoutePlanning.ts"]
   module_src_features_navigation_resolveExpoRuntimeRoutePath_ts["src/features/navigation/resolveExpoRuntimeRoutePath.ts"]
+  module_src_generatedApp_ts["src/generatedApp.ts"]
   module_src_generatedAppOutput_ts["src/generatedAppOutput.ts"]
+  module_src_generatedAppScaffold_ts["src/generatedAppScaffold.ts"]
+  module_src_generatedAppSources_ts["src/generatedAppSources.ts"]
   module_src_generatedSources_ts["src/generatedSources.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_layoutIntegrationPlanning_ts["src/layoutIntegrationPlanning.ts"]
@@ -36,6 +40,8 @@ graph LR
   module_src_planning_ts["src/planning.ts"]
   module_src_platform_ts["src/platform.ts"]
   module_src_resolveExpoRuntimePlan_ts["src/resolveExpoRuntimePlan.ts"]
+  module_src_routeDelivery_ts["src/routeDelivery.ts"]
+  module_src_types_expoAuthoringRouteDelivery_ts["src/types/expoAuthoringRouteDelivery.ts"]
   module_src_types_expoRuntimeCapability_ts["src/types/expoRuntimeCapability.ts"]
   module_src_types_expoRuntimePlanning_ts["src/types/expoRuntimePlanning.ts"]
   module_src_types_expoRuntimeRoute_ts["src/types/expoRuntimeRoute.ts"]
@@ -46,9 +52,15 @@ graph LR
   module_src_ExpoRuntimeProviders_tsx --> module_src_permissionRuntime_ts
   module_src_ExpoRuntimeProviders_tsx --> module_src_resolveExpoRuntimePlan_ts
   module_src_features_capabilities_executeExpoRuntimeCapabilityAsync_ts --> module_src_types_expoRuntimeCapability_ts
+  module_src_features_navigation_getExpoAuthoringRouteFiles_ts --> module_src_types_expoAuthoringRouteDelivery_ts
   module_src_features_navigation_resolveExpoRuntimeRoutePath_ts --> module_src_types_expoRuntimeRoute_ts
   module_src_generatedAppOutput_ts --> module_src_layoutIntegrationPlanning_ts
   module_src_generatedAppOutput_ts --> module_src_resolveExpoRuntimePlan_ts
+  module_src_generatedAppScaffold_ts --> module_src_generatedAppOutput_ts
+  module_src_generatedAppScaffold_ts --> module_src_platform_ts
+  module_src_generatedAppScaffold_ts --> module_src_resolveExpoRuntimePlan_ts
+  module_src_generatedAppSources_ts --> module_src_generatedAppOutput_ts
+  module_src_generatedAppSources_ts --> module_src_resolveExpoRuntimePlan_ts
   module_src_layoutIntegrationPlanning_ts --> module_src_resolveExpoRuntimePlan_ts
   module_src_mediaPicker_createExpoMediaPickerAdapter_ts --> module_src_mediaPicker_documentPicker_ts
   module_src_mediaPicker_createExpoMediaPickerAdapter_ts --> module_src_mediaPicker_photoLibraryPicker_ts

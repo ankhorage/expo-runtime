@@ -33,6 +33,8 @@ try {
   );
   await runCommandAsync('bun', ['install'], consumerRoot);
   await assertInstalledGraphAsync(consumerRoot, candidate.name, candidate.version);
+  await assertNodeEsmPublicImportsAsync(consumerRoot);
+  await assertPublishedTypesNodeNextAsync(consumerRoot);
   await runCommandAsync('bun', ['run', 'src/authoringRouteDelivery.ts'], consumerRoot);
 
   await runCommandAsync('bunx', ['expo', 'install', '--check'], consumerRoot);
@@ -48,6 +50,50 @@ try {
   console.log('Packed Expo Runtime root acceptance passed.');
 } finally {
   await rm(scratchRoot, { recursive: true, force: true });
+}
+
+/*** Prove that Node can load every public generator entrypoint used by Projects without extensionless internals. */
+async function assertNodeEsmPublicImportsAsync(consumerRoot: string): Promise<void> {
+  await runCommandAsync(
+    'node',
+    [
+      '--input-type=module',
+      '--eval',
+      "import { resolveExpoRuntimeGeneratedAppScaffold } from '@ankhorage/expo-runtime/generated-app'; import { resolveExpoRuntimePlan } from '@ankhorage/expo-runtime/planning'; const output = resolveExpoRuntimeGeneratedAppScaffold({ metadata: { name: 'Packed proof', slug: 'packed-proof', version: '1.0.0' } }, resolveExpoRuntimePlan({ screens: {} })); if (!output.files.some((file) => file.relativePath === 'package.json')) throw new Error('Generated app scaffold is unavailable.');",
+    ],
+    consumerRoot,
+  );
+}
+
+/*** Prove that TypeScript NodeNext resolves only the packed declarations for generated-app APIs. */
+async function assertPublishedTypesNodeNextAsync(consumerRoot: string): Promise<void> {
+  await Bun.write(
+    path.join(consumerRoot, 'tsconfig.nodenext.json'),
+    `${JSON.stringify({
+      compilerOptions: {
+        module: 'NodeNext',
+        moduleResolution: 'NodeNext',
+        noEmit: true,
+        skipLibCheck: true,
+      },
+      include: ['src/publishedTypes.ts'],
+    })}\n`,
+  );
+  await Bun.write(
+    path.join(consumerRoot, 'src/publishedTypes.ts'),
+    `import {
+  resolveExpoRuntimeGeneratedAppScaffold,
+  resolveExpoRuntimePlan,
+} from '@ankhorage/expo-runtime';
+import { resolveExpoRuntimeGeneratedAppScaffold as resolveGeneratedApp } from '@ankhorage/expo-runtime/generated-app';
+
+const manifest = { screens: {} };
+resolveExpoRuntimePlan(manifest);
+resolveExpoRuntimeGeneratedAppScaffold({ metadata: { name: 'Types proof', slug: 'types-proof', version: '1.0.0', category: 'developer_tools', themeId: 'default' } }, undefined);
+resolveGeneratedApp({ metadata: { name: 'Types proof', slug: 'types-proof', version: '1.0.0', category: 'developer_tools', themeId: 'default' } }, undefined);
+`,
+  );
+  await runCommandAsync('bunx', ['tsc', '--project', 'tsconfig.nodenext.json'], consumerRoot);
 }
 
 async function assertInstalledGraphAsync(
@@ -96,12 +142,22 @@ function assertVersionMatchesCaretRange(
   packageName: string,
 ): void {
   const versionParts = parseVersion(version);
-  const rangeParts = parseCaretRange(range);
-  if (!versionParts || !rangeParts || !satisfiesCaret(versionParts, rangeParts)) {
+  const rangeParts = parseCaretRanges(range);
+  if (!versionParts || !rangeParts.some((minimum) => satisfiesCaret(versionParts, minimum))) {
     throw new Error(
       `Packed root consumer resolved ${packageName}@${version ?? 'missing'}, which does not satisfy ${range ?? 'missing'}.`,
     );
   }
+}
+
+/*** Parse the explicit caret alternatives supported by a published peer dependency contract. */
+function parseCaretRanges(
+  value: string | undefined,
+): readonly (readonly [number, number, number])[] {
+  return (value ?? '')
+    .split(' || ')
+    .map(parseCaretRange)
+    .filter((range): range is readonly [number, number, number] => range !== undefined);
 }
 
 function parseVersion(value: string | undefined): readonly [number, number, number] | undefined {
