@@ -177,7 +177,7 @@
     ]
   },
   "scripts": {
-    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.json && bun build src/generatedApp.ts --outdir dist --target node --format esm --external '@ankhorage/*' --silent >&2",
+    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.json && bun build src/generatedApp.ts --outdir dist --target node --format esm --external '@ankhorage/*' --silent >&2 && bun build src/planning.ts --outdir dist --target node --format esm --external '@ankhorage/expo-runtime' --silent >&2",
     "changeset": "ankhorage-changeset",
     "changeset:status": "ankhorage-changeset status --since=origin/main",
     "docs": "paradox",
