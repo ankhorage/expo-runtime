@@ -32,7 +32,7 @@ export const EXPO_PLATFORM = {
     nodeTypes: definePackage('@types/node', '^24.13.3'),
     reactTypes: definePackage('@types/react', '~19.2.4'),
     typescript: definePackage('typescript', '~6.0.3'),
-    expoDoctor: definePackage('expo-doctor', '1.20.4'),
+    expoDoctor: definePackage('expo-doctor', '1.21.8'),
   },
   navigation: {
     expoRouter: definePackage('expo-router', '~57.0.32'),
