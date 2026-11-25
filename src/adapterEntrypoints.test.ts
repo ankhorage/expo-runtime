@@ -15,12 +15,12 @@ describe('capability-scoped adapter entrypoints', () => {
     expect(packageJson.exports['./providers']).toMatchObject({
       import: './dist/ExpoRuntimeProviders.js',
       'react-native': './src/ExpoRuntimeProviders.tsx',
-      types: './src/ExpoRuntimeProviders.tsx',
+      types: './dist/ExpoRuntimeProviders.d.ts',
     });
     expect(packageJson.exports['./barcode-scanner']).toMatchObject({
       import: './dist/barcodeScanner.js',
       'react-native': './src/barcodeScanner.ts',
-      types: './src/barcodeScanner.ts',
+      types: './dist/barcodeScanner.d.ts',
     });
     expect(packageJson.exports).not.toHaveProperty('./reader');
   });

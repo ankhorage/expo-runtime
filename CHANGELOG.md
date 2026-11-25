@@ -1,5 +1,71 @@
 # @ankhorage/expo-runtime
 
+## 7.4.3
+
+### Patch Changes
+
+- b92473a: Publish NodeNext-compatible declarations for the generated app APIs.
+
+## 7.4.2
+
+### Patch Changes
+
+- c62677b: Make the published generated-app subpath Node ESM importable.
+
+## 7.4.1
+
+### Patch Changes
+
+- f4f0936: Make generated Expo app scaffolds independently installable and derive their application identity from the manifest.
+
+## 7.4.0
+
+### Minor Changes
+
+- 9293c42: Expose a deterministic, filesystem-independent generated Expo app scaffold plan.
+
+## 7.3.0
+
+### Minor Changes
+
+- 3caab93: Expose deterministic generated Runtime manifest-screen sources and Navigator bindings for standalone Expo app materializers.
+
+## 7.2.0
+
+### Minor Changes
+
+- 3a2aec5: Expose deterministic Expo Router files for published Authoring screen routes with explicit host composition ports.
+
+## 7.1.0
+
+### Minor Changes
+
+- 2ff98f0: Expose Authoring route planning without claiming Expo Router host composition is runnable.
+
+## 7.0.5
+
+### Patch Changes
+
+- df7afba: Add canonical repository metadata for organization-wide inventory.
+
+## 7.0.4
+
+### Patch Changes
+
+- b2ecf88: Align the Expo SDK 57 platform contract and bundled native package ranges with the current compatible patches.
+
+## 7.0.3
+
+### Patch Changes
+
+- f283312: Refresh the canonical Expo SDK 57 compatibility policy for generated consumers.
+
+## 7.0.2
+
+### Patch Changes
+
+- 6926133: Generate bundled media registries in the published formatting style and align the Expo 57 platform contract with Expo 57.0.31.
+
 ## 7.0.1
 
 ### Patch Changes

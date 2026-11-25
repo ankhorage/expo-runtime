@@ -273,6 +273,146 @@
     "structuredRows": []
   },
   {
+    "name": "ExpoAuthoringRouteFile",
+    "title": null,
+    "description": "Record one deterministic Expo Router file without performing filesystem I/O.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/expoAuthoringRouteDelivery.ts",
+    "sourceLocation": {
+      "filePath": "src/types/expoAuthoringRouteDelivery.ts",
+      "line": 15,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "relativePath",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "route",
+        "kind": "property",
+        "type": "AuthoringRouteDeliveryDefinition",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoAuthoringRouteHostPort",
+    "title": null,
+    "description": "Describe the host-owned props factory that composes one portable Authoring screen.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/expoAuthoringRouteDelivery.ts",
+    "sourceLocation": {
+      "filePath": "src/types/expoAuthoringRouteDelivery.ts",
+      "line": 4,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "getPropsExportName",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "moduleSpecifier",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoAuthoringRouteHostPorts",
+    "title": null,
+    "description": "Supply every host composition port needed by the available Authoring screen routes.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/expoAuthoringRouteDelivery.ts",
+    "sourceLocation": {
+      "filePath": "src/types/expoAuthoringRouteDelivery.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoAuthoringRoutePlanning",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+    "sourceLocation": {
+      "filePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "route",
+        "kind": "property",
+        "type": "AuthoringRouteDeliveryDefinition",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "status",
+        "kind": "property",
+        "type": "\"requires-host-composition\" | \"unresolved\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ExpoBarcodeScannerAdapter",
     "title": null,
     "description": "Renders the ZORA scanner surface with Expo Camera and its native scan callback.",
@@ -931,6 +1071,233 @@
     "structuredRows": []
   },
   {
+    "name": "ExpoRuntimeGeneratedAppScaffold",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppScaffold.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppScaffold.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeGeneratedAppScaffoldFile"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "files",
+        "kind": "property",
+        "type": "readonly ExpoRuntimeGeneratedAppScaffoldFile[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeGeneratedAppScaffoldFile",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppScaffold.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppScaffold.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "relativePath",
+        "kind": "property",
+        "type": "\"package.json\" | \"app.config.ts\" | \"src/generated/runtimeShell.tsx\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeGeneratedAppSourceDiagnostic",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppSources.ts",
+      "line": 19,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "code",
+        "kind": "property",
+        "type": "\"invalid-manifest-module-specifier\" | \"missing-manifest-screen\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "screenId",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "severity",
+        "kind": "property",
+        "type": "\"error\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeGeneratedAppSourceFile",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppSources.ts",
+      "line": 14,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "relativePath",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ExpoRuntimeGeneratedAppSources",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppSources.ts",
+      "line": 26,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeGeneratedAppSourceDiagnostic",
+      "ExpoRuntimeGeneratedAppSourceFile",
+      "ExpoRuntimeLayoutIntegrationPlan",
+      "ExpoRuntimeNativeOutputPlan"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "dependencies",
+        "kind": "property",
+        "type": "Readonly<Record<string, string>>",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "diagnostics",
+        "kind": "property",
+        "type": "readonly ExpoRuntimeGeneratedAppSourceDiagnostic[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "files",
+        "kind": "property",
+        "type": "readonly ExpoRuntimeGeneratedAppSourceFile[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "layoutIntegration",
+        "kind": "property",
+        "type": "ExpoRuntimeLayoutIntegrationPlan",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "native",
+        "kind": "property",
+        "type": "ExpoRuntimeNativeOutputPlan",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "navigatorBindings",
+        "kind": "property",
+        "type": "NavigatorGenerationBindings",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ExpoRuntimeLayoutIntegrationPlan",
     "title": null,
     "description": null,
@@ -1318,6 +1685,82 @@
     "structuredRows": []
   },
   {
+    "name": "getExpoAuthoringRouteFiles",
+    "title": null,
+    "description": "Translate available portable Authoring screens into deterministic, host-composed Expo Router files.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+    "sourceLocation": {
+      "filePath": "src/features/navigation/getExpoAuthoringRouteFiles.ts",
+      "line": 13,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoAuthoringRouteFile",
+      "ExpoAuthoringRouteHostPort"
+    ],
+    "signatures": [
+      {
+        "label": "(routes: readonly AuthoringRouteDeliveryDefinition[], hostPorts: Readonly<Partial<Record<import(\"@ankhorage/studio-authoring\").AnkhRouteId, ExpoAuthoringRouteHostPort>>>) => readonly ExpoAuthoringRouteFile[]",
+        "parameters": [
+          {
+            "name": "hostPorts",
+            "type": "Readonly<Partial<Record<import(\"@ankhorage/studio-authoring\").AnkhRouteId, ExpoAuthoringRouteHostPort>>>",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "routes",
+            "type": "readonly AuthoringRouteDeliveryDefinition[]",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "readonly ExpoAuthoringRouteFile[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "getExpoAuthoringRoutePlanning",
+    "title": null,
+    "description": "Describe Authoring routes without generating an Expo Router module before host composition exists.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+    "sourceLocation": {
+      "filePath": "src/features/navigation/getExpoAuthoringRoutePlanning.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoAuthoringRoutePlanning"
+    ],
+    "signatures": [
+      {
+        "label": "() => readonly ExpoAuthoringRoutePlanning[]",
+        "parameters": [],
+        "returnType": "readonly ExpoAuthoringRoutePlanning[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "getExpoBarcodeScannerViewSource",
     "title": null,
     "description": null,
@@ -1584,6 +2027,140 @@
       }
     ],
     "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveExpoRuntimeGeneratedAppScaffold",
+    "title": null,
+    "description": "Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/generatedAppScaffold.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppScaffold.ts",
+      "line": 17,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeGeneratedAppScaffold",
+      "ExpoRuntimePlan"
+    ],
+    "signatures": [
+      {
+        "label": "(manifest: Pick<AppManifest, \"metadata\">, runtimePlan: ExpoRuntimePlan | undefined) => ExpoRuntimeGeneratedAppScaffold",
+        "parameters": [
+          {
+            "name": "manifest",
+            "type": "Pick<AppManifest, \"metadata\">",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "runtimePlan",
+            "type": "ExpoRuntimePlan | undefined",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ExpoRuntimeGeneratedAppScaffold",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "resolveExpoRuntimeGeneratedAppSources",
+    "title": null,
+    "description": "Emit the Runtime-owned, filesystem-independent source module and Navigator screen bindings for one manifest.\n\nThe caller owns manifest materialization and file writes. This boundary intentionally emits no Authoring\nroutes: unresolved `/ankh` routes remain the responsibility of their published owner.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/generatedAppSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppSources.ts",
+      "line": 45,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ExpoRuntimeGeneratedAppSources",
+      "ExpoRuntimePlan",
+      "ResolveExpoRuntimeGeneratedAppSourcesOptions"
+    ],
+    "signatures": [
+      {
+        "label": "(manifest: AppManifest, runtimePlan: ExpoRuntimePlan | undefined, options: ResolveExpoRuntimeGeneratedAppSourcesOptions) => ExpoRuntimeGeneratedAppSources",
+        "parameters": [
+          {
+            "name": "manifest",
+            "type": "AppManifest",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "options",
+            "type": "ResolveExpoRuntimeGeneratedAppSourcesOptions",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "runtimePlan",
+            "type": "ExpoRuntimePlan | undefined",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ExpoRuntimeGeneratedAppSources",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ResolveExpoRuntimeGeneratedAppSourcesOptions",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/generatedAppSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppSources.ts",
+      "line": 32,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "manifestModuleSpecifier",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "screenModuleSpecifier",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
     "structuredRows": []
   },
   {

@@ -1,4 +1,8 @@
 export {
+  type ExpoAuthoringRoutePlanning,
+  getExpoAuthoringRoutePlanning,
+} from './features/navigation/getExpoAuthoringRoutePlanning';
+export {
   type ExpoRuntimeConfigPluginOutput,
   type ExpoRuntimeDependencyMap,
   type ExpoRuntimeGeneratedAppOutputPlan,

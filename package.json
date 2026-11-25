@@ -1,7 +1,7 @@
 {
   "name": "@ankhorage/expo-runtime",
   "type": "module",
-  "version": "7.0.1",
+  "version": "7.4.3",
   "description": "Declarative runtime integration for Expo apps: maps app capabilities to permissions, packages, config plugins, providers, and adapters",
   "homepage": "https://github.com/ankhorage/expo-runtime#readme",
   "bugs": {
@@ -13,7 +13,7 @@
   },
   "main": "./dist/index.js",
   "sideEffects": false,
-  "types": "./src/index.ts",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ankhorage/expo-runtime.git"
@@ -27,7 +27,8 @@
   ],
   "dependencies": {
     "@ankhorage/capability": "^0.2.2",
-    "@ankhorage/contracts": "^26.0.0"
+    "@ankhorage/contracts": "^26.0.0",
+    "@ankhorage/studio-authoring": "^0.4.0"
   },
   "files": [
     "dist",
@@ -41,84 +42,98 @@
     ".": {
       "react-native": "./src/index.ts",
       "browser": "./src/index.ts",
-      "types": "./src/index.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
     "./capabilities": {
       "react-native": "./src/capabilities/index.ts",
       "browser": "./src/capabilities/index.ts",
-      "types": "./src/capabilities/index.ts",
+      "types": "./dist/capabilities/index.d.ts",
       "import": "./dist/capabilities/index.js",
       "default": "./dist/capabilities/index.js"
     },
     "./capability-bridge": {
       "react-native": "./src/capabilityBridge.ts",
       "browser": "./src/capabilityBridge.ts",
-      "types": "./src/capabilityBridge.ts",
+      "types": "./dist/capabilityBridge.d.ts",
       "import": "./dist/capabilityBridge.js",
       "default": "./dist/capabilityBridge.js"
     },
     "./planning": {
       "react-native": "./src/planning.ts",
       "browser": "./src/planning.ts",
-      "types": "./src/planning.ts",
+      "types": "./dist/planning.d.ts",
       "import": "./dist/planning.js",
       "default": "./dist/planning.js"
+    },
+    "./route-delivery": {
+      "react-native": "./src/routeDelivery.ts",
+      "browser": "./src/routeDelivery.ts",
+      "types": "./dist/routeDelivery.d.ts",
+      "import": "./dist/routeDelivery.js",
+      "default": "./dist/routeDelivery.js"
+    },
+    "./generated-app": {
+      "react-native": "./src/generatedApp.ts",
+      "browser": "./src/generatedApp.ts",
+      "types": "./dist/generatedApp.d.ts",
+      "import": "./dist/generatedApp.js",
+      "default": "./dist/generatedApp.js"
     },
     "./platform": {
       "react-native": "./src/platform.ts",
       "browser": "./src/platform.ts",
-      "types": "./src/platform.ts",
+      "types": "./dist/platform.d.ts",
       "import": "./dist/platform.js",
       "default": "./dist/platform.js"
     },
     "./icon-fonts": {
       "browser": "./src/ExpoZoraIconFontProvider.web.tsx",
       "react-native": "./src/ExpoZoraIconFontProvider.tsx",
-      "types": "./src/ExpoZoraIconFontProvider.tsx",
+      "types": "./dist/ExpoZoraIconFontProvider.d.ts",
       "import": "./dist/ExpoZoraIconFontProvider.js",
       "default": "./dist/ExpoZoraIconFontProvider.js"
     },
     "./oauth-browser": {
       "react-native": "./src/oauthBrowserTransport.ts",
       "browser": "./src/oauthBrowserTransport.ts",
-      "types": "./src/oauthBrowserTransport.ts",
+      "types": "./dist/oauthBrowserTransport.d.ts",
       "import": "./dist/oauthBrowserTransport.js",
       "default": "./dist/oauthBrowserTransport.js"
     },
     "./oauth-browser-runtime": {
       "react-native": "./src/oauthBrowserRuntime.ts",
       "browser": "./src/oauthBrowserRuntime.ts",
-      "types": "./src/oauthBrowserRuntime.ts",
+      "types": "./dist/oauthBrowserRuntime.d.ts",
       "import": "./dist/oauthBrowserRuntime.js",
       "default": "./dist/oauthBrowserRuntime.js"
     },
     "./media-picker": {
       "react-native": "./src/mediaPicker/index.ts",
       "browser": "./src/mediaPicker/index.ts",
-      "types": "./src/mediaPicker/index.ts",
+      "types": "./dist/mediaPicker/index.d.ts",
       "import": "./dist/mediaPicker/index.js",
       "default": "./dist/mediaPicker/index.js"
     },
     "./bundled-media": {
       "react-native": "./src/bundledMedia/index.ts",
       "browser": "./src/bundledMedia/index.ts",
-      "types": "./src/bundledMedia/index.ts",
+      "types": "./dist/bundledMedia/index.d.ts",
       "import": "./dist/bundledMedia/index.js",
       "default": "./dist/bundledMedia/index.js"
     },
     "./providers": {
       "react-native": "./src/ExpoRuntimeProviders.tsx",
       "browser": "./src/ExpoRuntimeProviders.tsx",
-      "types": "./src/ExpoRuntimeProviders.tsx",
+      "types": "./dist/ExpoRuntimeProviders.d.ts",
       "import": "./dist/ExpoRuntimeProviders.js",
       "default": "./dist/ExpoRuntimeProviders.js"
     },
     "./barcode-scanner": {
       "react-native": "./src/barcodeScanner.ts",
       "browser": "./src/barcodeScanner.ts",
-      "types": "./src/barcodeScanner.ts",
+      "types": "./dist/barcodeScanner.d.ts",
       "import": "./dist/barcodeScanner.js",
       "default": "./dist/barcodeScanner.js"
     }
@@ -162,7 +177,7 @@
     ]
   },
   "scripts": {
-    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.json",
+    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.json && bun build src/generatedApp.ts --outdir dist --target node --format esm --external '@ankhorage/*' --silent >&2 && bun build src/planning.ts --outdir dist --target node --format esm --external '@ankhorage/expo-runtime' --silent >&2",
     "changeset": "ankhorage-changeset",
     "changeset:status": "ankhorage-changeset status --since=origin/main",
     "docs": "paradox",
@@ -175,6 +190,7 @@
     "test": "bun test src",
     "typecheck": "bun x tsc --noEmit -p tsconfig.json && bun x tsc --noEmit -p tsconfig.scripts.json",
     "validate:action-bridge": "bun scripts/actionBridgeAcceptance.ts",
+    "validate:authoring-route-delivery": "bun scripts/authoringRouteDeliveryAcceptance.ts",
     "validate:expo-platform": "bun scripts/validateExpoPlatform.ts",
     "validate:headless-platform": "bun scripts/headlessPlatformAcceptance.ts",
     "validate:icon-fonts-web": "bun scripts/iconFontWebAcceptance.ts",
@@ -183,20 +199,20 @@
     "version-packages": "ankhorage-changeset version"
   },
   "peerDependencies": {
-    "@ankhorage/permissions": "^0.3.6",
-    "@ankhorage/zora": "^25.8.3",
+    "@ankhorage/permissions": "^0.2.63",
+    "@ankhorage/zora": "^25.8.3 || ^27.2.0",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
     "@react-native-vector-icons/fontawesome5": "^13.1.4",
     "@react-native-vector-icons/fontawesome6": "^13.1.4",
     "@react-native-vector-icons/ionicons": "^13.1.4",
     "@react-native-vector-icons/material-design-icons": "^13.1.4",
-    "expo": "57.0.30",
+    "expo": "57.0.34",
     "expo-camera": "~57.0.6",
-    "expo-constants": "~57.0.22",
+    "expo-constants": "~57.0.25",
     "expo-document-picker": "~57.0.3",
     "expo-file-system": "~57.0.7",
     "expo-font": "~57.0.4",
-    "expo-image-picker": "~57.0.20",
+    "expo-image-picker": "~57.0.22",
     "react": "19.2.3",
     "react-native": "0.86.3"
   },
@@ -251,10 +267,10 @@
     }
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^2.3.18",
+    "@ankhorage/devtools": "^2.11.1",
     "@ankhorage/paradox": "^0.2.27",
-    "@ankhorage/permissions": "^0.3.6",
-    "@ankhorage/zora": "^25.8.3",
+    "@ankhorage/permissions": "^0.2.63",
+    "@ankhorage/zora": "^25.8.3 || ^27.2.0",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
     "@react-native-vector-icons/fontawesome5": "^13.1.4",
     "@react-native-vector-icons/fontawesome6": "^13.1.4",
@@ -265,14 +281,14 @@
     "@types/pngjs": "^6.0.5",
     "@types/react": "~19.2.18",
     "bwip-js": "^4.11.4",
-    "expo": "57.0.30",
+    "expo": "57.0.34",
     "expo-camera": "~57.0.6",
-    "expo-constants": "~57.0.22",
+    "expo-constants": "~57.0.25",
     "expo-document-picker": "~57.0.3",
     "expo-file-system": "~57.0.7",
     "expo-font": "~57.0.4",
-    "expo-image-picker": "~57.0.20",
-    "playwright-core": "^1.64.1",
+    "expo-image-picker": "~57.0.22",
+    "playwright-core": "^1.65.1",
     "pngjs": "^7.0.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",

@@ -20,7 +20,7 @@ test('exports the icon font boundary through its focused subpath', async () => {
   expect(iconFontExport).toEqual({
     browser: './src/ExpoZoraIconFontProvider.web.tsx',
     'react-native': './src/ExpoZoraIconFontProvider.tsx',
-    types: './src/ExpoZoraIconFontProvider.tsx',
+    types: './dist/ExpoZoraIconFontProvider.d.ts',
     import: './dist/ExpoZoraIconFontProvider.js',
     default: './dist/ExpoZoraIconFontProvider.js',
   });

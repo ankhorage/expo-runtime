@@ -38,6 +38,10 @@ export {
   type ExpoZoraIconFontProviderProps,
 } from './ExpoZoraIconFontProvider';
 export {
+  type ExpoAuthoringRoutePlanning,
+  getExpoAuthoringRoutePlanning,
+} from './features/navigation/getExpoAuthoringRoutePlanning';
+export {
   type ExpoRuntimeConfigPluginOutput,
   type ExpoRuntimeDependencyMap,
   type ExpoRuntimeGeneratedAppOutputPlan,
@@ -47,6 +51,18 @@ export {
   resolveExpoRuntimeGeneratedAppOutput,
   resolveExpoRuntimeNativeOutput,
 } from './generatedAppOutput';
+export {
+  type ExpoRuntimeGeneratedAppScaffold,
+  type ExpoRuntimeGeneratedAppScaffoldFile,
+  resolveExpoRuntimeGeneratedAppScaffold,
+} from './generatedAppScaffold';
+export {
+  type ExpoRuntimeGeneratedAppSourceDiagnostic,
+  type ExpoRuntimeGeneratedAppSourceFile,
+  type ExpoRuntimeGeneratedAppSources,
+  resolveExpoRuntimeGeneratedAppSources,
+  type ResolveExpoRuntimeGeneratedAppSourcesOptions,
+} from './generatedAppSources';
 export { getExpoBarcodeScannerViewSource } from './generatedSources';
 export {
   type ExpoRuntimeLayoutIntegrationPlan,
@@ -58,3 +74,9 @@ export type {
   ExpoRuntimeProviderId,
 } from './resolveExpoRuntimePlan';
 export { resolveExpoRuntimePlan } from './resolveExpoRuntimePlan';
+export {
+  type ExpoAuthoringRouteFile,
+  type ExpoAuthoringRouteHostPort,
+  type ExpoAuthoringRouteHostPorts,
+  getExpoAuthoringRouteFiles,
+} from './routeDelivery';
