@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.4.3
+
+### Patch Changes
+
+- b92473a: Publish NodeNext-compatible declarations for the generated app APIs.
+
 ## 7.4.2
 
 ### Patch Changes
