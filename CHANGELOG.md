@@ -1,5 +1,12 @@
 # @ankhorage/expo-runtime
 
+## 7.4.4
+
+### Patch Changes
+
+- e7aa259: Update the canonical Expo Doctor policy so Bun-generated Expo apps handle absent legacy dependency checks correctly.
+- 3808a94: Bundle the public planning entrypoint so native Node ESM consumers can load generated-app planning without extensionless internal imports.
+
 ## 7.4.3
 
 ### Patch Changes
