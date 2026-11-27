@@ -60,6 +60,7 @@ export {
   type ExpoRuntimeGeneratedAppSourceDiagnostic,
   type ExpoRuntimeGeneratedAppSourceFile,
   type ExpoRuntimeGeneratedAppSources,
+  GENERATED_APP_SCREEN_SOURCE_DEPENDENCIES,
   resolveExpoRuntimeGeneratedAppSources,
   type ResolveExpoRuntimeGeneratedAppSourcesOptions,
 } from './generatedAppSources';

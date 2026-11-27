@@ -11,6 +11,12 @@ import {
 } from './generatedAppOutput';
 import type { ExpoRuntimePlan } from './resolveExpoRuntimePlan';
 
+/** Dependencies required by the Runtime-owned manifest-screen source emitted below. */
+export const GENERATED_APP_SCREEN_SOURCE_DEPENDENCIES = {
+  '@ankhorage/runtime': '^5.6.4',
+  '@ankhorage/zora': '^27.2.0',
+} as const;
+
 export interface ExpoRuntimeGeneratedAppSourceFile {
   readonly relativePath: string;
   readonly source: string;
@@ -54,6 +60,10 @@ export function resolveExpoRuntimeGeneratedAppSources(
 
   return {
     ...output,
+    dependencies: {
+      ...output.dependencies,
+      ...GENERATED_APP_SCREEN_SOURCE_DEPENDENCIES,
+    },
     diagnostics,
     files:
       diagnostics.length === 0
