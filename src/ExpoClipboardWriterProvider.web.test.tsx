@@ -1,11 +1,10 @@
 import { expect, test } from 'bun:test';
 
-test('keeps browser clipboard access behind the standard Clipboard API guard', async () => {
+test('keeps browser clipboard access behind an SSR-safe standard Clipboard API guard', async () => {
   const source = await Bun.file(
     new URL('./ExpoClipboardWriterProvider.web.tsx', import.meta.url),
   ).text();
 
-  expect(source).toContain('navigator.clipboard?.writeText');
-  expect(source).toContain("return 'unavailable'");
-  expect(source).toContain("return 'denied'");
+  expect(source).toContain("Reflect.get(globalThis, 'navigator')");
+  expect(source).toContain("from './createBrowserClipboardWriter'");
 });
