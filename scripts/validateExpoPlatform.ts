@@ -7,6 +7,7 @@ import { EXPO_PLATFORM, type ExpoPlatformPackage } from '../src/platform';
 
 const repositoryRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const fixtureRoot = await mkdtemp(join(tmpdir(), 'ankhorage-expo-platform-'));
+const PERMISSIONS_PEER_VERSION = '^0.3.6';
 
 const runtimePackages = Object.values(EXPO_PLATFORM.runtime);
 const navigationPackages = Object.values(EXPO_PLATFORM.navigation);
@@ -152,7 +153,12 @@ async function validateRepositoryManifest(): Promise<void> {
     assertVersion(devDependencies, dependency, 'devDependencies');
     assertOptionalPeer(peerDependenciesMeta, dependency.name);
   }
-  assertMatchingVersion(peerDependencies, devDependencies, '@ankhorage/permissions');
+  assertMatchingVersion(
+    peerDependencies,
+    devDependencies,
+    '@ankhorage/permissions',
+    PERMISSIONS_PEER_VERSION,
+  );
   assertOptionalPeer(peerDependenciesMeta, '@ankhorage/permissions');
   assertMatchingVersion(peerDependencies, devDependencies, '@ankhorage/zora');
   assertOptionalPeer(peerDependenciesMeta, '@ankhorage/zora');
@@ -237,6 +243,7 @@ function assertMatchingVersion(
   peerDependencies: Readonly<Record<string, string>>,
   devDependencies: Readonly<Record<string, string>>,
   packageName: string,
+  expectedVersion?: string,
 ): void {
   const peerVersion = Reflect.get(peerDependencies, packageName) as unknown;
   const devVersion = Reflect.get(devDependencies, packageName) as unknown;
@@ -245,6 +252,11 @@ function assertMatchingVersion(
     const actualDevVersion = typeof devVersion === 'string' ? devVersion : 'missing';
     throw new Error(
       `package.json peerDependencies.${packageName} and devDependencies.${packageName} must match, received '${actualPeerVersion}' and '${actualDevVersion}'.`,
+    );
+  }
+  if (expectedVersion !== undefined && peerVersion !== expectedVersion) {
+    throw new Error(
+      `package.json peerDependencies.${packageName} must be '${expectedVersion}', received '${peerVersion}'.`,
     );
   }
 }
