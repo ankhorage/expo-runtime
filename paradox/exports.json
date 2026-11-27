@@ -1150,7 +1150,7 @@
     "modulePath": "src/generatedAppSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppSources.ts",
-      "line": 19,
+      "line": 25,
       "column": 1
     },
     "exportPaths": [
@@ -1201,7 +1201,7 @@
     "modulePath": "src/generatedAppSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppSources.ts",
-      "line": 14,
+      "line": 20,
       "column": 1
     },
     "exportPaths": [
@@ -1238,7 +1238,7 @@
     "modulePath": "src/generatedAppSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppSources.ts",
-      "line": 26,
+      "line": 32,
       "column": 1
     },
     "exportPaths": [
@@ -1685,6 +1685,28 @@
     "structuredRows": []
   },
   {
+    "name": "GENERATED_APP_SCREEN_SOURCE_DEPENDENCIES",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "value",
+    "modulePath": "src/generatedAppSources.ts",
+    "sourceLocation": {
+      "filePath": "src/generatedAppSources.ts",
+      "line": 15,
+      "column": 14
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "getExpoAuthoringRouteFiles",
     "title": null,
     "description": "Translate available portable Authoring screens into deterministic, host-composed Expo Router files.",
@@ -2085,7 +2107,7 @@
     "modulePath": "src/generatedAppSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppSources.ts",
-      "line": 45,
+      "line": 51,
       "column": 1
     },
     "exportPaths": [
@@ -2137,7 +2159,7 @@
     "modulePath": "src/generatedAppSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppSources.ts",
-      "line": 32,
+      "line": 38,
       "column": 1
     },
     "exportPaths": [

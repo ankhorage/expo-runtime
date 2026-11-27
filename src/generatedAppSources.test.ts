@@ -17,6 +17,8 @@ test('emits deterministic Runtime source and Navigator bindings for every refere
 
   expect(first).toEqual(second);
   expect(first.diagnostics).toEqual([]);
+  expect(first.dependencies['@ankhorage/runtime']).toMatch(/^\^5\./u);
+  expect(first.dependencies['@ankhorage/zora']).toMatch(/^\^27\./u);
   expect(first.navigatorBindings).toEqual({
     guards: {},
     screens: {

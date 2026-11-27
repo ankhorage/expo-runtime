@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.4.3",
+      "value": "v7.5.0",
       "color": "cb3837"
     },
     {
@@ -404,6 +404,7 @@
         "ExpoRuntimeGeneratedAppSourceDiagnostic",
         "ExpoRuntimeGeneratedAppSourceFile",
         "ExpoRuntimeGeneratedAppSources",
+        "GENERATED_APP_SCREEN_SOURCE_DEPENDENCIES",
         "resolveExpoRuntimeGeneratedAppScaffold",
         "resolveExpoRuntimeGeneratedAppSources",
         "ResolveExpoRuntimeGeneratedAppSourcesOptions"
@@ -452,6 +453,7 @@
         "ExpoRuntimeGeneratedAppSourceDiagnostic",
         "ExpoRuntimeGeneratedAppSourceFile",
         "ExpoRuntimeGeneratedAppSources",
+        "GENERATED_APP_SCREEN_SOURCE_DEPENDENCIES",
         "resolveExpoRuntimeGeneratedAppSources",
         "ResolveExpoRuntimeGeneratedAppSourcesOptions"
       ]
@@ -510,6 +512,7 @@
         "ExpoRuntimeRouteResolution",
         "ExpoZoraIconFontProvider",
         "ExpoZoraIconFontProviderProps",
+        "GENERATED_APP_SCREEN_SOURCE_DEPENDENCIES",
         "getExpoAuthoringRouteFiles",
         "getExpoAuthoringRoutePlanning",
         "getExpoBarcodeScannerViewSource",
@@ -1941,7 +1944,7 @@
       "modulePath": "src/generatedAppSources.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 19,
+        "line": 25,
         "column": 1
       },
       "exportPaths": [
@@ -1992,7 +1995,7 @@
       "modulePath": "src/generatedAppSources.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 14,
+        "line": 20,
         "column": 1
       },
       "exportPaths": [
@@ -2029,7 +2032,7 @@
       "modulePath": "src/generatedAppSources.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 26,
+        "line": 32,
         "column": 1
       },
       "exportPaths": [
@@ -2476,6 +2479,28 @@
       "structuredRows": []
     },
     {
+      "name": "GENERATED_APP_SCREEN_SOURCE_DEPENDENCIES",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "value",
+      "modulePath": "src/generatedAppSources.ts",
+      "sourceLocation": {
+        "filePath": "src/generatedAppSources.ts",
+        "line": 15,
+        "column": 14
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "getExpoAuthoringRouteFiles",
       "title": null,
       "description": "Translate available portable Authoring screens into deterministic, host-composed Expo Router files.",
@@ -2876,7 +2901,7 @@
       "modulePath": "src/generatedAppSources.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 45,
+        "line": 51,
         "column": 1
       },
       "exportPaths": [
@@ -2928,7 +2953,7 @@
       "modulePath": "src/generatedAppSources.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 32,
+        "line": 38,
         "column": 1
       },
       "exportPaths": [
@@ -3867,7 +3892,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 45,
+        "line": 51,
         "column": 1
       }
     },
@@ -3878,7 +3903,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 72,
+        "line": 82,
         "column": 1
       }
     },
@@ -3889,7 +3914,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 77,
+        "line": 87,
         "column": 1
       }
     },
@@ -3900,7 +3925,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 99,
+        "line": 109,
         "column": 1
       }
     },
@@ -3911,7 +3936,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 137,
+        "line": 147,
         "column": 1
       }
     },
@@ -3922,7 +3947,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 147,
+        "line": 157,
         "column": 1
       }
     },
@@ -3933,7 +3958,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 166,
+        "line": 176,
         "column": 1
       }
     },
@@ -3944,7 +3969,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 171,
+        "line": 181,
         "column": 1
       }
     },
