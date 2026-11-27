@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.5.0
+
+### Minor Changes
+
+- b76d42e: Expose the Runtime and ZORA dependency requirements of generated manifest screen sources.
+
 ## 7.4.4
 
 ### Patch Changes

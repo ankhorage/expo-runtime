@@ -353,7 +353,7 @@ Source: `src/generatedAppScaffold.ts:7:1`
 
 Kind: `type`
 Module: `src/generatedAppSources.ts`
-Source: `src/generatedAppSources.ts:19:1`
+Source: `src/generatedAppSources.ts:25:1`
 
 ### Members
 
@@ -368,7 +368,7 @@ Source: `src/generatedAppSources.ts:19:1`
 
 Kind: `type`
 Module: `src/generatedAppSources.ts`
-Source: `src/generatedAppSources.ts:14:1`
+Source: `src/generatedAppSources.ts:20:1`
 
 ### Members
 
@@ -381,7 +381,7 @@ Source: `src/generatedAppSources.ts:14:1`
 
 Kind: `type`
 Module: `src/generatedAppSources.ts`
-Source: `src/generatedAppSources.ts:26:1`
+Source: `src/generatedAppSources.ts:32:1`
 
 ### Members
 
@@ -510,6 +510,12 @@ Source: `src/ExpoZoraIconFontProvider.tsx:3:1`
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | children | property | `React.ReactNode` | yes |  |
+
+## GENERATED_APP_SCREEN_SOURCE_DEPENDENCIES
+
+Kind: `value`
+Module: `src/generatedAppSources.ts`
+Source: `src/generatedAppSources.ts:15:14`
 
 ## getExpoAuthoringRouteFiles
 
@@ -645,7 +651,7 @@ Emit the Runtime-owned files needed to finish a generated Expo application witho
 
 Kind: `function`
 Module: `src/generatedAppSources.ts`
-Source: `src/generatedAppSources.ts:45:1`
+Source: `src/generatedAppSources.ts:51:1`
 
 Emit the Runtime-owned, filesystem-independent source module and Navigator screen bindings for one manifest.
 
@@ -664,7 +670,7 @@ routes: unresolved `/ankh` routes remain the responsibility of their published o
 
 Kind: `type`
 Module: `src/generatedAppSources.ts`
-Source: `src/generatedAppSources.ts:32:1`
+Source: `src/generatedAppSources.ts:38:1`
 
 ### Members
 
