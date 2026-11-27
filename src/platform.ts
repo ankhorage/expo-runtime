@@ -63,6 +63,7 @@ export const EXPO_PLATFORM = {
     audio: definePackage('expo-audio', '~57.0.5'),
     authSession: definePackage('expo-auth-session', '~57.0.17'),
     camera: definePackage('expo-camera', '~57.0.6'),
+    clipboard: definePackage('expo-clipboard', '~57.0.2'),
     constants: definePackage('expo-constants', '~57.0.25'),
     crypto: definePackage('expo-crypto', '~57.0.4'),
     devClient: definePackage('expo-dev-client', '~57.0.22'),

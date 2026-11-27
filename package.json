@@ -28,6 +28,7 @@
   "dependencies": {
     "@ankhorage/capability": "^0.2.1",
     "@ankhorage/contracts": "^26.0.0",
+    "@ankhorage/runtime": "^5.7.1",
     "@ankhorage/studio-authoring": "^0.4.0"
   },
   "files": [
@@ -136,6 +137,13 @@
       "types": "./dist/barcodeScanner.d.ts",
       "import": "./dist/barcodeScanner.js",
       "default": "./dist/barcodeScanner.js"
+    },
+    "./clipboard": {
+      "react-native": "./src/ExpoClipboardWriterProvider.tsx",
+      "browser": "./src/ExpoClipboardWriterProvider.web.tsx",
+      "types": "./dist/ExpoClipboardWriterProvider.d.ts",
+      "import": "./dist/ExpoClipboardWriterProvider.js",
+      "default": "./dist/ExpoClipboardWriterProvider.js"
     }
   },
   "publishConfig": {
@@ -208,6 +216,7 @@
     "@react-native-vector-icons/material-design-icons": "^13.1.4",
     "expo": "57.0.34",
     "expo-camera": "~57.0.6",
+    "expo-clipboard": "~57.0.2",
     "expo-constants": "~57.0.25",
     "expo-document-picker": "~57.0.3",
     "expo-file-system": "~57.0.7",
@@ -242,6 +251,9 @@
       "optional": true
     },
     "expo-camera": {
+      "optional": true
+    },
+    "expo-clipboard": {
       "optional": true
     },
     "expo-constants": {
@@ -283,6 +295,7 @@
     "bwip-js": "^4.11.4",
     "expo": "57.0.34",
     "expo-camera": "~57.0.6",
+    "expo-clipboard": "~57.0.2",
     "expo-constants": "~57.0.25",
     "expo-document-picker": "~57.0.3",
     "expo-file-system": "~57.0.7",
