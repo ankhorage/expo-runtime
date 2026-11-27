@@ -1081,7 +1081,7 @@
     "modulePath": "src/generatedAppScaffold.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppScaffold.ts",
-      "line": 12,
+      "line": 13,
       "column": 1
     },
     "exportPaths": [
@@ -1113,7 +1113,7 @@
     "modulePath": "src/generatedAppScaffold.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppScaffold.ts",
-      "line": 7,
+      "line": 8,
       "column": 1
     },
     "exportPaths": [
@@ -1150,7 +1150,7 @@
     "modulePath": "src/generatedAppSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppSources.ts",
-      "line": 25,
+      "line": 26,
       "column": 1
     },
     "exportPaths": [
@@ -1201,7 +1201,7 @@
     "modulePath": "src/generatedAppSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppSources.ts",
-      "line": 20,
+      "line": 21,
       "column": 1
     },
     "exportPaths": [
@@ -1238,7 +1238,7 @@
     "modulePath": "src/generatedAppSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppSources.ts",
-      "line": 32,
+      "line": 33,
       "column": 1
     },
     "exportPaths": [
@@ -2062,7 +2062,7 @@
     "modulePath": "src/generatedAppScaffold.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppScaffold.ts",
-      "line": 17,
+      "line": 18,
       "column": 1
     },
     "exportPaths": [
@@ -2107,7 +2107,7 @@
     "modulePath": "src/generatedAppSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppSources.ts",
-      "line": 51,
+      "line": 52,
       "column": 1
     },
     "exportPaths": [
@@ -2159,7 +2159,7 @@
     "modulePath": "src/generatedAppSources.ts",
     "sourceLocation": {
       "filePath": "src/generatedAppSources.ts",
-      "line": 38,
+      "line": 39,
       "column": 1
     },
     "exportPaths": [

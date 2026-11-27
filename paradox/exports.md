@@ -328,7 +328,7 @@ Source: `src/generatedAppOutput.ts:17:1`
 
 Kind: `type`
 Module: `src/generatedAppScaffold.ts`
-Source: `src/generatedAppScaffold.ts:12:1`
+Source: `src/generatedAppScaffold.ts:13:1`
 
 ### Members
 
@@ -340,7 +340,7 @@ Source: `src/generatedAppScaffold.ts:12:1`
 
 Kind: `type`
 Module: `src/generatedAppScaffold.ts`
-Source: `src/generatedAppScaffold.ts:7:1`
+Source: `src/generatedAppScaffold.ts:8:1`
 
 ### Members
 
@@ -353,7 +353,7 @@ Source: `src/generatedAppScaffold.ts:7:1`
 
 Kind: `type`
 Module: `src/generatedAppSources.ts`
-Source: `src/generatedAppSources.ts:25:1`
+Source: `src/generatedAppSources.ts:26:1`
 
 ### Members
 
@@ -368,7 +368,7 @@ Source: `src/generatedAppSources.ts:25:1`
 
 Kind: `type`
 Module: `src/generatedAppSources.ts`
-Source: `src/generatedAppSources.ts:20:1`
+Source: `src/generatedAppSources.ts:21:1`
 
 ### Members
 
@@ -381,7 +381,7 @@ Source: `src/generatedAppSources.ts:20:1`
 
 Kind: `type`
 Module: `src/generatedAppSources.ts`
-Source: `src/generatedAppSources.ts:32:1`
+Source: `src/generatedAppSources.ts:33:1`
 
 ### Members
 
@@ -636,7 +636,7 @@ Source: `src/generatedAppOutput.ts:48:1`
 
 Kind: `function`
 Module: `src/generatedAppScaffold.ts`
-Source: `src/generatedAppScaffold.ts:17:1`
+Source: `src/generatedAppScaffold.ts:18:1`
 
 Emit the Runtime-owned files needed to finish a generated Expo application without writing to disk.
 
@@ -651,7 +651,7 @@ Emit the Runtime-owned files needed to finish a generated Expo application witho
 
 Kind: `function`
 Module: `src/generatedAppSources.ts`
-Source: `src/generatedAppSources.ts:51:1`
+Source: `src/generatedAppSources.ts:52:1`
 
 Emit the Runtime-owned, filesystem-independent source module and Navigator screen bindings for one manifest.
 
@@ -670,7 +670,7 @@ routes: unresolved `/ankh` routes remain the responsibility of their published o
 
 Kind: `type`
 Module: `src/generatedAppSources.ts`
-Source: `src/generatedAppSources.ts:38:1`
+Source: `src/generatedAppSources.ts:39:1`
 
 ### Members
 

@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.6.0
+
+### Minor Changes
+
+- de4b8b8: Wrap generated Runtime screens in the canonical Responsive and ZORA providers and emit the Surface dependency required by that shell.
+
 ## 7.5.0
 
 ### Minor Changes

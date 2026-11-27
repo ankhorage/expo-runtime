@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.5.0",
+      "value": "v7.6.0",
       "color": "cb3837"
     },
     {
@@ -433,6 +433,7 @@
       "isEntrypoint": false,
       "dependencies": [
         "src/generatedAppOutput.ts",
+        "src/generatedAppSources.ts",
         "src/platform.ts",
         "src/resolveExpoRuntimePlan.ts"
       ],
@@ -1875,7 +1876,7 @@
       "modulePath": "src/generatedAppScaffold.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 12,
+        "line": 13,
         "column": 1
       },
       "exportPaths": [
@@ -1907,7 +1908,7 @@
       "modulePath": "src/generatedAppScaffold.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 7,
+        "line": 8,
         "column": 1
       },
       "exportPaths": [
@@ -1944,7 +1945,7 @@
       "modulePath": "src/generatedAppSources.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 25,
+        "line": 26,
         "column": 1
       },
       "exportPaths": [
@@ -1995,7 +1996,7 @@
       "modulePath": "src/generatedAppSources.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 20,
+        "line": 21,
         "column": 1
       },
       "exportPaths": [
@@ -2032,7 +2033,7 @@
       "modulePath": "src/generatedAppSources.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 32,
+        "line": 33,
         "column": 1
       },
       "exportPaths": [
@@ -2856,7 +2857,7 @@
       "modulePath": "src/generatedAppScaffold.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 17,
+        "line": 18,
         "column": 1
       },
       "exportPaths": [
@@ -2901,7 +2902,7 @@
       "modulePath": "src/generatedAppSources.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 51,
+        "line": 52,
         "column": 1
       },
       "exportPaths": [
@@ -2953,7 +2954,7 @@
       "modulePath": "src/generatedAppSources.ts",
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 38,
+        "line": 39,
         "column": 1
       },
       "exportPaths": [
@@ -3848,7 +3849,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 17,
+        "line": 18,
         "column": 1
       }
     },
@@ -3859,7 +3860,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 42,
+        "line": 46,
         "column": 1
       }
     },
@@ -3870,7 +3871,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 73,
+        "line": 77,
         "column": 1
       }
     },
@@ -3881,7 +3882,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppScaffold.ts",
-        "line": 89,
+        "line": 93,
         "column": 1
       }
     },
@@ -3892,7 +3893,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 51,
+        "line": 52,
         "column": 1
       }
     },
@@ -3903,7 +3904,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 82,
+        "line": 83,
         "column": 1
       }
     },
@@ -3914,7 +3915,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 87,
+        "line": 88,
         "column": 1
       }
     },
@@ -3925,7 +3926,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 109,
+        "line": 110,
         "column": 1
       }
     },
@@ -3936,7 +3937,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 147,
+        "line": 148,
         "column": 1
       }
     },
@@ -3947,7 +3948,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 157,
+        "line": 158,
         "column": 1
       }
     },
@@ -3958,7 +3959,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 176,
+        "line": 177,
         "column": 1
       }
     },
@@ -3969,7 +3970,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/generatedAppSources.ts",
-        "line": 181,
+        "line": 182,
         "column": 1
       }
     },
@@ -4628,6 +4629,11 @@
       {
         "fromPath": "src/generatedAppScaffold.ts",
         "toPath": "src/generatedAppOutput.ts",
+        "sourcePath": "src/generatedAppScaffold.ts"
+      },
+      {
+        "fromPath": "src/generatedAppScaffold.ts",
+        "toPath": "src/generatedAppSources.ts",
         "sourcePath": "src/generatedAppScaffold.ts"
       },
       {
