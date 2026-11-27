@@ -27,30 +27,6 @@ export {
 } from './capabilityBridge';
 export type { ComponentRegistry } from './componentRegistry';
 export { createComponentRegistry } from './componentRegistry';
-export { createExpoRuntimeRegistry } from './createExpoRuntimeRegistry';
-export {
-  ExpoBarcodeScannerAdapter,
-  type ExpoBarcodeScannerAdapterProps,
-} from './ExpoBarcodeScannerAdapter';
-export { ExpoRuntimeProviders, type ExpoRuntimeProvidersProps } from './ExpoRuntimeProviders';
-export {
-  ExpoZoraIconFontProvider,
-  type ExpoZoraIconFontProviderProps,
-} from './ExpoZoraIconFontProvider';
-export {
-  type ExpoAuthoringRoutePlanning,
-  getExpoAuthoringRoutePlanning,
-} from './features/navigation/getExpoAuthoringRoutePlanning';
-export {
-  type ExpoRuntimeConfigPluginOutput,
-  type ExpoRuntimeDependencyMap,
-  type ExpoRuntimeGeneratedAppOutputPlan,
-  type ExpoRuntimeNativeOutputPlan,
-  resolveExpoRuntimeConfigPluginOutput,
-  resolveExpoRuntimeDependencyMap,
-  resolveExpoRuntimeGeneratedAppOutput,
-  resolveExpoRuntimeNativeOutput,
-} from './generatedAppOutput';
 export {
   type ExpoRuntimeGeneratedAppScaffold,
   type ExpoRuntimeGeneratedAppScaffoldFile,
@@ -65,16 +41,6 @@ export {
   type ResolveExpoRuntimeGeneratedAppSourcesOptions,
 } from './generatedAppSources';
 export { getExpoBarcodeScannerViewSource } from './generatedSources';
-export {
-  type ExpoRuntimeLayoutIntegrationPlan,
-  resolveExpoRuntimeLayoutIntegration,
-} from './layoutIntegrationPlanning';
-export type {
-  ExpoRuntimeAdapterId,
-  ExpoRuntimePlan,
-  ExpoRuntimeProviderId,
-} from './resolveExpoRuntimePlan';
-export { resolveExpoRuntimePlan } from './resolveExpoRuntimePlan';
 export {
   type ExpoAuthoringRouteFile,
   type ExpoAuthoringRouteHostPort,

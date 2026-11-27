@@ -151,7 +151,7 @@ async function writeJson(path: string, value: unknown): Promise<void> {
 const APP_SOURCE = `
 import { Permission, PermissionsProvider } from '@ankhorage/permissions';
 import { createFakePermissionClient } from '@ankhorage/permissions/testing';
-import { ExpoBarcodeScannerAdapter } from '@ankhorage/expo-runtime';
+import { ExpoBarcodeScannerAdapter } from '@ankhorage/expo-runtime/barcode-scanner';
 import { ResponsiveProvider } from '@ankhorage/surface';
 import { ZoraProvider } from '@ankhorage/zora';
 import { registerRootComponent } from 'expo';

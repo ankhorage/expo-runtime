@@ -1,4 +1,4 @@
-import { resolveExpoRuntimePlan } from '@ankhorage/expo-runtime';
+import { resolveExpoRuntimePlan } from '@ankhorage/expo-runtime/planning';
 
 /***
  * @title Basic Usage

@@ -14,19 +14,19 @@ The separate `bun run validate:web-barcode` browser fixture proves Expo Camera W
 
 npm peer metadata applies to a whole package even though Expo Runtime has multiple public entrypoints. The entrypoints have different runtime needs:
 
-| Dependency                                        | Classification         | Requiring entrypoint or capability                    | Required by `./platform`                                            |
-| ------------------------------------------------- | ---------------------- | ----------------------------------------------------- | ------------------------------------------------------------------- |
-| `@ankhorage/contracts`                            | package type contract  | public planning, action, media, and OAuth types       | no; retained as a lightweight dependency for published declarations |
-| `@ankhorage/permissions`                          | root/planning runtime  | root providers and `./planning` permission resolution | no                                                                  |
-| `@ankhorage/zora`                                 | root runtime           | barcode adapter and component registry                | no                                                                  |
-| `expo`, `expo-camera`, React, React Native        | root Expo runtime      | barcode adapter and its Expo Camera environment       | no                                                                  |
-| `expo-constants`                                  | feature subpath        | `./oauth-browser-runtime`                             | no                                                                  |
-| Document Picker, File System, Image Picker        | optional capabilities  | `./media-picker` operations                           | no                                                                  |
-| Devtools, Paradox, and the ZORA 3/Surface 3 graph | development validation | repository tooling and packed runtime acceptance      | no                                                                  |
-| Scoped React Native Vector Icons packages         | optional UI peers      | Surface/ZORA static icon rendering                    | no                                                                  |
+| Dependency                                        | Classification         | Requiring entrypoint or capability                   | Required by `./platform`                                            |
+| ------------------------------------------------- | ---------------------- | ---------------------------------------------------- | ------------------------------------------------------------------- |
+| `@ankhorage/contracts`                            | package type contract  | public planning, action, media, and OAuth types      | no; retained as a lightweight dependency for published declarations |
+| `@ankhorage/permissions`                          | feature runtime        | `./providers` and `./planning` permission resolution | no                                                                  |
+| `@ankhorage/zora`                                 | feature runtime        | `./barcode-scanner` adapter and component registry   | no                                                                  |
+| `expo`, `expo-camera`, React, React Native        | feature runtime        | `./barcode-scanner` and its Expo Camera environment  | no                                                                  |
+| `expo-constants`                                  | feature subpath        | `./oauth-browser-runtime`                            | no                                                                  |
+| Document Picker, File System, Image Picker        | optional capabilities  | `./media-picker` operations                          | no                                                                  |
+| Devtools, Paradox, and the ZORA 3/Surface 3 graph | development validation | repository tooling and packed runtime acceptance     | no                                                                  |
+| Scoped React Native Vector Icons packages         | optional UI peers      | Surface/ZORA static icon rendering                   | no                                                                  |
 
-Generated layouts import `ExpoRuntimeProviders` from the focused `@ankhorage/expo-runtime/providers` subpath. This keeps capability-specific adapters and their optional peers out of generated applications that only need runtime provider composition. The root entrypoint remains available for consumers that intentionally use the combined runtime API.
+Generated layouts import `ExpoRuntimeProviders` from the focused `@ankhorage/expo-runtime/providers` subpath. Scanner, icon-font, and planning APIs are likewise capability-scoped. The root entrypoint contains only peer-independent runtime utilities, so it can load without optional Expo UI peers.
 
-All application/runtime peers are optional at package-install time so a Node planner can install the released package and import only `@ankhorage/expo-runtime/platform` without materializing the Expo UI graph. This does not make root runtime dependencies optional in use: importing the root entrypoint without Permissions, ZORA 3, Expo Camera, React, and React Native fails normal module resolution. Likewise, invoking a feature subpath without its capability package fails when that feature dynamically loads the missing package. Consumers must install the peers for every entrypoint and capability they use.
+All application/runtime peers are optional at package-install time so a Node planner can install the released package and import the root or `@ankhorage/expo-runtime/platform` without materializing the Expo UI graph. Invoking a capability subpath still requires that capability's peers; consumers must install the peers for every feature they use.
 
 `bun run validate:headless-platform` permanently proves the packed `./platform` boundary. `bun run validate:packed-runtime` separately proves that the real root runtime compiles and bundles with released ZORA 3, Surface 3, Expo 57, React 19.2.3, React Native 0.86.3, and React Native Web 0.21.3.
