@@ -49,8 +49,19 @@ test('emits deterministic portable package, Expo config, and Runtime shell sourc
     `"react-native": "${EXPO_PLATFORM.runtime.reactNative.version}"`,
   );
   expect(result.files[0]?.source).toContain('"@ankhorage/expo-runtime": "^7.3.0"');
+  expect(result.files[0]?.source).toContain('"@ankhorage/runtime": "^5.6.4"');
+  expect(result.files[0]?.source).toContain('"@ankhorage/surface": "^9.7.2"');
+  expect(result.files[0]?.source).toContain('"@ankhorage/zora": "^27.2.0"');
   expect(result.files[1]?.source).toContain('"expo-camera"');
   expect(result.files[1]?.source).toContain('name: "Generated App"');
   expect(result.files[1]?.source).toContain('slug: "generated-app"');
-  expect(result.files[2]?.source).toContain('providers={["permissions"]}');
+  expect(result.files[2]?.source).toContain(
+    "import { ResponsiveProvider } from '@ankhorage/surface';",
+  );
+  expect(result.files[2]?.source).toContain("import { ZoraProvider } from '@ankhorage/zora';");
+  expect(result.files[2]?.source).toContain(`    <ResponsiveProvider>
+      <ZoraProvider>
+        <ExpoRuntimeProviders providers={["permissions"]}>{children}</ExpoRuntimeProviders>
+      </ZoraProvider>
+    </ResponsiveProvider>`);
 });
