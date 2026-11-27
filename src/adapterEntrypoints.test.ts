@@ -22,6 +22,11 @@ describe('capability-scoped adapter entrypoints', () => {
       'react-native': './src/barcodeScanner.ts',
       types: './dist/barcodeScanner.d.ts',
     });
+    expect(packageJson.exports['./expo-router']).toMatchObject({
+      import: './dist/expoRouterBridge.js',
+      'react-native': './src/expoRouterBridge.ts',
+      types: './src/expoRouterBridge.ts',
+    });
     expect(packageJson.exports).not.toHaveProperty('./reader');
   });
 
