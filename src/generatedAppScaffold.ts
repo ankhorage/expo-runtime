@@ -1,6 +1,7 @@
 import type { AppManifest } from '@ankhorage/contracts';
 
 import { resolveExpoRuntimeGeneratedAppOutput } from './generatedAppOutput';
+import { GENERATED_APP_SCREEN_SOURCE_DEPENDENCIES } from './generatedAppSources';
 import { EXPO_PLATFORM } from './platform';
 import type { ExpoRuntimePlan } from './resolveExpoRuntimePlan';
 
@@ -24,7 +25,10 @@ export function resolveExpoRuntimeGeneratedAppScaffold(
     files: [
       {
         relativePath: 'package.json',
-        source: createPackageSource(manifest, output.dependencies),
+        source: createPackageSource(manifest, {
+          ...output.dependencies,
+          ...GENERATED_APP_SCREEN_SOURCE_DEPENDENCIES,
+        }),
       },
       {
         relativePath: 'app.config.ts',
@@ -89,9 +93,17 @@ function createExpoConfigSource(
 function createRuntimeShellSource(providers: readonly string[]): string {
   return `import type { ReactNode } from 'react';
 import { ExpoRuntimeProviders } from '@ankhorage/expo-runtime/providers';
+import { ResponsiveProvider } from '@ankhorage/surface';
+import { ZoraProvider } from '@ankhorage/zora';
 
 export function GeneratedRuntimeShell({ children }: { readonly children: ReactNode }) {
-  return <ExpoRuntimeProviders providers={${JSON.stringify(providers)}}>{children}</ExpoRuntimeProviders>;
+  return (
+    <ResponsiveProvider>
+      <ZoraProvider>
+        <ExpoRuntimeProviders providers={${JSON.stringify(providers)}}>{children}</ExpoRuntimeProviders>
+      </ZoraProvider>
+    </ResponsiveProvider>
+  );
 }
 `;
 }
