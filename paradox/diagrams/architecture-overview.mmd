@@ -22,6 +22,8 @@ graph TD
   package__ankhorage_expo_runtime -.-> module_src_collectExpoRuntimeManifestRequirements_ts
   module_src_componentRegistry_ts["src/componentRegistry.ts"]
   package__ankhorage_expo_runtime -.-> module_src_componentRegistry_ts
+  module_src_createBrowserClipboardWriter_ts["src/createBrowserClipboardWriter.ts"]
+  package__ankhorage_expo_runtime -.-> module_src_createBrowserClipboardWriter_ts
   module_src_createExpoRuntimeRegistry_tsx["src/createExpoRuntimeRegistry.tsx"]
   package__ankhorage_expo_runtime -.-> module_src_createExpoRuntimeRegistry_tsx
   module_src_createExpoRuntimeRegistry_tsx --> module_src_componentRegistry_ts
@@ -29,6 +31,11 @@ graph TD
   module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
   package__ankhorage_expo_runtime -.-> module_src_ExpoBarcodeScannerAdapter_tsx
   module_src_ExpoBarcodeScannerAdapter_tsx --> module_src_barcodeScanRuntime_ts
+  module_src_ExpoClipboardWriterProvider_tsx["src/ExpoClipboardWriterProvider.tsx"]
+  package__ankhorage_expo_runtime -.-> module_src_ExpoClipboardWriterProvider_tsx
+  module_src_ExpoClipboardWriterProvider_web_tsx["src/ExpoClipboardWriterProvider.web.tsx"]
+  package__ankhorage_expo_runtime -.-> module_src_ExpoClipboardWriterProvider_web_tsx
+  module_src_ExpoClipboardWriterProvider_web_tsx --> module_src_createBrowserClipboardWriter_ts
   module_src_expoRuntimePlanningMetadata_ts["src/expoRuntimePlanningMetadata.ts"]
   package__ankhorage_expo_runtime -.-> module_src_expoRuntimePlanningMetadata_ts
   module_src_expoRuntimePlanningMetadata_ts --> module_src_platform_ts

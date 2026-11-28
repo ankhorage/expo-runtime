@@ -8,8 +8,11 @@ graph LR
   module_src_capabilityBridge_ts["src/capabilityBridge.ts"]
   module_src_collectExpoRuntimeManifestRequirements_ts["src/collectExpoRuntimeManifestRequirements.ts"]
   module_src_componentRegistry_ts["src/componentRegistry.ts"]
+  module_src_createBrowserClipboardWriter_ts["src/createBrowserClipboardWriter.ts"]
   module_src_createExpoRuntimeRegistry_tsx["src/createExpoRuntimeRegistry.tsx"]
   module_src_ExpoBarcodeScannerAdapter_tsx["src/ExpoBarcodeScannerAdapter.tsx"]
+  module_src_ExpoClipboardWriterProvider_tsx["src/ExpoClipboardWriterProvider.tsx"]
+  module_src_ExpoClipboardWriterProvider_web_tsx["src/ExpoClipboardWriterProvider.web.tsx"]
   module_src_expoRuntimePlanningMetadata_ts["src/expoRuntimePlanningMetadata.ts"]
   module_src_ExpoRuntimeProviders_tsx["src/ExpoRuntimeProviders.tsx"]
   module_src_ExpoZoraIconFontProvider_tsx["src/ExpoZoraIconFontProvider.tsx"]
@@ -91,6 +94,8 @@ graph LR
   module_src_bundledMediaResolver_ts --> export_ExpoBundledMediaResolverArgs
   export_ExpoBundledMediaValue["ExpoBundledMediaValue"]
   module_src_bundledMediaResolver_ts --> export_ExpoBundledMediaValue
+  export_ExpoClipboardWriterProvider["ExpoClipboardWriterProvider"]
+  module_src_ExpoClipboardWriterProvider_tsx --> export_ExpoClipboardWriterProvider
   export_ExpoPlatform["ExpoPlatform"]
   module_src_platform_ts --> export_ExpoPlatform
   export_ExpoPlatformPackage["ExpoPlatformPackage"]

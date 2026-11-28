@@ -222,11 +222,25 @@ Kind: `unknown`
 Module: `src/bundledMediaResolver.ts`
 Source: `src/bundledMediaResolver.ts:3:1`
 
+## ExpoClipboardWriterProvider
+
+Kind: `function`
+Module: `src/ExpoClipboardWriterProvider.tsx`
+Source: `src/ExpoClipboardWriterProvider.tsx:17:1`
+
+Installs Expo Clipboard as the native host writer for Runtime consumers.
+
+### Signatures
+
+- `(props: { readonly children: React.ReactNode; }) => React.JSX.Element`
+  - props: `{ readonly children: React.ReactNode; }`
+  - returns: `React.JSX.Element`
+
 ## ExpoPlatform
 
 Kind: `unknown`
 Module: `src/platform.ts`
-Source: `src/platform.ts:100:1`
+Source: `src/platform.ts:101:1`
 
 ## ExpoPlatformPackage
 

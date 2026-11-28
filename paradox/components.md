@@ -30,6 +30,18 @@ Export paths: `src/index.ts`
 | themeId | `ZoraThemeId \| undefined` | no | — |  |
 | title | `React.ReactNode \| undefined` | no | — |  |
 
+## ExpoClipboardWriterProvider
+
+Source: `src/ExpoClipboardWriterProvider.tsx:17:1`
+
+Installs Expo Clipboard as the native host writer for Runtime consumers.
+
+Export paths: `src/index.ts`
+
+| Prop | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| children | `React.ReactNode \| undefined` | no | — |  |
+
 ## ExpoRuntimeProviders
 
 Source: `src/ExpoRuntimeProviders.tsx:13:1`

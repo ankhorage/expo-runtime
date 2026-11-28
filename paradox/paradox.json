@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v7.6.0",
+      "value": "v7.7.0",
       "color": "cb3837"
     },
     {
@@ -280,6 +280,14 @@
       ]
     },
     {
+      "path": "src/createBrowserClipboardWriter.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "createBrowserClipboardWriter"
+      ]
+    },
+    {
       "path": "src/createExpoRuntimeRegistry.tsx",
       "isEntrypoint": false,
       "dependencies": [
@@ -299,6 +307,24 @@
       "exports": [
         "ExpoBarcodeScannerAdapter",
         "ExpoBarcodeScannerAdapterProps"
+      ]
+    },
+    {
+      "path": "src/ExpoClipboardWriterProvider.tsx",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ExpoClipboardWriterProvider"
+      ]
+    },
+    {
+      "path": "src/ExpoClipboardWriterProvider.web.tsx",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/createBrowserClipboardWriter.ts"
+      ],
+      "exports": [
+        "ExpoClipboardWriterProvider"
       ]
     },
     {
@@ -490,6 +516,7 @@
         "ExpoBundledMediaResolver",
         "ExpoBundledMediaResolverArgs",
         "ExpoBundledMediaValue",
+        "ExpoClipboardWriterProvider",
         "ExpoRuntimeAdapterId",
         "ExpoRuntimeCapabilityDiagnostic",
         "ExpoRuntimeCapabilityDiagnosticCode",
@@ -1535,6 +1562,42 @@
       "structuredRows": []
     },
     {
+      "name": "ExpoClipboardWriterProvider",
+      "title": null,
+      "description": "Installs Expo Clipboard as the native host writer for Runtime consumers.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/ExpoClipboardWriterProvider.tsx",
+      "sourceLocation": {
+        "filePath": "src/ExpoClipboardWriterProvider.tsx",
+        "line": 17,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(props: { readonly children: React.ReactNode; }) => React.JSX.Element",
+          "parameters": [
+            {
+              "name": "props",
+              "type": "{ readonly children: React.ReactNode; }",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "React.JSX.Element",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "ExpoPlatform",
       "title": null,
       "description": null,
@@ -1545,7 +1608,7 @@
       "modulePath": "src/platform.ts",
       "sourceLocation": {
         "filePath": "src/platform.ts",
-        "line": 100,
+        "line": 101,
         "column": 1
       },
       "exportPaths": [
@@ -3281,6 +3344,30 @@
       ]
     },
     {
+      "name": "ExpoClipboardWriterProvider",
+      "description": "Installs Expo Clipboard as the native host writer for Runtime consumers.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "modulePath": "src/ExpoClipboardWriterProvider.tsx",
+      "sourceLocation": {
+        "filePath": "src/ExpoClipboardWriterProvider.tsx",
+        "line": 17,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "props": [
+        {
+          "name": "children",
+          "type": "React.ReactNode | undefined",
+          "required": false,
+          "description": null
+        }
+      ]
+    },
+    {
       "name": "ExpoRuntimeProviders",
       "description": null,
       "isReadme": false,
@@ -3436,6 +3523,28 @@
       }
     },
     {
+      "name": "createBrowserClipboardWriter",
+      "description": "Creates a standard-browser clipboard writer with explicit unavailable and denied outcomes.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/createBrowserClipboardWriter.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "isClipboardNavigator",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/createBrowserClipboardWriter.ts",
+        "line": 21,
+        "column": 1
+      }
+    },
+    {
       "name": "createExpoRuntimeRegistry",
       "description": null,
       "see": [],
@@ -3465,6 +3574,28 @@
       "sourceLocation": {
         "filePath": "src/ExpoBarcodeScannerAdapter.tsx",
         "line": 19,
+        "column": 1
+      }
+    },
+    {
+      "name": "ExpoClipboardWriterProvider",
+      "description": "Installs Expo Clipboard as the native host writer for Runtime consumers.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/ExpoClipboardWriterProvider.tsx",
+        "line": 17,
+        "column": 1
+      }
+    },
+    {
+      "name": "ExpoClipboardWriterProvider",
+      "description": "Installs the standard browser Clipboard API as the web host writer for Runtime consumers.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/ExpoClipboardWriterProvider.web.tsx",
+        "line": 11,
         "column": 1
       }
     },
@@ -4414,6 +4545,14 @@
     },
     {
       "kind": "export",
+      "name": "ExpoClipboardWriterProvider",
+      "sourcePath": "src/ExpoClipboardWriterProvider.tsx",
+      "symbolName": "ExpoClipboardWriterProvider",
+      "description": "Installs Expo Clipboard as the native host writer for Runtime consumers.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "ExpoRuntimeProviders",
       "sourcePath": "src/ExpoRuntimeProviders.tsx",
       "symbolName": "ExpoRuntimeProviders",
@@ -4592,6 +4731,11 @@
         "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
       },
       {
+        "fromPath": "src/ExpoClipboardWriterProvider.web.tsx",
+        "toPath": "src/createBrowserClipboardWriter.ts",
+        "sourcePath": "src/ExpoClipboardWriterProvider.web.tsx"
+      },
+      {
         "fromPath": "src/expoRuntimePlanningMetadata.ts",
         "toPath": "src/platform.ts",
         "sourcePath": "src/expoRuntimePlanningMetadata.ts"
@@ -4689,6 +4833,11 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/ExpoBarcodeScannerAdapter.tsx",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/ExpoClipboardWriterProvider.tsx",
         "sourcePath": "src/index.ts"
       },
       {
@@ -4918,6 +5067,24 @@
         "sourcePath": "src/collectExpoRuntimeManifestRequirements.ts"
       },
       {
+        "fromSymbol": "writeTextAsync",
+        "toSymbol": "resolveBrowserNavigator",
+        "callExpression": "resolveBrowserNavigator",
+        "sourcePath": "src/createBrowserClipboardWriter.ts"
+      },
+      {
+        "fromSymbol": "writeTextAsync",
+        "toSymbol": "isClipboardNavigator",
+        "callExpression": "isClipboardNavigator",
+        "sourcePath": "src/createBrowserClipboardWriter.ts"
+      },
+      {
+        "fromSymbol": "writeTextAsync",
+        "toSymbol": "writeText",
+        "callExpression": "browserNavigator.clipboard.writeText",
+        "sourcePath": "src/createBrowserClipboardWriter.ts"
+      },
+      {
         "fromSymbol": "createExpoRuntimeRegistry",
         "toSymbol": "createComponentRegistry",
         "callExpression": "createComponentRegistry",
@@ -4946,6 +5113,12 @@
         "toSymbol": "onRequestPermission",
         "callExpression": "onRequestPermission",
         "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
+      },
+      {
+        "fromSymbol": "src/ExpoClipboardWriterProvider.web.tsx",
+        "toSymbol": "createBrowserClipboardWriter",
+        "callExpression": "createBrowserClipboardWriter",
+        "sourcePath": "src/ExpoClipboardWriterProvider.web.tsx"
       },
       {
         "fromSymbol": "src/ExpoRuntimeProviders.tsx",
@@ -5601,6 +5774,16 @@
         "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
       },
       {
+        "fromSymbol": "ExpoClipboardWriterProvider",
+        "toType": "React",
+        "sourcePath": "src/ExpoClipboardWriterProvider.tsx"
+      },
+      {
+        "fromSymbol": "ExpoClipboardWriterProvider",
+        "toType": "ReactNode",
+        "sourcePath": "src/ExpoClipboardWriterProvider.tsx"
+      },
+      {
         "fromSymbol": "ExpoRuntimeProviders",
         "toType": "ExpoRuntimeProvidersProps",
         "sourcePath": "src/ExpoRuntimeProviders.tsx"
@@ -5888,6 +6071,12 @@
         "toComponent": "BarcodeScannerView",
         "jsxElement": "<BarcodeScannerView\n      {...viewProps}\n      camera={camera}\n      onRequestPermission={handleRequestPermission}\n      permissionStatus={permissionStatus}\n    />",
         "sourcePath": "src/ExpoBarcodeScannerAdapter.tsx"
+      },
+      {
+        "fromComponent": "ExpoClipboardWriterProvider",
+        "toComponent": "ClipboardWriterProvider",
+        "jsxElement": "<ClipboardWriterProvider writer={expoClipboardWriter}>",
+        "sourcePath": "src/ExpoClipboardWriterProvider.tsx"
       },
       {
         "fromComponent": "ExpoRuntimeProviders",

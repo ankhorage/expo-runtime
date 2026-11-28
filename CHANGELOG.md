@@ -1,5 +1,11 @@
 # @ankhorage/expo-runtime
 
+## 7.7.0
+
+### Minor Changes
+
+- 4ad3b2a: Add native Expo and standard browser clipboard writer providers for the published Runtime clipboard boundary.
+
 ## 7.6.0
 
 ### Minor Changes
