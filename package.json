@@ -28,7 +28,6 @@
   "dependencies": {
     "@ankhorage/capability": "^0.2.1",
     "@ankhorage/contracts": "^26.0.0",
-    "@ankhorage/runtime": "^5.7.1",
     "@ankhorage/studio-authoring": "^0.4.0"
   },
   "files": [
@@ -207,6 +206,7 @@
     "version-packages": "ankhorage-changeset version"
   },
   "peerDependencies": {
+    "@ankhorage/runtime": "^5.7.1",
     "@ankhorage/permissions": "^0.2.63",
     "@ankhorage/zora": "^25.8.3 || ^27.2.0",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
@@ -226,6 +226,9 @@
     "react-native": "0.86.3"
   },
   "peerDependenciesMeta": {
+    "@ankhorage/runtime": {
+      "optional": true
+    },
     "@ankhorage/permissions": {
       "optional": true
     },
@@ -279,6 +282,7 @@
     }
   },
   "devDependencies": {
+    "@ankhorage/runtime": "^5.7.1",
     "@ankhorage/devtools": "^2.12.2",
     "@ankhorage/paradox": "^0.2.27",
     "@ankhorage/permissions": "^0.2.63",
