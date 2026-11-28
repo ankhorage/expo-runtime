@@ -3,7 +3,9 @@ import React from 'react';
 
 import { createBrowserClipboardWriter } from './createBrowserClipboardWriter';
 
-const browserClipboardWriter = createBrowserClipboardWriter(Reflect.get(globalThis, 'navigator'));
+const browserClipboardWriter = createBrowserClipboardWriter(() =>
+  Reflect.get(globalThis, 'navigator'),
+);
 
 /*** Installs the standard browser Clipboard API as the web host writer for Runtime consumers. */
 export function ExpoClipboardWriterProvider(props: { readonly children: React.ReactNode }) {

@@ -3,17 +3,17 @@ import { expect, test } from 'bun:test';
 import { createBrowserClipboardWriter } from './createBrowserClipboardWriter';
 
 test('reports unavailable, written, and denied browser clipboard outcomes', async () => {
-  expect(await createBrowserClipboardWriter(undefined).writeTextAsync('#2563eb')).toBe(
+  expect(await createBrowserClipboardWriter(() => undefined).writeTextAsync('#2563eb')).toBe(
     'unavailable',
   );
   expect(
-    await createBrowserClipboardWriter({
+    await createBrowserClipboardWriter(() => ({
       clipboard: { writeText: () => Promise.resolve() },
-    }).writeTextAsync('#2563eb'),
+    })).writeTextAsync('#2563eb'),
   ).toBe('written');
   expect(
-    await createBrowserClipboardWriter({
+    await createBrowserClipboardWriter(() => ({
       clipboard: { writeText: () => Promise.reject(new Error('denied')) },
-    }).writeTextAsync('#2563eb'),
+    })).writeTextAsync('#2563eb'),
   ).toBe('denied');
 });

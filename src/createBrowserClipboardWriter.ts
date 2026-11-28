@@ -1,9 +1,12 @@
 import type { ClipboardWriter } from '@ankhorage/runtime';
 
 /*** Creates a standard-browser clipboard writer with explicit unavailable and denied outcomes. */
-export function createBrowserClipboardWriter(browserNavigator: unknown): ClipboardWriter {
+export function createBrowserClipboardWriter(
+  resolveBrowserNavigator: () => unknown,
+): ClipboardWriter {
   return {
     writeTextAsync: async (text) => {
+      const browserNavigator = resolveBrowserNavigator();
       if (!isClipboardNavigator(browserNavigator)) return 'unavailable';
       try {
         await browserNavigator.clipboard.writeText(text);
