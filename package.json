@@ -136,6 +136,13 @@
       "types": "./dist/barcodeScanner.d.ts",
       "import": "./dist/barcodeScanner.js",
       "default": "./dist/barcodeScanner.js"
+    },
+    "./clipboard": {
+      "react-native": "./src/ExpoClipboardWriterProvider.tsx",
+      "browser": "./src/ExpoClipboardWriterProvider.web.tsx",
+      "types": "./dist/ExpoClipboardWriterProvider.d.ts",
+      "import": "./dist/ExpoClipboardWriterProvider.js",
+      "default": "./dist/ExpoClipboardWriterProvider.js"
     }
   },
   "publishConfig": {
@@ -199,6 +206,7 @@
     "version-packages": "ankhorage-changeset version"
   },
   "peerDependencies": {
+    "@ankhorage/runtime": "^5.7.1",
     "@ankhorage/permissions": "^0.2.63",
     "@ankhorage/zora": "^25.8.3 || ^27.2.0",
     "@react-native-vector-icons/fontawesome": "^13.1.4",
@@ -208,6 +216,7 @@
     "@react-native-vector-icons/material-design-icons": "^13.1.4",
     "expo": "57.0.34",
     "expo-camera": "~57.0.6",
+    "expo-clipboard": "~57.0.2",
     "expo-constants": "~57.0.25",
     "expo-document-picker": "~57.0.3",
     "expo-file-system": "~57.0.7",
@@ -217,6 +226,9 @@
     "react-native": "0.86.3"
   },
   "peerDependenciesMeta": {
+    "@ankhorage/runtime": {
+      "optional": true
+    },
     "@ankhorage/permissions": {
       "optional": true
     },
@@ -244,6 +256,9 @@
     "expo-camera": {
       "optional": true
     },
+    "expo-clipboard": {
+      "optional": true
+    },
     "expo-constants": {
       "optional": true
     },
@@ -267,6 +282,7 @@
     }
   },
   "devDependencies": {
+    "@ankhorage/runtime": "^5.7.1",
     "@ankhorage/devtools": "^2.12.2",
     "@ankhorage/paradox": "^0.2.27",
     "@ankhorage/permissions": "^0.2.63",
@@ -283,6 +299,7 @@
     "bwip-js": "^4.11.4",
     "expo": "57.0.34",
     "expo-camera": "~57.0.6",
+    "expo-clipboard": "~57.0.2",
     "expo-constants": "~57.0.25",
     "expo-document-picker": "~57.0.3",
     "expo-file-system": "~57.0.7",

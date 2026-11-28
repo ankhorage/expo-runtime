@@ -144,6 +144,7 @@ function createPackedRuntimeDependencies(
     '@ankhorage/zora': requireVersion(runtimePeers, '@ankhorage/zora'),
     ...resolvePackedPeerDependencies(),
     [EXPO_PLATFORM.packages.camera.name]: EXPO_PLATFORM.packages.camera.version,
+    [EXPO_PLATFORM.packages.clipboard.name]: EXPO_PLATFORM.packages.clipboard.version,
     [EXPO_PLATFORM.packages.constants.name]: EXPO_PLATFORM.packages.constants.version,
     [EXPO_PLATFORM.packages.linking.name]: EXPO_PLATFORM.packages.linking.version,
     [EXPO_PLATFORM.packages.metroRuntime.name]: EXPO_PLATFORM.packages.metroRuntime.version,

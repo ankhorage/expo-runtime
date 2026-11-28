@@ -32,6 +32,7 @@ export {
   ExpoBarcodeScannerAdapter,
   type ExpoBarcodeScannerAdapterProps,
 } from './ExpoBarcodeScannerAdapter';
+export { ExpoClipboardWriterProvider } from './ExpoClipboardWriterProvider';
 export { ExpoRuntimeProviders, type ExpoRuntimeProvidersProps } from './ExpoRuntimeProviders';
 export {
   ExpoZoraIconFontProvider,
